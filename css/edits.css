@@ -312,6 +312,7 @@ header.masthead h2 {
   max-width: 25rem;
   margin-bottom: 0px;
   border-radius: 0%;
+  padding: 0.5vh;
 }
 
 .portfolio .portfolio-item .portfolio-item-caption {
@@ -337,8 +338,6 @@ header.masthead h2 {
   text-align: center;
   color: #000000 !important;
 }
-
-
 
 .portfolio-modal .portfolio-modal-dialog {
   min-height: calc(100vh - 2rem);
@@ -538,4 +537,16 @@ button:focus {
 .btn-primary:active {
   background-color: #000000;
   border-color: #000000;
+}
+
+/* video */
+
+.youtube {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
