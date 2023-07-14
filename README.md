@@ -1,3 +1,3 @@
-Ariel Noyman Personal website.
+Ariel Noyman's personal website
 
-built using [Freelancer template](https://startbootstrap.com/template-overviews/freelancer/)
+built with [Freelancer template](https://startbootstrap.com/previews/freelancer/)

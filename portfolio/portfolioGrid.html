@@ -1,0 +1,174 @@
+<!-- script to inject external html into modal div -->
+
+<script>
+  var itemDetails = [
+    {
+      name: "20rechamps",
+      title: "Champs-Élysées",
+      imageSrc: "portfolio/20rechamps/0.png",
+    },
+    {
+      name: "19deepscope",
+      title: "DeepScope",
+      imageSrc: "portfolio/19deepscope/0.png",
+    },
+    {
+      name: "18cooper",
+      title: "The Road Ahead",
+      imageSrc: "portfolio/18cooper/0.jpg",
+    },
+    {
+      name: "18mobcho",
+      title: "Mobility Choice",
+      imageSrc: "portfolio/18mobcho/0.png",
+    },
+    {
+      name: "18revurb",
+      title: "Reversed Urbanism",
+      imageSrc: "portfolio/18revurb/0.png",
+    },
+    {
+      name: "17csjs",
+      title: "CityScope JS",
+      imageSrc: "portfolio/17csjs/0.jpg",
+    },
+    {
+      name: "17cityio",
+      title: "cityIO",
+      imageSrc: "portfolio/17cityio/0.png",
+    },
+    {
+      name: "16csar",
+      title: "CityScope AR",
+      imageSrc: "portfolio/16csar/0.jpg",
+    },
+    {
+      name: "16fp",
+      title: "FindingPlaces",
+      imageSrc: "portfolio/16fp/0.jpg",
+    },
+    {
+      name: "15thesis",
+      title: "Power/Structures",
+      imageSrc: "portfolio/15thesis/0.jpg",
+    },
+    {
+      name: "15brt",
+      title: "BRT for Boston",
+      imageSrc: "portfolio/15brt/0.jpg",
+    },
+    {
+      name: "15newman",
+      title: "Space Packed",
+      imageSrc: "portfolio/15newman/0.jpg",
+    },
+    {
+      name: "14rbd",
+      title: "Rebuild By Design",
+      imageSrc: "portfolio/14rbd/0.jpg",
+    },
+    {
+      name: "14resindustrial",
+      title: "Resindustrial",
+      imageSrc: "portfolio/14resindustrial/0.jpg",
+    },
+    {
+      name: "14mloop",
+      title: "MeadowLoop",
+      imageSrc: "portfolio/14mloop/0.png",
+    },
+    {
+      name: "11station5",
+      title: "Station 5",
+      imageSrc: "portfolio/11station5/0.png",
+    },
+    {
+      name: "10motj",
+      title: "Museum of Tolerance",
+      imageSrc: "portfolio/10motj/0.jpg",
+    },
+  ];
+</script>
+
+<script>
+  function renderItems(itemDetails) {
+    var container = document.getElementById("portfolioGrid");
+
+    itemDetails.forEach(function (item) {
+      var itemDiv = document.createElement("div");
+      itemDiv.className = "col-12 col-md-6 col-lg-3";
+
+      var button = document.createElement("button");
+      button.name = item.name;
+      button.type = "button";
+      button.className = "portfolio-item btn btn-link";
+
+      var captionDiv = document.createElement("div");
+      captionDiv.className =
+        "portfolio-item-caption d-flex position-absolute h-100 w-100";
+
+      var contentDiv = document.createElement("div");
+      contentDiv.className =
+        "portfolio-item-caption-content my-auto w-100 text-center text-dark";
+
+      var title = document.createElement("h4");
+      title.textContent = item.title;
+
+      var image = document.createElement("img");
+      image.className = "img-fluid";
+      image.src = item.imageSrc;
+      image.alt = "";
+
+      contentDiv.appendChild(title);
+      captionDiv.appendChild(contentDiv);
+      button.appendChild(captionDiv);
+      button.appendChild(image);
+      itemDiv.appendChild(button);
+      container.appendChild(itemDiv);
+    });
+  }
+
+  renderItems(itemDetails);
+
+  document.addEventListener("click", function (event) {
+    var button = event.target.closest("button");
+    if (button && button.name) {
+      var pathPrj = `portfolio/${button.name}/${button.name}.html`;
+      console.log("open this project: " + pathPrj);
+      $(".modal-body").load(pathPrj, function () {
+        var myModalEl = document.querySelector(".portfolio-modal");
+        var modal = bootstrap.Modal.getOrCreateInstance(myModalEl);
+        modal.show();
+      });
+    }
+  });
+
+  // when modal is closed, remove the content so it can be reloaded
+  $(".portfolio-modal").on("hidden.bs.modal", function () {
+    $(".modal-body").empty();
+  });
+</script>
+
+<!-- /////////////////////////////////////////////////////////////// -->
+<!-- Modal -->
+<div
+  class="portfolio-modal modal fade"
+  id="PortfolioModal"
+  tabindex="-1"
+  aria-labelledby="PortfolioModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button
+          class="btn-close"
+          type="button"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body pb-5"></div>
+    </div>
+  </div>
+</div>

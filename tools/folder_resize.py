@@ -2,7 +2,7 @@ import os
 from PIL import Image
 
 
-def process_images(folder_path):
+def process_images(folder_path, rename=False):
     # Create "raw" folder if it doesn't exist
     raw_folder = os.path.join(folder_path, "raw")
     os.makedirs(raw_folder, exist_ok=True)
@@ -27,15 +27,21 @@ def process_images(folder_path):
                 # Resize the image
                 resized_image = image.resize(resized_dimensions)
 
-                # Create a new file name for the processed image
-                new_file_name = f"{image_counter}.jpg"
-                image_counter += 1
-
-                # Save the resized image as JPEG
-                resized_image.save(os.path.join(folder_path, new_file_name), "JPEG")
-
-                # Move the original image to the "raw" folder
+                # Save the original image in the "raw" folder
                 os.rename(file_path, os.path.join(raw_folder, file_name))
+
+                if rename:
+                    # Create a new file name for the processed image
+                    new_file_name = f"{image_counter}.jpg"
+                    image_counter += 1
+
+                    # Save the resized image as JPEG with the new file name
+                    resized_image.save(os.path.join(
+                        folder_path, new_file_name), "JPEG")
+                else:
+                    # Save the resized image as JPEG with the original file name
+                    resized_image.save(os.path.join(
+                        folder_path, file_name), "JPEG")
 
                 print(f"Processed: {file_name}")
 
@@ -66,8 +72,8 @@ def calculate_resized_dimensions(size):
 
     return new_width, new_height
 
+
 # Example usage
-folder_path = "/Users/noyman/GIT/RELNO.github.io/PRJ/14rbd"
-process_images(folder_path)
-
-
+# get the folder path from the user
+folder_path = input("Enter the folder path: ")
+process_images(folder_path, rename=False)
