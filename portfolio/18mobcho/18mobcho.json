@@ -1,0 +1,17 @@
+{
+  "title": "Mobility Choice",
+  "badges": [
+    {
+      "label": "GitHub Repository",
+      "link": "https://cityscope.media.mit.edu/CS_choiceModels/"
+    }
+  ],
+  "subtitle": "A Mobility Choice API for CityScope Platform",
+  "text": "Mobility Choice (MoCho) is an API developed for the CityScope platform that focuses on understanding and predicting individual mobility behavior choices, particularly regarding urban transportation modes. The choices individuals make regarding their mode of transportation have significant impacts on their own lives and society as a whole. This API explores the influence of urban planning on mobility choices, aiming to encourage active modes of transportation that improve both physical and mental health while reducing negative external impacts such as carbon emissions and air pollution.\n\nThe MIT CityScope MobCho module utilizes a tangible user interface, allowing planners, engineers, and community members to experiment with different urban interventions and visualize the predicted impacts on individual mode choice behavior and societal outcomes. The behavioral models used in the API have been calibrated using a combination of individual and aggregate level census data for the greater Boston area.",
+  "carouselItems": [
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/LvdmNwbV9w0?rel=0&amp;controls=0&amp;showinfo=0"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "The Road Ahead",
+  "badges": [
+    {
+      "label": "Article",
+      "link": "https://www.curbed.com/2018/12/18/18144513/future-mobility-autonomous-vehicles-cooper-hewitt"
+    }
+  ],
+  "subtitle": "CityScope in the Cooper-Hewitt Museum, NY",
+  "text": "The Road Ahead: Reimagining Mobility is an exhibition at the Cooper-Hewitt Museum in New York that showcases 40 design projects inspired by future technologies that will transform how we move people, goods, and services. As data and design innovation rapidly converge, cities are becoming smarter, and transportation options are expanding.\n\nThe Road Ahead invites visitors to explore creative ideas about how droids, bots, drones, and other innovations can contribute to safer streetscapes, more equitable transportation, and sustainable cities. CityScope Cooper-Hewitt, a playful installation within the exhibition, presents two extreme future scenarios of urban mobility: an all privately owned mobility world and a fully-shared, transit-oriented future. Visitors can actively participate in designing densities and land uses for each scenario, gaining insights into the different aspects of each mobility future.",
+  "carouselItems": [
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/Ow4GatB92XY?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=0"
+    }
+  ]
+}

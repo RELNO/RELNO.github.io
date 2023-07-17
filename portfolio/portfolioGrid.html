@@ -1,97 +1,98 @@
-<!-- script to inject external html into modal div -->
-
 <script>
-  var itemDetails = [
-    {
-      name: "20rechamps",
-      title: "Champs-Élysées",
-      imageSrc: "portfolio/20rechamps/0.png",
-    },
-    {
-      name: "19deepscope",
-      title: "DeepScope",
-      imageSrc: "portfolio/19deepscope/0.png",
-    },
-    {
-      name: "18cooper",
-      title: "The Road Ahead",
-      imageSrc: "portfolio/18cooper/0.jpg",
-    },
-    {
-      name: "18mobcho",
-      title: "Mobility Choice",
-      imageSrc: "portfolio/18mobcho/0.png",
-    },
-    {
-      name: "18revurb",
-      title: "Reversed Urbanism",
-      imageSrc: "portfolio/18revurb/0.png",
-    },
-    {
-      name: "17csjs",
-      title: "CityScope JS",
-      imageSrc: "portfolio/17csjs/0.jpg",
-    },
-    {
-      name: "17cityio",
-      title: "cityIO",
-      imageSrc: "portfolio/17cityio/0.png",
-    },
-    {
-      name: "16csar",
-      title: "CityScope AR",
-      imageSrc: "portfolio/16csar/0.jpg",
-    },
-    {
-      name: "16fp",
-      title: "FindingPlaces",
-      imageSrc: "portfolio/16fp/0.jpg",
-    },
-    {
-      name: "15thesis",
-      title: "Power/Structures",
-      imageSrc: "portfolio/15thesis/0.jpg",
-    },
-    {
-      name: "15brt",
-      title: "BRT for Boston",
-      imageSrc: "portfolio/15brt/0.jpg",
-    },
-    {
-      name: "15newman",
-      title: "Space Packed",
-      imageSrc: "portfolio/15newman/0.jpg",
-    },
-    {
-      name: "14rbd",
-      title: "Rebuild By Design",
-      imageSrc: "portfolio/14rbd/0.jpg",
-    },
-    {
-      name: "14resindustrial",
-      title: "Resindustrial",
-      imageSrc: "portfolio/14resindustrial/0.jpg",
-    },
-    {
-      name: "14mloop",
-      title: "MeadowLoop",
-      imageSrc: "portfolio/14mloop/0.png",
-    },
-    {
-      name: "11station5",
-      title: "Station 5",
-      imageSrc: "portfolio/11station5/0.png",
-    },
-    {
-      name: "10motj",
-      title: "Museum of Tolerance",
-      imageSrc: "portfolio/10motj/0.jpg",
-    },
-  ];
-</script>
+  /**
+   * Generates an HTML template for a project based on the provided JSON file.
+   * @param {string} jsonPath - The path to the JSON file containing project details.
+   * @returns {Promise<string|null>} - A promise that resolves to the HTML template or null if an error occurs.
+   */
+  async function generateProjectHtmlTemplate(jsonPath) {
+    try {
+      // Fetch JSON data
+      const response = await fetch(jsonPath);
+      if (!response.ok) {
+        throw new Error("Failed to fetch JSON data");
+      }
+      const project = await response.json();
 
-<script>
-  function renderItems(itemDetails) {
+      // Validate required data properties
+      if (
+        !project.title ||
+        !project.subtitle ||
+        !project.text ||
+        !project.carouselItems
+      ) {
+        throw new Error("Invalid project data");
+      }
+
+      // Generate HTML template
+      let html = `
+      <div class="row">
+        <div class="col-sm"><h2>${project.title}</h2></div>
+      </div>
+      <h5>${project.subtitle}</h5>
+      </div>
+      <div class="col-sm">
+        ${project.badges
+          ?.map(
+            (badge) => `
+            <a class="badge rounded-pill text-dark bg-white border border-1 border shadow" href="${badge.link}" target="_blank">${badge.label}</a>
+            `
+          )
+          .join("")}
+      </div>
+
+      <div class="mt-4 mb-4">
+      ${project.text}
+      </div>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+    `;
+
+      // Generate carousel items
+      if (Array.isArray(project.carouselItems)) {
+        project.carouselItems.forEach((item, index) => {
+          if (item.type === "iframe" && item.src) {
+            html += `
+            <div class="carousel-item${index === 0 ? " active" : ""}">
+              <iframe width="100%" height="500" src="${
+                item.src
+              }" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          `;
+          } else if (item.type === "image" && item.src) {
+            html += `
+            <div class="carousel-item${index === 0 ? " active" : ""}">
+              <img src="${item.src}" class="d-block w-100" alt="..." />
+            </div>
+          `;
+          }
+        });
+      }
+
+      html += `
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    `;
+
+      return html;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  /**
+   * Renders portfolio grid items based on the provided item details.
+   * @param {Array} itemDetails - An array of objects containing item details.
+   */
+  function renderPortfolioGridItems(itemDetails) {
     var container = document.getElementById("portfolioGrid");
 
     itemDetails.forEach(function (item) {
@@ -127,29 +128,49 @@
       container.appendChild(itemDiv);
     });
   }
+  // Fetch the JSON file containing item details
+  fetch("/portfolio/projects.json")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (itemDetails) {
+      // Call the renderPortfolioGridItems function with the fetched JSON data
+      renderPortfolioGridItems(itemDetails);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 
-  renderItems(itemDetails);
-
+  /**
+   * Handles click events on portfolio grid items.
+   * If a button within a portfolio grid item is clicked,
+   * the corresponding project JSON file is fetched and the HTML template is generated and displayed in a modal.
+   * @param {Event} event - The click event.
+   */
   document.addEventListener("click", function (event) {
     var button = event.target.closest("button");
     if (button && button.name) {
-      var pathPrj = `portfolio/${button.name}/${button.name}.html`;
-      console.log("open this project: " + pathPrj);
-      $(".modal-body").load(pathPrj, function () {
-        var myModalEl = document.querySelector(".portfolio-modal");
-        var modal = bootstrap.Modal.getOrCreateInstance(myModalEl);
-        modal.show();
-      });
+      var pathPrj = `portfolio/${button.name}/${button.name}.json`;
+
+      generateProjectHtmlTemplate(pathPrj)
+        .then((htmlTemplate) => {
+          $(".modal-body").html(htmlTemplate);
+          var myModalEl = document.querySelector(".portfolio-modal");
+          var modal = bootstrap.Modal.getOrCreateInstance(myModalEl);
+          modal.show();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   });
 
-  // when modal is closed, remove the content so it can be reloaded
+  // Clear the modal body when the modal is closed
   $(".portfolio-modal").on("hidden.bs.modal", function () {
     $(".modal-body").empty();
   });
 </script>
 
-<!-- /////////////////////////////////////////////////////////////// -->
 <!-- Modal -->
 <div
   class="portfolio-modal modal fade"

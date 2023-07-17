@@ -177,7 +177,6 @@
          /////////////////////////////////////////////////////////////// -->
 
     <!-- Portfolio Section-->
-
     <section class="mt-5 portfolio" id="portfolio">
       <div class="container">
         <h2 class="heading">selected work</h2>
@@ -193,7 +192,6 @@
     </section>
 
     <!-- Talks Section -->
-
     <section class="mt-5 container" id="talks">
       <div class="container">
         <h2 class="heading">talks</h2>
@@ -201,14 +199,12 @@
         <br />
         <div class="row" id="talksMenu"></div>
       </div>
+      <script>
+        $(document).ready(function () {
+          $("#talksMenu").load("talks/talks.html");
+        });
+      </script>
     </section>
-
-    <script>
-      $(document).ready(function () {
-        $("#talksMenu").load("talks/talks.html");
-      });
-    </script>
-    <!-- js for loading talks list -->
 
     <!-- news Section -->
     <section class="mt-5 container" id="news">

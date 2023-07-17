@@ -1,0 +1,29 @@
+{
+  "title": "Champs-Élysées",
+  "badges": [
+    {
+      "label": "Interactive 3D Exhibition",
+      "link": "http://rechamp.media.mit.edu/"
+    },
+    {
+      "label": "Project Website",
+      "link": "https://www.media.mit.edu/projects/city-scope-champs-elysees/overview/"
+    }
+  ],
+  "subtitle": "Virtual CityScope Champs-Élysées",
+  "text": "Virtual CityScope Champs-Élysées is an interactive and immersive platform to explore the future of Paris’ most important street. CityScope Champs-Élysées is a tangible user interface for urban planning and decision-making. It was designed as part of an exhibition at the Pavillon de l'Arsenal in Paris, France. The exhibition, curated by PCA-STREAM, explores new plans and future interventions for the Champs Élysées Avenue. These plans include options for reduced traffic, encouraged walkability, improved cycling and pedestrian mobility, and improved access to cultural landmarks and amenities along the avenue. Due to COVID-19 and the forced shutdown of the exhibition, we have decided to move this exhibition online.",
+  "carouselItems": [
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/CaLbs2E2P38?rel=0&amp;controls=0&amp;showinfo=0"
+    },
+    {
+      "type": "image",
+      "src": "portfolio/20rechamps/1.png"
+    },
+    {
+      "type": "image",
+      "src": "portfolio/20rechamps/2.png"
+    }
+  ]
+}

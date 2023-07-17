@@ -1,0 +1,17 @@
+{
+  "title": "DeepScope",
+  "badges": [
+    {
+      "label": "Project Website",
+      "link": "https://www.media.mit.edu/portfolio/deep-image-of-the-city/"
+    }
+  ],
+  "subtitle": "The Deep Image of the City",
+  "text": "DeepScope is a novel platform for interactive, real-time, and setup-less urban design visualization. It aims to replace traditional urban design practices with a machine-learned, generative visualization approach. The project utilizes a deep convolutional generative adversarial network (DCGAN) and CityScope, a tangible user interface, to enable real-time prototyping and visualizations of urban design processes.",
+  "carouselItems": [
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/WNI5Y-QWOjI?rel=0&amp;controls=0&amp;showinfo=0"
+    }
+  ]
+}

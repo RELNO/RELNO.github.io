@@ -1,0 +1,25 @@
+{
+  "title": "Reversed Urbanism",
+  "badges": [
+    {
+      "label": "GitHub Repository",
+      "link": "https://cityscope.github.io/CS_Andorra_RNC/"
+    },
+    {
+      "label": "Project Page",
+      "link": "https://www.media.mit.edu/projects/reversed-urbanism/overview/"
+    },
+    {
+      "label": "Paper",
+      "link": "https://journals.sagepub.com/doi/abs/10.1177/2399808319840668?journalCode=epbb#articleCitationDownloadContainer"
+    }
+  ],
+  "subtitle": "Urban Form Performance Analysis using Temporal Telecom Data",
+  "text": "This study explores a novel method to analyze diverse behavioral patterns in large urban populations and associate them with discrete urban features. The goal is to suggest correlations between human dynamics and the characteristics of urban places. It aims to answer questions such as: Which city form has greater potential to attract large, heterogeneous, and diverse crowds? What amenities, services, and urban features produce highly active urban places? And what factors contribute to people staying at specific street corners for extended periods of time?\n\nUrban environments are inherently temporal, with static artifacts and dynamic activities. Historically, empirical analysis of user engagement with urban environments has been challenging due to the lack of data and tools. However, advancements in data and machine learning offer the potential to reverse the traditional approach of inferring behavior from urban form to suggesting urban form based on behavior.",
+  "carouselItems": [
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/MVhauHKiEPA?rel=0&amp;controls=0&amp;showinfo=0"
+    }
+  ]
+}
