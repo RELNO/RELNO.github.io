@@ -14,8 +14,8 @@
   "text": "The Mobility Futures Collaborative in the MIT Department of Urban Studies and Planning (DUSP) and the Changing Places group at the MIT Media Lab have developed new interactive tools to better communicate the possible impacts of new transit systems, specifically Bus Rapid Transit (BRT) systems. These tools, including the CityScope and CoAXs, aim to engage community members and stakeholders in neighborhood and street-level decisions related to BRT design and variations. The CityScope utilizes physical models made from LEGO bricks and 3-D projection, while CoAXs is an interactive platform for collaborative transit planning. These tools facilitate constructive discussion, encourage participation, and help build consensus through data-driven interactions and dialogue.\n\nFor more information, you can read about it on CityLab and MIT News.",
   "carouselItems": [
     {
-      "type": "video",
-      "src": "https://www.youtube.com/embed/lFXMshEGBSk"
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/lFXMshEGBSk?rel=0&amp;controls=0&amp;showinfo=0"
     },
     {
       "type": "image",
