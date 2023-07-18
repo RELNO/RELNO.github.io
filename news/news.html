@@ -128,7 +128,7 @@
       link.href = item.link;
       link.target = "_blank";
       link.className =
-        "list-group-item list-group-item-action flex-row align-items-start";
+        "list-group-item list-group-item-action flex-row align-items-start w-75 m-auto";
 
       var contentDiv = document.createElement("div");
       contentDiv.className = "d-flex w-100 justify-content-between";
@@ -169,8 +169,6 @@
       container.appendChild(link);
     });
   }
-
-  renderItems(newsList);
 
   renderItems(newsList);
 </script>
