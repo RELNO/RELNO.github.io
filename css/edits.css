@@ -23,7 +23,6 @@ h6 {
   font-weight: 900;
   font-family: "Inter", sans-serif;
   margin-top: 0.5em;
-  margin-bottom: 1em;
 }
 
 .fullWidth {
@@ -46,7 +45,6 @@ h6 {
 .newsGrid {
   width: 20%;
 }
-
 
 small {
   font-family: "Inter", sans-serif;
@@ -301,6 +299,12 @@ header.masthead h2 {
   }
 }
 
+.grid-shrink {
+  padding-top: -0.5rem;
+  padding-bottom: -0.5rem;
+  margin-left: -12px !important;
+  margin-right: -12px !important;
+}
 
 .portfolio .portfolio-item {
   position: relative;
@@ -447,7 +451,6 @@ form .row:first-child .floating-label-form-group {
   font-weight: 200;
   margin-left: 1em;
   margin-right: 1em;
-  border: 5px solid white !important;
 }
 .nav-pills .nav-link.active {
   -moz-box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.3);
