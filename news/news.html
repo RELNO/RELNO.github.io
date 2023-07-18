@@ -1,0 +1,148 @@
+<script>
+  var newsList = [
+    {
+      link: "https://www.themarker.com/realestate/.premium-1.9490242",
+      imageSrc: "/news/img/themarker.jpg",
+      title: "What is public engagement?",
+      text: "Interview at TheMarker, Feb '21",
+    },
+    {
+      link: "https://www.pavillon-arsenal.com/en/",
+      imageSrc: "/news/img/rechamp.png",
+      title: "Virtual CityScope Champs-Élysées exhibition",
+      text: "Pavillon de L'arsenal, Paris",
+    },
+    {
+      link:
+        "https://www.media.mit.edu/portfolio/deep-image-of-the-city/overview/",
+      imageSrc: "/news/img/deepscope.jpg",
+      title: "DeepScope is featured by the MIT Media Lab",
+      text: "MIT Media Lab home page",
+    },
+    {
+      link: "https://edge.worldgovernmentsummit.org/",
+      imageSrc: "/news/img/eog.jpg",
+      title: "CityScope FindingPlaces to exhibit at EOG in Dubai",
+      text: "Edge of Government, World Government Summit '19",
+    },
+    {
+      link: "https://edge.worldgovernmentsummit.org/",
+      imageSrc:
+        "https://www.oecd.org/media/oecdorg/styleassets/images/OECD-social-sharex.jpg",
+      title: "FindingPlaces paper selected out of +500 as OECD OPSI innovation",
+      text: "OECD | Observatory of Public Sector Innovation",
+    },
+    {
+      link:
+        "https://www.citylab.com/perspective/2018/08/ar-is-transforming-tech-what-can-it-do-for-cities/566618/",
+      imageSrc: "/news/img/bcl.jpg",
+      title: "AR Is Transforming Tech. What Can It Do for Cities?",
+      text: "Stephen Goldsmith, Chris Bousquet, CityLab, 08/18",
+    },
+    {
+      link:
+        "https://www.facebook.com/permalink.php?story_fbid=422139871640395&id=388915984962784",
+      imageSrc: "/news/img/cityzoom.jpg",
+      title: "CityZoom launch Conference",
+      text: "CityZoom Urban Innovation Community 07/18",
+    },
+    {
+      link: "http://wiee.tongji.edu.cn/CSS2018/",
+      imageSrc: "/news/img/css18.jpg",
+      title: "CityScope, a Consensus Machine",
+      text: "CityScience Summit, Shanghai, China 05/18",
+    },
+    {
+      link:
+        "https://www.cbsnews.com/video/mit-media-lab-making-ideas-into-reality/",
+      imageSrc: "/news/img/60min.png",
+      title: '"Future Factory" in CBS 60 Minutes',
+      text: "CityScope and Reversed Urbanism in CBS 60 Minutes 03/18",
+    },
+    {
+      link: "https://chi2018.acm.org/",
+      imageSrc: "/portfolio/16csar/1.jpeg",
+      title: "CityScopeAR accepted to CHI'18",
+      text: "ACM CHI on Human Factors in Computing Systems",
+    },
+    {
+      link: "http://stellar.mit.edu/S/course/MAS/sp18/MAS.S65/",
+      imageSrc:
+        "https://upload.wikimedia.org/wikipedia/commons/6/65/Hands-free_Driving.jpg",
+      title: "Society of Autonomous Vehicles",
+      text: "MIT Media Lab MAS.S65, Spring '18",
+    },
+    {
+      link:
+        "http://www.mako.co.il/nexter-weekend/Article-29c0ce116238d51006.htm",
+      imageSrc: "http://img.mako.co.il/2016/11/20/shutterstock_404716201_i.jpg",
+      title: "Hands Off the Wheel!",
+      text: "Mako 07/2017",
+    },
+    {
+      link:
+        "https://www.wired.com/video/2017/01/science-of-teams-mit-media-lab/",
+      imageSrc: "/news/img/ofteams.jpg",
+      title: "Science of Teams",
+      text: "Wired 01/2017",
+    },
+    {
+      link: "https://www.themarker.com/markerweek/1.4008478",
+      imageSrc: "/news/img/avs.jpg",
+      title: "Autonomous Traffic Jams",
+      text: "TheMarker 04/2017",
+    },
+    {
+      link: "https://www.themarker.com/realestate/1.4456551",
+      imageSrc: "/news/img/wealth.jpg",
+      title: "Wealth & the City",
+      text: "TheMarker 09/2017",
+    },
+    {
+      link: "https://www.yediot.co.il/articles/0,7340,L-4809872,00.html",
+      imageSrc: "news/img/stop.jpg",
+      title: "Stop the Town",
+      text: "Yediot 05/2016",
+    },
+    {
+      link:
+        "https://www.theguardian.com/cities/2014/dec/18/lego-toys-urban-planning-tool-architects-mit",
+      imageSrc: "news/img/lego.jpg",
+      title: "Lego: modern urban planning tool?",
+      text: "The Guardian 10/2014",
+    },
+  ];
+
+  function renderItems(itemDetails) {
+    var container = document.getElementById("newsList");
+
+    itemDetails.forEach(function (item) {
+      var itemDiv = document.createElement("div");
+      itemDiv.className = "col-4 col-md-6 col-lg-2";
+
+      var link = document.createElement("a");
+      link.href = item.link;
+      link.target = "_blank";
+      link.className =
+        "list-group-item list-group-item-action flex-column align-items-start";
+
+      var image = document.createElement("img");
+      image.className = "img-fluid";
+      image.src = item.imageSrc;
+
+      var title = document.createElement("h6");
+      title.textContent = item.title;
+
+      var small = document.createElement("small");
+      small.textContent = item.text;
+
+      link.appendChild(image);
+      link.appendChild(title);
+      link.appendChild(small);
+      itemDiv.appendChild(link);
+      container.appendChild(itemDiv);
+    });
+  }
+
+  renderItems(newsList);
+</script>
