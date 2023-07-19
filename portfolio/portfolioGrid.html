@@ -118,8 +118,12 @@
       title.textContent = item.title;
 
       var image = document.createElement("img");
-      image.className = "img-fluid";
+      // if the image is gif, wrap it in a div to make it responsive
+
       image.src = item.imageSrc;
+
+      image.className = "img-fluid";
+
       image.alt = "";
 
       contentDiv.appendChild(title);

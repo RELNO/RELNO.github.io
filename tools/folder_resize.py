@@ -76,4 +76,6 @@ def calculate_resized_dimensions(size):
 # Example usage
 # get the folder path from the user
 folder_path = input("Enter the folder path: ")
-process_images(folder_path, rename=False)
+# ask the user if they want to rename the images
+rename = input("Rename images? (y/n): ").lower() == "y"
+process_images(folder_path, rename)

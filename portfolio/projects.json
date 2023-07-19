@@ -1,5 +1,10 @@
 [
   {
+    "name": "22urbangen",
+    "title": "Generative Urbanism",
+    "imageSrc": "portfolio/22urbangen/0.jpg"
+  },
+  {
     "name": "20rechamps",
     "title": "Champs-Élysées",
     "imageSrc": "portfolio/20rechamps/0.png"
@@ -83,5 +88,10 @@
     "name": "10motj",
     "title": "Museum of Tolerance",
     "imageSrc": "portfolio/10motj/0.jpg"
+  },
+  {
+    "name": "09beit",
+    "title": "City Museum of Tel Aviv",
+    "imageSrc": "portfolio/09beit/5.jpg"
   }
 ]
