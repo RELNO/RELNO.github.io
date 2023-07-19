@@ -68,18 +68,33 @@
         });
       }
 
-      html += `
+      if (project.carouselItems.length > 1) {
+        // Generate carousel control indicators
+        html += `
+          <ol class="carousel-indicators">
+            ${project.carouselItems
+              .map(
+                (item, index) => `
+                <li data-bs-target="#carouselExample" data-bs-slide-to="${index}"${
+                  index === 0 ? ' class="active"' : ""
+                }></li>
+              `
+              )
+              .join("")}
+          </ol>
+        `;
+        // Generate carousel controls
+        html += `
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    `;
+      `;
+      }
 
       return html;
     } catch (error) {

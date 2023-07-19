@@ -88,11 +88,11 @@ small {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   display: inline-block;
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   background-size: 100% 100%;
   -webkit-filter: drop-shadow(-5px -5px 5px #000);
-  filter: drop-shadow(2px 2px 2px #000);
+  filter: drop-shadow(5px 5px 5px #000);
 }
 
 hr.star-light,
@@ -518,4 +518,3 @@ button:focus {
   height: 100%;
   border: 0;
 }
-
