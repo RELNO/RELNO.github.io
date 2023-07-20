@@ -53,61 +53,13 @@
 
     <!-- About Section -->
     <section class="mb-0 mt-5 pt-5">
-      <div class="pt-5 mt-5 container w-75" id="about">
-        <div class="row">
-          <div class="col-sm-5">
-            <img
-              class="img-fluid rounded-circle mb-5"
-              src="img/an.png"
-              alt=""
-            />
-          </div>
-          <div class="col-sm-5">
-            <h1>Street Knowledge.</h1>
-            <br />
-
-            <p>
-              Dr. Arch. Ariel Noyman is an urban scientist, working in the
-              intersection of cities and technology. His research is on novel
-              methods of urban modeling and simulation, future mobility, and
-              data-driven and evidence-based decision-making. In recent years,
-              Noyman led and helped establish a worldwide network of City
-              Science Living-Labs, in Hamburg, Andorra, Shanghai, Helsinki, and
-              most recently in Israel, in an effort to confront his research
-              with real-world challenges.
-            </p>
-            <a
-              class="nav-item nav-link"
-              id="nav-profile-tab"
-              data-bs-toggle="collapse"
-              href="#cityScopeCollapseableDiv"
-              role="button"
-              aria-expanded="false"
-              aria-controls="cityScopeCollapseableDiv"
-            >
-              <small>
-                <i class="fa fa-fw fa-caret-down"></i>
-                read more...
-              </small>
-            </a>
-            <div class="collapse" id="cityScopeCollapseableDiv">
-              <p>
-                Noyman's work received awards from the European Commission, the
-                OECD, the Chinese and the Israeli Gov., was featured by The
-                Guardian, 60 Minutes, The New York Times and was displayed in
-                exhibitions, conferences and summits worldwide. Today, Noyman is
-                a Research Scientist at the MIT City Science Group, and a
-                lecturer at MIT, Northeastern University, and Bezalel Academy in
-                Jerusalem. Before coming to MIT, Noyman practiced architecture,
-                urban design, and city planning for over a decade in the US and
-                EMEA. Noyman holds a PhD and a Master of Science from MIT, and a
-                Bachelor in Architecture (cum Laude) from Bezalel Academy in
-                Jerusalem.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="pt-5 mt-5 container w-75" id="about"></div>
+      ;
+      <script>
+        $(document).ready(function () {
+          $("#about").load("about/about.html");
+        });
+      </script>
     </section>
 
     <!-- 
@@ -185,8 +137,8 @@
       <!-- load pubs list -->
       <script>
         $(document).ready(function () {
-          $("#pubList").load("PUBS/publications.html");
-          $("#awards").load("PUBS/awards.html");
+          $("#pubList").load("publications/publications.html");
+          $("#awards").load("publications/awards.html");
         });
       </script>
     </section>
