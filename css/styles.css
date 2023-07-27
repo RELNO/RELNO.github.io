@@ -631,6 +631,17 @@ progress {
   height: auto;
 }
 
+/* Media query for mobile devices (adjust the max-width as needed) */
+@media (max-width: 767px) {
+  .img-fluid-portfolio-grid {
+    width: 100%;
+
+    object-fit: cover;
+    object-position: center; /* Show the middle part of the image */
+    height: 15vh;
+  }
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;

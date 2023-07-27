@@ -113,6 +113,10 @@
     container.className = "row justify-content-center";
 
     itemDetails.forEach(function (item) {
+      var contentDiv = document.createElement("div");
+      contentDiv.className =
+        "portfolio-item-caption-content my-auto w-100 text-center text-dark";
+
       var itemDiv = document.createElement("div");
       itemDiv.className = "col-12 col-md-4 col-lg-3 grid-shrink";
 
@@ -125,20 +129,12 @@
       captionDiv.className =
         "portfolio-item-caption d-flex position-absolute h-100 w-100";
 
-      var contentDiv = document.createElement("div");
-      contentDiv.className =
-        "portfolio-item-caption-content my-auto w-100 text-center text-dark";
-
       var title = document.createElement("h5");
       title.textContent = item.title;
 
       var image = document.createElement("img");
-      // if the image is gif, wrap it in a div to make it responsive
-
       image.src = item.imageSrc;
-
-      image.className = "img-fluid";
-
+      image.className = "img-fluid img-fluid-portfolio-grid";
       image.alt = "";
 
       contentDiv.appendChild(title);
