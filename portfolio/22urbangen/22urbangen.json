@@ -15,11 +15,11 @@
   "carouselItems": [
     {
       "type": "iframe",
-      "src": "https://www.youtube.com/embed/WqCUHdGOULE?rel=0&amp;controls=0&amp;showinfo=0"
+      "src": "https://www.youtube.com/embed/WqCUHdGOULE?rel=0&amp;controls=1&amp;showinfo=0"
     },
     {
       "type": "iframe",
-      "src": "https://www.youtube.com/embed/ZDB_OJnEGWk?rel=0&amp;controls=0&amp;showinfo=0"
+      "src": "https://www.youtube.com/embed/ZDB_OJnEGWk?rel=0&amp;&amp;showinfo=0;controls=1"
     },
     {
       "type": "image",

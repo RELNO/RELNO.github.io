@@ -19,7 +19,7 @@
   "carouselItems": [
     {
       "type": "iframe",
-      "src": "https://www.youtube.com/embed/MVhauHKiEPA?rel=0&amp;controls=0&amp;showinfo=0"
+      "src": "https://www.youtube.com/embed/MVhauHKiEPA?rel=0&amp;controls=1&amp;showinfo=0"
     }
   ]
 }
