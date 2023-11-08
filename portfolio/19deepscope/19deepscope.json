@@ -3,7 +3,11 @@
   "badges": [
     {
       "label": "Project Website",
-      "link": "https://www.media.mit.edu/portfolio/deep-image-of-the-city/"
+      "link": "https://www.media.mit.edu/projects/deep-image-of-the-city/overview/"
+    },
+    {
+      "label": "SIM AUD 2020",
+      "link": "https://dl.acm.org/doi/pdf/10.5555/3465085.3465108"
     }
   ],
   "subtitle": "The Deep Image of the City",
