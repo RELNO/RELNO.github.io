@@ -29,6 +29,13 @@
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <!-- Include FontAwesome CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
@@ -51,105 +58,16 @@
       });
     </script>
 
-    <!-- About Section -->
-    <section class="mb-0 mt-5 pt-5">
-      <div class="pt-5 mt-5 container w-75" id="about"></div>
-
+    <!-- Main div -->
+    <div id="main-content" class="pt-3">
+      <!-- close main div -->
       <script>
         $(document).ready(function () {
-          $("#about").load("about/about.html");
+          // clear $("#main-content") before loading new content
+          $("#main-content").load("about/about.html");
         });
       </script>
-    </section>
-
-    <!-- 
-          ///////////////////////////////////////////////////////////////
-       
-         Portfolio Grid Section
-
-          ///////////////////////////////////////////////////////////////
-         How this portfolio works?
-         - we load list of projects from an html using js
-         - we display them in grid where images are loaded from project's folder
-         - clicking on project triggers a injection of the project html [i.e p3.html] to a bootstrap modal 
-         - images and videos or any other content for the project lives in project's folder
-         
-         This is based on the following: https://www.codexworld.com/bootstrap-modal-dynamic-content-jquery-ajax-php-mysql/
-         /////////////////////////////////////////////////////////////// -->
-
-    <!-- Portfolio Section-->
-    <section class="mt-5 portfolio" id="portfolio">
-      <div class="container">
-        <h2>selected work</h2>
-        <br />
-        <div class="row" id="portfolioGrid"></div>
-      </div>
-      <!-- load projects list from html -->
-      <script>
-        $(document).ready(function () {
-          $("#portfolioGrid").load("portfolio/portfolioGrid.html");
-        });
-      </script>
-    </section>
-
-    <!-- Talks Section -->
-    <section class="mt-5 container" id="talks">
-      <div class="container">
-        <h2>talks</h2>
-
-        <br />
-        <div class="row" id="talksMenu"></div>
-      </div>
-      <script>
-        $(document).ready(function () {
-          $("#talksMenu").load("talks/talks.html");
-        });
-      </script>
-    </section>
-
-    <!-- news Section -->
-    <section class="mt-5 container" id="news">
-      <h2>news</h2>
-      <br />
-
-      <div class="list-group" id="newsList"></div>
-      <script>
-        $(document).ready(function () {
-          $("#newsList").load("news/news.html");
-        });
-      </script>
-    </section>
-
-    <!-- publications Section -->
-    <section class="mt-5 container" id="publications">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <h2>awards</h2>
-          <br />
-          <div class="list-group" id="awards"></div>
-        </div>
-        <div class="col-12 col-md-6">
-          <h2>publications</h2>
-          <br />
-          <div class="list-group" id="pubList"></div>
-        </div>
-      </div>
-      <!-- load pubs list -->
-      <script>
-        $(document).ready(function () {
-          $("#pubList").load("publications/publications.html");
-          $("#awards").load("publications/awards.html");
-        });
-      </script>
-    </section>
-
-    <!-- Resume Section -->
-    <!-- Include FontAwesome CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    </div>
 
     <!-- Footer -->
     <section id="contact" style="background-color: black;">

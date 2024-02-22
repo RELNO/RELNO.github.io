@@ -1,3 +1,12 @@
+<script>
+  function loadContent(page) {
+    $(document).ready(function () {
+      // clear $("#main-content") before loading new content
+      $("#main-content").load(page + "/" + page + ".html");
+    });
+  }
+</script>
+
 <nav
   class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase"
   id="mainNav"
@@ -13,7 +22,11 @@
   </a>
 
   <div class="container">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">Ariel Noyman</a>
+    <a
+      class="navbar-brand nav-link js-scroll-trigger"
+      onclick="loadContent('about')"
+      >Ariel Noyman</a
+    >
     <button
       class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
       type="button"
@@ -32,36 +45,36 @@
         <li class="nav-item mx-0 mx-lg-1">
           <a
             class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            href="#about"
+            onclick="loadContent('about')"
             >About</a
           >
         </li>
         <li class="nav-item mx-0 mx-lg-1">
           <a
             class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            href="#portfolio"
+            onclick="loadContent('portfolio')"
             >Projects</a
           >
         </li>
         <li class="nav-item mx-0 mx-lg-1">
           <a
             class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            href="#talks"
+            onclick="loadContent('talks')"
             >Talks</a
           >
         </li>
         <li class="nav-item mx-0 mx-lg-1">
           <a
             class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            href="#news"
+            onclick="loadContent('news')"
             >News</a
           >
         </li>
         <li class="nav-item mx-0 mx-lg-1">
           <a
             class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            href="#publications"
-            >Publications & Awards</a
+            onclick="loadContent('p_a')"
+            >Publications</a
           >
         </li>
       </ul>
