@@ -1,5 +1,7 @@
 body {
   overflow-x: hidden;
+  height: 100%;
+  margin: 0;
 }
 
 .iframe {
@@ -433,8 +435,6 @@ form .row:first-child .floating-label-form-group {
 }
 
 .footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   color: rgb(255, 255, 255);
 }
 
