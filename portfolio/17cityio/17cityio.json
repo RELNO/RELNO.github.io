@@ -11,7 +11,7 @@
   "carouselItems": [
     {
       "type": "iframe",
-      "src": "https://cityio.media.mit.edu/"
+      "src": "https://cityscope.media.mit.edu/"
     },
     {
       "type": "image",

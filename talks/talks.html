@@ -1,113 +1,88 @@
 <!-- Talks Section -->
 <section class="mt-5 container" id="talks">
   <div class="container">
-    <div class="row" id="talksMenu">
-      <!-- NAV -->
-      <div class="nav nav-pills" id="nav-tab" role="tablist"></div>
-
-      <!-- CONTENT -->
-      <div class="tab-content" id="nav-tabContent"></div>
-
+    <h2>Selected Talks</h2>
+    <div class="row">
+      <!-- Grid of Videos -->
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <!--  -->
+        <div class="col">
+          <div class="card">
+            <iframe
+              class="card-img-top"
+              src="https://www.youtube.com/embed/ywCV0ekYzyo?rel=0&showinfo=0"
+              frameborder="0"
+              allow="encrypted-media"
+              allowfullscreen
+            ></iframe>
+            <div class="card-body">
+              <h5 class="card-title">CityScope</h5>
+              <small>PhD Defense, MIT Media Lab</small>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col">
+          <div class="card">
+            <iframe
+              class="card-img-top"
+              src="https://www.youtube.com/embed/bRNbap13I5w?rel=0&showinfo=0"
+              frameborder="0"
+              allow="encrypted-media"
+              allowfullscreen
+            ></iframe>
+            <div class="card-body">
+              <h5 class="card-title">City Science Summit</h5>
+              <small>Shanghai, China</small>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col">
+          <div class="card">
+            <iframe
+              class="card-img-top"
+              src="https://www.youtube.com/embed/skIEkM9-1yg?rel=0&amp;showinfo=0"
+              frameborder="0"
+              allow="encrypted-media"
+              allowfullscreen
+            ></iframe>
+            <div class="card-body">
+              <h5 class="card-title">
+                Smart Cities, Street Knowledge [Hebrew]
+              </h5>
+              <small>Presidential Summit, Tel Aviv, Israel</small>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col">
+          <div class="card">
+            <iframe
+              class="card-img-top"
+              src="https://www.youtube.com/embed/AW-ljDEleLw?rel=0&amp;showinfo=0"
+              frameborder="0"
+              allow="encrypted-media"
+              allowfullscreen
+            ></iframe>
+            <div class="card-body">
+              <h5 class="card-title">Urban Modelling and Simulation</h5>
+              <small>JRC - European Commission</small>
+            </div>
+          </div>
+        </div>
+        <!-- Add more cards as needed -->
+      </div>
+    </div>
+  </div>
+  <!-- div with large top padding -->
+  <div class="pt-5">
+    <!-- create talksList div -->
+    <h3>Recent Talks</h3>
+    <div id="talksList" class="list-group">
+      <!-- Load the recent-talks.html file here -->
       <script>
-        // Define the items object with tab information
-        const items = [
-          {
-            id: "city-scope-defense-tab",
-            target: "city-scope-defense",
-            label: "CityScope | PhD Defense",
-            videoSrc:
-              "https://www.youtube.com/embed/ywCV0ekYzyo?rel=0&amp;showinfo=0",
-          },
-          {
-            id: "city-science-summit-tab",
-            target: "city-science-summit",
-            label: "City Science Summit",
-            videoSrc:
-              "https://www.youtube.com/embed/bRNbap13I5w?rel=0&amp;showinfo=0",
-          },
-          {
-            id: "israel-presidential-summit-tab",
-            target: "israel-presidential-summit",
-            label: "Israel Presidential Summit",
-            videoSrc:
-              "https://www.youtube.com/embed/skIEkM9-1yg?rel=0&amp;showinfo=0",
-          },
-          {
-            id: "european-commission-tab",
-            target: "european-commission",
-            label: "European Commission",
-            videoSrc:
-              "https://www.youtube.com/embed/AW-ljDEleLw?rel=0&amp;showinfo=0",
-          },
-          {
-            id: "recent-talks-tab",
-            target: "recent-talks",
-            label: "Recent Talks",
-            loadFile: "talks/recent-talks.html",
-          },
-        ];
-
-        // Load the navigation items
-        const $nav = $("#nav-tab");
-        const $content = $("#nav-tabContent");
-
-        items.forEach((item, index) => {
-          // Create the navigation button
-          const $button = $("<button>", {
-            class: "nav-link" + (index === 0 ? " active" : ""), // Add "active" class to the first tab
-            id: item.id,
-            "data-bs-toggle": "pill",
-            "data-bs-target": `#${item.target}`,
-            type: "button",
-            role: "tab",
-            "aria-controls": item.target,
-            "aria-selected": index === 0,
-          }).text(item.label);
-
-          $nav.append($button);
-
-          // Create the tab content
-          const $tabContent = $("<div>", {
-            class: "tab-pane fade" + (index === 0 ? " show active" : ""), // Add "show active" classes to the first tab
-            id: item.target,
-            role: "tabpanel",
-            "aria-labelledby": item.id,
-          });
-
-          if (item.loadFile) {
-            // Load file with talks
-            const $container = $("<div>", {
-              class: "mt-5 container",
-            });
-            const $listGroup = $("<div>", {
-              class: "list-group",
-              id: "talksList",
-            });
-            $container.append($listGroup);
-            $tabContent.append($container);
-          } else {
-            // Create the embedded video iframe
-            const $iframe = $("<iframe>", {
-              class: "embed-responsive-item w-100",
-              src: item.videoSrc,
-              frameborder: "0",
-              height: "100vh",
-              allow: "encrypted-media",
-              allowfullscreen: true,
-            });
-            const $embedResponsive = $("<div>", {
-              // make the div full width and full height
-              class:
-                "youtube embed-responsive embed-responsive-16by9 w-100 h-100",
-            }).append($iframe);
-            $tabContent.append($embedResponsive);
-          }
-
-          $content.append($tabContent);
-        });
-
-        // Load the recent talks file
-        $("#talksList").load(items.find((item) => item.loadFile).loadFile);
+        $("#talksList").load("talks/recent-talks.html");
       </script>
     </div>
   </div>
