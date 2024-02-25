@@ -189,6 +189,7 @@ section {
   color: rgb(0, 0, 0);
   padding-right: 0.5em !important;
   padding-left: 0.5em !important;
+  cursor: pointer;
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
@@ -227,13 +228,14 @@ section {
     transition: padding-top 0.3s, padding-bottom 0.3s;
   }
   #mainNav .navbar-brand {
-    font-size: 3em;
+    font-size: 2em;
     text-transform: none !important;
     font-weight: 700;
     letter-spacing: -0em;
     -webkit-transition: font-size 0.3s;
     -moz-transition: font-size 0.3s;
     transition: font-size 0.3s;
+    cursor: pointer;
   }
   #mainNav .navbar-nav {
     margin-top: 0;
@@ -253,7 +255,7 @@ section {
     padding-bottom: 0.5rem;
   }
   #mainNav.navbar-shrink .navbar-brand {
-    font-size: 2em;
+    font-size: 1em;
   }
 }
 
@@ -441,13 +443,12 @@ form .row:first-child .floating-label-form-group {
 .copyright {
   background-color: #ffffff;
 }
-.list-group-item-action {
-}
 
 .nav-pills {
   padding-top: 1em;
   padding-bottom: 1em;
   font-size: 1em;
+  cursor: pointer;
 }
 .nav-pills .nav-link {
   font-size: 0.8em;

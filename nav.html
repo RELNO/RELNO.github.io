@@ -1,4 +1,8 @@
 <script>
+  // load content from the pages
+  // the function is called from the nav bar
+  // the function loads the content of the page into the main-content div
+
   function loadContent(page) {
     $(document).ready(function () {
       // clear $("#main-content") before loading new content
@@ -36,44 +40,27 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <!-- Menu -->
       <i class="fas fa-bars"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto m-auto">
         <li class="nav-item mx-0 mx-lg-1">
-          <a
-            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            onclick="loadContent('about')"
-            >About</a
-          >
+          <a class="nav-link rounded" onclick="loadContent('about')">About</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a
-            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            onclick="loadContent('portfolio')"
+          <a class="nav-link rounded" onclick="loadContent('portfolio')"
             >Projects</a
           >
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a
-            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            onclick="loadContent('talks')"
-            >Talks</a
-          >
+          <a class="nav-link rounded" onclick="loadContent('talks')">Talks</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a
-            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            onclick="loadContent('news')"
-            >News</a
-          >
+          <a class="nav-link rounded" onclick="loadContent('news')">News</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a
-            class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-            onclick="loadContent('p_a')"
+          <a class="nav-link rounded" onclick="loadContent('p_a')"
             >Publications & Awards</a
           >
         </li>
