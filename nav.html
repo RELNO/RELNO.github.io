@@ -7,6 +7,8 @@
     $(document).ready(function () {
       // clear $("#main-content") before loading new content
       $("#main-content").load(page + "/" + page + ".html");
+      // close the navbar after a menu link is clicked
+      $("#navbarResponsive").collapse("hide");
     });
   }
 </script>

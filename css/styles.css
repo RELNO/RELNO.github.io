@@ -62,7 +62,10 @@
     rgba(255, 255, 255, 0.15),
     rgba(255, 255, 255, 0)
   );
+  --bs-font-sans-serif: "Inter", sans-serif, "Helvetica Neue", Arial,
+    "Noto Sans", "Liberation Sans", sans-serif;
   --bs-body-font-family: var(--bs-font-sans-serif);
+
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -99,6 +102,7 @@
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
+
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -11229,7 +11233,7 @@ html {
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 500;
 }
 #mainNav .navbar-brand {
   color: #000;
