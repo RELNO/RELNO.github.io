@@ -305,14 +305,6 @@ header.masthead h2 {
   padding: 0vh;
 }
 
-/* on mobile make the portfolio-item only 25% height */
-@media (max-width: 767px) {
-  .portfolio .portfolio-item {
-    max-width: 100%;
-    max-height: 20vh;
-  }
-}
-
 .portfolio .portfolio-item .portfolio-item-caption {
   -webkit-transition: all ease 0.3s;
   -moz-transition: all ease 0.3s;
@@ -328,14 +320,18 @@ header.masthead h2 {
   box-shadow: 0 0 3rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 
-/* on mobile, .portfolio .portfolio-item .portfolio-item-caption opacity should be 1 */
-@media (max-width: 767px) {
-  .portfolio .portfolio-item .portfolio-item-caption {
-    opacity: 0.8;
-    -moz-box-shadow: 0 0 3rem 0.5rem rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 0 0 3rem 0.5rem rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 3rem 0.5rem rgba(0, 0, 0, 0.2);
-    height: 5vh;
+/* on mobile make the portfolio-item only 25% height */
+@media (max-width: 768px) {
+  .portfolio .portfolio-item {
+    max-width: 100%;
+    max-height: 20vh;
+  }
+
+  .portfolio-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* margin-bottom: 50px; */
   }
 }
 
@@ -343,8 +339,6 @@ header.masthead h2 {
   .portfolio-item
   .portfolio-item-caption
   .portfolio-item-caption-content {
-  font-size: 1rem;
-  text-align: center;
   color: #000000 !important;
 }
 
