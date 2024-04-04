@@ -5,6 +5,12 @@
       var page = $(this).attr("href").substring(1); // Get the page name from the href attribute
       loadContent(page); // Load content based on the clicked link
     });
+
+    // Check if there's a hash in the URL on page load
+    if (window.location.hash) {
+      var page = window.location.hash.substring(1); // Get the page name from the hash
+      loadContent(page); // Load content based on the hash
+    }
   });
 
   // load content from the pages
