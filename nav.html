@@ -1,12 +1,18 @@
 <script>
+  // Bind click event handlers to navigation links
+  $(document).ready(function () {
+    $(".nav-link").click(function (event) {
+      var page = $(this).attr("href").substring(1); // Get the page name from the href attribute
+      loadContent(page); // Load content based on the clicked link
+    });
+  });
+
   // load content from the pages
   // the function is called from the nav bar
   // the function loads the content of the page into the main-content div
-
   function loadContent(page) {
-    $(document).ready(function () {
-      // clear $("#main-content") before loading new content
-      $("#main-content").load(page + "/" + page + ".html");
+    // clear $("#main-content") before loading new content
+    $("#main-content").load(page + "/" + page + ".html", function () {
       // close the navbar after a menu link is clicked
       $("#navbarResponsive").collapse("hide");
     });
@@ -48,23 +54,19 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto m-auto">
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" onclick="loadContent('about')">About</a>
+          <a class="nav-link rounded" href="#about">About</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" onclick="loadContent('portfolio')"
-            >Projects</a
-          >
+          <a class="nav-link rounded" href="#portfolio">Projects</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" onclick="loadContent('talks')">Talks</a>
+          <a class="nav-link rounded" href="#talks">Talks</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" onclick="loadContent('news')">News</a>
+          <a class="nav-link rounded" href="#news">News</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" onclick="loadContent('p_a')"
-            >Publications & Awards</a
-          >
+          <a class="nav-link rounded" href="#p_a">Publications & Awards</a>
         </li>
       </ul>
 

@@ -4,6 +4,12 @@ body {
   margin: 0;
 }
 
+.thick-divider {
+  border-top: 5px solid #000000;
+  opacity: 1;
+  width: 100%;
+}
+
 .iframe {
   -moz-box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.25);
@@ -185,8 +191,8 @@ section {
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link {
-  font-weight: 300;
-  color: rgb(0, 0, 0);
+  font-weight: 400;
+  color: black;
   padding-right: 0.5em !important;
   padding-left: 0.5em !important;
   cursor: pointer;
@@ -200,6 +206,7 @@ section {
 
 #mainNav .navbar-nav li.nav-item a.nav-link.active {
   font-weight: 600;
+  color: black !important;
   text-decoration: underline;
 }
 
@@ -241,15 +248,9 @@ section {
     margin-top: 0;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
-    /* text-decoration: underline !important; */
-    background: rgba(255, 255, 255, 0);
     font-weight: 600;
   }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active,
-  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus,
-  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
-    background: rgba(255, 255, 255, 0);
-  }
+
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -451,13 +452,10 @@ form .row:first-child .floating-label-form-group {
   margin-right: 1em;
 }
 .nav-pills .nav-link.active {
-  -moz-box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.3);
   border: none;
   border-radius: 0px;
   background-color: rgb(255, 255, 255);
-  color: #000;
+  color: black !important;
 }
 
 .nav-pills .nav-link:hover {
