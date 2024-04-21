@@ -19,6 +19,17 @@ from PIL import Image
 
 
 def scale_and_crop_image(folder_path, size):
+    # first check if the folder path exists
+    if not os.path.exists(folder_path):
+        print(f"Folder path '{folder_path}' does not exist.")
+        return
+    #  if so ask the user if they want to continue
+    proceed = input(
+        f"Proceed with scaling and cropping images in folder path '{folder_path}'? (y/n): ")
+    if proceed.lower() != 'y':
+        print("Operation cancelled.")
+        return
+
     try:
         # Get the filename from the user
         file_name = input(
@@ -57,5 +68,5 @@ def scale_and_crop_image(folder_path, size):
         print(f"Error cropping and scaling image: {str(e)}")
 
 
-folder_path = "/Users/noyman/GIT/RELNO.github.io/PRJ/14rbd"
+folder_path = "/Users/noyman/GIT/RELNO.github.io/portfolio/04kolech"
 scale_and_crop_image(folder_path, (400, 400))

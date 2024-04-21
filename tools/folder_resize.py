@@ -1,6 +1,13 @@
 import os
 from PIL import Image
 
+'''
+This script processes images in a folder by resizing them while maintaining the aspect ratio.
+The original images are moved to a "raw" folder, and the resized images are saved in the same folder.
+The user can choose to rename the resized images sequentially.
+
+'''
+
 
 def process_images(folder_path, rename=False):
     # Create "raw" folder if it doesn't exist
