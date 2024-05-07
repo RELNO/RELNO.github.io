@@ -543,3 +543,24 @@ button:focus {
 .small-text {
   font-size: 14px; /* Adjust the font size as per your preference */
 }
+
+.btn-social::after {
+  content: attr(data-link-name);
+  position: absolute;
+  bottom: -10px;
+  opacity: 0;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  transition: opacity 0.3s ease;
+  color: black;
+  /* give it the props of .box-shadow class */
+  -moz-box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+
+.btn-social:hover::after {
+  opacity: 1; /* Show the link name on hover */
+}
