@@ -1,0 +1,21 @@
+{
+  "title": "TravelAgent",
+  "badges": [
+    {
+      "label": "LinkdIn Post",
+      "link": "https://www.linkedin.com/posts/arielnoyman_urbandesign-ai-generativeagents-activity-7280652464071094272-R3ux?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAUib70BwKgU6e0K5eAaWzScP9yfIUyk9xU"
+    },
+    {
+      "label": "Project Page",
+      "link": "https://www.arielnoyman.com/travelAgent/"
+    }
+  ],
+  "subtitle": "Generative Agents for Urban Design",
+  "text": "  ",
+  "carouselItems": [
+    {
+      "type": "iframe",
+      "src": "https://www.arielnoyman.com/travelAgent/"
+    }
+  ]
+}
