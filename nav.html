@@ -1,26 +1,94 @@
 <script>
-  // Bind click event handlers to navigation links
   $(document).ready(function () {
+    // Get the current path or default to 'about'
+    const currentPath =
+      window.location.pathname.substring(1).replace(/\/+$/, "") || "about";
+    loadContent(currentPath, false);
+
+    // Handle clicks on navigation links
     $(".nav-link").click(function (event) {
-      var page = $(this).attr("href").substring(1); // Get the page name from the href attribute
-      loadContent(page); // Load content based on the clicked link
+      event.preventDefault();
+      const href = $(this).attr("href");
+      const page = href.substring(1).replace(/\/+$/, ""); // Remove leading slash and trailing slashes
+      navigateTo(page);
+
+      // Highlight active nav item
+      $(".nav-link").removeClass("active");
+      $(this).addClass("active");
     });
 
-    // Check if there's a hash in the URL on page load
-    if (window.location.hash) {
-      var page = window.location.hash.substring(1); // Get the page name from the hash
-      loadContent(page); // Load content based on the hash
-    }
+    // Handle browser back/forward buttons
+    window.addEventListener("popstate", function (event) {
+      if (event.state && event.state.page) {
+        loadContent(event.state.page, false);
+        updateActiveNavItem(event.state.page);
+      }
+    });
+
+    // Initially highlight the active nav item
+    updateActiveNavItem(currentPath);
   });
 
+  // Function to normalize path by removing trailing slashes
+  function normalizePath(path) {
+    return path ? path.replace(/\/+$/, "") : path;
+  }
+
+  // Function to update active nav item
+  function updateActiveNavItem(page) {
+    page = page.replace(/\/+$/, "");
+    $(".nav-link").removeClass("active");
+    $(".nav-link[href='/" + page + "']").addClass("active");
+  }
+
+  // Navigate to a page and update browser history
+  function navigateTo(page) {
+    page = page.replace(/\/+$/, "");
+    // Update browser history
+    history.pushState({ page: page }, "", "/" + page);
+
+    // Load the content
+    loadContent(page, true);
+  }
+
   // load content from the pages
-  // the function is called from the nav bar
-  // the function loads the content of the page into the main-content div
-  function loadContent(page) {
-    // clear $("#main-content") before loading new content
-    $("#main-content").load(page + "/" + page + ".html", function () {
-      // close the navbar after a menu link is clicked
-      $("#navbarResponsive").collapse("hide");
+  function loadContent(page, collapseNav) {
+    // Extract the base page name without any path components
+    const basePage = page.split("/").pop();
+
+    // If page has directory structure, respect it, otherwise use page as directory
+    const contentPath = page.includes("/")
+      ? page + ".html"
+      : page + "/" + page + ".html";
+
+    $("#main-content").load(contentPath, function (response, status, xhr) {
+      if (status == "error") {
+        // Fallback to traditional path if the first attempt fails
+        $("#main-content").load(page + "/" + page + ".html", function (
+          response,
+          status,
+          xhr
+        ) {
+          if (status == "error") {
+            $("#main-content").html(
+              "<div class='container'><h2>Page not found</h2><p>Sorry, the requested page could not be loaded.</p></div>"
+            );
+          }
+        });
+        return;
+      }
+
+      // Update page title based on the loaded content
+      document.title =
+        "Ariel Noyman - " + page.charAt(0).toUpperCase() + page.slice(1);
+
+      // Only collapse the navbar on mobile screens
+      if (collapseNav && window.innerWidth < 992) {
+        $("#navbarResponsive").collapse("hide");
+      }
+
+      // Update active nav item
+      updateActiveNavItem(page);
     });
   }
 </script>
@@ -40,9 +108,7 @@
   </a>
 
   <div class="container">
-    <a
-      class="navbar-brand nav-link js-scroll-trigger"
-      onclick="loadContent('about')"
+    <a class="navbar-brand nav-link js-scroll-trigger" href="/about"
       >Ariel Noyman</a
     >
     <button
@@ -60,51 +126,21 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto m-auto">
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" href="#about">About</a>
+          <a class="nav-link rounded" href="/about">About</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" href="#portfolio">Projects</a>
+          <a class="nav-link rounded" href="/portfolio">Projects</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" href="#talks">Talks</a>
+          <a class="nav-link rounded" href="/talks">Talks</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" href="#news">News</a>
+          <a class="nav-link rounded" href="/news">News</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link rounded" href="#p_a">Publications & Awards</a>
+          <a class="nav-link rounded" href="/p_a">Publications & Awards</a>
         </li>
       </ul>
-
-      <!-- social links  -->
-
-      <!-- <a
-        class="btn btn-outline-black btn-social text-center rounded-circle"
-        href="https://twitter.com/relnox"
-        target="_blank"
-      >
-        <i class="fab fa-twitter" style="font-size: 20px;"></i>
-      </a>
-      <a
-        class="btn btn-outline-black btn-social text-center rounded-circle"
-        href="https://www.linkedin.com/in/arielnoyman"
-        target="_blank"
-      >
-        <i class="fab fa-linkedin" style="font-size: 20px;"></i>
-      </a>
-      <a
-        class="btn btn-outline-black btn-social text-center rounded-circle"
-        href="https://github.com/RELNO"
-        target="_blank"
-      >
-        <i class="fab fa-github" style="font-size: 20px;"></i>
-      </a>
-      <a
-        class="btn btn-outline-black btn-social text-center rounded-circle"
-        href="https://www.youtube.com/user/arielnoyman"
-      >
-        <i class="fab fa-youtube" style="font-size: 20px;"></i>
-      </a> -->
 
       <a
         class="btn btn-outline-black btn-social text-center rounded-circle"
