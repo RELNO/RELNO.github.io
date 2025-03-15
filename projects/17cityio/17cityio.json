@@ -1,0 +1,25 @@
+{
+  "title": "cityI/O",
+  "badges": [
+    {
+      "label": "GitHub Repository",
+      "link": "https://github.com/CityScope/CS_cityIO_Frontend"
+    }
+  ],
+  "subtitle": "Cloud-based Urban Data Platform",
+  "text": "cityI/O (input/output) is a cloud and database-driven platform that enables remote participation, database augmentation, and high-end complex visualization for urban data. It can be accessed from anywhere, on multiple platforms and devices, through client-side apps or web-based interfaces. The cityI/O platform serves as a versatile tool for urban data management and analysis, facilitating collaboration and exploration of urban phenomena.\n\nFor more information and to access the cityI/O platform, visit the cityIO Front End.",
+  "carouselItems": [
+    {
+      "type": "iframe",
+      "src": "https://cityscope.media.mit.edu/"
+    },
+    {
+      "type": "image",
+      "src": "projects/17cityio/2.png"
+    },
+    {
+      "type": "image",
+      "src": "projects/17cityio/1.png"
+    }
+  ]
+}

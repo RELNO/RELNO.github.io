@@ -1,0 +1,235 @@
+<!-- 
+      ///////////////////////////////////////////////////////////////
+   
+     Portfolio Grid Section
+
+      ///////////////////////////////////////////////////////////////
+     How this portfolio works?
+     - we load list of projects from an html using js
+     - we display them in grid where images are loaded from project's folder
+     - clicking on project triggers a injection of the project html [i.e p3.html] to a bootstrap modal 
+     - images and videos or any other content for the project lives in project's folder
+     
+     This is based on the following: https://www.codexworld.com/bootstrap-modal-dynamic-content-jquery-ajax-php-mysql/
+     /////////////////////////////////////////////////////////////// -->
+
+<!-- Portfolio Section-->
+<section class="mt-5 container portfolio" id="portfolio">
+  <div class="container mb-4">
+    <h2>Projects</h2>
+  </div>
+  <div class="row" id="portfolioGrid">
+    <script>
+      /**
+       * Generates an HTML template for a project based on the provided JSON file.
+       * @param {string} jsonPath - The path to the JSON file containing project details.
+       * @returns {Promise<string|null>} - A promise that resolves to the HTML template or null if an error occurs.
+       */
+      async function generateProjectHtmlTemplate(jsonPath) {
+        try {
+          // Fetch JSON data
+          const response = await fetch(jsonPath);
+          if (!response.ok) {
+            throw new Error("Failed to fetch JSON data");
+          }
+          const project = await response.json();
+
+          // Validate required data properties
+          if (
+            !project.title ||
+            !project.subtitle ||
+            !project.text ||
+            !project.carouselItems
+          ) {
+            throw new Error("Invalid project data");
+          }
+
+          // Generate HTML template
+          let html = `
+      <div class="row">
+        <div class="col-sm"><h2>${project.title}</h2></div>
+      </div>
+      <h5>${project.subtitle}</h5>
+      </div>
+      <div class="col-sm">
+        ${project.badges
+          ?.map(
+            (badge) => `
+            <a class="badge rounded-pill text-dark bg-white border border-1 border shadow" href="${badge.link}" target="_blank">${badge.label}</a>
+            `
+          )
+          .join("")}
+      </div>
+
+      <div class="mt-4 mb-4">
+      ${project.text}
+      </div>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+    `;
+
+          // Generate carousel items
+          if (Array.isArray(project.carouselItems)) {
+            project.carouselItems.forEach((item, index) => {
+              if (item.type === "iframe" && item.src) {
+                html += `
+            <div class="carousel-item${index === 0 ? " active" : ""}">
+              <iframe width="100%" height="500" src="${
+                item.src
+              }" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          `;
+              } else if (item.type === "image" && item.src) {
+                html += `
+            <div class="carousel-item${index === 0 ? " active" : ""}">
+              <img src="${item.src}" class="d-block w-100" alt="..." />
+            </div>
+          `;
+              }
+            });
+          }
+
+          if (project.carouselItems.length > 1) {
+            // Generate carousel control indicators
+            html += `
+          <ol class="carousel-indicators">
+            ${project.carouselItems
+              .map(
+                (item, index) => `
+                <li data-bs-target="#carouselExample" data-bs-slide-to="${index}"${
+                  index === 0 ? ' class="active"' : ""
+                }></li>
+              `
+              )
+              .join("")}
+          </ol>
+        `;
+            // Generate carousel controls
+            html += `
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      `;
+          }
+
+          return html;
+        } catch (error) {
+          console.error(error);
+          return null;
+        }
+      }
+
+      /**
+       * Renders portfolio grid items based on the provided item details.
+       * @param {Array} itemDetails - An array of objects containing item details.
+       */
+      function renderPortfolioGridItems(itemDetails) {
+        var container = document.getElementById("portfolioGrid");
+        // center the container
+        container.className = "row justify-content-center";
+
+        itemDetails.forEach(function (item) {
+          var contentDiv = document.createElement("div");
+          contentDiv.className =
+            "portfolio-item-caption-content my-auto w-100 text-center text-dark";
+
+          var itemDiv = document.createElement("div");
+          itemDiv.className = "col-12 col-md-4 col-lg-3 grid-shrink";
+
+          var button = document.createElement("button");
+          button.name = item.name;
+          button.type = "button";
+          button.className = "portfolio-item btn btn-link";
+
+          var captionDiv = document.createElement("div");
+          captionDiv.className =
+            "portfolio-item-caption d-flex position-absolute h-100 w-100";
+
+          var title = document.createElement("h5");
+          title.textContent = item.title;
+
+          var image = document.createElement("img");
+          image.src = item.imageSrc;
+          image.className = "img-fluid img-fluid-portfolio-grid";
+          image.alt = "";
+
+          contentDiv.appendChild(title);
+          captionDiv.appendChild(contentDiv);
+          button.appendChild(captionDiv);
+          button.appendChild(image);
+          itemDiv.appendChild(button);
+          container.appendChild(itemDiv);
+        });
+      }
+      // Fetch the JSON file containing item details
+      fetch("/projects/projects.json")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (itemDetails) {
+          // Call the renderPortfolioGridItems function with the fetched JSON data
+          renderPortfolioGridItems(itemDetails);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+
+      /**
+       * Handles click events on portfolio grid items.
+       * If a button within a portfolio grid item is clicked,
+       * the corresponding project JSON file is fetched and the HTML template is generated and displayed in a modal.
+       * @param {Event} event - The click event.
+       */
+      document.addEventListener("click", function (event) {
+        var button = event.target.closest("button");
+        if (button && button.name) {
+          var pathPrj = `projects/${button.name}/${button.name}.json`;
+
+          generateProjectHtmlTemplate(pathPrj)
+            .then((htmlTemplate) => {
+              $(".modal-body").html(htmlTemplate);
+              var myModalEl = document.querySelector(".portfolio-modal");
+              var modal = bootstrap.Modal.getOrCreateInstance(myModalEl);
+              modal.show();
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }
+      });
+
+      // Clear the modal body when the modal is closed
+      $(".portfolio-modal").on("hidden.bs.modal", function () {
+        $(".modal-body").empty();
+      });
+    </script>
+
+    <!-- Modal -->
+    <div
+      class="portfolio-modal modal fade"
+      id="PortfolioModal"
+      tabindex="-1"
+      aria-labelledby="PortfolioModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <button
+              class="btn-close"
+              type="button"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body pb-5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+{
+  "title": "Generative Urbanism",
+  "badges": [
+    {
+      "label": "LinkdIn Post",
+      "link": "https://www.linkedin.com/posts/arielnoyman_controlnet-threejs-activity-7049133189168017408-tEZZ?utm_source=share&utm_medium=member_desktop"
+    },
+    {
+      "label": "Project Page",
+      "link": "https://www.media.mit.edu/projects/an-immersive-user-interface-experience-for-urban-exploration/overview/"
+    }
+  ],
+  "subtitle": "Generative AI for Cities",
+  "text": "Early design phases can benefit from rapid iteration and visualization loops. New generative AI models can expedite tedious visualization tasks, and allow near real-time design feedback loops. Using ControlNet and threejs we generate real-time 360 panoramic views of new urban development in the browser.",
+  "carouselItems": [
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/WqCUHdGOULE?rel=0&amp;controls=1&amp;showinfo=0"
+    },
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/ZDB_OJnEGWk?rel=0&amp;&amp;showinfo=0;controls=1"
+    },
+    {
+      "type": "image",
+      "src": "projects/22urbangen/1.gif"
+    }
+  ]
+}

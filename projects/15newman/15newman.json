@@ -1,0 +1,93 @@
+{
+  "title": "Space Packing Architecture",
+  "badges": [
+    {
+      "label": "Space Packed",
+      "link": "http://www.press.uchicago.edu/ucp/books/book/distributed/S/bo27343519.html"
+    },
+    {
+      "label": "ArchDaily",
+      "link": "https://www.archdaily.com/633053/space-packing-architecture-the-life-and-work-of-alfred-neumann"
+    }
+  ],
+  "subtitle": "The Life and Work of Alfred Neumann",
+  "text": "'Space Packing Architecture: The Life and Work of Alfred Neumann' is an exhibition that showcases the work of Czech architect Alfred Neumann. The exhibition, held at the Cabinet of Architecture in Ostrava, focuses on Neumann's major design projects in Israel during the 1960s, which he worked on with collaborators Zvi Hecker and Eldar Sharon. Neumann's approach to architecture departed from the canonical International Style and embraced accreted patterns of spatial units and polyhedral geometries to create innovative and sustainable buildings. The exhibition features architectural models and life-size spatial units that illustrate Neumann's vision for a new kind of modern architecture.\n\nFor more information, you can explore the 'Space Packed' publication and the ArchDaily article on Alfred Neumann's life and work.",
+  "carouselItems": [
+    {
+      "type": "image",
+      "src": "projects/15newman/1.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/2.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/3.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/4.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/5.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/6.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/7.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/8.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/9.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/10.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/11.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/12.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/13.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/14.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/15.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/16.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/17.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/19.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/15newman/18.jpg"
+    }
+  ]
+}

@@ -151,3 +151,24 @@
     </div>
   </div>
 </section>
+
+<div class="row justify-content-center">
+  <div class="col-md-12 col-lg-3 col-sm-12">
+    <section class="container" id="talks"></section>
+  </div>
+  <div class="col-md-3 col-lg-3 col-sm-12">
+    <section class="container" id="publications"></section>
+  </div>
+  <div class="col-md-3 col-lg-3 col-sm-12">
+    <section class="container" id="awards"></section>
+  </div>
+</div>
+
+<script>
+  // create a div with the id "awards" and load the content of the file "awards.html" into it
+  $(function () {
+    $("#awards").load("about/awards.html");
+    $("#publications").load("about/publications.html");
+    $("#talks").load("about/talks.html");
+  });
+</script>

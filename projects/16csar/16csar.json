@@ -1,0 +1,41 @@
+{
+  "title": "CityScopeAR",
+  "badges": [
+    {
+      "label": "GitHub Repository",
+      "link": "https://github.com/RELNO/CSharpScope_AR"
+    },
+    {
+      "label": "cityI/O Overview",
+      "link": "https://www.media.mit.edu/projects/cityio/overview/"
+    },
+    {
+      "label": "ACM CHI 2018",
+      "link": "/projects/16csar/csar.pdf"
+    }
+  ],
+  "subtitle": "Augmented Reality Urban Simulation",
+  "text": "CityScopeAR is an augmented reality urban simulation project that aims to reduce complexity in design and planning tools while providing support for data-driven environments for planners, designers, and decision-makers. The project utilizes modern simulation tools and cutting-edge AR applications to offer an immersive user experience in planning processes.\n\nCityScopeAR is built upon the cityI/O platform, which utilizes a scalable server-side architecture to enable remote and decentralized public participation. With self-explanatory web and mobile apps featuring high-end visualization and user interfaces, cityI/O facilitates better communication of complex planning processes and real-time aggregation of public opinions. The platform supports collaboration, participation, and decision-making in design and planning initiatives.\n\nFor more information, you can access the CityScopeAR GitHub repository, the cityI/O overview, and the PDF document related to the project.",
+  "carouselItems": [
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/sM0wOiK4X9A?rel=0&amp;controls=1&amp;showinfo=0"
+    },
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/_5cQb8gAR_M?rel=0&amp;controls=1&amp;showinfo=0"
+    },
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/Rf2YCoqJY0I?rel=0&amp;controls=1&amp;showinfo=0"
+    },
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/CFnz-hwzQ8I?rel=0&amp;controls=1&amp;showinfo=0"
+    },
+    {
+      "type": "iframe",
+      "src": "https://www.youtube.com/embed/Qo5caNnnvQM?rel=0&amp;controls=1&amp;showinfo=0"
+    }
+  ]
+}

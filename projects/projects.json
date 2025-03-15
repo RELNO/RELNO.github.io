@@ -1,0 +1,107 @@
+[
+  {
+    "name": "24travelagent",
+    "title": "TravelAgent",
+    "imageSrc": "projects/24travelagent/0.jpg"
+  },
+  {
+    "name": "22urbangen",
+    "title": "Generative Urbanism",
+    "imageSrc": "projects/22urbangen/0.jpg"
+  },
+  {
+    "name": "20rechamps",
+    "title": "Champs-Élysées",
+    "imageSrc": "projects/20rechamps/0.png"
+  },
+  {
+    "name": "19deepscope",
+    "title": "DeepScope",
+    "imageSrc": "projects/19deepscope/0.png"
+  },
+  {
+    "name": "18cooper",
+    "title": "The Road Ahead",
+    "imageSrc": "projects/18cooper/0.jpg"
+  },
+  {
+    "name": "18mobcho",
+    "title": "Mobility Choice",
+    "imageSrc": "projects/18mobcho/0.png"
+  },
+  {
+    "name": "18revurb",
+    "title": "Reversed Urbanism",
+    "imageSrc": "projects/18revurb/0.png"
+  },
+  {
+    "name": "17csjs",
+    "title": "CityScope JS",
+    "imageSrc": "projects/17csjs/0.jpg"
+  },
+  {
+    "name": "17cityio",
+    "title": "cityIO",
+    "imageSrc": "projects/17cityio/0.png"
+  },
+  {
+    "name": "16csar",
+    "title": "CityScope AR",
+    "imageSrc": "projects/16csar/0.jpg"
+  },
+  {
+    "name": "16fp",
+    "title": "FindingPlaces",
+    "imageSrc": "projects/16fp/0.jpg"
+  },
+  {
+    "name": "15thesis",
+    "title": "Power/Structures",
+    "imageSrc": "projects/15thesis/0.jpg"
+  },
+  {
+    "name": "15brt",
+    "title": "BRT for Boston",
+    "imageSrc": "projects/15brt/0.jpg"
+  },
+  {
+    "name": "15newman",
+    "title": "Space Packed",
+    "imageSrc": "projects/15newman/0.jpg"
+  },
+  {
+    "name": "14rbd",
+    "title": "Rebuild By Design",
+    "imageSrc": "projects/14rbd/0.jpg"
+  },
+  {
+    "name": "14resindustrial",
+    "title": "Resindustrial",
+    "imageSrc": "projects/14resindustrial/0.jpg"
+  },
+  {
+    "name": "14mloop",
+    "title": "MeadowLoop",
+    "imageSrc": "projects/14mloop/0.png"
+  },
+  {
+    "name": "11station5",
+    "title": "Station 5",
+    "imageSrc": "projects/11station5/0.png"
+  },
+  {
+    "name": "10motj",
+    "title": "Museum of Tolerance",
+    "imageSrc": "projects/10motj/0.jpg"
+  },
+  {
+    "name": "09beit",
+    "title": "City Museum of Tel Aviv",
+    "imageSrc": "projects/09beit/5.jpg"
+  },
+  {
+    "name": "04kolech",
+    "title": "Septum",
+    "imageSrc": "projects/04kolech/0.jpg"
+  }
+]

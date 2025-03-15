@@ -68,5 +68,5 @@ def scale_and_crop_image(folder_path, size):
         print(f"Error cropping and scaling image: {str(e)}")
 
 
-folder_path = "/Users/noyman/GIT/RELNO.github.io/portfolio/04kolech"
+folder_path = "/Users/noyman/GIT/RELNO.github.io/projects/04kolech"
 scale_and_crop_image(folder_path, (400, 400))

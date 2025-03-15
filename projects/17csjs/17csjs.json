@@ -1,0 +1,21 @@
+{
+  "title": "CityScope JS",
+  "badges": [
+    {
+      "label": "GitHub Repository",
+      "link": "https://github.com/CityScope/CS_cityscopeJS"
+    }
+  ],
+  "subtitle": "Urban Modeling & Simulation on the Web",
+  "text": "CityScope JS provides a collection of modules that enable the construction, testing, and deployment of an end-to-end CityScope platform with minimal cost and technical complexity. Each module operates independently and does not rely on other parts of the system. Data flow between modules is facilitated by cityIO, a server system that acts as an operator between the different modules.\n\nThe platform empowers users to build urban models and simulations on the web, facilitating a wide range of applications and scenarios. It offers a versatile toolkit for urban planners, researchers, and developers to explore and analyze urban dynamics in an interactive and visual manner.\n\nFor more information and to access the CityScope JS modules, visit the GitHub repository.",
+  "carouselItems": [
+    {
+      "type": "image",
+      "src": "projects/17csjs/1.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/17csjs/0.jpg"
+    }
+  ]
+}
