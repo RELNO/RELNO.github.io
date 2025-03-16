@@ -21,6 +21,9 @@ body {
   width: 75%;
   height: 30em;
 }
+b{
+  font-weight: 700;
+}
 
 h1,
 h2,
@@ -338,7 +341,6 @@ header.masthead h2 {
   flex-wrap: wrap;
   /* Use a consistent gap for the entire grid */
   gap: 0.75rem;
-  justify-content: center;
 }
 
 .portfolio [class*="col-"] {
