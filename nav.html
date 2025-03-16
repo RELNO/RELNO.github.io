@@ -43,10 +43,6 @@
 
   // Navigate to a page and update browser history
   function navigateTo(page) {
-    page = page.replace(/\/+$/, "");
-    // Update browser history
-    history.pushState({ page: page }, "", "/" + page);
-
     // Load the content
     loadContent(page, true);
   }
