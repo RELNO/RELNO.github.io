@@ -100,6 +100,11 @@
     "imageSrc": "projects/09beit/5.jpg"
   },
   {
+    "name": "09telaviv",
+    "title": "Tel, Aviv",
+    "imageSrc": "projects/09telaviv/0.jpg"
+  },
+  {
     "name": "04kolech",
     "title": "Septum",
     "imageSrc": "projects/04kolech/0.jpg"

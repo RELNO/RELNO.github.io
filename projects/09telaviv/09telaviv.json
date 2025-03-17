@@ -1,0 +1,48 @@
+{
+  "title": "Tel, Aviv",
+  "badges": [],
+  "subtitle": "An Urban Mound. Competition, 2nd Prize",
+  "text": "`Tel, Aviv` uses the city's name as motivation for establishing an artificial mound in the center of Ha'medina Square, which would serve as a natural observation and landscape site and which would break up the city's skyline. The mound is designed as a green island, a place of tranquility and relaxation, a place that offers a different perspective of the city.",
+  "carouselItems": [
+    {
+      "type": "image",
+      "src": "projects/09telaviv/1.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/09telaviv/2.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/09telaviv/3.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/09telaviv/4.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/09telaviv/5.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/09telaviv/6.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/09telaviv/7.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/09telaviv/8.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/09telaviv/9.jpg"
+    },
+    {
+      "type": "image",
+      "src": "projects/09telaviv/10.jpg"
+    }
+  ]
+}
