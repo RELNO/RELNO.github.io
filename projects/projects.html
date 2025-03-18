@@ -15,6 +15,10 @@
 
 <!-- Portfolio Section-->
 <section class="mt-5 container portfolio" id="portfolio">
+  <div class="col-3 text-center mt-5">
+    <h2>Projects</h2>
+  </div>
+
   <div class="row" id="portfolioGrid">
     <script>
       /**
@@ -136,7 +140,7 @@
             "portfolio-item-caption-content my-auto w-100 text-center text-dark";
 
           var itemDiv = document.createElement("div");
-          itemDiv.className = "col-12 col-md-4 col-lg-3 grid-shrink";
+          itemDiv.className = "row col-sm-12 col-md-12 col-lg-8 grid-shrink";
 
           var button = document.createElement("button");
           button.name = item.name;
@@ -147,7 +151,7 @@
           captionDiv.className =
             "portfolio-item-caption d-flex position-absolute h-100 w-100";
 
-          var title = document.createElement("h5");
+          var title = document.createElement("b");
           title.textContent = item.title;
 
           var image = document.createElement("img");
