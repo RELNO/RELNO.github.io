@@ -169,133 +169,6 @@
   }
 
   /**
-   * Opens a PDF modal with the given URL and title.
-   * @param {string} pdfUrl - The URL of the PDF to display.
-   * @param {string} title - The title to display in the modal header.
-   */
-  function openPdfModal(pdfUrl, title) {
-    // Ensure PDF modal HTML exists
-    if (!document.querySelector(".pdf-modal")) {
-      const pdfModalHTML = `
-        <!-- PDF Modal -->
-        <div
-          class="pdf-modal modal fade"
-          id="PdfModal"
-          tabindex="-1"
-          aria-labelledby="PdfModal"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-              <div class="modal-header border-0 d-flex justify-content-between align-items-center">
-                <h5 class="modal-title"></h5>
-                <div class="d-flex gap-2">
-                  <a class="btn btn-sm btn-outline-primary download-link" target="_blank">
-                    <i class="fas fa-download"></i> Download
-                  </a>
-                  <button
-                    class="btn-close"
-                    type="button"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-              </div>
-              <div class="modal-body p-0 position-relative">
-                <div class="pdf-loading text-center p-4" style="display: none;">
-                  <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
-                  <p class="mt-2">Loading PDF...</p>
-                </div>
-                <iframe class="pdf-viewer" style="width: 100%; height: 80vh; border: none;"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-      document.body.insertAdjacentHTML("beforeend", pdfModalHTML);
-    }
-
-    // Set the PDF content
-    const modal = document.querySelector(".pdf-modal");
-    const modalTitle = modal.querySelector(".modal-title");
-    const iframe = modal.querySelector(".pdf-viewer");
-    const downloadLink = modal.querySelector(".download-link");
-    const loadingDiv = modal.querySelector(".pdf-loading");
-
-    modalTitle.textContent = title;
-    downloadLink.href = pdfUrl;
-
-    // Show loading indicator
-    loadingDiv.style.display = "block";
-    iframe.style.display = "none";
-
-    // Check if it's an external URL (GitHub, etc.) vs local PDF
-    if (
-      pdfUrl.includes("github.com") ||
-      (pdfUrl.startsWith("http") && !pdfUrl.includes(window.location.hostname))
-    ) {
-      // Use Google Docs viewer for external PDFs
-      iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(
-        pdfUrl
-      )}&embedded=true`;
-
-      // Add load event to hide loading spinner
-      iframe.onload = function () {
-        loadingDiv.style.display = "none";
-        iframe.style.display = "block";
-      };
-
-      // Add error handling - if Google Docs fails, fall back to direct embedding
-      iframe.onerror = function () {
-        console.log("Google Docs viewer failed, trying direct embedding...");
-        iframe.src = pdfUrl + "#toolbar=0&navpanes=0&scrollbar=0";
-      };
-
-      // Set a timeout to check if the iframe loaded properly
-      setTimeout(() => {
-        // Always hide loading after timeout
-        loadingDiv.style.display = "none";
-        iframe.style.display = "block";
-      }, 3000);
-    } else {
-      // For local PDFs, embed directly without Google Docs viewer
-      iframe.src = pdfUrl + "#toolbar=0&navpanes=0&scrollbar=0";
-      iframe.onload = function () {
-        loadingDiv.style.display = "none";
-        iframe.style.display = "block";
-      };
-
-      // Shorter timeout for local files
-      setTimeout(() => {
-        loadingDiv.style.display = "none";
-        iframe.style.display = "block";
-      }, 1000);
-    }
-
-    // Show the modal
-    if (window.bootstrap) {
-      const bootstrapModal = bootstrap.Modal.getOrCreateInstance(modal);
-      bootstrapModal.show();
-    }
-  }
-
-  /**
-   * Handles click events for PDF links.
-   * @param {Event} event - The click event.
-   */
-  function handlePdfLinkClick(event) {
-    const link = event.target.closest("a[data-pdf-modal]");
-    if (link) {
-      event.preventDefault();
-      const pdfUrl = link.href;
-      const title = link.getAttribute("data-pdf-title") || "Document";
-      openPdfModal(pdfUrl, title);
-    }
-  }
-
-  /**
    * Initializes the project modal system
    */
   function initProjectModal() {
@@ -330,10 +203,6 @@
 
     // Set up event listeners
     document.addEventListener("click", function (event) {
-      // Handle PDF links first
-      handlePdfLinkClick(event);
-
-      // Handle project buttons
       const button = event.target.closest("button");
       if (button && button.name) {
         // Update the URL hash to trigger the modal
@@ -372,6 +241,5 @@
   window.ProjectModal = {
     openProjectModal: openProjectModal,
     handleHashChange: handleHashChange,
-    openPdfModal: openPdfModal,
   };
 })();
