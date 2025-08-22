@@ -53,6 +53,23 @@
 
     <div id="projects" class="pt-5"></div>
 
+    <section class="mt-5 container">
+      <div class="col-8 mt-5">
+        <h2>Selected Publications, Talks, Awards</h2>
+
+        <p class="fw-light mt-3">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          For the most up-to-date list of papers, talks, and awards,
+          <a
+            href="https://github.com/RELNO/resume/releases/download/latest/resume.pdf"
+            target="_blank"
+            class="alert-link"
+            >please see the full resume [PDF]
+          </a>
+        </p>
+      </div>
+    </section>
+
     <div class="mt-5">
       <div class="row justify-content-center">
         <div class="col-md-12 col-lg-3 col-sm-12">
@@ -72,11 +89,11 @@
     <script>
       // create a div with the id "awards" and load the content of the file "awards.html" into it
       $(function () {
-        $("#about").load("about/about.html");
+        $("#about").load("sections/about.html");
         $("#projects").load("projects/projects.html");
-        $("#awards").load("about/awards.html");
-        $("#publications").load("about/publications.html");
-        $("#talks").load("about/talks.html");
+        $("#awards").load("sections/awards.html");
+        $("#publications").load("sections/publications.html");
+        $("#talks").load("sections/talks.html");
         $("#footer").load("footer/footer.html");
       });
     </script>
