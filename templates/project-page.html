@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{metaDescription}}" />
+    <meta name="author" content="Ariel Noyman" />
+    <link rel="canonical" href="{{canonicalUrl}}" />
+    <link rel="icon" href="/img/an.png" type="image/png" sizes="16x16" />
+    <title>{{pageTitle}}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..700&family=Open+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/css/base.css" rel="stylesheet" />
+    <link href="/css/edits.css" rel="stylesheet" />
+  </head>
+  <body class="project-page">
+    <header class="project-home-header">
+      <a class="project-home-link" href="/" aria-label="Back to website">
+        <span class="project-home-x" aria-hidden="true">X</span>
+        <span>Back to website</span>
+      </a>
+    </header>
+
+    <main id="content" class="project-page-main">
+      <article class="project-article">
+        {{projectLeadMedia}}
+
+        <header class="project-hero">
+          <h1>{{projectTitle}}</h1>
+          {{projectSubtitleBlock}}
+        </header>
+
+        <div class="project-info">
+          <aside class="project-facts" aria-label="Project details">
+            {{projectMeta}}
+            {{projectBadges}}
+          </aside>
+
+          {{projectDescription}}
+        </div>
+
+        {{projectGallery}}
+      </article>
+    </main>
+
+    {{siteFooter}}
+  </body>
+</html>

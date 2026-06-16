@@ -1,85 +1,75 @@
-<!-- 
-      ///////////////////////////////////////////////////////////////
-   
-     Portfolio Grid Section
-
-      ///////////////////////////////////////////////////////////////
-     How this portfolio works?
-     - we load list of projects from an html using js
-     - we display them in grid where images are loaded from project's folder
-     - clicking on project triggers a injection of the project html [i.e p3.html] to a bootstrap modal 
-     - images and videos or any other content for the project lives in project's folder
-     
-     This is based on the following: https://www.codexworld.com/bootstrap-modal-dynamic-content-jquery-ajax-php-mysql/
-     /////////////////////////////////////////////////////////////// -->
-
-<!-- Portfolio Section-->
-<section class="mt-5 container portfolio" id="portfolio">
-  <div class="col-3 text-center mt-5">
-    <h2>Projects</h2>
+<!-- Portfolio Section -->
+<section
+  class="portfolio-section portfolio"
+  id="portfolio"
+  aria-labelledby="projects-title"
+>
+  <div class="portfolio-heading">
+    <h1 id="projects-title">Projects</h1>
   </div>
 
-  <div class="row" id="portfolioGrid">
-    <script>
-      /**
-       * Renders portfolio grid items based on the provided item details.
-       * @param {Array} itemDetails - An array of objects containing item details.
-       */
+  <div class="portfolio-grid" id="portfolioGrid" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      function projectUrl(slug) {
+        return "/projects/" + encodeURIComponent(slug) + "/";
+      }
+
       function renderPortfolioGridItems(itemDetails) {
         var container = document.getElementById("portfolioGrid");
-        // center the container
-        container.className = "row justify-content-center";
 
-        itemDetails.forEach(function (item) {
-          var contentDiv = document.createElement("div");
-          contentDiv.className =
-            "portfolio-item-caption-content my-auto w-100 text-center text-dark";
+        if (!container) {
+          return;
+        }
 
-          var itemDiv = document.createElement("div");
-          itemDiv.className = "row col-sm-12 col-md-12 col-lg-8 grid-shrink";
+        container.innerHTML = "";
 
-          var button = document.createElement("button");
-          button.name = item.name;
-          button.type = "button";
-          button.className = "portfolio-item btn btn-link";
+        itemDetails.forEach(function (item, index) {
+          var link = document.createElement("a");
+          link.href = projectUrl(item.name);
+          link.className = "portfolio-item";
+          link.setAttribute("aria-label", "View project: " + item.title);
 
-          var captionDiv = document.createElement("div");
-          captionDiv.className =
-            "portfolio-item-caption d-flex position-absolute h-100 w-100";
-
-          var title = document.createElement("b");
-          title.textContent = item.title;
+          var figure = document.createElement("figure");
+          figure.className = "portfolio-card";
 
           var image = document.createElement("img");
           image.src = item.imageSrc;
-          image.className = "img-fluid img-fluid-portfolio-grid";
-          image.alt = "";
+          image.className = "portfolio-card-image";
+          image.alt = item.title;
+          image.loading = index < 4 ? "eager" : "lazy";
 
-          contentDiv.appendChild(title);
-          captionDiv.appendChild(contentDiv);
-          button.appendChild(captionDiv);
-          button.appendChild(image);
-          itemDiv.appendChild(button);
-          container.appendChild(itemDiv);
+          var caption = document.createElement("figcaption");
+          caption.className = "portfolio-card-caption";
+
+          var title = document.createElement("span");
+          title.className = "portfolio-card-title";
+          title.textContent = item.title;
+
+          caption.appendChild(title);
+          figure.appendChild(image);
+          figure.appendChild(caption);
+          link.appendChild(figure);
+          container.appendChild(link);
         });
       }
-      // Fetch the JSON file containing item details
+
       fetch("/projects/projects.json")
         .then(function (response) {
           return response.json();
         })
-        .then(function (itemDetails) {
-          // Call the renderPortfolioGridItems function with the fetched JSON data
-          renderPortfolioGridItems(itemDetails);
-        })
+        .then(renderPortfolioGridItems)
         .catch(function (error) {
+          var container = document.getElementById("portfolioGrid");
           console.error(error);
+          if (container) {
+            container.innerHTML =
+              '<p class="project-grid-error">Projects could not be loaded.</p>';
+          }
         });
-    </script>
-
-    <!-- Project Modal Script -->
-    <script src="../js/project-modal.js"></script>
-
-    <!-- Modal will be added by project-modal.js -->
-  </div>
+    })();
+  </script>
 </section>
