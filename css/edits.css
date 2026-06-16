@@ -130,14 +130,23 @@ button:focus-visible {
 }
 
 .about-section {
-  padding: clamp(2rem, 7vw, 6rem) 0 var(--space-2xl);
+  padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(2.5rem, 6vw, 5rem);
+}
+
+.about-section > .container {
+  max-width: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
 }
 
 .about-grid {
-  align-items: start;
-  display: grid;
-  gap: var(--space-2xl);
-  grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.18fr);
+  display: block;
+  width: 100%;
+}
+
+.about-portrait {
+  display: none;
 }
 
 .about-portrait img {
@@ -147,30 +156,37 @@ button:focus-visible {
 }
 
 .about-copy {
-  max-width: var(--measure);
+  max-width: none;
+  width: 100%;
 }
 
 .about-copy h1 {
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
-  margin-bottom: var(--space-lg);
+  font-size: clamp(2.25rem, 4.45vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0 0 25px;
 }
 
-.about-copy p,
 .project-description {
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .about-copy p {
-  font-size: 1.125rem;
-  line-height: 1.72;
+  font-size: clamp(0.8125rem, 2.22vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0 0 25px;
+  max-width: none;
 }
 
 .about-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-lg);
-  margin-top: var(--space-xl);
-  padding-top: var(--space-lg);
+  gap: clamp(1rem, 2vw, 2rem);
+  margin-top: clamp(1.25rem, 3vw, 2.5rem);
+  padding-top: 0;
 }
 
 .about-actions a {
@@ -630,13 +646,8 @@ small {
     --space-3xl: 4rem;
   }
 
-  .about-grid,
   .project-info {
     grid-template-columns: 1fr;
-  }
-
-  .about-portrait {
-    max-width: 520px;
   }
 
   .project-fact-row {
@@ -666,7 +677,6 @@ small {
     padding-right: var(--space-md);
   }
 
-  .about-copy p,
   .project-description {
     font-size: 1rem;
     line-height: 1.66;

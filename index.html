@@ -60,13 +60,12 @@
         <div class="selected-work-intro">
           <h1>Selected Publications, Talks, Awards</h1>
           <p class="fw-light">
-            For the most up-to-date list of papers, talks, and awards,
             <a
               href="https://github.com/RELNO/resume/releases/download/latest/resume.pdf"
               target="_blank"
               rel="noopener"
               class="alert-link"
-              >please see the full resume [PDF]
+              >See the full resume
             </a>
           </p>
         </div>
@@ -87,7 +86,7 @@
     <script>
       // create a div with the id "awards" and load the content of the file "awards.html" into it
       $(function () {
-        const partialVersion = "20260616-3";
+        const partialVersion = "20260616-4";
         const partial = (path) => `${path}?v=${partialVersion}`;
 
         $("#site-header").load(partial("sections/site-header.html"));
