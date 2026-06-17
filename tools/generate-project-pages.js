@@ -71,6 +71,29 @@ function getYouTubeEmbedUrl(value) {
   return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}` : "";
 }
 
+function mediaAutoplays(item) {
+  return item.autoplay !== false;
+}
+
+function getYouTubeEmbedAttributes(embedUrl, videoId, item) {
+  if (!mediaAutoplays(item)) {
+    return embedUrl;
+  }
+
+  const params = new URLSearchParams({
+    autoplay: "1",
+    mute: "1",
+    playsinline: "1",
+  });
+
+  if (item.loop === true && videoId) {
+    params.set("loop", "1");
+    params.set("playlist", videoId);
+  }
+
+  return `${embedUrl}?${params.toString()}`;
+}
+
 function getYouTubeThumbnailUrl(value) {
   const videoId = getYouTubeId(value);
   return videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : "";
@@ -178,10 +201,21 @@ function renderMediaItem(item, project, index, options = {}) {
     const caption = item.caption
       ? `\n  <figcaption>${escapeHtml(item.caption)}</figcaption>`
       : "";
+    const hasAutoplay = mediaAutoplays(item);
+    const videoAttributes = [
+      item.controls === false ? "" : "controls",
+      hasAutoplay ? "autoplay" : "",
+      hasAutoplay || item.muted === true ? "muted" : "",
+      item.loop === true ? "loop" : "",
+      "playsinline",
+      `preload="${escapeAttribute(item.preload || (hasAutoplay ? "auto" : "metadata"))}"`,
+    ]
+      .filter(Boolean)
+      .join(" ");
 
     return [
       `<figure class="${className} project-video">`,
-      '  <video controls playsinline preload="metadata">',
+      `  <video ${videoAttributes}>`,
       `    <source src="${escapeAttribute(source)}" type="${escapeAttribute(item.mime || "video/mp4")}" />`,
       "  </video>",
       `  ${caption}`,
@@ -202,13 +236,15 @@ function renderMediaItem(item, project, index, options = {}) {
       (youtubeId ? `Watch ${title}` : `Open ${title}`);
 
     if (youtubeEmbed) {
+      const hasAutoplay = mediaAutoplays(item);
+      const embedUrl = getYouTubeEmbedAttributes(youtubeEmbed, youtubeId, item);
       const caption = label
         ? `\n  <figcaption><a href="${escapeAttribute(youtubeSource)}" target="_blank" rel="noopener">${escapeHtml(label)}</a></figcaption>`
         : "";
 
       return [
         `<figure class="${className} project-embed project-youtube">`,
-        `  <iframe src="${escapeAttribute(youtubeEmbed)}" title="${escapeAttribute(label)}" loading="${options.eager ? "eager" : "lazy"}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>${caption}`,
+        `  <iframe src="${escapeAttribute(embedUrl)}" title="${escapeAttribute(label)}" loading="${options.eager || hasAutoplay ? "eager" : "lazy"}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>${caption}`,
         "</figure>",
       ].join("\n");
     }
