@@ -2,111 +2,169 @@
   {
     "name": "24travelagent",
     "title": "TravelAgent",
-    "imageSrc": "projects/24travelagent/0.jpg"
+    "imageSrc": "projects/24travelagent/0.jpg",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "22urbangen",
     "title": "Generative Urbanism",
-    "imageSrc": "projects/22urbangen/0.jpg"
+    "imageSrc": "projects/22urbangen/0.jpg",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "20rechamps",
     "title": "Champs-Élysées",
-    "imageSrc": "projects/20rechamps/0.png"
+    "imageSrc": "projects/20rechamps/0.png",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "19deepscope",
     "title": "DeepScope",
-    "imageSrc": "projects/19deepscope/0.png"
+    "imageSrc": "projects/19deepscope/0.png",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "18cooper",
     "title": "The Road Ahead",
-    "imageSrc": "projects/18cooper/0.jpg"
+    "imageSrc": "projects/18cooper/0.jpg",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "18mobcho",
     "title": "Mobility Choice",
-    "imageSrc": "projects/18mobcho/0.png"
+    "imageSrc": "projects/18mobcho/0.png",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "18revurb",
     "title": "Reversed Urbanism",
-    "imageSrc": "projects/18revurb/0.png"
+    "imageSrc": "projects/18revurb/0.png",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "17csjs",
     "title": "CityScope JS",
-    "imageSrc": "projects/17csjs/0.jpg"
+    "imageSrc": "projects/17csjs/0.jpg",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "17cityio",
     "title": "cityIO",
-    "imageSrc": "projects/17cityio/0.png"
+    "imageSrc": "projects/17cityio/0.png",
+    "themes": ["city-science"]
   },
   {
     "name": "16csar",
     "title": "CityScope AR",
-    "imageSrc": "projects/16csar/0.jpg"
+    "imageSrc": "projects/16csar/0.jpg",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "16fp",
     "title": "FindingPlaces",
-    "imageSrc": "projects/16fp/0.jpg"
+    "imageSrc": "projects/16fp/0.jpg",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "15thesis",
     "title": "Power/Structures",
-    "imageSrc": "projects/15thesis/0.jpg"
+    "imageSrc": "projects/15thesis/0.jpg",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "15brt",
     "title": "BRT for Boston",
-    "imageSrc": "projects/15brt/0.jpg"
+    "imageSrc": "projects/15brt/0.jpg",
+    "themes": ["urbanism", "city-science"]
   },
   {
     "name": "15newman",
     "title": "Space Packed",
-    "imageSrc": "projects/15newman/0.jpg"
+    "imageSrc": "projects/15newman/0.jpg",
+    "themes": ["architecture"]
   },
   {
     "name": "14rbd",
     "title": "Rebuild By Design",
-    "imageSrc": "projects/14rbd/0.jpg"
+    "imageSrc": "projects/14rbd/0.jpg",
+    "themes": ["urbanism"]
   },
   {
     "name": "14resindustrial",
     "title": "Resindustrial",
-    "imageSrc": "projects/14resindustrial/0.jpg"
+    "imageSrc": "projects/14resindustrial/0.jpg",
+    "themes": ["urbanism"]
   },
   {
     "name": "14mloop",
     "title": "MeadowLoop",
-    "imageSrc": "projects/14mloop/0.png"
+    "imageSrc": "projects/14mloop/0.png",
+    "themes": ["urbanism"]
+  },
+  {
+    "name": "12yadlebanim",
+    "title": "Yad LeBanim",
+    "imageSrc": "projects/12yadlebanim/2_06.jpeg",
+    "themes": ["architecture", "urbanism"]
   },
   {
     "name": "11station5",
     "title": "Station 5",
-    "imageSrc": "projects/11station5/0.png"
+    "imageSrc": "projects/11station5/0.png",
+    "themes": ["architecture", "urbanism"]
+  },
+  {
+    "name": "11pushkinsky",
+    "title": "Republic",
+    "imageSrc": "projects/11pushkinsky/0.jpg",
+    "themes": ["architecture", "urbanism"]
+  },
+  {
+    "name": "10stumps",
+    "title": "STUMPS",
+    "imageSrc": "projects/10stumps/0.jpg",
+    "themes": ["architecture"]
   },
   {
     "name": "10motj",
     "title": "Museum of Tolerance",
-    "imageSrc": "projects/10motj/0.jpg"
+    "imageSrc": "projects/10motj/0.jpg",
+    "themes": ["architecture", "urbanism"]
+  },
+  {
+    "name": "10academic",
+    "title": "Hillside Campus",
+    "imageSrc": "projects/10academic/0.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "09dubai",
+    "title": "The 8th Souk",
+    "imageSrc": "projects/09dubai/1.jpeg",
+    "themes": ["architecture", "urbanism"]
   },
   {
     "name": "09beit",
     "title": "City Museum of Tel Aviv",
-    "imageSrc": "projects/09beit/5.jpg"
+    "imageSrc": "projects/09beit/5.jpg",
+    "themes": ["architecture", "urbanism"]
   },
   {
     "name": "09telaviv",
     "title": "Tel, Aviv",
-    "imageSrc": "projects/09telaviv/0.jpg"
+    "imageSrc": "projects/09telaviv/0.jpg",
+    "themes": ["architecture", "urbanism"]
+  },
+  {
+    "name": "08ordos",
+    "title": "Ordos 100",
+    "imageSrc": "projects/08ordos/main.jpg",
+    "themes": ["architecture"]
   },
   {
     "name": "04kolech",
     "title": "Septum",
-    "imageSrc": "projects/04kolech/0.jpg"
+    "imageSrc": "projects/04kolech/0.jpg",
+    "themes": ["architecture"]
   }
 ]

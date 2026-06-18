@@ -6,6 +6,40 @@
 >
   <div class="portfolio-heading">
     <h1 id="projects-title">Projects</h1>
+    <nav class="project-filter-menu" aria-label="Project themes">
+      <button
+        class="project-filter-button is-active"
+        type="button"
+        data-project-filter="all"
+        aria-pressed="true"
+      >
+        All
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="architecture"
+        aria-pressed="false"
+      >
+        Architecture
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="urbanism"
+        aria-pressed="false"
+      >
+        Urbanism
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="city-science"
+        aria-pressed="false"
+      >
+        Urban Science
+      </button>
+    </nav>
   </div>
 
   <div class="portfolio-grid" id="portfolioGrid" aria-live="polite"></div>
@@ -14,8 +48,39 @@
     (function () {
       "use strict";
 
+      var projects = [];
+      var activeThemes = new Set();
+      var filterButtons = Array.prototype.slice.call(
+        document.querySelectorAll("[data-project-filter]")
+      );
+
       function projectUrl(slug) {
         return "/projects/" + encodeURIComponent(slug) + "/";
+      }
+
+      function itemThemes(item) {
+        return Array.isArray(item.themes) ? item.themes : [];
+      }
+
+      function itemMatchesActiveThemes(item) {
+        if (activeThemes.size === 0) {
+          return true;
+        }
+
+        return Array.from(activeThemes).some(function (theme) {
+          return itemThemes(item).indexOf(theme) !== -1;
+        });
+      }
+
+      function updateFilterButtons() {
+        filterButtons.forEach(function (button) {
+          var filter = button.getAttribute("data-project-filter");
+          var isActive =
+            filter === "all" ? activeThemes.size === 0 : activeThemes.has(filter);
+
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
       }
 
       function renderPortfolioGridItems(itemDetails) {
@@ -57,11 +122,36 @@
         });
       }
 
+      function renderFilteredProjects() {
+        renderPortfolioGridItems(projects.filter(itemMatchesActiveThemes));
+      }
+
+      filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var filter = button.getAttribute("data-project-filter");
+
+          if (filter === "all") {
+            activeThemes.clear();
+          } else if (activeThemes.has(filter)) {
+            activeThemes.delete(filter);
+          } else {
+            activeThemes.add(filter);
+          }
+
+          updateFilterButtons();
+          renderFilteredProjects();
+        });
+      });
+
       fetch("/projects/projects.json")
         .then(function (response) {
           return response.json();
         })
-        .then(renderPortfolioGridItems)
+        .then(function (itemDetails) {
+          projects = itemDetails;
+          updateFilterButtons();
+          renderFilteredProjects();
+        })
         .catch(function (error) {
           var container = document.getElementById("portfolioGrid");
           console.error(error);
