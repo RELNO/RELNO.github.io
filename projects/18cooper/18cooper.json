@@ -7,7 +7,13 @@
     }
   ],
   "subtitle": "CityScope in the Cooper Hewitt Museum, NY",
-  "text": "The Road Ahead: Reimagining Mobility is an exhibition at the Cooper Hewitt Museum in New York that showcases 40 design projects inspired by future technologies that will transform how we move people, goods, and services. As data and design innovation rapidly converge, cities are becoming smarter, and transportation options are expanding.\n\nThe Road Ahead invites visitors to explore how droids, bots, drones, and other innovations can contribute to safer streetscapes, more equitable transportation, and sustainable cities. CityScope Cooper Hewitt, a playful installation within the exhibition, presents two extreme future scenarios of urban mobility: an all privately owned mobility world and a fully shared, transit-oriented future. Visitors can participate in designing densities and land uses for each scenario, gaining insight into each mobility future.",
+  "text": "The Road Ahead: Reimagining Mobility is an exhibition that showcases 40 design projects inspired by future technologies that will transform how we move people, goods, and services. As data and design innovation rapidly converge, cities are becoming smarter, and transportation options are expanding.\n\nThe Road Ahead invites visitors to explore how droids, bots, drones, and other innovations can contribute to safer streetscapes, more equitable transportation, and sustainable cities. CityScope Cooper Hewitt, a playful installation within the exhibition, presents two extreme future scenarios of urban mobility: an all privately owned mobility world and a fully shared, transit-oriented future. Visitors can participate in designing densities and land uses for each scenario, gaining insight into each mobility future.",
+  "credits": [
+    {
+      "label": "Venue",
+      "value": "Cooper Hewitt Museum, New York"
+    }
+  ],
   "carouselItems": [
     {
       "type": "link",

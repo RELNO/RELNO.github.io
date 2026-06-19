@@ -148,17 +148,44 @@ function renderProjectDescription(text) {
 
 function renderProjectMeta(project) {
   const subtitle = String(project.subtitle ?? "").trim();
+  const rows = [];
 
-  if (!subtitle) {
+  if (subtitle) {
+    rows.push({
+      label: "Context",
+      value: subtitle,
+    });
+  }
+
+  if (Array.isArray(project.credits)) {
+    project.credits
+      .filter((credit) => credit && credit.label && credit.value)
+      .forEach((credit) => {
+        rows.push({
+          label: credit.label,
+          value: credit.value,
+        });
+      });
+  }
+
+  if (rows.length === 0) {
     return "";
   }
 
+  const factRows = rows
+    .map((row) => {
+      return [
+        '  <div class="project-fact-row">',
+        `    <dt>${escapeHtml(row.label)}:</dt>`,
+        `    <dd>${escapeHtml(row.value).replace(/\n/g, "<br />\n")}</dd>`,
+        "  </div>",
+      ].join("\n");
+    })
+    .join("\n");
+
   return [
     '<dl class="project-meta">',
-    '  <div class="project-fact-row">',
-    "    <dt>Context:</dt>",
-    `    <dd>${escapeHtml(subtitle)}</dd>`,
-    "  </div>",
+    factRows,
     "</dl>",
   ].join("\n");
 }

@@ -11,7 +11,17 @@
     }
   ],
   "subtitle": "The Life and Work of Alfred Neumann",
-  "text": "'Space Packing Architecture: The Life and Work of Alfred Neumann' is an exhibition that showcases the work of Czech architect Alfred Neumann. The exhibition, held at the Cabinet of Architecture in Ostrava, focuses on Neumann's major design projects in Israel during the 1960s, which he worked on with collaborators Zvi Hecker and Eldar Sharon. Neumann's approach to architecture departed from the canonical International Style and embraced accreted patterns of spatial units and polyhedral geometries to create innovative and sustainable buildings. The exhibition features architectural models and life-size spatial units that illustrate Neumann's vision for a new kind of modern architecture.\n\nFor more information, you can explore the 'Space Packed' publication and the ArchDaily article on Alfred Neumann's life and work.",
+  "text": "'Space Packing Architecture: The Life and Work of Alfred Neumann' is an exhibition that showcases the work of Czech architect Alfred Neumann. The exhibition focuses on Neumann's major design projects in Israel during the 1960s, which he worked on with collaborators Zvi Hecker and Eldar Sharon. Neumann's approach to architecture departed from the canonical International Style and embraced accreted patterns of spatial units and polyhedral geometries to create innovative and sustainable buildings. The exhibition features architectural models and life-size spatial units that illustrate Neumann's vision for a new kind of modern architecture.\n\nFor more information, you can explore the 'Space Packed' publication and the ArchDaily article on Alfred Neumann's life and work.",
+  "credits": [
+    {
+      "label": "Venue",
+      "value": "Cabinet of Architecture, Ostrava"
+    },
+    {
+      "label": "Subject",
+      "value": "Alfred Neumann"
+    }
+  ],
   "carouselItems": [
     {
       "type": "image",

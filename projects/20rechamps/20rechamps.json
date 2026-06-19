@@ -11,7 +11,17 @@
     }
   ],
   "subtitle": "Virtual CityScope Champs-Élysées",
-  "text": "Virtual CityScope Champs-Élysées is an interactive and immersive platform for exploring the future of Paris' most important street. CityScope Champs-Élysées is a tangible user interface for urban planning and decision-making. It was designed as part of an exhibition at the Pavillon de l'Arsenal in Paris, France. The exhibition, curated by PCA-STREAM, explores new plans and future interventions for the Champs-Élysées Avenue, including reduced traffic, improved walkability, cycling and pedestrian mobility, and improved access to cultural landmarks and amenities. After the exhibition closed during COVID-19, the project moved online.",
+  "text": "Virtual CityScope Champs-Élysées is an interactive and immersive platform for exploring the future of Paris' most important street. CityScope Champs-Élysées is a tangible user interface for urban planning and decision-making. The project explores new plans and future interventions for the Champs-Élysées Avenue, including reduced traffic, improved walkability, cycling and pedestrian mobility, and improved access to cultural landmarks and amenities. After the exhibition closed during COVID-19, the project moved online.",
+  "credits": [
+    {
+      "label": "Exhibition",
+      "value": "Pavillon de l'Arsenal, Paris"
+    },
+    {
+      "label": "Curator",
+      "value": "PCA-STREAM"
+    }
+  ],
   "carouselItems": [
     {
       "type": "link",

@@ -543,6 +543,7 @@ small {
 
 .project-fact-row dd {
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .project-links div {

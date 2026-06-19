@@ -24,6 +24,12 @@
     "themes": ["city-science"]
   },
   {
+    "name": "19nibn",
+    "title": "NIBN",
+    "imageSrc": "projects/19nibn/site10.jpg",
+    "themes": ["architecture"]
+  },
+  {
     "name": "18cooper",
     "title": "The Road Ahead",
     "imageSrc": "projects/18cooper/0.jpg",
@@ -102,6 +108,12 @@
     "themes": ["urbanism"]
   },
   {
+    "name": "12nli",
+    "title": "New National Library",
+    "imageSrc": "projects/12nli/site2.jpg",
+    "themes": ["architecture"]
+  },
+  {
     "name": "12yadlebanim",
     "title": "Yad LeBanim",
     "imageSrc": "projects/12yadlebanim/2_06.jpeg",
@@ -159,6 +171,12 @@
     "name": "08ordos",
     "title": "Ordos 100",
     "imageSrc": "projects/08ordos/main.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "07greenpeace",
+    "title": "Green Piece",
+    "imageSrc": "projects/07greenpeace/Greenpeace3.jpg",
     "themes": ["architecture"]
   },
   {
