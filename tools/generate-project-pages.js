@@ -232,7 +232,7 @@ function renderMediaItem(item, project, index, options = {}) {
 
   if (item.type === "video") {
     const caption = item.caption
-      ? `\n  <figcaption>${escapeHtml(item.caption)}</figcaption>`
+      ? `  <figcaption>${escapeHtml(item.caption)}</figcaption>`
       : "";
     const hasAutoplay = mediaAutoplays(item);
     const videoAttributes = [
@@ -251,9 +251,9 @@ function renderMediaItem(item, project, index, options = {}) {
       `  <video ${videoAttributes}>`,
       `    <source src="${escapeAttribute(source)}" type="${escapeAttribute(item.mime || "video/mp4")}" />`,
       "  </video>",
-      `  ${caption}`,
+      caption,
       "</figure>",
-    ].join("\n");
+    ].filter(Boolean).join("\n");
   }
 
   if (item.type === "iframe" || item.type === "link") {

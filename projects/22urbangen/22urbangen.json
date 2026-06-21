@@ -14,10 +14,10 @@
   "text": "Early design phases can benefit from rapid iteration and visualization loops. New generative AI models can accelerate visualization tasks and allow near real-time design feedback. Using ControlNet and Three.js, we generate real-time 360-degree panoramic views of new urban development in the browser.",
   "carouselItems": [
     {
-      "type": "link",
-      "src": "https://i.ytimg.com/vi/WqCUHdGOULE/hqdefault.jpg",
-      "link": "https://www.youtube.com/watch?v=WqCUHdGOULE",
-      "caption": "Watch video"
+      "type": "video",
+      "src": "projects/22urbangen/sdxl-turbo-city.mp4",
+      "mime": "video/mp4",
+      "loop": true
     },
     {
       "type": "link",
