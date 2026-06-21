@@ -4,7 +4,7 @@
   --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
   --type-body: 1.0625rem;
   --type-small: 0.9375rem;
-  --type-caption: 0.875rem;
+  --type-caption: 0.775rem;
   --leading-body: 1.68;
   --leading-tight: 1.08;
   --measure: 68ch;
@@ -696,6 +696,11 @@ small {
 
   .project-info {
     grid-template-columns: 1fr;
+  }
+
+  .project-facts {
+    font-size: var(--type-caption);
+    line-height: 1.4;
   }
 
   .project-fact-row {

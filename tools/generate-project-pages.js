@@ -182,7 +182,7 @@ function renderProjectMeta(project) {
     .map((row) => {
       return [
         '  <div class="project-fact-row">',
-        `    <dt>${escapeHtml(row.label)}:</dt>`,
+        `    <dt>${escapeHtml(row.label)}</dt>`,
         `    <dd>${escapeHtml(row.value).replace(/\n/g, "<br />\n")}</dd>`,
         "  </div>",
       ].join("\n");
@@ -215,7 +215,7 @@ function renderBadges(project) {
 
   return [
     '<div class="project-links project-fact-row" aria-label="Project links">',
-    "  <strong>Links:</strong>",
+    "  <strong>Links</strong>",
     `  <div>${links}</div>`,
     "</div>",
   ].join("\n");
