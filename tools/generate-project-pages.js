@@ -159,7 +159,13 @@ function renderProjectMeta(project) {
 
   if (Array.isArray(project.credits)) {
     project.credits
-      .filter((credit) => credit && credit.label && credit.value)
+      .filter((credit) => {
+        if (!credit || !credit.label || !credit.value) {
+          return false;
+        }
+
+        return String(credit.label).trim().toLowerCase() !== "role";
+      })
       .forEach((credit) => {
         rows.push({
           label: credit.label,
