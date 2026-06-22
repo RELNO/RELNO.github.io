@@ -6,15 +6,15 @@
     "themes": ["city-science"]
   },
   {
-    "name": "22urbangen",
-    "title": "Generative Urbanism",
-    "imageSrc": "projects/22urbangen/0.jpg",
-    "themes": ["city-science"]
-  },
-  {
     "name": "20rechamps",
     "title": "Champs-Élysées",
     "imageSrc": "projects/20rechamps/0.png",
+    "themes": ["city-science"]
+  },
+  {
+    "name": "22urbangen",
+    "title": "Generative Urbanism",
+    "imageSrc": "projects/22urbangen/0.jpg",
     "themes": ["city-science"]
   },
   {
@@ -96,15 +96,15 @@
     "themes": ["urbanism"]
   },
   {
-    "name": "14resindustrial",
-    "title": "Resindustrial",
-    "imageSrc": "projects/14resindustrial/0.jpg",
-    "themes": ["urbanism"]
-  },
-  {
     "name": "14mloop",
     "title": "MeadowLoop",
     "imageSrc": "projects/14mloop/0.png",
+    "themes": ["urbanism"]
+  },
+  {
+    "name": "14resindustrial",
+    "title": "Resindustrial",
+    "imageSrc": "projects/14resindustrial/0.jpg",
     "themes": ["urbanism"]
   },
   {
