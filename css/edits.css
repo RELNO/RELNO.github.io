@@ -161,20 +161,29 @@ button:focus-visible {
 }
 
 .about-portrait {
-  display: none;
+  float: left;
+  margin: 0 clamp(1.25rem, 3.5vw, 4rem) clamp(0.75rem, 2vw, 1.5rem) 0;
+  max-width: 25%;
+  overflow: hidden;
+  width: min(25vw, 320px);
 }
 
 .about-portrait img {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
   width: 100%;
 }
 
 .about-copy {
   max-width: none;
+  min-width: 0;
   width: 100%;
 }
 
+.about-copy h1 {
+  padding-top: 0;
+}
 
 .project-description {
   font-weight: 600;
@@ -190,6 +199,7 @@ button:focus-visible {
 }
 
 .about-actions {
+  clear: both;
   display: flex;
   flex-wrap: wrap;
   gap: clamp(1rem, 2vw, 2rem);
@@ -727,6 +737,56 @@ small {
   .container {
     padding-left: var(--space-md);
     padding-right: var(--space-md);
+  }
+
+  .about-copy {
+    --about-mobile-title-height: clamp(4.25rem, 20vw, 5.75rem);
+    display: grid;
+    column-gap: var(--space-sm);
+    row-gap: var(--space-md);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .about-copy h1 {
+    align-self: center;
+    font-size: clamp(1rem, 4.8vw, 1.45rem);
+    grid-column: 2;
+    grid-row: 1;
+    line-height: 1.05;
+    min-height: var(--about-mobile-title-height);
+    min-width: 0;
+    overflow-wrap: anywhere;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .about-portrait {
+    float: none;
+    grid-column: 1;
+    grid-row: 1;
+    height: var(--about-mobile-title-height);
+    margin: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .about-portrait img {
+    aspect-ratio: auto;
+    height: 100%;
+    width: 100%;
+  }
+
+  .about-copy p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0;
+    min-width: 0;
+  }
+
+  .about-actions {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    min-width: 0;
   }
 
   .project-description {
