@@ -45,7 +45,7 @@
 
     <!-- Core CSS -->
     <link href="css/base.css" rel="stylesheet" />
-    <link href="css/edits.css" rel="stylesheet" />
+    <link href="css/edits.css?v=20260624-1" rel="stylesheet" />
   </head>
 
   <body>
@@ -98,10 +98,24 @@
 
     <script>
       $(function () {
-        const partialVersion = "20260622-1";
+        const partialVersion = "20260624-1";
         const partial = (path) => `${path}?v=${partialVersion}`;
+        const initAboutReadMore = () => {
+          const aboutCopy = document.querySelector(".about-copy");
+          const button = document.querySelector(".about-read-more");
 
-        $("#about").load(partial("sections/about.html"));
+          if (!aboutCopy || !button) {
+            return;
+          }
+
+          aboutCopy.classList.add("is-readmore-ready");
+          button.addEventListener("click", () => {
+            aboutCopy.classList.add("is-intro-expanded");
+            button.setAttribute("aria-expanded", "true");
+          });
+        };
+
+        $("#about").load(partial("sections/about.html"), initAboutReadMore);
         $("#projects").load(partial("projects/projects.html"));
         $("#selected-publications").load(partial("sections/publications.html"));
         $("#selected-talks").load(partial("sections/talks.html"));

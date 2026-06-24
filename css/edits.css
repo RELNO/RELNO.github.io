@@ -189,6 +189,21 @@ button:focus-visible {
   max-width: none;
 }
 
+.about-read-more {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  display: none;
+  font: inherit;
+  font-weight: inherit;
+  margin: 0 0 0 0.12em;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
 .about-actions {
   clear: both;
   display: flex;
@@ -766,6 +781,15 @@ button:focus-visible {
   .about-copy p {
     margin-top: 0;
     min-width: 0;
+  }
+
+  .about-copy.is-readmore-ready:not(.is-intro-expanded)
+    .about-intro-extra {
+    display: none;
+  }
+
+  .about-copy.is-readmore-ready:not(.is-intro-expanded) .about-read-more {
+    display: inline;
   }
 
   .about-actions {
