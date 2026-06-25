@@ -2,11 +2,11 @@
 <section
   class="portfolio-section"
   id="portfolio"
-  aria-labelledby="projects-title"
+  aria-labelledby="work-title"
 >
   <div class="portfolio-heading">
-    <h1 id="projects-title">Projects</h1>
-    <nav class="project-filter-menu" aria-label="Project themes">
+    <h1 id="work-title">Work</h1>
+    <nav class="project-filter-menu" aria-label="Work themes">
       <button
         class="project-filter-button is-active"
         type="button"
@@ -96,7 +96,7 @@
           var link = document.createElement("a");
           link.href = projectUrl(item.name);
           link.className = "portfolio-item";
-          link.setAttribute("aria-label", "View project: " + item.title);
+          link.setAttribute("aria-label", "View work: " + item.title);
 
           var figure = document.createElement("figure");
           figure.className = "portfolio-card";
@@ -157,7 +157,7 @@
           console.error(error);
           if (container) {
             container.innerHTML =
-              '<p class="project-grid-error">Projects could not be loaded.</p>';
+              '<p class="project-grid-error">Work could not be loaded.</p>';
           }
         });
     })();

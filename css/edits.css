@@ -145,28 +145,13 @@ button:focus-visible {
 }
 
 .about-section {
-  padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(2.5rem, 6vw, 5rem);
+  padding: clamp(3rem, 7vw, 6rem) 0 clamp(2.5rem, 6vw, 5rem);
 }
 
 .about-section > .container {
   max-width: none;
   padding-left: 15px;
   padding-right: 15px;
-  width: 100%;
-}
-
-.about-portrait {
-  float: left;
-  margin: 0.15rem var(--space-md) var(--space-sm) 0;
-  max-width: 25%;
-  overflow: hidden;
-  width: min(25vw, 320px);
-}
-
-.about-portrait img {
-  aspect-ratio: 1 / 2;
-  height: auto;
-  object-fit: cover;
   width: 100%;
 }
 
@@ -189,6 +174,56 @@ button:focus-visible {
   max-width: none;
 }
 
+.about-profile-trigger {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  display: inline-block;
+  font: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  vertical-align: baseline;
+}
+
+.about-profile-popover {
+  background: #ffffff;
+  box-shadow: 0 16px 42px rgb(0 0 0 / 18%);
+  display: block;
+  left: 0;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  transform: translateY(0.35rem);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+  width: clamp(7rem, 14vw, 11rem);
+  z-index: 30;
+}
+
+.about-profile-popover img {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.about-profile-trigger:hover .about-profile-popover,
+.about-profile-trigger:focus .about-profile-popover,
+.about-profile-trigger:focus-visible .about-profile-popover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .about-read-more {
   background: transparent;
   border: 0;
@@ -205,7 +240,6 @@ button:focus-visible {
 }
 
 .about-actions {
-  clear: both;
   display: flex;
   flex-wrap: wrap;
   gap: clamp(1rem, 2vw, 2rem);
@@ -765,19 +799,6 @@ button:focus-visible {
     padding-right: var(--space-md);
   }
 
-  .about-portrait {
-    float: left;
-    margin: 0.15rem var(--space-md) var(--space-sm) 0;
-    max-width: 48%;
-    width: min(42vw, 10rem);
-  }
-
-  .about-portrait img {
-    aspect-ratio: 1 / 1;
-    height: auto;
-    width: 100%;
-  }
-
   .about-copy p {
     margin-top: 0;
     min-width: 0;
@@ -793,7 +814,6 @@ button:focus-visible {
   }
 
   .about-actions {
-    clear: both;
     min-width: 0;
   }
 
