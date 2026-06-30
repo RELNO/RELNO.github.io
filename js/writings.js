@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var manifestUrl = "/writings/writings.json";
+  var manifestUrl = "/writings/writings.json?v=20260630-2";
   var archiveElement = document.getElementById("writingArchive");
   var bodyElement = document.getElementById("writingBody");
   var titleElement = document.getElementById("writingTitle");
@@ -41,7 +41,11 @@
   }
 
   function slugFromFile(file) {
-    return file.replace(/\.md$/i, "").split("/").pop();
+    return file
+      .replace(/\/(?:index|article)\.(?:md|json)$/i, "")
+      .replace(/\.(?:md|json)$/i, "")
+      .split("/")
+      .pop();
   }
 
   function normalizeHeading(value) {
@@ -287,20 +291,25 @@
   }
 
   function loadWriting(item) {
-    return fetch("/writings/" + item.file)
+    var file = item.file;
+
+    return fetch("/writings/" + file)
       .then(function (response) {
         if (!response.ok) {
-          throw new Error("Could not load " + item.file);
+          throw new Error("Could not load " + file);
         }
-        return response.text();
+        if (/\.json(?:$|\?)/i.test(file)) {
+          return response.json();
+        }
+        return response.text().then(parseFrontMatter);
       })
-      .then(function (source) {
-        var parsed = parseFrontMatter(source);
+      .then(function (parsed) {
+        var metadata = parsed.metadata || {};
         return {
-          file: item.file,
-          slug: parsed.metadata.slug || slugFromFile(item.file),
-          metadata: parsed.metadata,
-          body: parsed.body
+          file: file,
+          slug: parsed.slug || metadata.slug || slugFromFile(file),
+          metadata: metadata,
+          body: parsed.body || ""
         };
       });
   }

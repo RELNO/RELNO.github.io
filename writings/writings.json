@@ -1,10 +1,12 @@
 {
   "items": [
     {
-      "file": "shifting-priorities-finding-places/index.md"
+      "file": "shifting-priorities-finding-places/article.json",
+      "source": "shifting-priorities-finding-places/index.md"
     },
     {
-      "file": "the-return-of-the-charrette/index.md"
+      "file": "the-return-of-the-charrette/article.json",
+      "source": "the-return-of-the-charrette/index.md"
     }
   ]
 }
