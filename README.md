@@ -36,5 +36,30 @@ section partials:
 - `sections/talks.html`
 - `sections/awards.html`
 
+## Adding a writing
+
+The writings page at `/writings/` renders Markdown directly in the browser. No
+per-article HTML generation is required.
+
+1. Add a Markdown file inside `writings/`.
+2. Add images or other linked media in the same folder or another public path.
+3. Add the Markdown filename to `writings/writings.json`.
+4. Use front matter for metadata:
+
+```md
+---
+title: "Post title"
+subtitle: "Optional subtitle"
+slug: "post-title"
+date: "2026-06-30"
+description: "Short summary for metadata."
+image: "/writings/example.jpg"
+imageAlt: "Description of the image"
+---
+```
+
+The latest dated entry opens by default. Older entries appear in the left
+archive.
+
 GitHub Pages can deploy the committed static files directly. No backend,
 database, CMS, or JavaScript framework is required.
