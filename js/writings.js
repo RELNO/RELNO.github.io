@@ -1,73 +1,172 @@
-(function () {
+(() => {
   "use strict";
 
-  var manifestUrl = "/writings/writings.json?v=20260630-2";
-  var archiveElement = document.getElementById("writingArchive");
-  var bodyElement = document.getElementById("writingBody");
-  var titleElement = document.getElementById("writingTitle");
-  var subtitleElement = document.getElementById("writingSubtitle");
-  var dateElement = document.getElementById("writingDate");
-  var coverElement = document.getElementById("writingCover");
-  var coverImageElement = document.getElementById("writingCoverImage");
-  var coverCaptionElement = document.getElementById("writingCoverCaption");
-  var footerElement = document.getElementById("footer");
-  var writings = [];
+  const repoTreeUrl =
+    "https://api.github.com/repos/RELNO/RELNO.github.io/git/trees/master?recursive=1";
+  const cacheKey = "arielnoyman:writings:paths:v1";
+  const writingPathPattern = /^writings\/[^/]+\/index\.md$/;
 
-  function stripQuotes(value) {
-    return String(value || "")
+  const archive = document.getElementById("writingArchive");
+  const body = document.getElementById("writingBody");
+  const title = document.getElementById("writingTitle");
+  const subtitle = document.getElementById("writingSubtitle");
+  const date = document.getElementById("writingDate");
+  const cover = document.getElementById("writingCover");
+  const coverImage = document.getElementById("writingCoverImage");
+  const coverCaption = document.getElementById("writingCoverCaption");
+  const footer = document.getElementById("footer");
+
+  let writings = [];
+
+  const currentSlug = () => decodeURIComponent(window.location.hash.slice(1));
+
+  const isLocalPreview = () =>
+    ["", "localhost", "127.0.0.1", "::1"].includes(
+      window.location.hostname || ""
+    );
+
+  const escapeHtml = (value) =>
+    String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+
+  const stripQuotes = (value) =>
+    String(value || "")
       .trim()
       .replace(/^["']|["']$/g, "");
-  }
 
-  function parseFrontMatter(source) {
-    var metadata = {};
-    var body = source;
-    var match = source.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
-
-    if (match) {
-      match[1].split("\n").forEach(function (line) {
-        var item = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-        if (item) {
-          metadata[item[1]] = stripQuotes(item[2]);
-        }
-      });
-      body = source.slice(match[0].length);
-    }
-
-    return {
-      metadata: metadata,
-      body: body
-    };
-  }
-
-  function slugFromFile(file) {
-    return file
-      .replace(/\/(?:index|article)\.(?:md|json)$/i, "")
-      .replace(/\.(?:md|json)$/i, "")
-      .split("/")
-      .pop();
-  }
-
-  function normalizeHeading(value) {
-    return String(value || "")
+  const normalizeHeading = (value) =>
+    String(value || "")
       .replace(/[`*_#]/g, "")
       .replace(/\s+/g, " ")
       .trim()
       .toLowerCase();
+
+  function parseFrontMatter(source) {
+    const match = source.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
+    const metadata = {};
+
+    if (!match) {
+      return { metadata, body: source };
+    }
+
+    match[1].split("\n").forEach((line) => {
+      const item = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+      if (item) {
+        metadata[item[1]] = stripQuotes(item[2]);
+      }
+    });
+
+    return {
+      metadata,
+      body: source.slice(match[0].length)
+    };
+  }
+
+  function slugFromPath(path) {
+    const parts = path.split("/");
+    return parts[parts.length - 2] || path;
+  }
+
+  function formatDate(value) {
+    const parsed = value ? new Date(`${value}T00:00:00`) : null;
+
+    if (!parsed || Number.isNaN(parsed.getTime())) {
+      return "";
+    }
+
+    return parsed.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+  }
+
+  function cachedPaths() {
+    try {
+      const paths = JSON.parse(window.localStorage.getItem(cacheKey) || "[]");
+      return Array.isArray(paths) ? paths : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function cachePaths(paths) {
+    try {
+      window.localStorage.setItem(cacheKey, JSON.stringify(paths));
+    } catch (error) {
+    }
+  }
+
+  async function discoverPaths() {
+    try {
+      const response = await fetch(repoTreeUrl);
+      if (!response.ok) {
+        throw new Error("Could not discover writings.");
+      }
+
+      const payload = await response.json();
+      const paths = (payload.tree || [])
+        .map((node) => node.path || "")
+        .filter((path) => writingPathPattern.test(path))
+        .map((path) => `/${path}`);
+      const localSlug = isLocalPreview() && currentSlug();
+
+      if (
+        localSlug &&
+        !paths.some((path) => slugFromPath(path) === localSlug)
+      ) {
+        paths.push(`/writings/${localSlug}/index.md`);
+      }
+
+      if (paths.length) {
+        cachePaths(paths);
+        return paths;
+      }
+    } catch (error) {
+      const paths = cachedPaths();
+      if (paths.length) {
+        return paths;
+      }
+    }
+
+    if (currentSlug()) {
+      return [`/writings/${currentSlug()}/index.md`];
+    }
+
+    throw new Error("No Markdown writings found.");
+  }
+
+  async function loadWriting(path) {
+    const response = await fetch(path);
+    if (!response.ok) {
+      throw new Error(`Could not load ${path}`);
+    }
+
+    const parsed = parseFrontMatter(await response.text());
+
+    return {
+      path,
+      slug: parsed.metadata.slug || slugFromPath(path),
+      metadata: parsed.metadata,
+      body: parsed.body
+    };
   }
 
   function removeLeadHeading(markdown, marker, expected) {
-    var lines = markdown.split("\n");
-    var index = 0;
+    const lines = markdown.split("\n");
+    let index = 0;
 
     while (index < lines.length && lines[index].trim() === "") {
       index += 1;
     }
 
+    const text = lines[index] || "";
     if (
-      index < lines.length &&
-      lines[index].indexOf(marker + " ") === 0 &&
-      normalizeHeading(lines[index].slice(marker.length + 1)) ===
+      text.startsWith(`${marker} `) &&
+      normalizeHeading(text.slice(marker.length + 1)) ===
         normalizeHeading(expected)
     ) {
       lines.splice(index, 1);
@@ -76,299 +175,196 @@
     return lines.join("\n").replace(/^\s+/, "");
   }
 
-  function stripLeadTitle(markdown, metadata) {
-    var body = markdown;
+  function articleBody(item) {
+    let markdown = item.body;
 
-    if (metadata.title) {
-      body = removeLeadHeading(body, "#", metadata.title);
+    if (item.metadata.title) {
+      markdown = removeLeadHeading(markdown, "#", item.metadata.title);
     }
 
-    if (metadata.subtitle) {
-      body = removeLeadHeading(body, "##", metadata.subtitle);
+    if (item.metadata.subtitle) {
+      markdown = removeLeadHeading(markdown, "##", item.metadata.subtitle);
     }
 
-    return body;
-  }
-
-  function escapeHtml(value) {
-    return String(value || "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
-
-  function fallbackMarkdown(markdown) {
-    var lines = markdown.split(/\n{2,}/);
-
-    return lines
-      .map(function (block) {
-        var text = block.trim();
-        var heading = text.match(/^(#{1,4})\s+(.+)$/);
-
-        if (!text) {
-          return "";
-        }
-
-        if (heading) {
-          return (
-            "<h" +
-            heading[1].length +
-            ">" +
-            escapeHtml(heading[2]) +
-            "</h" +
-            heading[1].length +
-            ">"
-          );
-        }
-
-        return "<p>" + escapeHtml(text).replace(/\n/g, "<br />") + "</p>";
-      })
-      .join("\n");
+    return markdown;
   }
 
   function markdownToHtml(markdown) {
-    var html;
+    const html =
+      window.marked && typeof window.marked.parse === "function"
+        ? window.marked.parse(markdown, { breaks: false, gfm: true })
+        : `<pre>${escapeHtml(markdown)}</pre>`;
 
-    if (window.marked && typeof window.marked.parse === "function") {
-      html = window.marked.parse(markdown, {
-        breaks: false,
-        gfm: true
-      });
-    } else {
-      html = fallbackMarkdown(markdown);
+    if (!window.DOMPurify) {
+      return html;
     }
 
-    if (window.DOMPurify) {
-      return window.DOMPurify.sanitize(html, {
-        ADD_TAGS: ["iframe"],
-        ADD_ATTR: [
-          "allow",
-          "allowfullscreen",
-          "frameborder",
-          "height",
-          "loading",
-          "referrerpolicy",
-          "scrolling",
-          "src",
-          "target",
-          "title",
-          "width",
-          "rel"
-        ]
-      });
-    }
-
-    return html;
-  }
-
-  function formatDate(value) {
-    var date = value ? new Date(value + "T00:00:00") : null;
-
-    if (!date || Number.isNaN(date.getTime())) {
-      return "";
-    }
-
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
+    return window.DOMPurify.sanitize(html, {
+      ADD_TAGS: ["iframe"],
+      ADD_ATTR: [
+        "allow",
+        "allowfullscreen",
+        "frameborder",
+        "height",
+        "loading",
+        "referrerpolicy",
+        "rel",
+        "scrolling",
+        "src",
+        "target",
+        "title",
+        "width"
+      ]
     });
-  }
-
-  function sortByDateDescending(a, b) {
-    return String(b.metadata.date || "").localeCompare(
-      String(a.metadata.date || "")
-    );
-  }
-
-  function currentSlug() {
-    return decodeURIComponent(window.location.hash.replace(/^#/, ""));
-  }
-
-  function setCurrentSlug(slug) {
-    if (currentSlug() !== slug) {
-      window.location.hash = encodeURIComponent(slug);
-    }
-  }
-
-  function enhanceRenderedBody() {
-    Array.prototype.slice
-      .call(bodyElement.querySelectorAll("a[href]"))
-      .forEach(function (link) {
-        if (/^https?:\/\//i.test(link.href)) {
-          link.target = "_blank";
-          link.rel = "noopener";
-        }
-      });
-
-    Array.prototype.slice
-      .call(bodyElement.querySelectorAll("img"))
-      .forEach(function (image) {
-        image.loading = "lazy";
-      });
   }
 
   function renderCover(metadata) {
     if (!metadata.image) {
-      coverElement.hidden = true;
-      coverImageElement.removeAttribute("src");
-      coverImageElement.alt = "";
-      coverCaptionElement.textContent = "";
+      cover.hidden = true;
+      coverImage.removeAttribute("src");
+      coverImage.alt = "";
+      coverCaption.textContent = "";
       return;
     }
 
-    coverImageElement.src = metadata.image;
-    coverImageElement.alt = metadata.imageAlt || "";
-    coverCaptionElement.textContent = metadata.imageCaption || "";
-    coverCaptionElement.hidden = !metadata.imageCaption;
-    coverElement.hidden = false;
+    coverImage.src = metadata.image;
+    coverImage.alt = metadata.imageAlt || "";
+    coverCaption.textContent = metadata.imageCaption || "";
+    coverCaption.hidden = !metadata.imageCaption;
+    cover.hidden = false;
   }
 
   function renderArchive(activeSlug) {
-    archiveElement.innerHTML = "";
+    archive.innerHTML = writings
+      .map((item) => {
+        const itemDate = formatDate(item.metadata.date);
+        const current = item.slug === activeSlug ? "page" : "false";
 
-    writings.forEach(function (item) {
-      var link = document.createElement("a");
-      var meta = item.metadata;
-      var date = formatDate(meta.date);
+        return `<a class="writings-archive-link" href="/writings/#${encodeURIComponent(
+          item.slug
+        )}" data-writing-slug="${escapeHtml(
+          item.slug
+        )}" aria-current="${current}"><span class="writings-archive-title">${escapeHtml(
+          item.metadata.title || item.slug
+        )}</span>${
+          itemDate
+            ? `<span class="writings-archive-date">${escapeHtml(itemDate)}</span>`
+            : ""
+        }</a>`;
+      })
+      .join("");
+  }
 
-      link.className = "writings-archive-link";
-      link.href = "/writings/#" + encodeURIComponent(item.slug);
-      link.setAttribute("data-writing-slug", item.slug);
-      link.setAttribute(
-        "aria-current",
-        item.slug === activeSlug ? "page" : "false"
-      );
+  function enhanceBody() {
+    body.querySelectorAll("a[href]").forEach((link) => {
+      if (/^https?:\/\//i.test(link.href)) {
+        link.target = "_blank";
+        link.rel = "noopener";
+      }
+    });
 
-      link.innerHTML =
-        '<span class="writings-archive-title">' +
-        escapeHtml(meta.title || item.slug) +
-        "</span>" +
-        (date
-          ? '<span class="writings-archive-date">' + escapeHtml(date) + "</span>"
-          : "");
-
-      archiveElement.appendChild(link);
+    body.querySelectorAll("img").forEach((image) => {
+      image.loading = "lazy";
     });
   }
 
-  function renderWriting(slug) {
-    var item =
-      writings.find(function (candidate) {
-        return candidate.slug === slug;
-      }) || writings[0];
+  function renderWriting(slug = currentSlug()) {
+    const item = writings.find((candidate) => candidate.slug === slug) || writings[0];
 
     if (!item) {
-      titleElement.textContent = "No writings found";
-      bodyElement.innerHTML =
-        '<p class="writing-loading">Add Markdown files to the writings manifest to publish them here.</p>';
+      title.textContent = "No writings found";
+      body.innerHTML =
+        '<p class="writing-loading">Add Markdown files under <code>writings/&lt;slug&gt;/index.md</code> to publish them here.</p>';
       return;
     }
 
-    var metadata = item.metadata;
-    var articleBody = stripLeadTitle(item.body, metadata);
-    var date = formatDate(metadata.date);
+    const metadata = item.metadata;
+    const itemDate = formatDate(metadata.date);
 
-    titleElement.textContent = metadata.title || item.slug;
-    subtitleElement.textContent = metadata.subtitle || "";
-    subtitleElement.hidden = !metadata.subtitle;
-    dateElement.textContent = date;
-    dateElement.hidden = !date;
-    bodyElement.innerHTML = markdownToHtml(articleBody);
-    renderCover(metadata);
-    enhanceRenderedBody();
-    renderArchive(item.slug);
-
-    document.title = (metadata.title || "Writings") + " | Ariel Noyman";
+    title.textContent = metadata.title || item.slug;
+    subtitle.textContent = metadata.subtitle || "";
+    subtitle.hidden = !metadata.subtitle;
+    date.textContent = itemDate;
+    date.hidden = !itemDate;
+    body.innerHTML = markdownToHtml(articleBody(item));
+    document.title = `${metadata.title || "Writings"} | Ariel Noyman`;
 
     if (metadata.description) {
-      var description = document.querySelector('meta[name="description"]');
-      if (description) {
-        description.setAttribute("content", metadata.description);
-      }
+      document
+        .querySelector('meta[name="description"]')
+        ?.setAttribute("content", metadata.description);
     }
+
+    renderCover(metadata);
+    renderArchive(item.slug);
+    enhanceBody();
   }
 
-  function loadWriting(item) {
-    var file = item.file;
-
-    return fetch("/writings/" + file)
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error("Could not load " + file);
-        }
-        if (/\.json(?:$|\?)/i.test(file)) {
-          return response.json();
-        }
-        return response.text().then(parseFrontMatter);
-      })
-      .then(function (parsed) {
-        var metadata = parsed.metadata || {};
-        return {
-          file: file,
-          slug: parsed.slug || metadata.slug || slugFromFile(file),
-          metadata: metadata,
-          body: parsed.body || ""
-        };
-      });
-  }
-
-  function loadFooter() {
-    if (!footerElement) {
+  async function loadFooter() {
+    if (!footer) {
       return;
     }
 
-    fetch("/footer/footer.html")
-      .then(function (response) {
-        return response.text();
-      })
-      .then(function (html) {
-        footerElement.innerHTML = html;
-      })
-      .catch(function () {
-        footerElement.innerHTML = "";
-      });
+    try {
+      const response = await fetch("/footer/footer.html");
+      footer.innerHTML = await response.text();
+    } catch (error) {
+      footer.innerHTML = "";
+    }
   }
 
-  fetch(manifestUrl)
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error("Could not load writings manifest.");
-      }
-      return response.json();
-    })
-    .then(function (manifest) {
-      return Promise.all((manifest.items || []).map(loadWriting));
-    })
-    .then(function (loadedWritings) {
-      writings = loadedWritings.sort(sortByDateDescending);
-      renderWriting(currentSlug());
-    })
-    .catch(function (error) {
-      console.error(error);
-      titleElement.textContent = "Writings could not be loaded";
-      bodyElement.innerHTML =
-        '<p class="writing-loading">Please try refreshing the page.</p>';
-      if (archiveElement) {
-        archiveElement.innerHTML = "";
-      }
-    });
+  async function init() {
+    try {
+      const paths = await discoverPaths();
+      const loaded = (
+        await Promise.all(
+          paths.map((path) =>
+            loadWriting(path).catch((error) => {
+              console.warn(error);
+              return null;
+            })
+          )
+        )
+      ).filter(Boolean);
 
-  window.addEventListener("hashchange", function () {
-    renderWriting(currentSlug());
+      writings = loaded
+        .filter(
+          (item) =>
+            String(item.metadata.status || "published").toLowerCase() !== "draft"
+        )
+        .sort((a, b) =>
+          String(b.metadata.date || "").localeCompare(a.metadata.date || "")
+        );
+
+      renderWriting();
+    } catch (error) {
+      console.error(error);
+      title.textContent = "Writings could not be loaded";
+      body.innerHTML =
+        '<p class="writing-loading">Please try refreshing the page.</p>';
+      archive.innerHTML = "";
+    }
+
+    loadFooter();
+  }
+
+  window.addEventListener("hashchange", () => renderWriting());
+
+  archive.addEventListener("click", (event) => {
+    const link = event.target.closest("[data-writing-slug]");
+    if (!link) {
+      return;
+    }
+
+    event.preventDefault();
+    const slug = link.getAttribute("data-writing-slug");
+
+    if (currentSlug() === slug) {
+      renderWriting(slug);
+    } else {
+      window.location.hash = encodeURIComponent(slug);
+    }
   });
 
-  if (archiveElement) {
-    archiveElement.addEventListener("click", function (event) {
-      var link = event.target.closest("[data-writing-slug]");
-      if (!link) {
-        return;
-      }
-      event.preventDefault();
-      setCurrentSlug(link.getAttribute("data-writing-slug"));
-    });
-  }
-
-  loadFooter();
+  init();
 })();

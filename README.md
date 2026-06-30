@@ -38,13 +38,13 @@ section partials:
 
 ## Adding a writing
 
-The writings page at `/writings/` renders Markdown directly in the browser. No
-per-article HTML generation is required.
+The writings page at `/writings/` renders Markdown directly in the browser.
+There are no per-article JSON files, generated article copies, or writing
+manifests to keep in sync.
 
-1. Add a Markdown file inside `writings/`.
+1. Create `writings/<slug>/index.md`.
 2. Add images or other linked media in the same folder or another public path.
-3. Add the Markdown filename to `writings/writings.json`.
-4. Use front matter for metadata:
+3. Use front matter for metadata:
 
 ```md
 ---
@@ -58,8 +58,11 @@ imageAlt: "Description of the image"
 ---
 ```
 
-The latest dated entry opens by default. Older entries appear in the left
-archive.
+The deployed page discovers pushed `writings/*/index.md` files from the GitHub
+repository tree, loads their front matter, and opens the latest dated entry by
+default. Older entries appear in the left archive. For local draft previews,
+open `/writings/#<slug>` to load `writings/<slug>/index.md` directly. Set
+`status: "draft"` to keep a Markdown file out of the archive.
 
 GitHub Pages can deploy the committed static files directly. No backend,
 database, CMS, or JavaScript framework is required.
