@@ -23,6 +23,8 @@ carouselItems:
   - type: "image"
     src: "projects/12yadlebanim/5_11.jpg"
   - type: "image"
+    src: "projects/12yadlebanim/5_16.jpg"
+  - type: "image"
     src: "projects/12yadlebanim/5_14.jpg"
   - type: "image"
     src: "projects/12yadlebanim/5_19.jpg"
@@ -37,11 +39,7 @@ carouselItems:
   - type: "image"
     src: "projects/12yadlebanim/1_02.jpg"
   - type: "image"
-    src: "projects/12yadlebanim/1_03.jpg"
-  - type: "image"
     src: "projects/12yadlebanim/5_05.jpg"
-  - type: "image"
-    src: "projects/12yadlebanim/5_16.jpg"
 ---
 Beit Yad LeBanim is a 2012 public competition proposal for a memorial and civic center in Ramat Yishai. The project responds to a broader change in Yad LeBanim buildings in Israel: from dedicated places of remembrance into hybrid civic institutions that hold commemoration alongside cultural, educational, and social activity. The design asks how the everyday and the ceremonial can share one place, balancing the desire for an open public square with the need for a quiet memorial presence.
 

@@ -5,9 +5,16 @@ order: 140
 imageSrc: "projects/16fp/0.jpg"
 themes:
   - "city-science"
+  - "publication"
+  - "award"
 badges:
   - label: "Research Paper"
     link: "http://www.sciencedirect.com/science/article/pii/S1877050917315375"
+credits:
+  - label: "Publication"
+    value: "Knowledge-Based and Intelligent Information & Engineering Systems, 2017"
+  - label: "Award"
+    value: "European Union UrbanAct Award, international competition, good practice, 2019"
 carouselItems:
   - type: "link"
     src: "https://i.ytimg.com/vi/gKq5SVItIII/hqdefault.jpg"

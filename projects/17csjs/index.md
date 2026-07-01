@@ -5,9 +5,18 @@ order: 110
 imageSrc: "projects/17csjs/0.jpg"
 themes:
   - "city-science"
+  - "publication"
+  - "talk"
 badges:
   - label: "GitHub Repository"
     link: "https://github.com/CityScope/CS_cityscopeJS"
+  - label: "MIT Doctoral Thesis"
+    link: "https://dspace.mit.edu/handle/1721.1/145128"
+credits:
+  - label: "Publication"
+    value: "CityScope: An Urban Modeling and Simulation Platform, Doctoral thesis, MIT Program in Media Arts and Sciences, 2022"
+  - label: "Talk"
+    value: "Urban Modeling and Simulation, Foster + Partners, London, 2023"
 carouselItems:
   - type: "video"
     src: "projects/17csjs/csjs-corktown-reduced.mp4"

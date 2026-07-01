@@ -31,10 +31,11 @@ source.
    generated `projects/projects.json`.
 
 Project themes drive the homepage filters. Current theme values are
-`architecture`, `urbanism`, `city-science`, and `writing`. Writings are regular
-projects: add the `writing` theme and write the article body below the front
-matter. Writing project slugs use the compact `YYword` pattern, such as
-`26charrette`.
+`architecture`, `urbanism`, `city-science`, `writing`, `publication`, `talk`,
+and `award`. Writings are regular projects: add the `writing` theme and write
+the article body below the front matter. Talks, publications, and awards should
+usually be added to the relevant project as links, media, credits, and themes
+rather than maintained as a separate list.
 
 Common front matter fields:
 
@@ -59,15 +60,6 @@ carouselItems:
     alt: "Short image description"
 ---
 ```
-
-## Homepage selected lists
-
-The homepage loads the selected publications, talks, and awards from shared
-section partials:
-
-- `sections/publications.html`
-- `sections/talks.html`
-- `sections/awards.html`
 
 GitHub Pages can deploy the committed static files directly. No backend,
 database, CMS, or JavaScript framework is required.

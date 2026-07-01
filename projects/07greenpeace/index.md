@@ -5,6 +5,7 @@ order: 330
 imageSrc: "projects/07greenpeace/Greenpeace3.jpg"
 themes:
   - "architecture"
+  - "award"
 credits:
   - label: "Award"
     value: "Student track winner"

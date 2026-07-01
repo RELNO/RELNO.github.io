@@ -6,6 +6,10 @@ imageSrc: "projects/09dubai/1.jpeg"
 themes:
   - "architecture"
   - "urbanism"
+  - "award"
+credits:
+  - label: "Award"
+    value: "Magazine Architecture A2 Dubai, international competition, third place, 2009"
 carouselItems:
   - type: "image"
     src: "projects/09dubai/1.jpeg"

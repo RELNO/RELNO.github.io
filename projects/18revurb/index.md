@@ -5,6 +5,7 @@ order: 100
 imageSrc: "projects/18revurb/0.png"
 themes:
   - "city-science"
+  - "publication"
 badges:
   - label: "GitHub Repository"
     link: "https://cityscope.github.io/CS_Andorra_RNC/"
@@ -14,6 +15,9 @@ badges:
     link: "https://journals.sagepub.com/doi/abs/10.1177/2399808319840668?journalCode=epbb#articleCitationDownloadContainer"
   - label: "Method Diagram Source"
     link: "projects/18revurb/revurb-staypoint-cluster-method.ai"
+credits:
+  - label: "Publication"
+    value: "Environment and Planning B: Urban Analytics and City Science, 2019"
 carouselItems:
   - type: "video"
     src: "projects/18revurb/revurb-24hrs-staypoints.mp4"

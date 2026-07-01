@@ -5,6 +5,8 @@ order: 20
 imageSrc: "projects/24travelagent/0.jpg"
 themes:
   - "city-science"
+  - "publication"
+  - "talk"
 badges:
   - label: "LinkedIn Post"
     link: "https://www.linkedin.com/posts/arielnoyman_urbandesign-ai-generativeagents-activity-7280652464071094272-R3ux?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAUib70BwKgU6e0K5eAaWzScP9yfIUyk9xU"
@@ -20,6 +22,15 @@ badges:
     link: "https://www.youtube.com/watch?v=ZabGk8Zl2QM"
   - label: "Podcast"
     link: "https://www.youtube.com/watch?v=vPMkZWntUf8"
+  - label: "Urban AI Conversation"
+    link: "https://www.youtube.com/watch?v=1y7Oa1Kv7bI"
+credits:
+  - label: "Publication"
+    value: "Environment and Planning B: Urban Analytics and City Science, 2025"
+  - label: "Talk"
+    value: "Generative Agents in the Built Environment, Cornell Tech, Cornell University, 2025"
+  - label: "Talk"
+    value: "AI Agents and Urban Planning, Urban AI Conversation #22, Urban AI, 2025"
 carouselItems:
   - type: "link"
     src: "https://i.ytimg.com/vi/ZabGk8Zl2QM/hqdefault.jpg"
@@ -32,6 +43,10 @@ carouselItems:
     src: "https://i.ytimg.com/vi/vPMkZWntUf8/hqdefault.jpg"
     link: "https://www.youtube.com/watch?v=vPMkZWntUf8"
     caption: "Watch TravelAgent podcast"
+  - type: "link"
+    src: "https://www.youtube.com/watch?v=1y7Oa1Kv7bI"
+    autoplay: false
+    caption: "AI Agents and Urban Planning"
   - type: "image"
     src: "https://www.arielnoyman.com/travelAgent/static/figs/ta-path-3D.png"
     caption: "Path visualization in the 3D experiment environment"

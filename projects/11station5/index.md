@@ -5,6 +5,7 @@ order: 240
 imageSrc: "projects/11station5/0.png"
 themes:
   - "architecture"
+  - "award"
 badges:
   - label: "ArchDaily"
     link: "https://www.archdaily.com/117870/station-5-ariel-noyman"

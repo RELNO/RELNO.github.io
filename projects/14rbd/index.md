@@ -6,11 +6,15 @@ order: 190
 imageSrc: "projects/14rbd/0.jpg"
 themes:
   - "urbanism"
+  - "award"
 badges:
   - label: "ArchDaily Article"
     link: "https://www.archdaily.com/512516/oma-wins-rebuild-by-design-competition-with-resist-delay-store-discharge"
   - label: "Rebuild by Design"
     link: "https://rebuildbydesign.org/"
+credits:
+  - label: "Award"
+    value: "Rebuild by Design, U.S. Department of Housing and Urban Development, international competition, first place, 2015"
 carouselItems:
   - type: "image"
     src: "projects/14rbd/1.jpg"

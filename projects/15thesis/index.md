@@ -6,9 +6,13 @@ order: 160
 imageSrc: "projects/15thesis/0.jpg"
 themes:
   - "city-science"
+  - "publication"
 badges:
   - label: "MIT Thesis"
     link: "http://hdl.handle.net/1721.1/99301"
+credits:
+  - label: "Publication"
+    value: "Master's thesis, MIT Department of Architecture, 2015"
 carouselItems:
   - type: "link"
     src: "https://i.ytimg.com/vi/Bz9syrmgFMI/hqdefault.jpg"

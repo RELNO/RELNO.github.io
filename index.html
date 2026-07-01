@@ -45,7 +45,7 @@
 
     <!-- Core CSS -->
     <link href="css/base.css" rel="stylesheet" />
-    <link href="css/edits.css?v=20260701-1" rel="stylesheet" />
+    <link href="css/edits.css?v=20260701-4" rel="stylesheet" />
   </head>
 
   <body>
@@ -57,7 +57,6 @@
           </a>
           <nav class="site-nav" aria-label="Primary navigation">
             <a href="/#work">Work</a>
-            <a href="/#selected-work">Publications, Talks, Awards</a>
           </nav>
         </div>
       </header>
@@ -67,31 +66,6 @@
       <div id="about"></div>
 
       <div id="work"></div>
-
-      <section class="selected-work-section" id="selected-work">
-        <div class="selected-work-intro">
-          <h1>Publications, Talks, Awards</h1>
-          <p class="">
-            Selected. For the full list,
-            <a
-              href="https://github.com/RELNO/resume/releases/download/latest/resume.pdf"
-              target="_blank"
-              rel="noopener"
-              class="alert-link"
-              >see the resume (pdf)
-            </a>
-          </p>
-        </div>
-      </section>
-
-      <section
-        class="selected-work-grid selected-work-columns"
-        aria-label="Selected publications, talks, and awards"
-      >
-        <div class="selected-work-column" id="selected-publications"></div>
-        <div class="selected-work-column" id="selected-talks"></div>
-        <div class="selected-work-column" id="selected-awards"></div>
-      </section>
     </main>
 
     <div id="footer"></div>
@@ -117,9 +91,6 @@
 
         $("#about").load(partial("sections/about.html"), initAboutReadMore);
         $("#work").load(partial("projects/projects.html"));
-        $("#selected-publications").load(partial("sections/publications.html"));
-        $("#selected-talks").load(partial("sections/talks.html"));
-        $("#selected-awards").load(partial("sections/awards.html"));
         $("#footer").load(partial("footer/footer.html"));
       });
     </script>

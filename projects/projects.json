@@ -6,10 +6,16 @@
     "themes": ["writing", "architecture"]
   },
   {
+    "name": "25streetknowledge",
+    "title": "Street Knowledge",
+    "imageSrc": "projects/25streetknowledge/st-know.jpeg",
+    "themes": ["city-science", "urbanism", "publication", "talk", "award"]
+  },
+  {
     "name": "24travelagent",
     "title": "TravelAgent",
     "imageSrc": "projects/24travelagent/0.jpg",
-    "themes": ["city-science"]
+    "themes": ["city-science", "publication", "talk"]
   },
   {
     "name": "26computer",
@@ -33,7 +39,7 @@
     "name": "19deepscope",
     "title": "DeepScope",
     "imageSrc": "projects/19deepscope/0.png",
-    "themes": ["city-science"]
+    "themes": ["city-science", "publication"]
   },
   {
     "name": "19nibn",
@@ -57,19 +63,19 @@
     "name": "18revurb",
     "title": "Reversed Urbanism",
     "imageSrc": "projects/18revurb/0.png",
-    "themes": ["city-science"]
+    "themes": ["city-science", "publication"]
   },
   {
     "name": "17csjs",
     "title": "CityScope JS",
     "imageSrc": "projects/17csjs/0.jpg",
-    "themes": ["city-science"]
+    "themes": ["city-science", "publication", "talk"]
   },
   {
     "name": "17cityio",
     "title": "cityIO",
     "imageSrc": "projects/17cityio/0.png",
-    "themes": ["city-science"]
+    "themes": ["city-science", "talk"]
   },
   {
     "name": "16csar",
@@ -81,7 +87,7 @@
     "name": "16fp",
     "title": "FindingPlaces",
     "imageSrc": "projects/16fp/0.jpg",
-    "themes": ["city-science"]
+    "themes": ["city-science", "publication", "award"]
   },
   {
     "name": "16priorities",
@@ -93,7 +99,7 @@
     "name": "15thesis",
     "title": "Power/Structures",
     "imageSrc": "projects/15thesis/0.jpg",
-    "themes": ["city-science"]
+    "themes": ["city-science", "publication"]
   },
   {
     "name": "15brt",
@@ -111,7 +117,7 @@
     "name": "14rbd",
     "title": "Rebuild By Design",
     "imageSrc": "projects/14rbd/0.jpg",
-    "themes": ["urbanism"]
+    "themes": ["urbanism", "award"]
   },
   {
     "name": "14mloop",
@@ -141,7 +147,7 @@
     "name": "11station5",
     "title": "Station 5",
     "imageSrc": "projects/11station5/0.png",
-    "themes": ["architecture"]
+    "themes": ["architecture", "award"]
   },
   {
     "name": "11pushkinsky",
@@ -171,7 +177,7 @@
     "name": "09dubai",
     "title": "The 8th Souk",
     "imageSrc": "projects/09dubai/1.jpeg",
-    "themes": ["architecture", "urbanism"]
+    "themes": ["architecture", "urbanism", "award"]
   },
   {
     "name": "09beit",
@@ -195,12 +201,12 @@
     "name": "07greenpeace",
     "title": "Green Piece",
     "imageSrc": "projects/07greenpeace/Greenpeace3.jpg",
-    "themes": ["architecture"]
+    "themes": ["architecture", "award"]
   },
   {
     "name": "04kolech",
     "title": "Septum",
     "imageSrc": "projects/04kolech/0.jpg",
-    "themes": ["architecture"]
+    "themes": ["architecture", "award"]
   }
 ]
