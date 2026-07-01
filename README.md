@@ -5,8 +5,9 @@ Built as a static HTML-first site, originally based on the
 
 ## Project pages
 
-The homepage project grid reads `projects/projects.json`. Each project also has
-one detail file at `projects/<slug>/<slug>.json`.
+Project content is authored in Markdown. Each project has one source file at
+`projects/<slug>/index.md`, with YAML front matter for metadata and a Markdown
+body for the page text.
 
 Permanent project URLs are generated as static files:
 
@@ -15,23 +16,49 @@ node tools/generate-project-pages.js
 ```
 
 The generator writes `projects/<slug>/index.html` for every project in
-`projects/projects.json`, using `templates/project-page.html`,
-`footer/footer.html`, and the existing project JSON data.
+`projects/<slug>/index.md`, using `templates/project-page.html` and
+`footer/footer.html`. It also regenerates `projects/projects.json` for the
+homepage grid; treat that JSON file as generated output, not as the editing
+source.
 
 ## Adding a project
 
-1. Create `projects/<slug>/<slug>.json`.
+1. Create `projects/<slug>/index.md`.
 2. Add images or other media inside `projects/<slug>/`.
-3. Add the project entry to `projects/projects.json` with `name`, `title`,
-   `imageSrc`, and `themes`.
+3. Add front matter with `title`, `order`, `imageSrc`, and `themes`.
 4. Run `node tools/generate-project-pages.js`.
-5. Commit the JSON, media, and generated `projects/<slug>/index.html`.
+5. Commit the Markdown, media, generated `projects/<slug>/index.html`, and
+   generated `projects/projects.json`.
 
 Project themes drive the homepage filters. Current theme values are
 `architecture`, `urbanism`, `city-science`, and `writing`. Writings are regular
-projects: add the `writing` theme, use the same project JSON fields, and write
-the article body in the project `text` value. Writing project slugs use the
-compact `YYword` pattern, such as `26charrette`.
+projects: add the `writing` theme and write the article body below the front
+matter. Writing project slugs use the compact `YYword` pattern, such as
+`26charrette`.
+
+Common front matter fields:
+
+```yaml
+---
+title: "Project Page Title"
+listTitle: "Optional shorter homepage title"
+subtitle: "Optional page subtitle"
+order: 10
+imageSrc: "projects/example/0.jpg"
+themes:
+  - "architecture"
+badges:
+  - label: "Project Link"
+    link: "https://example.com"
+credits:
+  - label: "Date"
+    value: "2026"
+carouselItems:
+  - type: "image"
+    src: "projects/example/0.jpg"
+    alt: "Short image description"
+---
+```
 
 ## Homepage selected lists
 

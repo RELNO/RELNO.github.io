@@ -543,6 +543,10 @@ button:focus-visible {
   margin-bottom: clamp(3rem, 7vw, 7rem);
 }
 
+.project-info-no-facts {
+  display: block;
+}
+
 .project-facts {
   font-size: 1rem;
   line-height: 1.35;
@@ -786,6 +790,10 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  .writing-project .project-info {
+    grid-template-columns: 1fr;
+  }
+
   .project-facts {
     font-size: var(--type-caption);
     line-height: 1.4;
@@ -880,12 +888,6 @@ button:focus-visible {
   }
 
   .project-fact-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 430px) {
-  .portfolio-grid {
     grid-template-columns: 1fr;
   }
 }

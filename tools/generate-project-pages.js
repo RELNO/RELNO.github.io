@@ -8,14 +8,191 @@ const projectsDir = path.join(rootDir, "projects");
 const templatePath = path.join(rootDir, "templates", "project-page.html");
 const footerPath = path.join(rootDir, "footer", "footer.html");
 const projectListPath = path.join(projectsDir, "projects.json");
+const projectSourceFile = "index.md";
 const siteUrl = "https://www.arielnoyman.com";
 
 function readFile(filePath) {
   return fs.readFileSync(filePath, "utf8");
 }
 
-function readJson(filePath) {
-  return JSON.parse(readFile(filePath));
+function parseYamlScalar(rawValue) {
+  const value = String(rawValue ?? "").trim();
+
+  if (value === "") {
+    return "";
+  }
+
+  if (value === "[]") {
+    return [];
+  }
+
+  if (value === "true") {
+    return true;
+  }
+
+  if (value === "false") {
+    return false;
+  }
+
+  if (value === "null") {
+    return null;
+  }
+
+  if (/^-?\d+(?:\.\d+)?$/.test(value)) {
+    return Number(value);
+  }
+
+  if (value.startsWith('"') && value.endsWith('"')) {
+    return JSON.parse(value);
+  }
+
+  if (value.startsWith("'") && value.endsWith("'")) {
+    return value.slice(1, -1).replace(/''/g, "'");
+  }
+
+  return value;
+}
+
+function parseFrontMatterYaml(yaml, filePath) {
+  const data = {};
+  let currentArrayKey = "";
+  let currentArrayItem = null;
+
+  yaml.split(/\r?\n/).forEach((line, index) => {
+    if (!line.trim() || line.trim().startsWith("#")) {
+      return;
+    }
+
+    const topLevel = line.match(/^([A-Za-z0-9_-]+):(?:\s*(.*))?$/);
+    if (topLevel) {
+      const [, key, rawValue = ""] = topLevel;
+      const value = parseYamlScalar(rawValue);
+      data[key] = rawValue === "" ? [] : value;
+      currentArrayKey = rawValue === "" ? key : "";
+      currentArrayItem = null;
+      return;
+    }
+
+    const arrayItem = line.match(/^  -(?:\s+(.*))?$/);
+    if (arrayItem && currentArrayKey) {
+      const rawItem = arrayItem[1] || "";
+      const pair = rawItem.match(/^([A-Za-z0-9_-]+):(?:\s*(.*))?$/);
+
+      if (pair) {
+        const [, key, rawValue = ""] = pair;
+        currentArrayItem = {
+          [key]: parseYamlScalar(rawValue),
+        };
+        data[currentArrayKey].push(currentArrayItem);
+        return;
+      }
+
+      currentArrayItem = null;
+      data[currentArrayKey].push(parseYamlScalar(rawItem));
+      return;
+    }
+
+    const nestedProperty = line.match(/^    ([A-Za-z0-9_-]+):(?:\s*(.*))?$/);
+    if (nestedProperty && currentArrayItem) {
+      const [, key, rawValue = ""] = nestedProperty;
+      currentArrayItem[key] = parseYamlScalar(rawValue);
+      return;
+    }
+
+    throw new Error(
+      `Unsupported front matter syntax in ${filePath}:${index + 1}: ${line}`
+    );
+  });
+
+  return data;
+}
+
+function readProjectMarkdown(filePath) {
+  const source = readFile(filePath);
+  const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+
+  if (!match) {
+    throw new Error(`${filePath} must start with YAML front matter.`);
+  }
+
+  const [, yaml, body] = match;
+  return {
+    ...parseFrontMatterYaml(yaml, filePath),
+    text: body.trim(),
+  };
+}
+
+function readProjectSources() {
+  const projects = fs
+    .readdirSync(projectsDir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => {
+      const slug = entry.name;
+      const sourcePath = path.join(projectsDir, slug, projectSourceFile);
+
+      if (!fs.existsSync(sourcePath)) {
+        return null;
+      }
+
+      const project = readProjectMarkdown(sourcePath);
+      return {
+        ...project,
+        slug,
+        sourcePath,
+        listImageSrc: project.imageSrc || "",
+        themes: Array.isArray(project.themes) ? project.themes : [],
+        order: Number.isFinite(Number(project.order))
+          ? Number(project.order)
+          : Number.MAX_SAFE_INTEGER,
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => {
+      if (a.order !== b.order) {
+        return a.order - b.order;
+      }
+
+      return a.slug.localeCompare(b.slug);
+    });
+
+  if (projects.length === 0) {
+    throw new Error(`No project Markdown files found under ${projectsDir}.`);
+  }
+
+  return projects;
+}
+
+function writeProjectList(projects) {
+  const projectList = projects.map((project) => {
+    return {
+      name: project.slug,
+      title: project.listTitle || project.title || project.slug,
+      imageSrc: project.imageSrc || "",
+      themes: project.themes,
+    };
+  });
+  const json = [
+    "[",
+    projectList
+      .map((project) => {
+        const themes = project.themes.map((theme) => JSON.stringify(theme));
+
+        return [
+          "  {",
+          `    "name": ${JSON.stringify(project.name)},`,
+          `    "title": ${JSON.stringify(project.title)},`,
+          `    "imageSrc": ${JSON.stringify(project.imageSrc)},`,
+          `    "themes": [${themes.join(", ")}]`,
+          "  }",
+        ].join("\n");
+      })
+      .join(",\n"),
+    "]",
+    "",
+  ].join("\n");
+
+  fs.writeFileSync(projectListPath, json);
+  console.log(`Generated ${path.relative(rootDir, projectListPath)}`);
 }
 
 function escapeHtml(value) {
@@ -125,6 +302,12 @@ function renderInlineText(value) {
     })
     .replace(/`([^`]+)`/g, (_match, label) => {
       return `<span class="project-inline-title">${escapeHtml(label)}</span>`;
+    })
+    .replace(/\*\*([^*\n]+)\*\*/g, (_match, label) => {
+      return `<strong>${escapeHtml(label)}</strong>`;
+    })
+    .replace(/(^|[^*])\*([^*\n]+)\*/g, (_match, prefix, label) => {
+      return `${prefix}<em>${escapeHtml(label)}</em>`;
     });
 }
 
@@ -134,38 +317,97 @@ function isBlockHtml(value) {
   );
 }
 
-function renderProjectDescription(text) {
-  const trimmed = String(text ?? "").trim();
+function renderMarkdownList(block, isOrdered) {
+  const tagName = isOrdered ? "ol" : "ul";
+  const itemPattern = isOrdered ? /^\d+\.\s+/ : /^[-*]\s+/;
+  const items = block
+    .split(/\n/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => line.replace(itemPattern, ""))
+    .map((line) => `  <li>${renderInlineText(line)}</li>`)
+    .join("\n");
+
+  return `<${tagName}>\n${items}\n</${tagName}>`;
+}
+
+function renderMarkdownBlock(block) {
+  const content = block.trim();
+  const lines = content.split(/\n/);
+  const heading = content.match(/^(#{2,4})\s+(.+)$/);
+
+  if (isBlockHtml(content)) {
+    return renderInlineText(content);
+  }
+
+  if (heading && lines.length === 1) {
+    const level = heading[1].length;
+    return `<h${level}>${renderInlineText(heading[2].trim())}</h${level}>`;
+  }
+
+  if (lines.every((line) => /^>\s?/.test(line.trim()))) {
+    const quote = lines
+      .map((line) => line.trim().replace(/^>\s?/, ""))
+      .join("\n");
+    return `<blockquote>\n${renderMarkdownBlocks(quote)}\n</blockquote>`;
+  }
+
+  if (lines.every((line) => /^[-*]\s+/.test(line.trim()))) {
+    return renderMarkdownList(content, false);
+  }
+
+  if (lines.every((line) => /^\d+\.\s+/.test(line.trim()))) {
+    return renderMarkdownList(content, true);
+  }
+
+  return `<p>${renderInlineText(content).replace(/\n/g, "<br />\n")}</p>`;
+}
+
+function renderMarkdownBlocks(markdown) {
+  const trimmed = String(markdown ?? "").trim();
 
   if (!trimmed) {
     return "";
   }
 
-  const paragraphs = renderInlineText(trimmed)
+  return trimmed
     .split(/\n\s*\n/)
     .map((paragraph) => {
-      const content = paragraph.trim().replace(/\n/g, "<br />\n");
-      if (isBlockHtml(content)) {
-        return content;
-      }
-
-      return `<p>${content}</p>`;
+      return renderMarkdownBlock(paragraph);
     })
     .join("\n");
+}
 
-  return `<section class="project-description">\n${paragraphs}\n</section>`;
+function renderProjectDescription(text) {
+  const content = renderMarkdownBlocks(text);
+
+  if (!content) {
+    return "";
+  }
+
+  return `<section class="project-description">\n${content}\n</section>`;
+}
+
+function renderProjectInfo(projectMeta, projectBadges, projectDescription) {
+  const projectFacts = [projectMeta, projectBadges].filter(Boolean).join("\n");
+
+  if (!projectFacts) {
+    return `<div class="project-info project-info-no-facts">\n${projectDescription}\n</div>`;
+  }
+
+  return [
+    '<div class="project-info">',
+    '  <aside class="project-facts" aria-label="Project details">',
+    projectFacts,
+    "  </aside>",
+    "",
+    projectDescription,
+    "</div>",
+  ].join("\n");
 }
 
 function renderProjectMeta(project) {
-  const subtitle = String(project.subtitle ?? "").trim();
   const rows = [];
-
-  if (subtitle) {
-    rows.push({
-      label: "Context",
-      value: subtitle,
-    });
-  }
 
   if (Array.isArray(project.credits)) {
     project.credits
@@ -364,26 +606,22 @@ function renderTemplate(template, replacements) {
 }
 
 function generateProjectPages() {
-  const projects = readJson(projectListPath);
+  const projects = readProjectSources();
   const template = readFile(templatePath);
   const siteFooter = readFile(footerPath).trim();
 
-  projects.forEach((projectSummary) => {
-    const slug = projectSummary.name;
-    const projectPath = path.join(projectsDir, slug, `${slug}.json`);
-    const project = {
-      ...readJson(projectPath),
-      slug,
-      listTitle: projectSummary.title,
-      listImageSrc: projectSummary.imageSrc,
-      themes: Array.isArray(projectSummary.themes) ? projectSummary.themes : [],
-    };
+  writeProjectList(projects);
 
-    const title = project.title || projectSummary.title || slug;
+  projects.forEach((project) => {
+    const slug = project.slug;
+    const title = project.title || project.listTitle || slug;
     const isWriting = project.themes.includes("writing");
     const plainDescription = stripHtml(project.text || project.subtitle || title);
     const metaDescription = truncate(plainDescription || `${title} by Ariel Noyman`, 160);
     const canonicalUrl = `${siteUrl}/projects/${slug}/`;
+    const projectMeta = renderProjectMeta(project);
+    const projectBadges = renderBadges(project);
+    const projectDescription = renderProjectDescription(project.text);
     const html = renderTemplate(template, {
       siteFooter,
       pageTitle: `${escapeHtml(title)} | Ariel Noyman`,
@@ -396,9 +634,7 @@ function generateProjectPages() {
         ? `<p class="project-heading-meta">${escapeHtml(project.subtitle)}</p>`
         : "",
       projectLeadMedia: renderLeadMedia(project),
-      projectMeta: renderProjectMeta(project),
-      projectBadges: renderBadges(project),
-      projectDescription: renderProjectDescription(project.text),
+      projectInfo: renderProjectInfo(projectMeta, projectBadges, projectDescription),
       projectGallery: renderGallery(project),
     }).replace(
       "<!DOCTYPE html>",
