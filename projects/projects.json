@@ -9,7 +9,7 @@
     "name": "25streetknowledge",
     "title": "Street Knowledge",
     "imageSrc": "projects/25streetknowledge/st-know.jpeg",
-    "themes": ["city-science", "urbanism", "publication", "talk", "award"]
+    "themes": ["city-science", "publication", "talk", "award"]
   },
   {
     "name": "24travelagent",
@@ -21,7 +21,13 @@
     "name": "26computer",
     "title": "A Computer Might Be a City",
     "imageSrc": "projects/26computer/a-comp.jpeg",
-    "themes": ["writing", "urbanism", "city-science"]
+    "themes": ["writing", "city-science"]
+  },
+  {
+    "name": "23nur",
+    "title": "NUR",
+    "imageSrc": "projects/23nur/nur-desert-dome.jpg",
+    "themes": ["city-science", "talk"]
   },
   {
     "name": "20rechamps",
@@ -40,6 +46,12 @@
     "title": "DeepScope",
     "imageSrc": "projects/19deepscope/0.png",
     "themes": ["city-science", "publication"]
+  },
+  {
+    "name": "19oldnewcities",
+    "title": "Old, New Cities",
+    "imageSrc": "https://i.ytimg.com/vi/AW-ljDEleLw/hqdefault.jpg",
+    "themes": ["city-science", "talk"]
   },
   {
     "name": "19nibn",
@@ -93,7 +105,7 @@
     "name": "16priorities",
     "title": "Shifting Priorities, Finding Places",
     "imageSrc": "projects/16priorities/interactive-table-suggested-sites.jpeg",
-    "themes": ["writing", "urbanism", "city-science"]
+    "themes": ["writing", "city-science"]
   },
   {
     "name": "15thesis",
@@ -177,7 +189,7 @@
     "name": "09dubai",
     "title": "The 8th Souk",
     "imageSrc": "projects/09dubai/1.jpeg",
-    "themes": ["architecture", "urbanism", "award"]
+    "themes": ["architecture", "award"]
   },
   {
     "name": "09beit",

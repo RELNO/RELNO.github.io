@@ -1,9 +1,5 @@
 <!-- Portfolio Section -->
-<section
-  class="portfolio-section"
-  id="portfolio"
-  aria-labelledby="work-title"
->
+<section class="portfolio-section" id="portfolio" aria-labelledby="work-title">
   <div class="portfolio-heading">
     <h1 id="work-title">Work</h1>
     <nav class="project-filter-menu" aria-label="Work themes">
@@ -14,6 +10,14 @@
         aria-pressed="true"
       >
         All
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="city-science"
+        aria-pressed="false"
+      >
+        Urban Science
       </button>
       <button
         class="project-filter-button"
@@ -31,14 +35,7 @@
       >
         Urbanism
       </button>
-      <button
-        class="project-filter-button"
-        type="button"
-        data-project-filter="city-science"
-        aria-pressed="false"
-      >
-        Urban Science
-      </button>
+
       <button
         class="project-filter-button"
         type="button"
@@ -83,7 +80,7 @@
       var projects = [];
       var activeThemes = new Set();
       var filterButtons = Array.prototype.slice.call(
-        document.querySelectorAll("[data-project-filter]")
+        document.querySelectorAll("[data-project-filter]"),
       );
 
       function projectUrl(slug) {
@@ -108,7 +105,9 @@
         filterButtons.forEach(function (button) {
           var filter = button.getAttribute("data-project-filter");
           var isActive =
-            filter === "all" ? activeThemes.size === 0 : activeThemes.has(filter);
+            filter === "all"
+              ? activeThemes.size === 0
+              : activeThemes.has(filter);
 
           button.classList.toggle("is-active", isActive);
           button.setAttribute("aria-pressed", String(isActive));

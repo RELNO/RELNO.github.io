@@ -5,7 +5,6 @@ order: 15
 imageSrc: "projects/25streetknowledge/st-know.jpeg"
 themes:
   - "city-science"
-  - "urbanism"
   - "publication"
   - "talk"
   - "award"

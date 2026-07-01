@@ -5,7 +5,6 @@ order: 150
 imageSrc: "projects/16priorities/interactive-table-suggested-sites.jpeg"
 themes:
   - "writing"
-  - "urbanism"
   - "city-science"
 badges:
   - label: "Original Medium Article"

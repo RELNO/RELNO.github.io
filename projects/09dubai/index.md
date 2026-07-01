@@ -5,7 +5,6 @@ order: 290
 imageSrc: "projects/09dubai/1.jpeg"
 themes:
   - "architecture"
-  - "urbanism"
   - "award"
 credits:
   - label: "Award"

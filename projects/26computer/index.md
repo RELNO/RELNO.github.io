@@ -5,7 +5,6 @@ order: 30
 imageSrc: "projects/26computer/a-comp.jpeg"
 themes:
   - "writing"
-  - "urbanism"
   - "city-science"
 credits:
   - label: "Type"
