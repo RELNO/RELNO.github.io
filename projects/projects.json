@@ -1,9 +1,21 @@
 [
   {
+    "name": "26charrette",
+    "title": "The Return of the Charrette",
+    "imageSrc": "projects/26charrette/mit_studio.jpeg",
+    "themes": ["writing", "architecture"]
+  },
+  {
     "name": "24travelagent",
     "title": "TravelAgent",
     "imageSrc": "projects/24travelagent/0.jpg",
     "themes": ["city-science"]
+  },
+  {
+    "name": "26computer",
+    "title": "A Computer Might Be a City",
+    "imageSrc": "projects/26computer/a-comp.jpeg",
+    "themes": ["writing", "urbanism", "city-science"]
   },
   {
     "name": "20rechamps",
@@ -70,6 +82,12 @@
     "title": "FindingPlaces",
     "imageSrc": "projects/16fp/0.jpg",
     "themes": ["city-science"]
+  },
+  {
+    "name": "16priorities",
+    "title": "Shifting Priorities, Finding Places",
+    "imageSrc": "projects/16priorities/interactive-table-suggested-sites.jpeg",
+    "themes": ["writing", "urbanism", "city-science"]
   },
   {
     "name": "15thesis",

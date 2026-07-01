@@ -128,6 +128,12 @@ function renderInlineText(value) {
     });
 }
 
+function isBlockHtml(value) {
+  return /^<(?:blockquote|div|figure|h[2-4]|ol|ul)\b[\s\S]*<\/(?:blockquote|div|figure|h[2-4]|ol|ul)>$/i.test(
+    value.trim()
+  );
+}
+
 function renderProjectDescription(text) {
   const trimmed = String(text ?? "").trim();
 
@@ -139,6 +145,10 @@ function renderProjectDescription(text) {
     .split(/\n\s*\n/)
     .map((paragraph) => {
       const content = paragraph.trim().replace(/\n/g, "<br />\n");
+      if (isBlockHtml(content)) {
+        return content;
+      }
+
       return `<p>${content}</p>`;
     })
     .join("\n");
@@ -366,15 +376,19 @@ function generateProjectPages() {
       slug,
       listTitle: projectSummary.title,
       listImageSrc: projectSummary.imageSrc,
+      themes: Array.isArray(projectSummary.themes) ? projectSummary.themes : [],
     };
 
     const title = project.title || projectSummary.title || slug;
+    const isWriting = project.themes.includes("writing");
     const plainDescription = stripHtml(project.text || project.subtitle || title);
     const metaDescription = truncate(plainDescription || `${title} by Ariel Noyman`, 160);
     const canonicalUrl = `${siteUrl}/projects/${slug}/`;
     const html = renderTemplate(template, {
       siteFooter,
       pageTitle: `${escapeHtml(title)} | Ariel Noyman`,
+      bodyClass: isWriting ? "project-page writing-project-page" : "project-page",
+      articleClass: isWriting ? "project-article writing-project" : "project-article",
       metaDescription: escapeAttribute(metaDescription),
       canonicalUrl: escapeAttribute(canonicalUrl),
       projectTitle: escapeHtml(title),

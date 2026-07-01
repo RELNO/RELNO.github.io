@@ -22,10 +22,16 @@ The generator writes `projects/<slug>/index.html` for every project in
 
 1. Create `projects/<slug>/<slug>.json`.
 2. Add images or other media inside `projects/<slug>/`.
-3. Add the project entry to `projects/projects.json` with `name`, `title`, and
-   `imageSrc`.
+3. Add the project entry to `projects/projects.json` with `name`, `title`,
+   `imageSrc`, and `themes`.
 4. Run `node tools/generate-project-pages.js`.
 5. Commit the JSON, media, and generated `projects/<slug>/index.html`.
+
+Project themes drive the homepage filters. Current theme values are
+`architecture`, `urbanism`, `city-science`, and `writing`. Writings are regular
+projects: add the `writing` theme, use the same project JSON fields, and write
+the article body in the project `text` value. Writing project slugs use the
+compact `YYword` pattern, such as `26charrette`.
 
 ## Homepage selected lists
 
@@ -35,34 +41,6 @@ section partials:
 - `sections/publications.html`
 - `sections/talks.html`
 - `sections/awards.html`
-
-## Adding a writing
-
-The writings page at `/writings/` renders Markdown directly in the browser.
-There are no per-article JSON files, generated article copies, or writing
-manifests to keep in sync.
-
-1. Create `writings/<slug>/index.md`.
-2. Add images or other linked media in the same folder or another public path.
-3. Use front matter for metadata:
-
-```md
----
-title: "Post title"
-subtitle: "Optional subtitle"
-slug: "post-title"
-date: "2026-06-30"
-description: "Short summary for metadata."
-image: "/writings/example.jpg"
-imageAlt: "Description of the image"
----
-```
-
-The deployed page discovers pushed `writings/*/index.md` files from the GitHub
-repository tree, loads their front matter, and opens the latest dated entry by
-default. Older entries appear in the left archive. For local draft previews,
-open `/writings/#<slug>` to load `writings/<slug>/index.md` directly. Set
-`status: "draft"` to keep a Markdown file out of the archive.
 
 GitHub Pages can deploy the committed static files directly. No backend,
 database, CMS, or JavaScript framework is required.
