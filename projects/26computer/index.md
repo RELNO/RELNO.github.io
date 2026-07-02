@@ -18,6 +18,7 @@ carouselItems:
 ---
 For most of the twentieth century, the computer had a relatively stable cultural role. It was a machine for calculation, storage, optimization, classification, and command execution. It was powerful, but also conceptually contained. It processed inputs. It produced outputs. Even when it behaved in ways that seemed complex, its complexity was usually understood as the expression of formal rules, however difficult those rules were for humans to follow.
 
+
 That computer mattered enormously to urban planning. It helped planners model transportation systems, allocate infrastructure, evaluate land use, run demographic projections, and visualize possible futures. It also supported a persistent temptation: that the city itself might be made sufficiently legible to become computable. If enough data could be gathered, enough variables specified, and enough relationships modeled, perhaps the city could be optimized like other technical systems.
 
 Urban theory has spent decades warning against that temptation. Christopher Alexander's "A City Is Not a Tree" criticized the reduction of urban complexity into overly neat hierarchical structures. Shannon Mattern's <em>A City Is Not a Computer</em> extended a related critique into the age of dashboards, platforms, sensors, and smart-city rhetoric. Their point was not that computation is useless but that cities should not be reduced to machines for processing information. Cities are dense, situated, messy, political, embodied, and contested arrangements of people, institutions, capital, regulation, and conflict.
@@ -47,6 +48,10 @@ That argument remains powerful. Yet it depends, implicitly, on a particular imag
 Contemporary AI does not erase that critique. In many ways, it makes the critique more urgent. But it also complicates the object central to the critique. The AI-era computer is no longer only a representational device in the toolbox of urban governance. It is increasingly embedded inside institutions, workflows, communications, simulations, design processes, vehicles, buildings, public interfaces, and decision systems. It does not merely calculate after humans define the problem. It helps define the problem, frame the evidence, draft the alternatives, mediate the conversation, and enact the decision.
 
 It shifts from an instrument to a participant.
+
+<br />
+<img src="a-comp.jpeg" alt="Tangible city simulation table with projected urban data" class="project-image" />
+<br />
 
 ## A More Urban Machine
 
