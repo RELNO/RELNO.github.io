@@ -29,7 +29,7 @@ The computer implied by this critique was, for the most part, a deterministic an
 
 As of late 2025, it is harder to describe computers in those terms.
 
-Large multimodal models, tool-using agents, autonomous AI systems, generative simulations, and networked fleets of computational actors no longer behave only as passive instruments. They infer, approximate, communicate, retrieve, remember, summarize, generate, navigate, plan, coordinate, and adapt. They operate across text, image, code, maps, video, sensor feeds, application interfaces, and--if given access--even physical environments. They can pursue long sequences of tasks without continuous human instruction. They can call tools, delegate subtasks, observe intermediate results, revise plans, and interact with other human and nonhuman actors.
+Large multimodal models, tool-using agents, autonomous AI systems, generative simulations, and networked fleets of computational actors no longer behave only as passive instruments. They infer, approximate, communicate, retrieve, remember, summarize, generate, navigate, plan, coordinate, and adapt. They operate across text, image, code, maps, video, sensor feeds, application interfaces, and - if given access - even physical environments. They can pursue long sequences of tasks without continuous human instruction. They can call tools, delegate subtasks, observe intermediate results, revise plans, and interact with other human and nonhuman actors.
 
 This does not mean that computers are alive, conscious, or equivalent to people. It does not mean they possess political rights, moral agency, or civic membership.
 

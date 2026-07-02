@@ -16,7 +16,7 @@ carouselItems:
     src: "projects/26charrette/mit_studio.jpeg"
     alt: "Architecture studio workspace with students and project materials"
 ---
-In one of my recent courses, I was--for the first time--asked to add an 'AI policy' clause to my syllabus. Here's what I came up with:
+In one of my recent courses, I was - for the first time - asked to add an 'AI policy' clause to my syllabus. Here's what I came up with:
 
 <blockquote><p><strong>AI Policy</strong></p><p>Whenever you think about using AI, replace the word <em>AI</em> with <em>computer</em>. If the sentence suddenly sounds outdated, go ahead and use AI. If it still sounds exciting, please report your discovery to the instructor immediately.</p></blockquote>
 
@@ -56,7 +56,7 @@ Every architectural firm in the world has shelves filled with reference material
 
 ## Demo or Die, Again
 
-When I joined the MIT Media Lab, the "demo or die" provocation--which emerged as a reaction to academia's "publish or perish" culture--was setting the tone across the building. Instead of only imagining possible futures, everyone was expected to go ahead and build a piece of it. Let people touch it, question it, misunderstand it, break it, and ask why it matters. More than half of our lab space is designated for these prototypes. This is inefficient, almost irresponsible, and certainly expensive, but it is also the most important space in the lab. It is a workshop, a studio, a charrette, a stage, and a testing ground in which artifacts serve as catalysts for conversation. 
+When I joined the MIT Media Lab, the "demo or die" provocation - which emerged as a reaction to academia's "publish or perish" culture - was setting the tone across the building. Instead of only imagining possible futures, everyone was expected to go ahead and build a piece of it. Let people touch it, question it, misunderstand it, break it, and ask why it matters. More than half of our lab space is designated for these prototypes. This is inefficient, almost irresponsible, and certainly expensive, but it is also the most important space in the lab. It is a workshop, a studio, a charrette, a stage, and a testing ground in which artifacts serve as catalysts for conversation. 
 
 Sometimes a mayor, minister, company executive, or head of state walks in and points at a half-baked tangle of wires, sensors, and noisy actuators and asks: What is this thing? Why does it matter? What problem does it solve? Why did you build it this way? And then a researcher - who sometimes arrived in the States a few weeks before, still struggling with jet lag and language - has to demonstrate ownership.
 
