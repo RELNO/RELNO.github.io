@@ -1,0 +1,51 @@
+---
+title: "Ordos 100"
+subtitle: "Twice House, Inner Mongolia, 2008"
+order: 320
+imageSrc: "projects/08ordos/main.jpg"
+themes:
+  - "architecture"
+credits:
+  - label: "Curator"
+    value: "Ai Weiwei/Fake Design"
+  - label: "Selection"
+    value: "Architects selected by Herzog & de Meuron"
+  - label: "Area"
+    value: "1,000 sqm"
+  - label: "Year"
+    value: "2008"
+carouselItems:
+  - type: "image"
+    src: "projects/08ordos/main.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_1.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_2.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_3.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_4.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_5.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_7.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_8.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_9.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_10.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_11.jpg"
+  - type: "image"
+    src: "projects/08ordos/EKA_45_12.jpg"
+  - type: "image"
+    src: "projects/08ordos/s2.jpg"
+  - type: "image"
+    src: "projects/08ordos/s8.jpg"
+  - type: "image"
+    src: "projects/08ordos/w8-2-copy.jpg"
+---
+Ordos 100 was a 2008 residential proposal for Inner Mongolia. The project, Twice House, responds to the brief for a 1,000 sqm house by dividing the program into two interdependent forms: a protected ground-level retreat and a compact vertical villa.
+
+The proposal reduces the building footprint while allowing the house to operate as one continuous residence or as two autonomous parts. A thick concrete envelope, layered walls, filtered openings, and circulation along the edge create a climatic buffer that moderates light, views, and movement between the desert landscape and the interior rooms.

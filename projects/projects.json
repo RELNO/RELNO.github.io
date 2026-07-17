@@ -1,0 +1,242 @@
+[
+  {
+    "name": "00about",
+    "title": "About Ariel Noyman",
+    "imageSrc": "sections/an.png",
+    "themes": []
+  },
+  {
+    "name": "26gridnberg",
+    "title": "Gridnberg",
+    "imageSrc": "projects/26gridnberg/gridnberg.jpeg",
+    "themes": ["city-science", "publication"]
+  },
+  {
+    "name": "26charrette",
+    "title": "The Return of the Charrette",
+    "imageSrc": "projects/26charrette/mit_studio.jpeg",
+    "themes": ["writing", "architecture"]
+  },
+  {
+    "name": "25streetknowledge",
+    "title": "Street Knowledge",
+    "imageSrc": "projects/25streetknowledge/st-know.jpeg",
+    "themes": ["city-science", "publication", "talk", "award"]
+  },
+  {
+    "name": "24travelagent",
+    "title": "TravelAgent",
+    "imageSrc": "projects/24travelagent/0.jpg",
+    "themes": ["city-science", "publication", "talk"]
+  },
+  {
+    "name": "26computer",
+    "title": "A Computer Might Be a City",
+    "imageSrc": "projects/26computer/a-comp.jpeg",
+    "themes": ["writing", "city-science"]
+  },
+  {
+    "name": "23nur",
+    "title": "NUR",
+    "imageSrc": "projects/23nur/nur-lab-interior.jpg",
+    "themes": ["city-science", "talk"]
+  },
+  {
+    "name": "20rechamps",
+    "title": "Champs-Élysées",
+    "imageSrc": "projects/20rechamps/0.png",
+    "themes": ["city-science"]
+  },
+  {
+    "name": "22urbangen",
+    "title": "Generative Urbanism",
+    "imageSrc": "projects/22urbangen/0.jpg",
+    "themes": ["city-science"]
+  },
+  {
+    "name": "20corktown",
+    "title": "Corktown Urban Performance",
+    "imageSrc": "projects/20corktown/corktown-cover.jpg",
+    "themes": ["city-science"]
+  },
+  {
+    "name": "19deepscope",
+    "title": "DeepScope",
+    "imageSrc": "projects/19deepscope/0.png",
+    "themes": ["city-science", "publication"]
+  },
+  {
+    "name": "19oldnewcities",
+    "title": "Old, New Cities",
+    "imageSrc": "https://i.ytimg.com/vi/AW-ljDEleLw/hqdefault.jpg",
+    "themes": ["city-science", "talk"]
+  },
+  {
+    "name": "19nibn",
+    "title": "NIBN",
+    "imageSrc": "projects/19nibn/site10.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "18cooper",
+    "title": "The Road Ahead",
+    "imageSrc": "projects/18cooper/0.jpg",
+    "themes": ["city-science"]
+  },
+  {
+    "name": "18mobcho",
+    "title": "Mobility Choice",
+    "imageSrc": "projects/18mobcho/0.png",
+    "themes": ["city-science"]
+  },
+  {
+    "name": "18revurb",
+    "title": "Reversed Urbanism",
+    "imageSrc": "projects/18revurb/0.png",
+    "themes": ["city-science", "publication"]
+  },
+  {
+    "name": "17csjs",
+    "title": "CityScope JS",
+    "imageSrc": "projects/17csjs/0.jpg",
+    "themes": ["city-science", "publication", "talk"]
+  },
+  {
+    "name": "17cityio",
+    "title": "cityIO",
+    "imageSrc": "projects/17cityio/0.png",
+    "themes": ["city-science", "talk"]
+  },
+  {
+    "name": "16csar",
+    "title": "CityScope AR",
+    "imageSrc": "projects/16csar/0.jpg",
+    "themes": ["city-science"]
+  },
+  {
+    "name": "16fp",
+    "title": "FindingPlaces",
+    "imageSrc": "projects/16fp/0.jpg",
+    "themes": ["city-science", "publication", "award"]
+  },
+  {
+    "name": "16priorities",
+    "title": "Shifting Priorities, Finding Places",
+    "imageSrc": "projects/16priorities/interactive-table-suggested-sites.jpeg",
+    "themes": ["writing", "city-science"]
+  },
+  {
+    "name": "15thesis",
+    "title": "Power/Structures",
+    "imageSrc": "projects/15thesis/0.jpg",
+    "themes": ["city-science", "publication"]
+  },
+  {
+    "name": "15brt",
+    "title": "BRT for Boston",
+    "imageSrc": "projects/15brt/0.jpg",
+    "themes": ["city-science"]
+  },
+  {
+    "name": "15newman",
+    "title": "Space Packed",
+    "imageSrc": "projects/15newman/0.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "14rbd",
+    "title": "Rebuild By Design",
+    "imageSrc": "projects/14rbd/0.jpg",
+    "themes": ["urbanism", "award"]
+  },
+  {
+    "name": "14mloop",
+    "title": "MeadowLoop",
+    "imageSrc": "projects/14mloop/0.png",
+    "themes": ["urbanism"]
+  },
+  {
+    "name": "14resindustrial",
+    "title": "Resindustrial",
+    "imageSrc": "projects/14resindustrial/0.jpg",
+    "themes": ["urbanism"]
+  },
+  {
+    "name": "12nli",
+    "title": "New National Library",
+    "imageSrc": "projects/12nli/site2.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "12yadlebanim",
+    "title": "Yad LeBanim",
+    "imageSrc": "projects/12yadlebanim/2_06.jpeg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "11station5",
+    "title": "Station 5",
+    "imageSrc": "projects/11station5/0.png",
+    "themes": ["architecture", "award"]
+  },
+  {
+    "name": "11pushkinsky",
+    "title": "Republic",
+    "imageSrc": "projects/11pushkinsky/0.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "10stumps",
+    "title": "STUMPS",
+    "imageSrc": "projects/10stumps/0.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "10motj",
+    "title": "Museum of Tolerance",
+    "imageSrc": "projects/10motj/0.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "10academic",
+    "title": "Hillside Campus",
+    "imageSrc": "projects/10academic/0.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "09dubai",
+    "title": "The 8th Souk",
+    "imageSrc": "projects/09dubai/1.jpeg",
+    "themes": ["architecture", "award"]
+  },
+  {
+    "name": "09beit",
+    "title": "City Museum of Tel Aviv",
+    "imageSrc": "projects/09beit/5.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "09telaviv",
+    "title": "Tel, Aviv",
+    "imageSrc": "projects/09telaviv/0.jpg",
+    "themes": ["architecture", "urbanism"]
+  },
+  {
+    "name": "08ordos",
+    "title": "Ordos 100",
+    "imageSrc": "projects/08ordos/main.jpg",
+    "themes": ["architecture"]
+  },
+  {
+    "name": "07greenpeace",
+    "title": "Green Piece",
+    "imageSrc": "projects/07greenpeace/Greenpeace3.jpg",
+    "themes": ["architecture", "award"]
+  },
+  {
+    "name": "04kolech",
+    "title": "Septum",
+    "imageSrc": "projects/04kolech/0.jpg",
+    "themes": ["architecture", "award"]
+  }
+]

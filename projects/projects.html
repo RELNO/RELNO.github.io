@@ -1,0 +1,241 @@
+<!-- Portfolio Section -->
+<section class="portfolio-section" id="portfolio" aria-label="Projects">
+  <div class="portfolio-heading">
+    <a class="portfolio-brand" href="/projects/00about/">Ariel Noyman</a>
+    <button
+      class="project-menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="project-filter-menu"
+      aria-label="Open project categories"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav
+      class="project-filter-menu"
+      id="project-filter-menu"
+      aria-label="Work themes"
+    >
+      <button
+        class="project-filter-button is-active"
+        type="button"
+        data-project-filter="all"
+        aria-pressed="true"
+      >
+        All
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="city-science"
+        aria-pressed="false"
+      >
+        Urban Science
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="architecture"
+        aria-pressed="false"
+      >
+        Architecture
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="urbanism"
+        aria-pressed="false"
+      >
+        Urbanism
+      </button>
+
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="writing"
+        aria-pressed="false"
+      >
+        Writing
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="publication"
+        aria-pressed="false"
+      >
+        Publications
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="talk"
+        aria-pressed="false"
+      >
+        Talks
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="award"
+        aria-pressed="false"
+      >
+        Awards
+      </button>
+    </nav>
+  </div>
+
+  <div class="portfolio-grid" id="portfolioGrid" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var projects = [];
+      var activeTheme = null;
+      var portfolioHeading = document.querySelector(".portfolio-heading");
+      var menuToggle = document.querySelector(".project-menu-toggle");
+      var filterButtons = Array.prototype.slice.call(
+        document.querySelectorAll("[data-project-filter]"),
+      );
+
+      function closeProjectMenu() {
+        if (!portfolioHeading || !menuToggle) {
+          return;
+        }
+
+        portfolioHeading.classList.remove("is-menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open project categories");
+      }
+
+      if (portfolioHeading && menuToggle) {
+        menuToggle.addEventListener("click", function () {
+          var willOpen = !portfolioHeading.classList.contains("is-menu-open");
+          portfolioHeading.classList.toggle("is-menu-open", willOpen);
+          menuToggle.setAttribute("aria-expanded", String(willOpen));
+          menuToggle.setAttribute(
+            "aria-label",
+            willOpen ? "Close project categories" : "Open project categories",
+          );
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!portfolioHeading.contains(event.target)) {
+            closeProjectMenu();
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            closeProjectMenu();
+            menuToggle.focus();
+          }
+        });
+      }
+
+      function projectUrl(slug) {
+        return "/projects/" + encodeURIComponent(slug) + "/";
+      }
+
+      function itemThemes(item) {
+        return Array.isArray(item.themes) ? item.themes : [];
+      }
+
+      function itemMatchesActiveTheme(item) {
+        if (!activeTheme) {
+          return true;
+        }
+
+        return itemThemes(item).indexOf(activeTheme) !== -1;
+      }
+
+      function updateFilterButtons() {
+        filterButtons.forEach(function (button) {
+          var filter = button.getAttribute("data-project-filter");
+          var isActive =
+            filter === "all"
+              ? !activeTheme
+              : activeTheme === filter;
+
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+      }
+
+      function renderPortfolioGridItems(itemDetails) {
+        var container = document.getElementById("portfolioGrid");
+
+        if (!container) {
+          return;
+        }
+
+        container.innerHTML = "";
+
+        itemDetails.forEach(function (item, index) {
+          var link = document.createElement("a");
+          link.href = projectUrl(item.name);
+          link.className = "portfolio-item";
+          link.setAttribute("aria-label", "View work: " + item.title);
+
+          var figure = document.createElement("figure");
+          figure.className = "portfolio-card";
+
+          var image = document.createElement("img");
+          image.src = item.imageSrc;
+          image.className = "portfolio-card-image";
+          image.alt = item.title;
+          image.loading = index < 4 ? "eager" : "lazy";
+
+          var caption = document.createElement("figcaption");
+          caption.className = "portfolio-card-caption";
+
+          var title = document.createElement("span");
+          title.className = "portfolio-card-title";
+          title.textContent = item.title;
+
+          caption.appendChild(title);
+          figure.appendChild(image);
+          figure.appendChild(caption);
+          link.appendChild(figure);
+          container.appendChild(link);
+        });
+      }
+
+      function renderFilteredProjects() {
+        renderPortfolioGridItems(projects.filter(itemMatchesActiveTheme));
+      }
+
+      filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var filter = button.getAttribute("data-project-filter");
+
+          activeTheme = filter === "all" ? null : filter;
+
+          updateFilterButtons();
+          renderFilteredProjects();
+          closeProjectMenu();
+        });
+      });
+
+      fetch("/projects/projects.json?v=20260716-1")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (itemDetails) {
+          projects = itemDetails;
+          updateFilterButtons();
+          renderFilteredProjects();
+        })
+        .catch(function (error) {
+          var container = document.getElementById("portfolioGrid");
+          console.error(error);
+          if (container) {
+            container.innerHTML =
+              '<p class="project-grid-error">Work could not be loaded.</p>';
+          }
+        });
+    })();
+  </script>
+</section>
