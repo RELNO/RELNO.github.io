@@ -1,0 +1,12 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.gz
+*.log
+*.out
+*.pdf
+!resume.pdf
+*.tmp
+*.bak
+.DS_Store
+**/.DS_Store

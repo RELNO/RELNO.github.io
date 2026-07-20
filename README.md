@@ -63,3 +63,10 @@ carouselItems:
 
 GitHub Pages can deploy the committed static files directly. No backend,
 database, CMS, or JavaScript framework is required.
+
+## Resume
+
+The resume source is maintained in `resume/`. A path-scoped GitHub Actions
+workflow compiles `resume/resume.tex` only when that folder changes, commits the
+generated PDF, and requests a Pages rebuild. The public download URL is
+`https://www.arielnoyman.com/resume/resume.pdf`.

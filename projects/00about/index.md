@@ -11,7 +11,7 @@ badges:
   - label: "Google Scholar"
     link: "https://scholar.google.com/citations?user=2QzGsBYAAAAJ&hl=en"
   - label: "Resume / CV"
-    link: "https://github.com/RELNO/resume/releases/download/latest/resume.pdf"
+    link: "/resume/resume.pdf"
   - label: "Portfolio"
     link: "/noyman_pf_25.pdf"
   - label: "Twitter"

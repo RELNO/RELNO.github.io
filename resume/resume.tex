@@ -1,0 +1,155 @@
+\documentclass[10pt]{book}
+
+%%%%%%%%
+% change fonts 
+% \usepackage[sfdefault,light, scaled=1]{roboto}
+% \usepackage[T1]{fontenc}
+
+\usepackage[scaled=.85]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+
+
+%%%%%%%%
+
+\usepackage{lipsum,mathptmx,etoolbox} 
+
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[USenglish]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage{microtype}% improve text appearance with kerning, etc
+\usepackage{datetime} % enable formatting of date output
+\usepackage{tabto}    % make nice tabbing
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+\usepackage{geometry} % manually set page margins
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{titlesec} % allow custom section fonts
+\usepackage{setspace} % custom line spacing
+
+% letter spacing 
+\usepackage{soul}
+
+
+% what is your name?
+\newcommand{\myname}{Ariel Noyman}
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{2cm}
+
+% set section heading fonts and before/after spacing
+% \SetTracking{encoding=*, family=\ssfamily}{20} % increase tracking for sans serif headings
+\titleformat{\section}{\bfseries\large\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{20pt plus 4pt minus 4pt}{5pt plus 2pt minus 2pt}
+
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{10pt plus 10pt minus 4pt}{5pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{1.1}
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+            \setlength{\parskip}{0em}
+            \setlength{\itemsep}{\listitemspace}
+            \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\usepackage{xcolor}         
+\hypersetup{
+    colorlinks=false,
+    pdfborderstyle={/S/U/W 0.25}, % style of link border, here a thin underline
+    allbordercolors={0 0 0}, % color of the border, here black
+    pdfauthor   = {\myname},
+    pdfkeywords = {city science, architecture, planning, computer science, urban design, urban informatics},
+    pdftitle    = {\myname: resume},
+    pdfsubject  = {resume},
+    pdfpagemode = UseNone
+}
+
+
+\begin{document}
+\pagestyle{empty}
+% display today's date as Month Year after a vertical space below the end of the text
+\begin{center}
+    \vfill
+    {[Updated \monthyeardate\today ]}
+\end{center}
+\vspace{2em}
+
+
+\begin{flushleft}
+    {\Huge\bfseries {\myname}}
+\end{flushleft}
+
+\begin{minipage}[t]{0.52\textwidth}
+    \vspace{0pt}
+    City Science Center\\
+    Media Lab, School of Architecture and Planning (SA+P)\\
+    Massachusetts Institute of Technology (MIT)
+\end{minipage}%
+\begin{minipage}[t]{0.48\textwidth}
+    \vspace{0pt}
+    \raggedleft
+    noyman@mit.edu\\
+    arielnoyman.com | media.mit.edu/people/noyman\\
+    75 Amherst St, Cambridge, MA 02139
+\end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/research_area}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/education}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/appointments}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/teaching}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/publications}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/projects}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/talks}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/awards}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/service}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/exhibitions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/professional_employment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/credentials_tools}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/media}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+

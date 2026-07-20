@@ -1,0 +1,59 @@
+name: Build resume PDF
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "resume/**"
+      - "!resume/resume.pdf"
+      - ".github/workflows/build-resume.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: resume-pdf
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the website
+        uses: actions/checkout@v6
+
+      - name: Compile the resume
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: resume.tex
+          working_directory: resume
+          texlive_version: 2024
+
+      - name: Commit the generated PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f resume/resume.pdf
+
+          if git diff --cached --quiet; then
+            echo "The generated PDF is already current."
+            exit 0
+          fi
+
+          git commit -m "Build resume PDF [skip ci]"
+          git push
+
+      - name: Request a GitHub Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          curl --fail-with-body --silent --show-error --location \
+            --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${GH_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/${REPOSITORY}/pages/builds"
