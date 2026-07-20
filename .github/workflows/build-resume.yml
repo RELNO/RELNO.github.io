@@ -44,7 +44,7 @@ jobs:
           fi
 
           git commit -m "Build resume PDF [skip ci]"
-          git push
+          git push origin HEAD:master
 
       - name: Request a GitHub Pages rebuild
         env:
