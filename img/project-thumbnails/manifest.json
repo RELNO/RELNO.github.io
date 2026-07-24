@@ -1,0 +1,729 @@
+{
+  "version": 1,
+  "settings": {
+    "format": "webp",
+    "quality": 88,
+    "targetWidths": [
+      400,
+      800,
+      1200
+    ],
+    "crop": "center-square"
+  },
+  "projects": {
+    "00about": {
+      "source": "sections/an.png",
+      "sourceSha256": "b791bae560be376735cf996cba6c6f77945a2db756e11c717c3074fd5447823e",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/00about-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/00about-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/00about-892.webp",
+          "width": 892,
+          "height": 892
+        }
+      ]
+    },
+    "04kolech": {
+      "source": "projects/04kolech/0.jpg",
+      "sourceSha256": "fb6b406d7dc21f5d4cbe69d57b38655852cb176abe0a428185c03261fb3884af",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/04kolech-400.webp",
+          "width": 400,
+          "height": 400
+        }
+      ]
+    },
+    "07greenpeace": {
+      "source": "projects/07greenpeace/Greenpeace3.jpg",
+      "sourceSha256": "66aba1c58c62d8ca674e3bd84cef644261f06062c9439651fcb577f5b9f184f9",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/07greenpeace-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/07greenpeace-573.webp",
+          "width": 573,
+          "height": 573
+        }
+      ]
+    },
+    "08ordos": {
+      "source": "projects/08ordos/main.jpg",
+      "sourceSha256": "69565d4122643b010cb981a24621674ac784d66a55c18566fbde929c5db22905",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/08ordos-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/08ordos-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/08ordos-1199.webp",
+          "width": 1199,
+          "height": 1199
+        }
+      ]
+    },
+    "09beit": {
+      "source": "projects/09beit/5.jpg",
+      "sourceSha256": "6e0e20c59bbb47a9b044214a917c0f9720c1ede54557577e50f255778225841f",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/09beit-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/09beit-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/09beit-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "09dubai": {
+      "source": "projects/09dubai/1.jpeg",
+      "sourceSha256": "cedb21ac4c34f948547933351c4791cbd2e974b9f01682753c3f66d04acbc926",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/09dubai-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/09dubai-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/09dubai-1125.webp",
+          "width": 1125,
+          "height": 1125
+        }
+      ]
+    },
+    "09telaviv": {
+      "source": "projects/09telaviv/0.jpg",
+      "sourceSha256": "9bf276d426e56a9d20cb9a832bcc9e612e1cc315172ae70aa690ab629091db13",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/09telaviv-400.webp",
+          "width": 400,
+          "height": 400
+        }
+      ]
+    },
+    "10academic": {
+      "source": "projects/10academic/0.jpg",
+      "sourceSha256": "fd540f35d55d1c78a228324808bf26ae9cd9a533c277bad6d1302f8a845a7bed",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/10academic-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/10academic-762.webp",
+          "width": 762,
+          "height": 762
+        }
+      ]
+    },
+    "10motj": {
+      "source": "projects/10motj/0.jpg",
+      "sourceSha256": "8b41448a8e37073637669dd8784be1a73e6561ff3ac74bab4e6c0cccfa4ecca0",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/10motj-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/10motj-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/10motj-849.webp",
+          "width": 849,
+          "height": 849
+        }
+      ]
+    },
+    "10stumps": {
+      "source": "projects/10stumps/0.jpg",
+      "sourceSha256": "75048c3311d6b6cd35408cf992d7b959173bd74cfdff618c052cc9718be5cebd",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/10stumps-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/10stumps-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/10stumps-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "11pushkinsky": {
+      "source": "projects/11pushkinsky/0.jpg",
+      "sourceSha256": "ed21cd64504c3142a881b34ecbf7ca1422effb07639ad21a1c7407323870c972",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/11pushkinsky-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/11pushkinsky-714.webp",
+          "width": 714,
+          "height": 714
+        }
+      ]
+    },
+    "11station5": {
+      "source": "projects/11station5/0.png",
+      "sourceSha256": "a2e3be361ddfe3416ba00133ae2412477f3519865c1d77e40e6528080a407b2d",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/11station5-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/11station5-719.webp",
+          "width": 719,
+          "height": 719
+        }
+      ]
+    },
+    "12nli": {
+      "source": "projects/12nli/site2.jpg",
+      "sourceSha256": "76eb23d028d9a32796a48446f89c5e3e88056a33c3496f259e0d2f94337e206c",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/12nli-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/12nli-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/12nli-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "12yadlebanim": {
+      "source": "projects/12yadlebanim/2_06.jpeg",
+      "sourceSha256": "119769d3b0eb76d77d1306f8a5af215fab578c421cab71ceef0bcbfe925b75c7",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/12yadlebanim-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/12yadlebanim-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/12yadlebanim-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "14mloop": {
+      "source": "projects/14mloop/0.png",
+      "sourceSha256": "2f4df66e815c9c797cf1b442b73617b5732124055c51a487bff25ad3c7a3aea6",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/14mloop-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/14mloop-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/14mloop-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "14rbd": {
+      "source": "projects/14rbd/0.jpg",
+      "sourceSha256": "cd1aca4e42808c773af082f78ea6aff878f98ed69ae4c9222b5ede7408fb78fb",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/14rbd-400.webp",
+          "width": 400,
+          "height": 400
+        }
+      ]
+    },
+    "14resindustrial": {
+      "source": "projects/14resindustrial/0.jpg",
+      "sourceSha256": "34f6208b62a3540b8aeef6853487c2a64d09cd60be730294b03cd6eacbb415dc",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/14resindustrial-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/14resindustrial-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/14resindustrial-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "15brt": {
+      "source": "projects/15brt/0.jpg",
+      "sourceSha256": "5d549e5a97cb520adb8f83d21acb62e4fc9792f1a6374a9b43525b9e69d92e05",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/15brt-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/15brt-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/15brt-1000.webp",
+          "width": 1000,
+          "height": 1000
+        }
+      ]
+    },
+    "15newman": {
+      "source": "projects/15newman/0.jpg",
+      "sourceSha256": "c4136f6f7850489a70edfd825919aa39d0e5a429180a3387e95004bef746975f",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/15newman-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/15newman-683.webp",
+          "width": 683,
+          "height": 683
+        }
+      ]
+    },
+    "15thesis": {
+      "source": "projects/15thesis/0.jpg",
+      "sourceSha256": "b5973e4e36f2c8263a650eb8287a3db53fd50e0f7d23216469654476ffde3bf1",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/15thesis-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/15thesis-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/15thesis-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "16csar": {
+      "source": "projects/16csar/0.jpg",
+      "sourceSha256": "73b4df47d0a491596ccc8e53c896edea1e4c16e6c5c009a6b693b37a7a21f1ce",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/16csar-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/16csar-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/16csar-999.webp",
+          "width": 999,
+          "height": 999
+        }
+      ]
+    },
+    "16fp": {
+      "source": "projects/16fp/0.jpg",
+      "sourceSha256": "94002ac8004cecd1112c6d01555ad400d27bfbfd47e3c5df18c626b18d01b497",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/16fp-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/16fp-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/16fp-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "16priorities": {
+      "source": "projects/16priorities/interactive-table-suggested-sites.jpeg",
+      "sourceSha256": "2bff1d26438d5c3a95b951bbd0100e6a8442518678d79ea9a46f1618cfddb998",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/16priorities-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/16priorities-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/16priorities-933.webp",
+          "width": 933,
+          "height": 933
+        }
+      ]
+    },
+    "17cityio": {
+      "source": "projects/17cityio/0.png",
+      "sourceSha256": "cde9cdd951310a7cc54864643a0e2011fdb119ae19f0fa94e94620eaf22c4d3e",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/17cityio-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/17cityio-764.webp",
+          "width": 764,
+          "height": 764
+        }
+      ]
+    },
+    "17csjs": {
+      "source": "projects/17csjs/0.jpg",
+      "sourceSha256": "95805c7e0d6d26d3092a04e584da8d707e832def55abfa40de0a222ad6f1081c",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/17csjs-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/17csjs-667.webp",
+          "width": 667,
+          "height": 667
+        }
+      ]
+    },
+    "18cooper": {
+      "source": "projects/18cooper/0.jpg",
+      "sourceSha256": "bff0c9f081757cb49a0dc82d173fd2cad9f73e7c82ce243c99127155809f83c8",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/18cooper-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/18cooper-500.webp",
+          "width": 500,
+          "height": 500
+        }
+      ]
+    },
+    "18mobcho": {
+      "source": "projects/18mobcho/0.png",
+      "sourceSha256": "37cf174c8c78e70e9958aeb927ba90843fbd18ff5fbb3e52a005ca9d62d253e7",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/18mobcho-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/18mobcho-719.webp",
+          "width": 719,
+          "height": 719
+        }
+      ]
+    },
+    "18revurb": {
+      "source": "projects/18revurb/0.png",
+      "sourceSha256": "64f448adb4d4fefe36f4a60c9e36fcbe788d189051417d93e8c231afd1ae3be2",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/18revurb-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/18revurb-719.webp",
+          "width": 719,
+          "height": 719
+        }
+      ]
+    },
+    "19deepscope": {
+      "source": "projects/19deepscope/0.png",
+      "sourceSha256": "60732f4468f969caeca5ca630d49271d0e536169f969a68ada1d92970ccff31f",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/19deepscope-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/19deepscope-719.webp",
+          "width": 719,
+          "height": 719
+        }
+      ]
+    },
+    "19nibn": {
+      "source": "projects/19nibn/site10.jpg",
+      "sourceSha256": "1a121a41fd601178b3c4c598c1845479f7ea55cc5de8c3cfe92ac1c078078d28",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/19nibn-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/19nibn-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/19nibn-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "20corktown": {
+      "source": "projects/20corktown/corktown-cover.jpg",
+      "sourceSha256": "5375320e2f778f0fb5dcbbe06de347835dce74ed89e60c4114b2f16fbb983d2f",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/20corktown-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/20corktown-720.webp",
+          "width": 720,
+          "height": 720
+        }
+      ]
+    },
+    "20rechamps": {
+      "source": "projects/20rechamps/0.png",
+      "sourceSha256": "49f3d5876babb0b1d04f96e8dca96bee1b88321686101701744e183360479121",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/20rechamps-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/20rechamps-719.webp",
+          "width": 719,
+          "height": 719
+        }
+      ]
+    },
+    "22urbangen": {
+      "source": "projects/22urbangen/0.jpg",
+      "sourceSha256": "ad6542081899d14823a34672fd4255b38381a87100f845113675fc40314032de",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/22urbangen-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/22urbangen-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/22urbangen-1110.webp",
+          "width": 1110,
+          "height": 1110
+        }
+      ]
+    },
+    "23nur": {
+      "source": "projects/23nur/nur-lab-interior.jpg",
+      "sourceSha256": "7fa159b245083bc7b16a982453d9af9015554a6c2fc83b122194b8b6794539bf",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/23nur-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/23nur-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/23nur-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "24travelagent": {
+      "source": "projects/24travelagent/0.jpg",
+      "sourceSha256": "3e8e9a3f57c1487650a6234e86e8b6f37f2a5b498b32889eb92eb664402530ac",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/24travelagent-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/24travelagent-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/24travelagent-1110.webp",
+          "width": 1110,
+          "height": 1110
+        }
+      ]
+    },
+    "25streetknowledge": {
+      "source": "projects/25streetknowledge/st-know.jpeg",
+      "sourceSha256": "0c205ca73ce4b816c219322f4445a5f6930f705d1b3de4f2d9ed19ae9c3c3095",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/25streetknowledge-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/25streetknowledge-748.webp",
+          "width": 748,
+          "height": 748
+        }
+      ]
+    },
+    "26charrette": {
+      "source": "projects/26charrette/mit_studio.jpeg",
+      "sourceSha256": "10fa5cdebd911a9babe0dd245957d46079ae460852fa3386debdfba2f48697bf",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/26charrette-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/26charrette-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/26charrette-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    },
+    "26computer": {
+      "source": "projects/26computer/a-comp.jpeg",
+      "sourceSha256": "94adfd0b872b8769789b59ae2ec2f7b79eafd1cea95fb3dedee5796d3b61d734",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/26computer-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/26computer-720.webp",
+          "width": 720,
+          "height": 720
+        }
+      ]
+    },
+    "26gridnberg": {
+      "source": "projects/26gridnberg/gridnberg.jpeg",
+      "sourceSha256": "80479c73300733c12249e157ed8e1cca330ea0f927e5ac1906cc58a3b52e1927",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/26gridnberg-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/26gridnberg-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/26gridnberg-1200.webp",
+          "width": 1200,
+          "height": 1200
+        }
+      ]
+    }
+  }
+}

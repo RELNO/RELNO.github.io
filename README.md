@@ -12,6 +12,8 @@ body for the page text.
 Permanent project URLs are generated as static files:
 
 ```sh
+python3 -m pip install -r tools/requirements.txt
+python3 tools/generate-project-thumbnails.py
 node tools/generate-project-pages.js
 ```
 
@@ -19,14 +21,17 @@ The generator writes `projects/<slug>/index.html` for every project in
 `projects/<slug>/index.md`, using `templates/project-page.html` and
 `footer/footer.html`. It also regenerates `projects/projects.json` for the
 homepage grid; treat that JSON file as generated output, not as the editing
-source.
+source. The thumbnail step creates responsive, center-cropped WebP assets under
+`img/project-thumbnails/` for homepage cards. Project pages continue to use the
+original full-resolution media declared in each Markdown file.
 
 ## Adding a project
 
 1. Create `projects/<slug>/index.md`.
 2. Add images or other media inside `projects/<slug>/`.
 3. Add front matter with `title`, `order`, `imageSrc`, and `themes`.
-4. Run `node tools/generate-project-pages.js`.
+4. Run `python3 tools/generate-project-thumbnails.py`, then
+   `node tools/generate-project-pages.js`.
 5. Commit the Markdown, media, generated `projects/<slug>/index.html`, and
    generated `projects/projects.json`.
 

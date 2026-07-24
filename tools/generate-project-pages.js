@@ -2,14 +2,23 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const rootDir = path.resolve(__dirname, "..");
 const projectsDir = path.join(rootDir, "projects");
 const templatePath = path.join(rootDir, "templates", "project-page.html");
 const footerPath = path.join(rootDir, "footer", "footer.html");
 const projectListPath = path.join(projectsDir, "projects.json");
+const thumbnailManifestPath = path.join(
+  rootDir,
+  "img",
+  "project-thumbnails",
+  "manifest.json"
+);
 const projectSourceFile = "index.md";
 const siteUrl = "https://www.arielnoyman.com";
+const homepageImageSizes =
+  "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px";
 
 function readFile(filePath) {
   return fs.readFileSync(filePath, "utf8");
@@ -162,12 +171,101 @@ function readProjectSources() {
   return projects;
 }
 
-function writeProjectList(projects) {
+function isRemoteAsset(value) {
+  return /^https?:\/\//i.test(String(value ?? "").trim());
+}
+
+function fileSha256(filePath) {
+  return crypto
+    .createHash("sha256")
+    .update(fs.readFileSync(filePath))
+    .digest("hex");
+}
+
+function readThumbnailManifest() {
+  if (!fs.existsSync(thumbnailManifestPath)) {
+    throw new Error(
+      "Homepage thumbnail manifest is missing. Run `python3 tools/generate-project-thumbnails.py`."
+    );
+  }
+
+  const manifest = JSON.parse(readFile(thumbnailManifestPath));
+  if (manifest.version !== 1 || !manifest.projects) {
+    throw new Error(`Unsupported thumbnail manifest: ${thumbnailManifestPath}`);
+  }
+
+  return manifest;
+}
+
+function getHomepageImage(project, thumbnailManifest) {
+  if (isRemoteAsset(project.imageSrc)) {
+    return {
+      src: project.imageSrc,
+      srcSet: "",
+      sizes: "",
+      width: 400,
+      height: 400,
+    };
+  }
+
+  const entry = thumbnailManifest.projects[project.slug];
+  const regenerateMessage =
+    "Run `python3 tools/generate-project-thumbnails.py` before regenerating project pages.";
+
+  if (!entry || entry.source !== project.imageSrc) {
+    throw new Error(
+      `Missing homepage thumbnails for ${project.slug}. ${regenerateMessage}`
+    );
+  }
+
+  const sourcePath = path.resolve(rootDir, project.imageSrc.replace(/^\//, ""));
+  if (
+    !fs.existsSync(sourcePath) ||
+    fileSha256(sourcePath) !== entry.sourceSha256
+  ) {
+    throw new Error(
+      `Stale homepage thumbnails for ${project.slug}. ${regenerateMessage}`
+    );
+  }
+
+  const variants = entry.variants
+    .filter((variant) => variant && variant.src && Number.isFinite(variant.width))
+    .sort((a, b) => a.width - b.width);
+
+  if (variants.length === 0) {
+    throw new Error(
+      `Missing homepage thumbnail variants for ${project.slug}. ${regenerateMessage}`
+    );
+  }
+
+  variants.forEach((variant) => {
+    const variantPath = path.resolve(rootDir, variant.src.replace(/^\//, ""));
+    if (!fs.existsSync(variantPath)) {
+      throw new Error(`Missing thumbnail file ${variant.src}. ${regenerateMessage}`);
+    }
+  });
+
+  return {
+    src: variants[0].src,
+    srcSet: variants.map((variant) => `${variant.src} ${variant.width}w`).join(", "),
+    sizes: homepageImageSizes,
+    width: variants[0].width,
+    height: variants[0].height,
+  };
+}
+
+function writeProjectList(projects, thumbnailManifest) {
   const projectList = projects.map((project) => {
+    const homepageImage = getHomepageImage(project, thumbnailManifest);
     return {
       name: project.slug,
       title: project.listTitle || project.title || project.slug,
       imageSrc: project.imageSrc || "",
+      thumbnailSrc: homepageImage.src,
+      thumbnailSrcSet: homepageImage.srcSet,
+      thumbnailSizes: homepageImage.sizes,
+      thumbnailWidth: homepageImage.width,
+      thumbnailHeight: homepageImage.height,
       themes: project.themes,
     };
   });
@@ -182,6 +280,11 @@ function writeProjectList(projects) {
           `    "name": ${JSON.stringify(project.name)},`,
           `    "title": ${JSON.stringify(project.title)},`,
           `    "imageSrc": ${JSON.stringify(project.imageSrc)},`,
+          `    "thumbnailSrc": ${JSON.stringify(project.thumbnailSrc)},`,
+          `    "thumbnailSrcSet": ${JSON.stringify(project.thumbnailSrcSet)},`,
+          `    "thumbnailSizes": ${JSON.stringify(project.thumbnailSizes)},`,
+          `    "thumbnailWidth": ${JSON.stringify(project.thumbnailWidth)},`,
+          `    "thumbnailHeight": ${JSON.stringify(project.thumbnailHeight)},`,
           `    "themes": [${themes.join(", ")}]`,
           "  }",
         ].join("\n");
@@ -610,10 +713,11 @@ function renderTemplate(template, replacements) {
 
 function generateProjectPages() {
   const projects = readProjectSources();
+  const thumbnailManifest = readThumbnailManifest();
   const template = readFile(templatePath);
   const siteFooter = readFile(footerPath).trim();
 
-  writeProjectList(projects);
+  writeProjectList(projects, thumbnailManifest);
 
   projects.forEach((project) => {
     const slug = project.slug;

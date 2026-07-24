@@ -183,10 +183,19 @@
           figure.className = "portfolio-card";
 
           var image = document.createElement("img");
-          image.src = item.imageSrc;
           image.className = "portfolio-card-image";
           image.alt = item.title;
           image.loading = index < 4 ? "eager" : "lazy";
+          image.decoding = "async";
+          image.width = item.thumbnailWidth || 400;
+          image.height = item.thumbnailHeight || 400;
+          if (item.thumbnailSrcSet) {
+            image.srcset = item.thumbnailSrcSet;
+          }
+          if (item.thumbnailSizes) {
+            image.sizes = item.thumbnailSizes;
+          }
+          image.src = item.thumbnailSrc || item.imageSrc;
 
           var caption = document.createElement("figcaption");
           caption.className = "portfolio-card-caption";
@@ -219,7 +228,7 @@
         });
       });
 
-      fetch("/projects/projects.json?v=20260716-1")
+      fetch("/projects/projects.json?v=20260724-1")
         .then(function (response) {
           return response.json();
         })
