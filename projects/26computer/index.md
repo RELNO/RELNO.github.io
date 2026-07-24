@@ -13,7 +13,7 @@ credits:
     value: "May 25, 2026"
 carouselItems:
   - type: "image"
-    src: "img/stockImg/an7.jpg"
+    src: "projects/26computer/a-comp.jpeg"
     alt: "Tangible city simulation table with projected urban data"
 ---
 For most of the twentieth century, the computer had a relatively stable cultural role. It was a machine for calculation, storage, optimization, classification, and command execution. It was powerful, but also conceptually contained. It processed inputs. It produced outputs. Even when it behaved in ways that seemed complex, its complexity was usually understood as the expression of formal rules, however difficult those rules were for humans to follow.
@@ -48,10 +48,6 @@ That argument remains powerful. Yet it depends, implicitly, on a particular imag
 Contemporary AI does not erase that critique. In many ways, it makes the critique more urgent. But it also complicates the object central to the critique. The AI-era computer is no longer only a representational device in the toolbox of urban governance. It is increasingly embedded inside institutions, workflows, communications, simulations, design processes, vehicles, buildings, public interfaces, and decision systems. It does not merely calculate after humans define the problem. It helps define the problem, frame the evidence, draft the alternatives, mediate the conversation, and enact the decision.
 
 It shifts from an instrument to a participant.
-
-<br />
-<img src="a-comp.jpeg" alt="Tangible city simulation table with projected urban data" class="project-image" />
-<br />
 
 ## A More Urban Machine
 
