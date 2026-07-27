@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Gridnberg (&quot;grid on a hill&quot;) is a topography-aware pedestrian routing dataset, reproducible workflow, and interactive web app for New York City. It adds..." />
+    <meta name="description" content="Gridnberg (&quot;grid-n-berg,&quot; grid and mountain) is a topography-aware pedestrian routing dataset, reproducible workflow, and interactive web app for New York..." />
     <meta name="author" content="Ariel Noyman" />
     <link rel="canonical" href="https://www.arielnoyman.com/projects/26gridnberg/" />
     <link rel="icon" href="/img/favicon.png" type="image/png" sizes="16x16" />
@@ -52,7 +52,7 @@
 <dl class="project-meta">
   <div class="project-fact-row">
     <dt>Type</dt>
-    <dd>Data set, software, and interactive web app</dd>
+    <dd>Dataset, software, interactive web app, and paper</dd>
   </div>
   <div class="project-fact-row">
     <dt>Date</dt>
@@ -63,13 +63,18 @@
     <dd>Ariel Noyman</dd>
   </div>
   <div class="project-fact-row">
+    <dt>Publication</dt>
+    <dd>arXiv:2607.22523 [cs.HC]</dd>
+  </div>
+  <div class="project-fact-row">
     <dt>Source Data</dt>
     <dd>NYC pedestrian network by Sevtsuk, Basu, Liu, Alhassan et al.; NYC Planimetric Database elevation points</dd>
   </div>
 </dl>
 <div class="project-links project-fact-row" aria-label="Project links">
   <strong>Links</strong>
-  <div><a href="https://www.arielnoyman.com/gridnberg/" target="_blank" rel="noopener">Web App</a>
+  <div><a href="https://arxiv.org/abs/2607.22523" target="_blank" rel="noopener">Paper</a>
+<a href="https://www.arielnoyman.com/gridnberg/" target="_blank" rel="noopener">Web App</a>
 <a href="https://github.com/RELNO/gridnberg" target="_blank" rel="noopener">GitHub</a>
 <a href="https://github.com/RELNO/gridnberg/tree/main/outputs" target="_blank" rel="noopener">Data</a>
 <a href="https://doi.org/10.1038/s44284-025-00383-y" target="_blank" rel="noopener">Source Network</a></div>
@@ -77,13 +82,16 @@
   </aside>
 
 <section class="project-description">
-<p>Gridnberg ("grid on a hill") is a topography-aware pedestrian routing dataset, reproducible workflow, and interactive web app for New York City. It adds local elevation to an existing pedestrian network, calculates grade along each segment, and demonstrates how route choice changes when the city is understood in three dimensions.</p>
-<p>The project compares three transparent routing scenarios: an ordinary 2D shortest path, a comfort route with moderate penalties for uphill, downhill, and steep grades, and an accessibility-sensitive route with stronger slope penalties. The live app lets users drag an origin and destination across the city, compare the resulting paths, and inspect their distance, elevation gain and loss, and maximum grade in real time.</p>
+<p>Gridnberg ("grid-n-berg," grid and mountain) is a topography-aware pedestrian routing dataset, reproducible workflow, and interactive web app for New York City. It enriches the citywide NYCWalks pedestrian network with vertex-level elevations derived from the New York City Planimetric Database, making terrain an explicit and inspectable part of pedestrian-network analysis.</p>
+<p>The project compares three transparent routing scenarios: a horizontal-distance shortest path, a comfort-oriented route with moderate slope penalties, and an accessibility-sensitive route with stronger penalties, particularly for grades above 8.33%. The live app lets users move an origin and destination across the city, compare the resulting paths, and inspect their distance, elevation gain and loss, and maximum reported grade.</p>
 <h2>From Street Network to Terrain-Aware Routes</h2>
-<p>The workflow assigns elevation to each network vertex by averaging nearby NYC planimetric elevation points within a 50-meter radius. It retains only segments with local elevation support, then stores directional slope-aware costs for travel in both directions. The resulting public dataset includes routing-network and node tables, a QGIS project and GeoPackage, browser-optimized app data, and the notebook used to rebuild the analysis.</p>
-<p>Grade reference points of 5% (1:20) and 8.33% (1:12) help frame the cost scenarios. These costs are comparative scores rather than travel-time estimates or compliance labels: the dataset measures running slope, but not cross slope, curb ramps, sidewalk width, surface condition, obstacles, signal timing, or temporary access constraints. Gridnberg is therefore a tool for terrain-aware urban analysis, not an accessibility certification.</p>
+<p>The workflow assigns elevation to each network vertex by averaging selected roadbed and bridge elevation observations within a 50-meter radius. It retains segments only when every geometry vertex has local elevation support, preserving 313,184 of 315,577 source segments (99.24%). Cumulative ascent and descent are calculated separately so that slope-aware routing costs can differ by direction.</p>
+<p>The analytical release contains 187,657 endpoint nodes and 313,184 physical segments, represented as 626,368 directed edges for routing. It includes routing-network and node tables, a QGIS project and GeoPackage, browser-optimized app data, and the notebook used to reproduce the analysis.</p>
+<h2>Reading the Results</h2>
+<p>Across the released network, 12.79% of segments contain a reported local grade of at least 5%, and 6.84% reach at least 8.33%. Route comparisons show how modest detours can reduce cumulative climbing or avoid steep edges, while also exposing cases where bridges, stacked infrastructure, short geometry steps, or mismatched elevation observations create implausible values.</p>
+<p>Grade reference points of 5% (1:20) and 8.33% (1:12) help frame the cost scenarios, but the profiles are heuristic comparative scores rather than travel-time estimates or compliance labels. The dataset measures running slope, but not cross slope, curb ramps, sidewalk width, surface condition, obstacles, signal timing, legal access, or temporary constraints. Gridnberg supports reproducible terrain-aware analysis; it does not certify that a route is accessible or barrier-free.</p>
 <h2>Citation</h2>
-<p>Noyman, A. (2026). <em>Gridnberg: A topography-aware pedestrian routing dataset for New York City</em> [Data set and software].</p>
+<p>Noyman, A. (2026). <a href="https://arxiv.org/abs/2607.22523"><em>Gridnberg: A Topography-Aware Pedestrian Routing Dataset for New York City</em></a>. arXiv:2607.22523 [cs.HC]. https://doi.org/10.48550/arXiv.2607.22523</p>
 <p>The source pedestrian network is documented in Sevtsuk, A., Basu, R., Liu, L., Alhassan, A., et al. (2026), <em>Spatial distribution of foot traffic in New York City and applications for urban planning</em>, <em>Nature Cities</em>, 3, 136–145.</p>
 </section>
 </div>
