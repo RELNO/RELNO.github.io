@@ -19,7 +19,7 @@ badges:
     link: "https://doi.org/10.1038/s44284-025-00383-y"
 credits:
   - label: "Type"
-    value: "Dataset, software, interactive web app, and paper"
+    value: "Research dataset and routing application"
   - label: "Date"
     value: "2026"
   - label: "Author"
@@ -31,23 +31,21 @@ credits:
 carouselItems:
   - type: "image"
     src: "projects/26gridnberg/gridnberg.jpeg"
-    alt: "Gridnberg map comparing distance, accessible, and comfort pedestrian routes across New York City"
+    alt: "Gridnberg map comparing distance, accessibility-sensitive, and comfort-oriented pedestrian routes across New York City"
 ---
-Gridnberg ("grid-n-berg," grid and mountain) is a topography-aware pedestrian routing dataset, reproducible workflow, and interactive web app for New York City. It enriches the citywide NYCWalks pedestrian network with vertex-level elevations derived from the New York City Planimetric Database, making terrain an explicit and inspectable part of pedestrian-network analysis.
+Pedestrian network models typically represent streets on a flat plane, although slope affects walking effort, route choice, and accessibility. Gridnberg ("grid-n-berg," combining grid and mountain) is a topography-aware network dataset and routing framework for New York City. It joins the NYCWalks pedestrian network with municipal elevation observations so that terrain can be examined as part of the network rather than as a separate surface.
 
-The project compares three transparent routing scenarios: a horizontal-distance shortest path, a comfort-oriented route with moderate slope penalties, and an accessibility-sensitive route with stronger penalties, particularly for grades above 8.33%. The live app lets users move an origin and destination across the city, compare the resulting paths, and inspect their distance, elevation gain and loss, and maximum reported grade.
+## Method
 
-## From Street Network to Terrain-Aware Routes
+Elevation is estimated at each network vertex from selected roadbed and bridge observations within a 50-meter radius. Segments are included only when elevation support is available along their complete geometry. The workflow then derives horizontal length, cumulative ascent and descent, endpoint-average grade, and maximum local grade, allowing the cost of traversing a segment to vary by direction.
 
-The workflow assigns elevation to each network vertex by averaging selected roadbed and bridge elevation observations within a 50-meter radius. It retains segments only when every geometry vertex has local elevation support, preserving 313,184 of 315,577 source segments (99.24%). Cumulative ascent and descent are calculated separately so that slope-aware routing costs can differ by direction.
+Three routing profiles provide a controlled comparison: shortest horizontal distance, a comfort-oriented slope cost, and an accessibility-sensitive cost with higher slope penalties. These profiles are intended as interpretable scenarios rather than calibrated travel-time models. The accompanying application shows how the selected path changes under each profile and reports the corresponding distance and elevation characteristics.
 
-The analytical release contains 187,657 endpoint nodes and 313,184 physical segments, represented as 626,368 directed edges for routing. It includes routing-network and node tables, a QGIS project and GeoPackage, browser-optimized app data, and the notebook used to reproduce the analysis.
+## Research Use and Limitations
 
-## Reading the Results
+Gridnberg provides a reproducible basis for studying how terrain influences pedestrian routes, catchment areas, centrality, and foot-traffic models. The release includes analytical tables, geospatial files, application data, and the notebook used to construct the network.
 
-Across the released network, 12.79% of segments contain a reported local grade of at least 5%, and 6.84% reach at least 8.33%. Route comparisons show how modest detours can reduce cumulative climbing or avoid steep edges, while also exposing cases where bridges, stacked infrastructure, short geometry steps, or mismatched elevation observations create implausible values.
-
-Grade reference points of 5% (1:20) and 8.33% (1:12) help frame the cost scenarios, but the profiles are heuristic comparative scores rather than travel-time estimates or compliance labels. The dataset measures running slope, but not cross slope, curb ramps, sidewalk width, surface condition, obstacles, signal timing, legal access, or temporary constraints. Gridnberg supports reproducible terrain-aware analysis; it does not certify that a route is accessible or barrier-free.
+The elevation values are local estimates rather than survey measurements. Errors can occur where observations from bridges, underpasses, stairs, or closely stacked infrastructure are difficult to distinguish. The network also does not describe cross slope, curb ramps, surface condition, obstacles, legal access, or temporary closures. The accessibility-sensitive profile should therefore be understood as a research scenario, not as an accessibility or compliance assessment.
 
 ## Citation
 
