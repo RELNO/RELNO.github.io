@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Pedestrian network models typically represent streets on a flat plane, although slope affects walking effort, route choice, and accessibility. Gridnberg..." />
+    <meta name="description" content="Cities are rarely flat, yet urban network analysis usually represents streets as planar graphs. This simplification affects modeled impedance, route choice,..." />
     <meta name="author" content="Ariel Noyman" />
     <link rel="canonical" href="https://www.arielnoyman.com/projects/26gridnberg/" />
     <link rel="icon" href="/img/favicon.png" type="image/png" sizes="16x16" />
@@ -82,16 +82,7 @@
   </aside>
 
 <section class="project-description">
-<p>Pedestrian network models typically represent streets on a flat plane, although slope affects walking effort, route choice, and accessibility. Gridnberg ("grid-n-berg," combining grid and mountain) is a topography-aware network dataset and routing framework for New York City. It joins the NYCWalks pedestrian network with municipal elevation observations so that terrain can be examined as part of the network rather than as a separate surface.</p>
-<h2>Method</h2>
-<p>Elevation is estimated at each network vertex from selected roadbed and bridge observations within a 50-meter radius. Segments are included only when elevation support is available along their complete geometry. The workflow then derives horizontal length, cumulative ascent and descent, endpoint-average grade, and maximum local grade, allowing the cost of traversing a segment to vary by direction.</p>
-<p>Three routing profiles provide a controlled comparison: shortest horizontal distance, a comfort-oriented slope cost, and an accessibility-sensitive cost with higher slope penalties. These profiles are intended as interpretable scenarios rather than calibrated travel-time models. The accompanying application shows how the selected path changes under each profile and reports the corresponding distance and elevation characteristics.</p>
-<h2>Research Use and Limitations</h2>
-<p>Gridnberg provides a reproducible basis for studying how terrain influences pedestrian routes, catchment areas, centrality, and foot-traffic models. The release includes analytical tables, geospatial files, application data, and the notebook used to construct the network.</p>
-<p>The elevation values are local estimates rather than survey measurements. Errors can occur where observations from bridges, underpasses, stairs, or closely stacked infrastructure are difficult to distinguish. The network also does not describe cross slope, curb ramps, surface condition, obstacles, legal access, or temporary closures. The accessibility-sensitive profile should therefore be understood as a research scenario, not as an accessibility or compliance assessment.</p>
-<h2>Citation</h2>
-<p>Noyman, A. (2026). <a href="https://arxiv.org/abs/2607.22523"><em>Gridnberg: A Topography-Aware Pedestrian Routing Dataset for New York City</em></a>. arXiv:2607.22523 [cs.HC]. https://doi.org/10.48550/arXiv.2607.22523</p>
-<p>The source pedestrian network is documented in Sevtsuk, A., Basu, R., Liu, L., Alhassan, A., et al. (2026), <em>Spatial distribution of foot traffic in New York City and applications for urban planning</em>, <em>Nature Cities</em>, 3, 136–145.</p>
+<p>Cities are rarely flat, yet urban network analysis usually represents streets as planar graphs. This simplification affects modeled impedance, route choice, and the interpretation of accessibility, particularly where alternative paths differ in grade. This paper introduces Gridnberg ('grid-n-berg', grid and mountain), a topography-aware pedestrian routing dataset for New York City. The dataset enriches the NYCWalks network with vertex-level elevations derived from the New York City Planimetric Database. For each pedestrian-network geometry vertex, the workflow averages selected elevation observations within a 50 m radius, retains segments with complete vertex support, and uses direction-specific cumulative ascent and descent to calculate three routing costs: horizontal distance, a comfort-oriented slope score, and an accessibility-sensitive slope score. The release retains 313184 of 315577 source segments (99.24%). Gridnberg supports reproducible terrain-aware analysis, transparent scenario comparison, and improved pedestrian-network representations in New York and other cities.</p>
 </section>
 </div>
 
