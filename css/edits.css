@@ -988,6 +988,7 @@ button:focus-visible {
     -webkit-box-decoration-break: clone;
     background: #ffffff;
     box-decoration-break: clone;
+    font-size: 0.65rem;
     line-height: 2.05;
     padding: 0.45rem 0.65rem;
   }
