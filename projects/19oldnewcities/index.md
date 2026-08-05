@@ -2,7 +2,7 @@
 title: "Old, New Cities"
 subtitle: "European Commission talk"
 order: 65
-imageSrc: "https://i.ytimg.com/vi/AW-ljDEleLw/hqdefault.jpg"
+imageSrc: "projects/19oldnewcities/popescu-cap.-7-1.jpg"
 themes:
   - "city-science"
   - "talk"
@@ -13,10 +13,6 @@ credits:
   - label: "Talk"
     value: "Old, New Cities, European Commission, 2019"
 carouselItems:
-  - type: "image"
-    src: "https://i.ytimg.com/vi/AW-ljDEleLw/hqdefault.jpg"
-    alt: "Old, New Cities talk thumbnail"
-    caption: "Old, New Cities talk"
   - type: "link"
     src: "https://www.youtube.com/watch?v=AW-ljDEleLw"
     autoplay: false

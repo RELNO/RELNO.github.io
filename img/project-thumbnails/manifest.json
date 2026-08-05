@@ -556,6 +556,27 @@
         }
       ]
     },
+    "19oldnewcities": {
+      "source": "projects/19oldnewcities/popescu-cap.-7-1.jpg",
+      "sourceSha256": "cc07aa523473f4acf3a9b83790db84e191ca6eb80ea368ac5503e9c563bc3e4b",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/19oldnewcities-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/19oldnewcities-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/19oldnewcities-910.webp",
+          "width": 910,
+          "height": 910
+        }
+      ]
+    },
     "20corktown": {
       "source": "projects/20corktown/corktown-cover.jpg",
       "sourceSha256": "5375320e2f778f0fb5dcbbe06de347835dce74ed89e60c4114b2f16fbb983d2f",

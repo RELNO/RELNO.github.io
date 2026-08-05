@@ -123,10 +123,10 @@
   {
     "name": "19oldnewcities",
     "title": "Old, New Cities",
-    "imageSrc": "https://i.ytimg.com/vi/AW-ljDEleLw/hqdefault.jpg",
-    "thumbnailSrc": "https://i.ytimg.com/vi/AW-ljDEleLw/hqdefault.jpg",
-    "thumbnailSrcSet": "",
-    "thumbnailSizes": "",
+    "imageSrc": "projects/19oldnewcities/popescu-cap.-7-1.jpg",
+    "thumbnailSrc": "/img/project-thumbnails/19oldnewcities-400.webp",
+    "thumbnailSrcSet": "/img/project-thumbnails/19oldnewcities-400.webp 400w, /img/project-thumbnails/19oldnewcities-800.webp 800w, /img/project-thumbnails/19oldnewcities-910.webp 910w",
+    "thumbnailSizes": "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px",
     "thumbnailWidth": 400,
     "thumbnailHeight": 400,
     "themes": ["city-science", "talk"]
