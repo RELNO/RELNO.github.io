@@ -673,8 +673,8 @@
       ]
     },
     "25streetknowledge": {
-      "source": "projects/25streetknowledge/st-know.jpeg",
-      "sourceSha256": "0c205ca73ce4b816c219322f4445a5f6930f705d1b3de4f2d9ed19ae9c3c3095",
+      "source": "projects/25streetknowledge/street-knowledge-thumbnail.png",
+      "sourceSha256": "94e2ce85ae9713ab9714243c2519a6e8f6781dd027848d044a7076d5d0ad3c2f",
       "variants": [
         {
           "src": "/img/project-thumbnails/25streetknowledge-400.webp",
@@ -682,9 +682,14 @@
           "height": 400
         },
         {
-          "src": "/img/project-thumbnails/25streetknowledge-748.webp",
-          "width": 748,
-          "height": 748
+          "src": "/img/project-thumbnails/25streetknowledge-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/25streetknowledge-1200.webp",
+          "width": 1200,
+          "height": 1200
         }
       ]
     },

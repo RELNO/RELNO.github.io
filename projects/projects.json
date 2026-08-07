@@ -35,9 +35,9 @@
   {
     "name": "25streetknowledge",
     "title": "Street Knowledge",
-    "imageSrc": "projects/25streetknowledge/st-know.jpeg",
+    "imageSrc": "projects/25streetknowledge/street-knowledge-thumbnail.png",
     "thumbnailSrc": "/img/project-thumbnails/25streetknowledge-400.webp",
-    "thumbnailSrcSet": "/img/project-thumbnails/25streetknowledge-400.webp 400w, /img/project-thumbnails/25streetknowledge-748.webp 748w",
+    "thumbnailSrcSet": "/img/project-thumbnails/25streetknowledge-400.webp 400w, /img/project-thumbnails/25streetknowledge-800.webp 800w, /img/project-thumbnails/25streetknowledge-1200.webp 1200w",
     "thumbnailSizes": "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px",
     "thumbnailWidth": 400,
     "thumbnailHeight": 400,

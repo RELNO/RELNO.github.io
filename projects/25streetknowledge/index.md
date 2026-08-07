@@ -2,7 +2,7 @@
 title: "Street Knowledge"
 subtitle: "A human-centered framework for urban digital twins"
 order: 15
-imageSrc: "projects/25streetknowledge/st-know.jpeg"
+imageSrc: "projects/25streetknowledge/street-knowledge-thumbnail.png"
 themes:
   - "city-science"
   - "publication"
@@ -25,9 +25,6 @@ carouselItems:
     src: "https://www.youtube.com/watch?v=EzzsXhp_lig"
     autoplay: false
     caption: "Street Knowledge: Democratizing Data-driven Urban Design"
-  - type: "image"
-    src: "projects/25streetknowledge/st-know.jpeg"
-    alt: "Interactive tangible urban model with projected data layers"
 ---
 Street Knowledge brings together work on urban digital twins, public-facing simulation, and data-driven urban design. The project asks how computational planning tools can become more legible, more participatory, and more accountable to the people and institutions that use them.
 
