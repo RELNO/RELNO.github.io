@@ -55,17 +55,6 @@
     "themes": ["city-science", "publication", "talk"]
   },
   {
-    "name": "26computer",
-    "title": "A Computer Might Be a City",
-    "imageSrc": "projects/26computer/a-comp.jpeg",
-    "thumbnailSrc": "/img/project-thumbnails/26computer-400.webp",
-    "thumbnailSrcSet": "/img/project-thumbnails/26computer-400.webp 400w, /img/project-thumbnails/26computer-720.webp 720w",
-    "thumbnailSizes": "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px",
-    "thumbnailWidth": 400,
-    "thumbnailHeight": 400,
-    "themes": ["writing", "city-science"]
-  },
-  {
     "name": "23nur",
     "title": "NUR",
     "imageSrc": "projects/23nur/nur-lab-interior.jpg",
@@ -75,6 +64,28 @@
     "thumbnailWidth": 400,
     "thumbnailHeight": 400,
     "themes": ["city-science", "talk"]
+  },
+  {
+    "name": "26info5420",
+    "title": "INFO5420",
+    "imageSrc": "projects/26info5420/gowanus-canal.png",
+    "thumbnailSrc": "/img/project-thumbnails/26info5420-400.webp",
+    "thumbnailSrcSet": "/img/project-thumbnails/26info5420-400.webp 400w, /img/project-thumbnails/26info5420-800.webp 800w, /img/project-thumbnails/26info5420-1086.webp 1086w",
+    "thumbnailSizes": "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px",
+    "thumbnailWidth": 400,
+    "thumbnailHeight": 400,
+    "themes": ["city-science", "urbanism"]
+  },
+  {
+    "name": "26computer",
+    "title": "A Computer Might Be a City",
+    "imageSrc": "projects/26computer/a-comp.jpeg",
+    "thumbnailSrc": "/img/project-thumbnails/26computer-400.webp",
+    "thumbnailSrcSet": "/img/project-thumbnails/26computer-400.webp 400w, /img/project-thumbnails/26computer-720.webp 720w",
+    "thumbnailSizes": "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px",
+    "thumbnailWidth": 400,
+    "thumbnailHeight": 400,
+    "themes": ["writing", "city-science"]
   },
   {
     "name": "20rechamps",

@@ -750,6 +750,27 @@
           "height": 1200
         }
       ]
+    },
+    "26info5420": {
+      "source": "projects/26info5420/gowanus-canal.png",
+      "sourceSha256": "f07531613c07b89ab7e6547da08c2eed1dd011720a73c4495bd1c490afda8b1c",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/26info5420-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/26info5420-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/26info5420-1086.webp",
+          "width": 1086,
+          "height": 1086
+        }
+      ]
     }
   }
 }

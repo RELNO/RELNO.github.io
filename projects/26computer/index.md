@@ -1,7 +1,7 @@
 ---
 title: "A Computer Might Be a City"
 subtitle: "When computation is no longer deterministic"
-order: 30
+order: 38
 imageSrc: "projects/26computer/a-comp.jpeg"
 themes:
   - "writing"
