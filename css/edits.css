@@ -709,11 +709,11 @@ button:focus-visible {
 .footer-content {
   align-items: start;
   display: grid;
-  column-gap: clamp(2.5rem, 6vw, 6rem);
   grid-template-areas:
-    "identity social"
-    "address social";
-  grid-template-columns: minmax(14rem, 1fr) max-content;
+    "identity"
+    "address"
+    "social";
+  grid-template-columns: minmax(0, 1fr);
   row-gap: clamp(1.35rem, 2.5vw, 2.5rem);
   width: 100%;
 }
@@ -733,32 +733,43 @@ button:focus-visible {
 }
 
 .footer-social {
-  align-items: stretch;
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.65rem;
   grid-area: social;
-  justify-self: end;
-  margin-top: 0;
+  justify-self: start;
+  margin-top: -0.8rem;
 }
 
 .footer-social-link {
   align-items: center;
   display: inline-flex;
-  font-size: 0.74rem;
-  font-weight: 450;
-  gap: 0.42rem;
-  justify-content: flex-start;
+  justify-content: center;
   line-height: 1.1;
-  min-height: 1.05rem;
+  min-height: 1.5rem;
+  min-width: 1.5rem;
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .footer-social-link i {
-  font-size: 0.84rem;
+  font-size: 0.95rem;
   text-align: center;
-  width: 0.95rem;
+  width: 1rem;
+}
+
+.footer-social-link span {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .footer-social-link:hover,
@@ -1000,14 +1011,5 @@ button:focus-visible {
 
   .footer-content {
     gap: 1.35rem;
-    grid-template-areas:
-      "identity"
-      "address"
-      "social";
-    grid-template-columns: 1fr;
-  }
-
-  .footer-social {
-    justify-self: start;
   }
 }
