@@ -374,6 +374,17 @@
     "themes": ["architecture"]
   },
   {
+    "name": "10israelmuseum",
+    "title": "Israel Museum",
+    "imageSrc": "projects/10israelmuseum/0.jpg",
+    "thumbnailSrc": "/img/project-thumbnails/10israelmuseum-400.webp",
+    "thumbnailSrcSet": "/img/project-thumbnails/10israelmuseum-400.webp 400w, /img/project-thumbnails/10israelmuseum-800.webp 800w, /img/project-thumbnails/10israelmuseum-938.webp 938w",
+    "thumbnailSizes": "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px",
+    "thumbnailWidth": 400,
+    "thumbnailHeight": 400,
+    "themes": ["architecture"]
+  },
+  {
     "name": "10academic",
     "title": "Hillside Campus",
     "imageSrc": "projects/10academic/0.jpg",

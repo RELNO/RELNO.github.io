@@ -149,6 +149,27 @@
         }
       ]
     },
+    "10israelmuseum": {
+      "source": "projects/10israelmuseum/0.jpg",
+      "sourceSha256": "5833fd900bfc1f04d4012c311027a283000ec3f633e1ffd45bf568fe71522c7a",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/10israelmuseum-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/10israelmuseum-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "/img/project-thumbnails/10israelmuseum-938.webp",
+          "width": 938,
+          "height": 938
+        }
+      ]
+    },
     "10motj": {
       "source": "projects/10motj/0.jpg",
       "sourceSha256": "8b41448a8e37073637669dd8784be1a73e6561ff3ac74bab4e6c0cccfa4ecca0",
