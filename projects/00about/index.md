@@ -1,6 +1,9 @@
 ---
 title: "Ariel Noyman"
 listTitle: "About Ariel Noyman"
+seoTitle: "About Ariel Noyman | MIT Urban Scientist & Architect"
+metaDescription: "Ariel Noyman, PhD, is a Research Scientist at MIT, a faculty member at Cornell and CUNY, and an architect and urban designer working to democratize data-driven design and decision-making."
+dateModified: "2026-08-30"
 order: 0
 imageSrc: "sections/an.png"
 hideTitle: true

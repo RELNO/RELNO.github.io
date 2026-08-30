@@ -9,6 +9,7 @@ const projectsDir = path.join(rootDir, "projects");
 const templatePath = path.join(rootDir, "templates", "project-page.html");
 const footerPath = path.join(rootDir, "footer", "footer.html");
 const projectListPath = path.join(projectsDir, "projects.json");
+const sitemapPath = path.join(rootDir, "sitemap.xml");
 const thumbnailManifestPath = path.join(
   rootDir,
   "img",
@@ -17,8 +18,234 @@ const thumbnailManifestPath = path.join(
 );
 const projectSourceFile = "index.md";
 const siteUrl = "https://www.arielnoyman.com";
+const siteName = "Ariel Noyman";
+const websiteId = `${siteUrl}/#website`;
+const personId = `${siteUrl}/#person`;
+const aboutUrl = `${siteUrl}/projects/00about/`;
+const portraitUrl = `${siteUrl}/sections/an.png`;
+const defaultSeoTitle =
+  "Ariel Noyman | Urban Scientist, Architect & Designer";
+const defaultMetaDescription =
+  "Ariel Noyman, PhD, is a Research Scientist at MIT, a faculty member at Cornell and CUNY, and an architect and urban designer working to democratize data-driven design and decision-making.";
+const personSameAs = [
+  "https://www.media.mit.edu/people/noyman/overview/",
+  "https://scholar.google.com/citations?user=2QzGsBYAAAAJ&hl=en",
+  "https://www.linkedin.com/in/arielnoyman",
+  "https://github.com/RELNO",
+  "https://twitter.com/relnox",
+  "https://www.youtube.com/user/arielnoyman",
+];
 const homepageImageSizes =
   "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px";
+
+function absoluteSiteUrl(value) {
+  const source = String(value ?? "").trim();
+
+  if (!source) {
+    return siteUrl;
+  }
+
+  if (/^https?:\/\//i.test(source)) {
+    return source;
+  }
+
+  return new URL(source.replace(/^\.?\//, "/"), `${siteUrl}/`).href;
+}
+
+function imageMimeType(value) {
+  const pathname = new URL(absoluteSiteUrl(value)).pathname.toLowerCase();
+
+  if (pathname.endsWith(".png")) {
+    return "image/png";
+  }
+
+  if (pathname.endsWith(".webp")) {
+    return "image/webp";
+  }
+
+  if (pathname.endsWith(".avif")) {
+    return "image/avif";
+  }
+
+  return "image/jpeg";
+}
+
+function localSiteAssetPath(value) {
+  const assetUrl = new URL(absoluteSiteUrl(value));
+
+  if (assetUrl.origin !== new URL(siteUrl).origin) {
+    return "";
+  }
+
+  const assetPath = path.resolve(
+    rootDir,
+    decodeURIComponent(assetUrl.pathname).replace(/^\/+/, "")
+  );
+  const relativePath = path.relative(rootDir, assetPath);
+
+  if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
+    return "";
+  }
+
+  return assetPath.startsWith(`${rootDir}${path.sep}`) && fs.existsSync(assetPath)
+    ? assetPath
+    : "";
+}
+
+function imageDimensions(value) {
+  const assetPath = localSiteAssetPath(value);
+
+  if (!assetPath) {
+    return null;
+  }
+
+  const image = fs.readFileSync(assetPath);
+  const mimeType = imageMimeType(value);
+
+  if (mimeType === "image/png" && image.length >= 24) {
+    return {
+      width: image.readUInt32BE(16),
+      height: image.readUInt32BE(20),
+    };
+  }
+
+  if (mimeType !== "image/jpeg" || image.length < 4) {
+    return null;
+  }
+
+  const startOfFrameMarkers = new Set([
+    0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7,
+    0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf,
+  ]);
+  let offset = 2;
+
+  while (offset + 8 < image.length) {
+    if (image[offset] !== 0xff) {
+      offset += 1;
+      continue;
+    }
+
+    const marker = image[offset + 1];
+    offset += 2;
+
+    if (marker === 0xd8 || marker === 0xd9) {
+      continue;
+    }
+
+    if (offset + 2 > image.length) {
+      break;
+    }
+
+    const segmentLength = image.readUInt16BE(offset);
+
+    if (startOfFrameMarkers.has(marker) && offset + 7 <= image.length) {
+      return {
+        width: image.readUInt16BE(offset + 5),
+        height: image.readUInt16BE(offset + 3),
+      };
+    }
+
+    if (segmentLength < 2) {
+      break;
+    }
+
+    offset += segmentLength;
+  }
+
+  return null;
+}
+
+function personEntity(includeProfileDetails = false) {
+  const person = {
+    "@type": "Person",
+    "@id": personId,
+    name: siteName,
+    givenName: "Ariel",
+    familyName: "Noyman",
+    honorificSuffix: "PhD",
+    url: aboutUrl,
+    image: portraitUrl,
+    sameAs: personSameAs,
+  };
+
+  if (!includeProfileDetails) {
+    return person;
+  }
+
+  return {
+    ...person,
+    description: defaultMetaDescription,
+    jobTitle: [
+      "Research Scientist",
+      "Urban Scientist",
+      "Architect",
+      "Urban Designer",
+    ],
+    worksFor: {
+      "@type": "Organization",
+      name: "MIT City Science Center",
+      url: "https://www.media.mit.edu/groups/city-science/overview/",
+      parentOrganization: {
+        "@type": "CollegeOrUniversity",
+        name: "Massachusetts Institute of Technology",
+        url: "https://www.mit.edu/",
+      },
+    },
+    alumniOf: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Massachusetts Institute of Technology",
+        url: "https://www.mit.edu/",
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Bezalel Academy of Arts and Design",
+        url: "https://www.bezalel.ac.il/en",
+      },
+    ],
+    knowsAbout: [
+      "Urban science",
+      "Architecture",
+      "Urban design",
+      "Urban modeling",
+      "Real-time simulation",
+      "Participatory design",
+      "Human-computer interaction",
+      "CityScope",
+      "Street Knowledge",
+      "Data-driven urban planning",
+    ],
+    award: [
+      "European Union UrbanAct Award",
+      "First place, Rebuild by Design",
+      "First prize, Museum of Tolerance design competition",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "75 Amherst Street",
+      addressLocality: "Cambridge",
+      addressRegion: "MA",
+      postalCode: "02139",
+      addressCountry: "US",
+    },
+  };
+}
+
+function websiteEntity() {
+  return {
+    "@type": "WebSite",
+    "@id": websiteId,
+    url: `${siteUrl}/`,
+    name: siteName,
+    description: defaultMetaDescription,
+    inLanguage: "en-US",
+    publisher: { "@id": personId },
+  };
+}
+
+function safeJsonLd(value) {
+  return JSON.stringify(value, null, 2).replace(/</g, "\\u003c");
+}
 
 function readFile(filePath) {
   return fs.readFileSync(filePath, "utf8");
@@ -298,6 +525,52 @@ function writeProjectList(projects, thumbnailManifest) {
   console.log(`Generated ${path.relative(rootDir, projectListPath)}`);
 }
 
+function escapeXml(value) {
+  return String(value ?? "").replace(/[<>&"']/g, (char) => {
+    return {
+      "<": "&lt;",
+      ">": "&gt;",
+      "&": "&amp;",
+      '"': "&quot;",
+      "'": "&apos;",
+    }[char];
+  });
+}
+
+function writeSitemap(projects) {
+  const urls = [
+    { loc: `${siteUrl}/` },
+    ...projects.map((project) => ({
+      loc: `${siteUrl}/projects/${project.slug}/`,
+      lastmod: /^\d{4}-\d{2}-\d{2}$/.test(String(project.dateModified || ""))
+        ? project.dateModified
+        : "",
+    })),
+  ];
+  const entries = urls
+    .map(({ loc, lastmod }) => {
+      return [
+        "  <url>",
+        `    <loc>${escapeXml(loc)}</loc>`,
+        lastmod ? `    <lastmod>${escapeXml(lastmod)}</lastmod>` : "",
+        "  </url>",
+      ]
+        .filter(Boolean)
+        .join("\n");
+    })
+    .join("\n");
+  const xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    entries,
+    "</urlset>",
+    "",
+  ].join("\n");
+
+  fs.writeFileSync(sitemapPath, xml);
+  console.log(`Generated ${path.relative(rootDir, sitemapPath)}`);
+}
+
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => {
     return {
@@ -396,6 +669,143 @@ function truncate(value, maxLength) {
   const trimmed = value.slice(0, maxLength - 1).trimEnd();
   const lastSpace = trimmed.lastIndexOf(" ");
   return `${trimmed.slice(0, Math.max(lastSpace, 0)).trimEnd()}...`;
+}
+
+function getProjectMetaDescription(project, title) {
+  if (project.metaDescription) {
+    return truncate(stripHtml(project.metaDescription), 200);
+  }
+
+  const plainDescription = stripHtml(project.text || project.subtitle || title);
+  return truncate(plainDescription || `${title} by ${siteName}`, 160);
+}
+
+function getProjectSocialImage(project) {
+  return absoluteSiteUrl(project.imageSrc || portraitUrl);
+}
+
+function getProjectSocialImageAlt(project, title) {
+  const firstItem = Array.isArray(project.carouselItems)
+    ? project.carouselItems[0]
+    : null;
+
+  return (
+    firstItem?.alt ||
+    firstItem?.caption ||
+    project.listTitle ||
+    `${title} by ${siteName}`
+  );
+}
+
+function projectKeywords(project) {
+  const themeLabels = {
+    architecture: "Architecture",
+    urbanism: "Urbanism",
+    "city-science": "Urban science",
+    writing: "Writing",
+    publication: "Publication",
+    talk: "Talk",
+    award: "Award",
+  };
+
+  return Array.from(
+    new Set(
+      ["Ariel Noyman", ...(project.themes || []).map((theme) => themeLabels[theme] || theme)]
+    )
+  );
+}
+
+function buildProjectStructuredData(
+  project,
+  {
+    title,
+    pageTitle,
+    canonicalUrl,
+    metaDescription,
+    socialImage,
+    socialImageAlt,
+    socialImageDimensions,
+  }
+) {
+  const isAbout = project.slug === "00about";
+  const webpageId = `${canonicalUrl}#webpage`;
+  const imageId = `${canonicalUrl}#primaryimage`;
+  const image = {
+    "@type": "ImageObject",
+    "@id": imageId,
+    url: socialImage,
+    contentUrl: socialImage,
+    caption: socialImageAlt,
+    ...(socialImageDimensions || {}),
+  };
+
+  if (isAbout) {
+    const profilePage = {
+      "@type": "ProfilePage",
+      "@id": webpageId,
+      url: canonicalUrl,
+      name: pageTitle,
+      description: metaDescription,
+      inLanguage: "en-US",
+      isPartOf: { "@id": websiteId },
+      mainEntity: { "@id": personId },
+      primaryImageOfPage: { "@id": imageId },
+    };
+
+    if (project.dateModified) {
+      profilePage.dateModified = project.dateModified;
+    }
+
+    return safeJsonLd({
+      "@context": "https://schema.org",
+      "@graph": [
+        websiteEntity(),
+        personEntity(true),
+        image,
+        profilePage,
+      ],
+    });
+  }
+
+  const creativeWorkId = `${canonicalUrl}#creativework`;
+  const webPage = {
+    "@type": "WebPage",
+    "@id": webpageId,
+    url: canonicalUrl,
+    name: pageTitle,
+    description: metaDescription,
+    inLanguage: "en-US",
+    isPartOf: { "@id": websiteId },
+    about: { "@id": creativeWorkId },
+    primaryImageOfPage: { "@id": imageId },
+  };
+  const creativeWork = {
+    "@type": "CreativeWork",
+    "@id": creativeWorkId,
+    url: canonicalUrl,
+    name: title,
+    description: metaDescription,
+    image: { "@id": imageId },
+    creator: { "@id": personId },
+    keywords: projectKeywords(project),
+    inLanguage: "en-US",
+  };
+
+  if (project.dateModified) {
+    webPage.dateModified = project.dateModified;
+    creativeWork.dateModified = project.dateModified;
+  }
+
+  return safeJsonLd({
+    "@context": "https://schema.org",
+    "@graph": [
+      websiteEntity(),
+      personEntity(false),
+      image,
+      creativeWork,
+      webPage,
+    ],
+  });
 }
 
 function renderInlineText(value) {
@@ -718,24 +1128,61 @@ function generateProjectPages() {
   const siteFooter = readFile(footerPath).trim();
 
   writeProjectList(projects, thumbnailManifest);
+  writeSitemap(projects);
 
   projects.forEach((project) => {
     const slug = project.slug;
     const title = project.title || project.listTitle || slug;
+    const isAbout = slug === "00about";
     const isWriting = project.themes.includes("writing");
-    const plainDescription = stripHtml(project.text || project.subtitle || title);
-    const metaDescription = truncate(plainDescription || `${title} by Ariel Noyman`, 160);
+    const pageTitle =
+      project.seoTitle ||
+      (isAbout ? defaultSeoTitle : `${title} | ${siteName}`);
+    const socialTitle = project.socialTitle || pageTitle;
+    const metaDescription = getProjectMetaDescription(project, title);
     const canonicalUrl = `${siteUrl}/projects/${slug}/`;
+    const socialImage = getProjectSocialImage(project);
+    const socialImageAlt = getProjectSocialImageAlt(project, title);
+    const socialImageDimensions = imageDimensions(socialImage);
+    const structuredData = buildProjectStructuredData(project, {
+      title,
+      pageTitle,
+      canonicalUrl,
+      metaDescription,
+      socialImage,
+      socialImageAlt,
+      socialImageDimensions,
+    });
     const projectMeta = renderProjectMeta(project);
     const projectBadges = renderBadges(project);
     const projectDescription = renderProjectDescription(project.text);
     const html = renderTemplate(template, {
       siteFooter,
-      pageTitle: `${escapeHtml(title)} | Ariel Noyman`,
+      pageTitle: escapeHtml(pageTitle),
       bodyClass: isWriting ? "project-page writing-project-page" : "project-page",
       articleClass: isWriting ? "project-article writing-project" : "project-article",
       metaDescription: escapeAttribute(metaDescription),
       canonicalUrl: escapeAttribute(canonicalUrl),
+      openGraphType: isAbout ? "profile" : isWriting ? "article" : "website",
+      socialTitle: escapeAttribute(socialTitle),
+      socialImage: escapeAttribute(socialImage),
+      socialImageType: imageMimeType(socialImage),
+      socialImageAlt: escapeAttribute(socialImageAlt),
+      socialImageDimensions: socialImageDimensions
+        ? [
+            `<meta property="og:image:width" content="${socialImageDimensions.width}" />`,
+            `<meta property="og:image:height" content="${socialImageDimensions.height}" />`,
+          ].join("\n    ")
+        : "",
+      twitterCard: isAbout ? "summary" : "summary_large_image",
+      profileMeta: isAbout
+        ? [
+            '<meta property="profile:first_name" content="Ariel" />',
+            '<meta property="profile:last_name" content="Noyman" />',
+            '<meta property="profile:username" content="relnox" />',
+          ].join("\n    ")
+        : "",
+      structuredData,
       projectHero:
         project.hideTitle === true
           ? ""

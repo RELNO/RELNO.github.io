@@ -5,9 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="{{metaDescription}}" />
     <meta name="author" content="Ariel Noyman" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="theme-color" content="#000000" />
     <link rel="canonical" href="{{canonicalUrl}}" />
-    <link rel="icon" href="/img/favicon.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="/img/favicon.png" type="image/png" sizes="128x128" />
+    <link rel="me" href="https://www.media.mit.edu/people/noyman/overview/" />
+    <link rel="me" href="https://scholar.google.com/citations?user=2QzGsBYAAAAJ&amp;hl=en" />
+    <link rel="me" href="https://www.linkedin.com/in/arielnoyman" />
+    <link rel="me" href="https://github.com/RELNO" />
+    <link rel="me" href="https://twitter.com/relnox" />
+    <link rel="me" href="https://www.youtube.com/user/arielnoyman" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Ariel Noyman" />
+    <meta property="og:type" content="{{openGraphType}}" />
+    <meta property="og:title" content="{{socialTitle}}" />
+    <meta property="og:description" content="{{metaDescription}}" />
+    <meta property="og:url" content="{{canonicalUrl}}" />
+    <meta property="og:image" content="{{socialImage}}" />
+    <meta property="og:image:secure_url" content="{{socialImage}}" />
+    <meta property="og:image:type" content="{{socialImageType}}" />
+    <meta property="og:image:alt" content="{{socialImageAlt}}" />
+    {{socialImageDimensions}}
+    {{profileMeta}}
+
+    <meta name="twitter:card" content="{{twitterCard}}" />
+    <meta name="twitter:site" content="@relnox" />
+    <meta name="twitter:creator" content="@relnox" />
+    <meta name="twitter:title" content="{{socialTitle}}" />
+    <meta name="twitter:description" content="{{metaDescription}}" />
+    <meta name="twitter:image" content="{{socialImage}}" />
+    <meta name="twitter:image:alt" content="{{socialImageAlt}}" />
+
     <title>{{pageTitle}}</title>
+
+    <script type="application/ld+json">
+{{structuredData}}
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,7 +57,7 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link href="/css/base.css" rel="stylesheet" />
+    <link href="/css/base.css?v=20260830-1" rel="stylesheet" />
     <link href="/css/edits.css?v=20260808-1" rel="stylesheet" />
   </head>
   <body class="{{bodyClass}}">

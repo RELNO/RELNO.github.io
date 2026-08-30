@@ -15,15 +15,17 @@ Permanent project URLs are generated as static files:
 python3 -m pip install -r tools/requirements.txt
 python3 tools/generate-project-thumbnails.py
 node tools/generate-project-pages.js
+node tools/validate-seo.js
 ```
 
 The generator writes `projects/<slug>/index.html` for every project in
 `projects/<slug>/index.md`, using `templates/project-page.html` and
 `footer/footer.html`. It also regenerates `projects/projects.json` for the
-homepage grid; treat that JSON file as generated output, not as the editing
-source. The thumbnail step creates responsive, center-cropped WebP assets under
-`img/project-thumbnails/` for homepage cards. Project pages continue to use the
-original full-resolution media declared in each Markdown file.
+homepage grid and `sitemap.xml` for search-engine discovery; treat those files
+as generated output, not as editing sources. The thumbnail step creates
+responsive, center-cropped WebP assets under `img/project-thumbnails/` for
+homepage cards. Project pages continue to use the original full-resolution
+media declared in each Markdown file.
 
 ## Adding a project
 
@@ -51,6 +53,9 @@ listTitle: "Optional shorter homepage title"
 subtitle: "Optional page subtitle"
 order: 10
 imageSrc: "projects/example/0.jpg"
+seoTitle: "Optional search-result and social-sharing title"
+metaDescription: "Optional search-result and social-sharing summary"
+dateModified: "2026-08-30"
 themes:
   - "architecture"
 badges:
@@ -65,6 +70,17 @@ carouselItems:
     alt: "Short image description"
 ---
 ```
+
+Every generated project page includes a canonical URL, Open Graph and X card
+metadata, crawler directives, and JSON-LD structured data. The About page is
+the authoritative source for the site's `Person` and `ProfilePage` identity.
+Project pages inherit that identity and add page-specific `CreativeWork`
+metadata. Keep `metaDescription` concise and under 200 characters, and only set
+`dateModified` when the page content has meaningfully changed.
+
+The root `robots.txt` advertises the generated sitemap. After deploying a new
+site or changing its domain, submit `https://www.arielnoyman.com/sitemap.xml`
+to Google Search Console and Bing Webmaster Tools.
 
 GitHub Pages can deploy the committed static files directly. No backend,
 database, CMS, or JavaScript framework is required.
