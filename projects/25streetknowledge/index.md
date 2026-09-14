@@ -1,31 +1,34 @@
 ---
-title: "Street Knowledge"
-subtitle: "A human-centered framework for urban digital twins"
+title: "Connected Urban Twins"
+subtitle: "Street Knowledge: Democratizing Data-driven Urban Design"
+metaDescription: "Ariel Noyman's talk, Street Knowledge: Democratizing Data-driven Urban Design, at the Connected Urban Twins conference at HafenCity University Hamburg, 2025."
 order: 15
 imageSrc: "projects/25streetknowledge/street-knowledge-thumbnail.png"
 themes:
   - "city-science"
-  - "publication"
   - "talk"
-  - "award"
 badges:
-  - label: "Street Knowledge Talk"
+  - label: "Connected Urban Twins"
+    link: "https://www.connectedurbantwins.de/en/"
+  - label: "Conference"
+    link: "https://www.connectedurbantwins.de/en/urban-digital-twin-days/"
+  - label: "Watch the Talk"
     link: "https://www.youtube.com/watch?v=EzzsXhp_lig"
 credits:
-  - label: "Publication"
-    value: "Street Knowledge: A Human-Centered Framework for Urban Digital Twins, Journal of Urban Technology, under review, 2025"
+  - label: "Date"
+    value: "April 2025"
+  - label: "Location"
+    value: "HafenCity University Hamburg, Germany"
+  - label: "Event"
+    value: "Urban Digital Twin Days 2025, Connected Urban Twins"
   - label: "Talk"
-    value: "Keynote, The 65th Annual Conference of the Geographical Association, Ben Gurion University of the Negev, 2025"
-  - label: "Talk"
-    value: "Street Knowledge: Democratizing Data-driven Urban Design, Connected Urban Twins Conference, HCU Hamburg, 2025"
-  - label: "Support"
-    value: "MIT Zuckerman STEM Fund, Faculty Collaboration Fund, Massachusetts Institute of Technology, 2023"
+    value: "Street Knowledge: Democratizing Data-driven Urban Design"
 carouselItems:
   - type: "link"
     src: "https://www.youtube.com/watch?v=EzzsXhp_lig"
     autoplay: false
     caption: "Street Knowledge: Democratizing Data-driven Urban Design"
 ---
-Street Knowledge brings together work on urban digital twins, public-facing simulation, and data-driven urban design. The project asks how computational planning tools can become more legible, more participatory, and more accountable to the people and institutions that use them.
+[Connected Urban Twins](https://www.connectedurbantwins.de/en/) (CUT) was a collaboration between Hamburg, Leipzig, and Munich that advanced urban data platforms and digital twins for integrated urban development from 2021 to 2025. The project explored how digital representations of cities can support planning, public participation, and more sustainable urban futures.
 
-Rather than treating urban data as a dashboard layer alone, Street Knowledge frames digital twins as civic interfaces: systems that should support explanation, negotiation, local expertise, and shared decision-making. The talks, awards, and current publication collected here belong to that research line.
+At the [Urban Digital Twin Days 2025](https://www.connectedurbantwins.de/en/urban-digital-twin-days/) conference at HafenCity University Hamburg, Ariel Noyman presented "Street Knowledge: Democratizing Data-driven Urban Design." The talk explored how urban digital twins and data-driven design can incorporate local knowledge and support shared decision-making.
