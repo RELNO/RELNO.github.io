@@ -714,6 +714,22 @@
         }
       ]
     },
+    "26agents": {
+      "source": "projects/26agents/simulation-cover.jpg",
+      "sourceSha256": "c72ad318260d5f10ff0fb914d51d6b0b1a537bccfdc8425fd4237a22e6aef949",
+      "variants": [
+        {
+          "src": "/img/project-thumbnails/26agents-400.webp",
+          "width": 400,
+          "height": 400
+        },
+        {
+          "src": "/img/project-thumbnails/26agents-660.webp",
+          "width": 660,
+          "height": 660
+        }
+      ]
+    },
     "26charrette": {
       "source": "projects/26charrette/mit_studio.jpeg",
       "sourceSha256": "10fa5cdebd911a9babe0dd245957d46079ae460852fa3386debdfba2f48697bf",

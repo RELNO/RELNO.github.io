@@ -11,6 +11,17 @@
     "themes": []
   },
   {
+    "name": "26agents",
+    "title": "Beyond the Rulebook",
+    "imageSrc": "projects/26agents/simulation-cover.jpg",
+    "thumbnailSrc": "/img/project-thumbnails/26agents-400.webp",
+    "thumbnailSrcSet": "/img/project-thumbnails/26agents-400.webp 400w, /img/project-thumbnails/26agents-660.webp 660w",
+    "thumbnailSizes": "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px",
+    "thumbnailWidth": 400,
+    "thumbnailHeight": 400,
+    "themes": ["city-science", "architecture"]
+  },
+  {
     "name": "26gridnberg",
     "title": "Gridnberg",
     "imageSrc": "projects/26gridnberg/gridnberg.jpeg",
