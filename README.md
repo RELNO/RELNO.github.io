@@ -51,6 +51,7 @@ Common front matter fields:
 title: "Project Page Title"
 listTitle: "Optional shorter homepage title"
 subtitle: "Optional page subtitle"
+stylesheet: "projects/example/project.css" # Optional page-specific styles
 order: 10
 imageSrc: "projects/example/0.jpg"
 seoTitle: "Optional search-result and social-sharing title"

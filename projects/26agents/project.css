@@ -1,0 +1,24 @@
+/* Layout for the simulation studies and their technical figures. */
+.project-description h2 {
+  margin: 2.25rem 0 0.8rem;
+}
+
+.project-description figure {
+  margin: 1.8rem 0 2.5rem;
+}
+
+.project-description figcaption {
+  font-size: 0.85em;
+  line-height: 1.4;
+  margin-top: 0.6rem;
+}
+
+.project-gallery {
+  gap: 2rem;
+}
+
+@media (max-width: 760px) {
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+}

@@ -141,6 +141,7 @@
     />
     <link href="/css/base.css?v=20260830-1" rel="stylesheet" />
     <link href="/css/edits.css?v=20260808-1" rel="stylesheet" />
+    <link href="/projects/26agents/project.css" rel="stylesheet" />
   </head>
   <body class="project-page">
     <header class="project-home-header">
@@ -193,27 +194,52 @@
 <section class="project-description">
 <p>Agent-based models turn explicit rules into complex collective behavior. Interpreting incomplete information or an ambiguous request can require additional rules and special cases. This project explores how decision models can interpret those situations and return structured actions within a spatial simulation.</p>
 <p>The work developed through two studies: a comparison of model responses at a subway information desk, followed by a campus experiment that places shared reasoning at decision nodes throughout a network.</p>
-<h2 style="margin: 2.25rem 0 0.8rem;">01 · Train station: comparing decision models</h2>
+<h2>01 · Train station: comparing decision models</h2>
 <p>The first study modeled a simplified New York City subway station in GAMA. <strong>300 passengers</strong> arrived over three minutes; <strong>30 visited an information desk</strong>. Requests included finding the airport train, reaching a platform without stairs, and discovering that the intended service departed from another station.</p>
 <p>Jev 1.13 and OpenAI GPT-6 Luna received identical initial requests and equivalent structured answer choices. Shared routing rules translated the responses into movement, with follow-up questions when information was unclear.</p>
 <p>Jev's median API response was <strong>224 ms</strong>, compared with <strong>1,511 ms</strong> for GPT-6 Luna: approximately <strong>6.8 times faster in this test</strong>. Initial interpretation accuracy was <strong>28/30</strong> and <strong>29/30</strong>, respectively. Final route assignments agreed after clarification. The Jev scenario ended about <strong>20% earlier in simulated time</strong>, with identical assumed human exchange times added to the recorded API delays.</p>
-<figure class="project-gallery-item project-video" style="margin: 1.8rem 0 2.5rem;"><video controls muted loop playsinline preload="none" poster="/projects/26agents/comparison-poster.jpg" aria-label="Recorded Jev and GPT-6 Luna station comparison"><source src="/projects/26agents/comparison-horizontal.mp4" type="video/mp4" /><a href="/projects/26agents/comparison-horizontal.mp4">Watch the station comparison.</a></video><figcaption style="font-size: 0.85em; line-height: 1.4; margin-top: 0.6rem;">Train station. Identical requests, shared routing rules, and recorded response times.</figcaption></figure>
-<h2 style="margin: 2.25rem 0 0.8rem;">02 · Campus accessibility: cognitive networks</h2>
+<figure class="project-gallery-item project-video"><video controls muted loop playsinline preload="none" poster="/projects/26agents/comparison-poster.jpg" aria-label="Recorded Jev and GPT-6 Luna station comparison"><source src="/projects/26agents/comparison-horizontal.mp4" type="video/mp4" /><a href="/projects/26agents/comparison-horizontal.mp4">Watch the station comparison.</a></video><figcaption>Train station. Identical requests, shared routing rules, and recorded response times.</figcaption></figure>
+<h2>02 · Campus accessibility: cognitive networks</h2>
 <p>The second study asks: <strong>can the network itself become a decision arbitrator?</strong> Agents retain a destination, an accessibility profile, and simple movement rules. Interpretation happens at designated network nodes, where each pedestrian's needs meet the information available at that location.</p>
 <p>The public space between the MIT Media Lab and MIT's eastern campus was modeled with a proposed ramp and an assumed internal lift connection alongside the existing stairs. These are modifications to the simulated environment, allowing alternative access arrangements to be explored.</p>
 <p><strong>500 pedestrians</strong> approached from six origins with four profiles: no access constraints, low vision, limited mobility, and wheelchair users. At <strong>six decision nodes</strong>, a shared H2O-Lightning-4B model running locally on TARS interpreted the pedestrian's destination, preferences, current level, visible connections, readable signs, and recent actions.</p>
 <p>A request such as “How do I reach MIT Health without stairs?” is resolved by selecting a supplied local action: inspect a sign, take the ramp, enter the lift lobby, or continue along a path. Available choices and observations change at each node. GAMA handles movement between decisions; the model receives local symbolic information rather than the aerial photograph or a precomputed trip route.</p>
 <p>The run recorded <strong>1,724 native decisions</strong>, with a median API response of <strong>159 ms</strong> and a 95th percentile of <strong>685 ms</strong>. All <strong>500 pedestrians reached their destinations</strong>. Completion did not mean perfect behavior: eight limited-mobility agents chose stairs despite their stated preference. Wheelchair agents never chose stairs and used the lift for all 41 changes of level.</p>
 <p>The video above shows a continuous 160-second recorded window at 8× playback. Three message streams display 24 selected exchanges across all six decision nodes. Colored outlines identify accessibility profiles; the displayed questions summarize recorded inputs, while replies represent actual structured choices. Message visibility is held for reading independently of the measured API duration.</p>
-<h2 style="margin: 2.25rem 0 0.8rem;">Why make the network cognitive?</h2>
+<h2>Why make the network cognitive?</h2>
 <p>Knowledge is attached to the place where it matters. A closed lift, a new ramp, or an unclear sign could be described once at a node, then interpreted differently for each arriving pedestrian's needs and destination. This reduces the need to prescribe a separate response for every combination of person, destination, and local condition.</p>
 <p>The network becomes a shared layer for interpreting uncertainty, while individual agents remain simple. It also makes decisions observable at specific places, helping identify where guidance succeeds, where preferences are missed, and how changes to access or information might affect many individual journeys.</p>
-<h2 style="margin: 2.25rem 0 0.8rem;">Scope of the experiments</h2>
+<h2>Scope of the experiments</h2>
 <p>These are functional demonstrations, not calibrated crowd or accessibility assessments. Geometry, movement speeds, and internal lift transfers are schematic. API timings include serving and request overhead; simulated time is a separate measure. The station comparison and campus run use different scenarios and models, so their timings are not a controlled comparison. No independent accuracy benchmark or comparison engine was run for the campus study.</p>
 </section>
 </div>
 
-
+        <section class="project-gallery" aria-label="Beyond the Rulebook media gallery">
+<figure class="project-gallery-item project-linked-media">
+  <a class="project-media-link" href="/projects/26agents/station-isometric.webp" target="_blank" rel="noopener">
+    <img src="/projects/26agents/station-isometric.webp" alt="Station model. Isometric rendering of the information desk, ramp, lift and return routes in the recorded Jev scenario." width="1200" height="1500" loading="lazy" />
+    <figcaption>Station model. Isometric rendering of the information desk, ramp, lift and return routes in the recorded Jev scenario.</figcaption>
+  </a>
+</figure>
+<figure class="project-gallery-item project-linked-media">
+  <a class="project-media-link" href="/projects/26agents/station-results.webp" target="_blank" rel="noopener">
+    <img src="/projects/26agents/station-results.webp" alt="Station results. Measured API response times and initial interpretation accuracy for the same 30 passenger requests." width="1200" height="1500" loading="lazy" />
+    <figcaption>Station results. Measured API response times and initial interpretation accuracy for the same 30 passenger requests.</figcaption>
+  </a>
+</figure>
+<figure class="project-gallery-item project-linked-media">
+  <a class="project-media-link" href="/projects/26agents/campus-layout.webp" target="_blank" rel="noopener">
+    <img src="/projects/26agents/campus-layout.webp" alt="Campus layout. The modified visualization used as the simulation background, with proposed ramp and assumed internal lift access." width="1440" height="994" loading="lazy" />
+    <figcaption>Campus layout. The modified visualization used as the simulation background, with proposed ramp and assumed internal lift access.</figcaption>
+  </a>
+</figure>
+<figure class="project-gallery-item project-linked-media">
+  <a class="project-media-link" href="/projects/26agents/campus-decisions.webp" target="_blank" rel="noopener">
+    <img src="/projects/26agents/campus-decisions.webp" alt="Campus decisions. A recorded 500-agent frame; message outlines identify accessibility profiles and replies show structured actions and measured response times." width="1440" height="960" loading="lazy" />
+    <figcaption>Campus decisions. A recorded 500-agent frame; message outlines identify accessibility profiles and replies show structured actions and measured response times.</figcaption>
+  </a>
+</figure>
+</section>
       </article>
     </main>
 
