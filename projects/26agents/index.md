@@ -28,7 +28,7 @@ carouselItems:
     loop: true
     preload: "metadata"
     alt: "500-pedestrian campus simulation with six decision nodes and scrolling messages outlined by accessibility profile"
-    caption: "Campus accessibility, October 2026. A 20-second edit of recorded GAMA movement shows selected node exchanges and measured API response times."
+    caption: "Campus accessibility. A 20-second edit of recorded GAMA movement shows selected node exchanges and measured API response times."
 ---
 Agent-based models turn explicit rules into complex collective behavior. Interpreting incomplete information or an ambiguous request can require additional rules and special cases. This project explores how decision models can interpret those situations and return structured actions within a spatial simulation.
 
@@ -42,7 +42,7 @@ Jev 1.13 and OpenAI GPT-6 Luna received identical initial requests and equivalen
 
 Jev's median API response was **224 ms**, compared with **1,511 ms** for GPT-6 Luna: approximately **6.8 times faster in this test**. Initial interpretation accuracy was **28/30** and **29/30**, respectively. Final route assignments agreed after clarification. The Jev scenario ended about **20% earlier in simulated time**, with identical assumed human exchange times added to the recorded API delays.
 
-<figure class="project-gallery-item project-video" style="margin: 1.8rem 0 2.5rem;"><video controls muted loop playsinline preload="none" poster="/projects/26agents/comparison-poster.jpg" aria-label="Recorded Jev and GPT-6 Luna station comparison"><source src="/projects/26agents/comparison-horizontal.mp4" type="video/mp4" /><a href="/projects/26agents/comparison-horizontal.mp4">Watch the station comparison.</a></video><figcaption style="font-size: 0.85em; line-height: 1.4; margin-top: 0.6rem;">Train station, September 2026. Identical requests, shared routing rules, and recorded response times.</figcaption></figure>
+<figure class="project-gallery-item project-video" style="margin: 1.8rem 0 2.5rem;"><video controls muted loop playsinline preload="none" poster="/projects/26agents/comparison-poster.jpg" aria-label="Recorded Jev and GPT-6 Luna station comparison"><source src="/projects/26agents/comparison-horizontal.mp4" type="video/mp4" /><a href="/projects/26agents/comparison-horizontal.mp4">Watch the station comparison.</a></video><figcaption style="font-size: 0.85em; line-height: 1.4; margin-top: 0.6rem;">Train station. Identical requests, shared routing rules, and recorded response times.</figcaption></figure>
 
 <h2 style="margin: 2.25rem 0 0.8rem;">02 · Campus accessibility: cognitive networks</h2>
 
