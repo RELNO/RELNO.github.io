@@ -13,9 +13,9 @@
   {
     "name": "26agents",
     "title": "Beyond the Rulebook",
-    "imageSrc": "projects/26agents/simulation-cover.jpg",
+    "imageSrc": "projects/26agents/campus-poster.jpg",
     "thumbnailSrc": "/img/project-thumbnails/26agents-400.webp",
-    "thumbnailSrcSet": "/img/project-thumbnails/26agents-400.webp 400w, /img/project-thumbnails/26agents-660.webp 660w",
+    "thumbnailSrcSet": "/img/project-thumbnails/26agents-400.webp 400w, /img/project-thumbnails/26agents-800.webp 800w, /img/project-thumbnails/26agents-960.webp 960w",
     "thumbnailSizes": "(max-width: 760px) 50vw, (min-width: 1500px) 16.667vw, 200px",
     "thumbnailWidth": 400,
     "thumbnailHeight": 400,
