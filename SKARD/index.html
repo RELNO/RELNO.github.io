@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#191d16">
-    <meta name="description" content="Skate downhill with Arad from Grand Army Plaza to J.J. Byrne, then keep rolling through generated Brooklyn blocks.">
+    <meta name="description" content="Skate a fixed Park Slope line to earn time at J.J. Byrne and unlock New York skate spots.">
     <link rel="icon" href="/SKARD/deck.svg" type="image/svg+xml">
     <title>SKARD — Brooklyn Downhill</title>
-    <script type="module" crossorigin src="/SKARD/assets/index-CS4n98Ih.js"></script>
-    <link rel="stylesheet" crossorigin href="/SKARD/assets/index-CfcoBJB-.css">
+    <script type="module" crossorigin src="/SKARD/assets/index-CFAasIDg.js"></script>
+    <link rel="stylesheet" crossorigin href="/SKARD/assets/index-kIuYZ2Le.css">
   </head>
   <body>
     <main id="game" data-mode="loading">
@@ -36,12 +36,13 @@
       </header>
       <section class="title-card" aria-label="Choose a skating session" hidden>
         <div class="mode-switch" role="group" aria-label="Skating mode">
-          <button data-session="free" aria-pressed="true">Free skate</button>
+          <button data-session="downhill" aria-pressed="true">Downhill run</button>
           <button data-session="timed" aria-pressed="false">60s score run</button>
+          <button id="open-levels" aria-haspopup="dialog">Levels</button>
         </div>
-        <h1>BROOKLYN<br>DOWNHILL</h1>
-        <button type="button" class="location route-link" data-route title="View the route and choose a drop-in spot"><span data-icon="route"></span><span id="title-route">Grand Army Plaza → J.J. Byrne</span><span data-icon="chevron"></span></button>
-        <p class="session-note" id="score-target" hidden></p>
+        <h1 id="course-heading">BROOKLYN<br>DOWNHILL</h1>
+        <button type="button" class="location route-link" data-route title="View the course"><span data-icon="route"></span><span id="title-route">Grand Army Plaza → J.J. Byrne</span><span data-icon="chevron"></span></button>
+        <p class="session-note" id="score-target">Earn free-skate time at J.J. Byrne.</p>
         <div class="action-row">
           <button id="start" class="primary">Start skating <span data-icon="forward"></span></button>
           <button class="guide-link" data-guide><span data-icon="keyboard"></span> Trick guide</button>
@@ -66,9 +67,11 @@
           <span class="progress-rule" aria-hidden="true"><i id="route-progress"></i></span>
           <span class="current-stop" id="current-stop">Grand Army Plaza</span><em>/</em><span id="route-distance">0 m</span>
         </button>
-        <div id="approach" class="approach" hidden><span data-icon="forward"></span><span id="approach-label"></span></div>
+        <div id="approach" class="approach" hidden><span class="approach-arrow" data-icon="forward"></span><span id="approach-label"></span></div>
+        <div id="level-notice" role="status" hidden></div>
         <button class="in-game-guide" data-guide title="Open trick guide"><span data-icon="keyboard"></span> Trick guide</button>
       </aside>
+      <div id="flick-bar" hidden></div>
       <section id="pause-card" class="pause-card" aria-label="Pause menu" hidden>
         <div class="eyebrow"><span class="slashes" aria-hidden="true">///</span> <span data-session-label>FREE SKATE</span></div>
         <h2>PAUSED</h2>
@@ -83,23 +86,31 @@
         </label>
       </section>
       <section id="run-result" class="pause-card" aria-labelledby="result-title" hidden>
-        <div class="eyebrow"><span class="slashes" aria-hidden="true">///</span> 60s SCORE RUN</div>
+        <div class="eyebrow"><span class="slashes" aria-hidden="true">///</span> <span id="result-mode">60s SCORE RUN</span></div>
         <h2 id="result-title">TIME’S UP</h2>
         <div class="score-summary">
           <span>Run score<strong id="end-score">0</strong></span>
-          <span>Personal best<strong id="end-best">0</strong></span>
+          <span><span id="best-caption">Personal best</span><strong id="end-best">0</strong></span>
         </div>
         <div class="action-row">
           <button id="replay" class="primary">Skate again <span data-icon="forward"></span></button>
-          <button id="leave-result" class="guide-link">Change mode</button>
+          <button id="leave-result" class="guide-link">Change mode</button><button id="result-levels" class="guide-link">Levels</button>
         </div>
       </section>
+      <section id="arrival-card" class="pause-card" aria-labelledby="arrival-title" hidden>
+        <div class="eyebrow"><span class="slashes" aria-hidden="true">///</span> DESTINATION REACHED</div>
+        <h2 id="arrival-title">J.J. BYRNE</h2>
+        <p id="arrival-summary"></p>
+        <p class="park-turn-tip">Skate both ways. Press T to turn back.</p>
+        <button id="enter-park" class="primary">Drop in <span data-icon="forward"></span></button>
+      </section>
       <div class="touch-controls" aria-label="Touch skate controls" hidden>
-        <div><button data-key="ArrowLeft">Brake</button><button data-key="ArrowRight">Push</button></div>
+        <div><button data-key="ArrowLeft">Brake</button><button data-key="KeyT">Turn</button><button data-key="ArrowRight">Push</button></div>
         <div class="touch-tricks"><button data-key="KeyZ">Ollie</button><button data-key="KeyX">Flip</button><button data-key="KeyC">Shuvit</button><button data-key="KeyV">Grab</button><button data-key="KeyB">Boneless</button><button data-key="KeyN">Nose manual</button><button data-key="KeyM">Manual</button></div>
       </div>
       <dialog id="guide" aria-labelledby="guide-title">
         <div class="guide-head"><div><span class="eyebrow"><span class="slashes" aria-hidden="true">///</span> SKARD</span><h2 id="guide-title">TRICK GUIDE</h2></div><button class="icon-button" id="close-guide" aria-label="Close trick guide"><span data-icon="close"></span></button></div>
+        <div id="flick-guide"></div>
         <dl class="controls-list">
           <div><dt>Push</dt><dd><kbd>→</kbd> / <kbd>D</kbd></dd></div>
           <div><dt>Brake</dt><dd><kbd>←</kbd> / <kbd>A</kbd></dd></div>
@@ -114,17 +125,22 @@
           <div><dt>Ramp air</dt><dd>Carry speed up the curved lip</dd></div>
           <div><dt>Big air</dt><dd>Hold Z through the lip, then X, C or V</dd></div>
           <div><dt>Stairs &amp; barriers</dt><dd>Ollie before the edge</dd></div>
-          <div><dt>Turn around</dt><dd>Stop, then tap brake again</dd></div>
+          <div><dt>Turn around</dt><dd><kbd>T</kbd> or brake twice</dd></div>
           <div><dt>Radio station</dt><dd><kbd>[</kbd> / <kbd>]</kbd></dd></div>
           <div><dt>Pause / restart</dt><dd><kbd>ESC</kbd> / <kbd>R</kbd></dd></div>
         </dl>
       </dialog>
       <dialog id="route-map" aria-labelledby="route-title">
-        <div class="guide-head"><div><span class="eyebrow"><span class="slashes" aria-hidden="true">///</span> PARK SLOPE, BK</span><h2 id="route-title">DOWNHILL ROUTE</h2></div><button class="icon-button" id="close-route" aria-label="Close route map"><span data-icon="close"></span></button></div>
+        <div class="guide-head"><div><span class="eyebrow"><span class="slashes" aria-hidden="true">///</span> <span class="map-place">PARK SLOPE, BK</span></span><h2 id="route-title">DOWNHILL ROUTE</h2></div><button class="icon-button" id="close-route" aria-label="Close route map"><span data-icon="close"></span></button></div>
         <div class="route-profile"><canvas id="elevation" aria-label="Elevation profile from Grand Army Plaza down to J.J. Byrne"></canvas><div class="profile-caption"><span id="profile-length"></span><span id="profile-drop"></span></div></div>
-        <p id="route-instruction">Choose a drop-in spot.</p>
+        <p id="route-instruction"></p>
         <ol id="route-stops"></ol>
-        <div class="route-continuation"><b aria-hidden="true">∞</b><span>Generated blocks continue beyond J.J. Byrne.</span></div>
+        <p class="route-continuation" id="map-footer">Finish the descent to earn your J.J. Byrne session.</p>
+      </dialog>
+      <dialog id="level-select" aria-labelledby="levels-title">
+        <div class="guide-head"><div><span class="eyebrow"><span class="slashes" aria-hidden="true">///</span> NEW YORK CITY</span><h2 id="levels-title">SKATE LEVELS</h2></div><button class="icon-button" id="close-levels" aria-label="Close levels"><span data-icon="close"></span></button></div>
+        <p id="level-best"></p>
+        <div id="level-choices"></div>
       </dialog>
     </main>
   </body>
