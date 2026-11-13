@@ -1,0 +1,24 @@
+SKARD • Arad character and board
+
+The anatomical topology, child morph and starting deformation weights are adapted
+from MakeHuman Community's hm08 base mesh, child target, and default skeleton.
+MakeHuman's core assets are distributed under CC0 1.0 Universal.
+https://github.com/makehumancommunity/makehuman
+https://static.makehumancommunity.org/about/license.html
+https://creativecommons.org/publicdomain/zero/1.0/
+
+The fitted facial triangle layout includes topology adapted from Google's
+MediaPipe canonical face model under Apache License 2.0. The model was modified
+for SKARD with local facial-landmark measurements, fitted volumetric geometry,
+closed eyelid and lip loops, a skull-to-face seam, and a custom texture.
+Copyright The MediaPipe Authors.
+https://github.com/google-ai-edge/mediapipe/blob/master/mediapipe/modules/face_geometry/data/canonical_face_model.obj
+Apache License text: mediapipe-Apache-2.0.txt
+
+The fitted face uses measurements from the family's privately supplied portraits.
+Its texture uses a cropped portrait, and selected details in the holiday fleece
+and controller tee are sampled or redrawn from the family’s outfit reference.
+The complete source photographs remain outside the game bundle.
+The clothing shapes, original raccoon artwork, sticker treatment, helmet, board,
+shoes, protective equipment, character posing, and skating animation were
+authored or customized specifically for this build.

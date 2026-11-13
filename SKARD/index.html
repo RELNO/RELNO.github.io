@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#191d16">
+    <meta name="description" content="Skate downhill with Arad from Grand Army Plaza to J.J. Byrne, then keep rolling through generated Brooklyn blocks.">
+    <link rel="icon" href="/SKARD/deck.svg" type="image/svg+xml">
+    <title>SKARD — Brooklyn Downhill</title>
+    <script type="module" crossorigin src="/SKARD/assets/index-CS4n98Ih.js"></script>
+    <link rel="stylesheet" crossorigin href="/SKARD/assets/index-CfcoBJB-.css">
+  </head>
+  <body>
+    <main id="game" data-mode="loading">
+      <canvas id="world" tabindex="-1" aria-label="Skate as Arad on a three-dimensional downhill route through Park Slope, Brooklyn."></canvas>
+      <div class="grade" aria-hidden="true"></div>
+      <header class="topbar">
+        <div class="wordmark" aria-label="SKARD">SKARD</div>
+        <div class="header-actions">
+          <div class="radio-dial" role="group" aria-label="Radio tuner">
+            <button type="button" id="radio-toggle" aria-pressed="true" title="Turn off radio" aria-label="Turn off radio">
+              <span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            </button>
+            <button type="button" id="next-station" title="Change radio station (])" aria-label="Change radio station" aria-keyshortcuts="[ ]">
+              <span class="radio-copy"><strong><span id="station-name">Slope FM</span> <em id="frequency">88.3</em></strong><span id="track-title">Plaza Breaks</span></span>
+              <span data-icon="tune" aria-hidden="true"></span>
+            </button>
+            <button type="button" id="next-track" title="Next track" aria-label="Next radio track"><span data-icon="skip"></span></button>
+          </div>
+          <span id="clock" class="run-clock" role="timer" aria-label="Time remaining" hidden>1:00</span>
+          <div class="score" hidden><span class="small-label">SCORE</span><strong id="score">0</strong></div>
+          <button type="button" class="icon-button" id="sound" aria-label="Mute audio" title="Mute audio"></button>
+          <button type="button" class="icon-button" id="fullscreen" aria-label="Enter full screen" title="Enter full screen"></button>
+          <button type="button" class="icon-button" id="pause" aria-label="Pause game" title="Pause (Esc)" hidden></button>
+        </div>
+      </header>
+      <section class="title-card" aria-label="Choose a skating session" hidden>
+        <div class="mode-switch" role="group" aria-label="Skating mode">
+          <button data-session="free" aria-pressed="true">Free skate</button>
+          <button data-session="timed" aria-pressed="false">60s score run</button>
+        </div>
+        <h1>BROOKLYN<br>DOWNHILL</h1>
+        <button type="button" class="location route-link" data-route title="View the route and choose a drop-in spot"><span data-icon="route"></span><span id="title-route">Grand Army Plaza → J.J. Byrne</span><span data-icon="chevron"></span></button>
+        <p class="session-note" id="score-target" hidden></p>
+        <div class="action-row">
+          <button id="start" class="primary">Start skating <span data-icon="forward"></span></button>
+          <button class="guide-link" data-guide><span data-icon="keyboard"></span> Trick guide</button>
+        </div>
+      </section>
+      <section class="loading" aria-live="polite"><span id="load-text">Opening the park</span><i></i></section>
+      <footer class="title-footer" hidden>
+        <div class="key-strip" aria-label="Quick controls">
+          <span><kbd>→</kbd> Push</span><span><kbd>←</kbd> Brake</span><span><kbd>Z</kbd> Hold &amp; release to ollie</span>
+        </div>
+        <label class="outfit-picker">
+          <span data-icon="shirt" aria-hidden="true"></span><span>Arad’s outfit</span>
+          <select data-outfit aria-label="Arad’s outfit">
+            <option value="holiday">Grinch robe</option>
+            <option value="street">Park kit</option>
+          </select><span data-icon="chevron" aria-hidden="true"></span>
+        </label>
+      </footer>
+      <aside class="play-hud" hidden>
+        <div class="trick-result" aria-live="polite"><span id="trick-type"></span><strong id="trick-name"></strong><span id="trick-points"></span></div>
+        <button class="session-location" data-route title="View downhill route">
+          <span class="progress-rule" aria-hidden="true"><i id="route-progress"></i></span>
+          <span class="current-stop" id="current-stop">Grand Army Plaza</span><em>/</em><span id="route-distance">0 m</span>
+        </button>
+        <div id="approach" class="approach" hidden><span data-icon="forward"></span><span id="approach-label"></span></div>
+        <button class="in-game-guide" data-guide title="Open trick guide"><span data-icon="keyboard"></span> Trick guide</button>
+      </aside>
+      <section id="pause-card" class="pause-card" aria-label="Pause menu" hidden>
+        <div class="eyebrow"><span class="slashes" aria-hidden="true">///</span> <span data-session-label>FREE SKATE</span></div>
+        <h2>PAUSED</h2>
+        <div class="action-row"><button id="resume" class="primary">Keep skating <span data-icon="forward"></span></button><button class="guide-link" data-guide><span data-icon="keyboard"></span> Trick guide</button></div>
+        <div class="pause-extras"><button id="inspect-face" aria-pressed="false">View face</button><button data-route>Route map</button><button id="restart"><span data-icon="restart"></span> Restart run</button><button id="to-title">Change mode</button><span>Drag the scene to orbit</span></div>
+        <label class="outfit-picker">
+          <span data-icon="shirt" aria-hidden="true"></span><span>Arad’s outfit</span>
+          <select data-outfit aria-label="Arad’s outfit while paused">
+            <option value="holiday">Grinch robe</option>
+            <option value="street">Park kit</option>
+          </select><span data-icon="chevron" aria-hidden="true"></span>
+        </label>
+      </section>
+      <section id="run-result" class="pause-card" aria-labelledby="result-title" hidden>
+        <div class="eyebrow"><span class="slashes" aria-hidden="true">///</span> 60s SCORE RUN</div>
+        <h2 id="result-title">TIME’S UP</h2>
+        <div class="score-summary">
+          <span>Run score<strong id="end-score">0</strong></span>
+          <span>Personal best<strong id="end-best">0</strong></span>
+        </div>
+        <div class="action-row">
+          <button id="replay" class="primary">Skate again <span data-icon="forward"></span></button>
+          <button id="leave-result" class="guide-link">Change mode</button>
+        </div>
+      </section>
+      <div class="touch-controls" aria-label="Touch skate controls" hidden>
+        <div><button data-key="ArrowLeft">Brake</button><button data-key="ArrowRight">Push</button></div>
+        <div class="touch-tricks"><button data-key="KeyZ">Ollie</button><button data-key="KeyX">Flip</button><button data-key="KeyC">Shuvit</button><button data-key="KeyV">Grab</button><button data-key="KeyB">Boneless</button><button data-key="KeyN">Nose manual</button><button data-key="KeyM">Manual</button></div>
+      </div>
+      <dialog id="guide" aria-labelledby="guide-title">
+        <div class="guide-head"><div><span class="eyebrow"><span class="slashes" aria-hidden="true">///</span> SKARD</span><h2 id="guide-title">TRICK GUIDE</h2></div><button class="icon-button" id="close-guide" aria-label="Close trick guide"><span data-icon="close"></span></button></div>
+        <dl class="controls-list">
+          <div><dt>Push</dt><dd><kbd>→</kbd> / <kbd>D</kbd></dd></div>
+          <div><dt>Brake</dt><dd><kbd>←</kbd> / <kbd>A</kbd></dd></div>
+          <div><dt>Ollie <small>Hold, then release</small></dt><dd><kbd>Z</kbd> / <kbd>SPACE</kbd></dd></div>
+          <div><dt>Kickflip</dt><dd><kbd>X</kbd></dd></div>
+          <div><dt>Pop shuvit</dt><dd><kbd>C</kbd></dd></div>
+          <div><dt>Nose grab</dt><dd><kbd>V</kbd></dd></div>
+          <div><dt>Boneless</dt><dd><kbd>B</kbd></dd></div>
+          <div><dt>Nose manual <small>Hold on the front wheels</small></dt><dd><kbd>N</kbd></dd></div>
+          <div><dt>Manual <small>Hold on the rear wheels</small></dt><dd><kbd>M</kbd></dd></div>
+          <div><dt>Grind</dt><dd>Land on a rail or ledge</dd></div>
+          <div><dt>Ramp air</dt><dd>Carry speed up the curved lip</dd></div>
+          <div><dt>Big air</dt><dd>Hold Z through the lip, then X, C or V</dd></div>
+          <div><dt>Stairs &amp; barriers</dt><dd>Ollie before the edge</dd></div>
+          <div><dt>Turn around</dt><dd>Stop, then tap brake again</dd></div>
+          <div><dt>Radio station</dt><dd><kbd>[</kbd> / <kbd>]</kbd></dd></div>
+          <div><dt>Pause / restart</dt><dd><kbd>ESC</kbd> / <kbd>R</kbd></dd></div>
+        </dl>
+      </dialog>
+      <dialog id="route-map" aria-labelledby="route-title">
+        <div class="guide-head"><div><span class="eyebrow"><span class="slashes" aria-hidden="true">///</span> PARK SLOPE, BK</span><h2 id="route-title">DOWNHILL ROUTE</h2></div><button class="icon-button" id="close-route" aria-label="Close route map"><span data-icon="close"></span></button></div>
+        <div class="route-profile"><canvas id="elevation" aria-label="Elevation profile from Grand Army Plaza down to J.J. Byrne"></canvas><div class="profile-caption"><span id="profile-length"></span><span id="profile-drop"></span></div></div>
+        <p id="route-instruction">Choose a drop-in spot.</p>
+        <ol id="route-stops"></ol>
+        <div class="route-continuation"><b aria-hidden="true">∞</b><span>Generated blocks continue beyond J.J. Byrne.</span></div>
+      </dialog>
+    </main>
+  </body>
+</html>
