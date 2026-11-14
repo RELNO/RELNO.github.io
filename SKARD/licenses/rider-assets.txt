@@ -19,6 +19,9 @@ The fitted face uses measurements from the family's privately supplied portraits
 Its texture uses a cropped portrait, and selected details in the holiday fleece
 and controller tee are sampled or redrawn from the family’s outfit reference.
 The complete source photographs remain outside the game bundle.
-The clothing shapes, original raccoon artwork, sticker treatment, helmet, board,
+The clothing shapes, sticker treatment, helmet, board,
 shoes, protective equipment, character posing, and skating animation were
 authored or customized specifically for this build.
+
+The illustrated J.J. Byrne title image was generated for SKARD using the
+family's supplied portrait and park composition as visual references.

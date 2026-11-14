@@ -7,12 +7,13 @@
     <meta name="description" content="Skate a fixed Park Slope line to earn time at J.J. Byrne and unlock New York skate spots.">
     <link rel="icon" href="/SKARD/deck.svg" type="image/svg+xml">
     <title>SKARD — Brooklyn Downhill</title>
-    <script type="module" crossorigin src="/SKARD/assets/index-CFAasIDg.js"></script>
-    <link rel="stylesheet" crossorigin href="/SKARD/assets/index-kIuYZ2Le.css">
+    <script type="module" crossorigin src="/SKARD/assets/index-BY7k1qBg.js"></script>
+    <link rel="stylesheet" crossorigin href="/SKARD/assets/index-Dwfm_T0q.css">
   </head>
   <body>
-    <main id="game" data-mode="loading">
+    <main id="game" data-mode="loading" data-title-view="cover">
       <canvas id="world" tabindex="-1" aria-label="Skate as Arad on a three-dimensional downhill route through Park Slope, Brooklyn."></canvas>
+      <img class="title-art" src="/SKARD/assets/cover/jj-byrne-nose-grab.webp" width="1672" height="941" fetchpriority="high" alt="Arad grabs the nose of his board at J.J. Byrne, wearing his green hooded robe over his black controller T-shirt.">
       <div class="grade" aria-hidden="true"></div>
       <header class="topbar">
         <div class="wordmark" aria-label="SKARD">SKARD</div>
@@ -56,8 +57,8 @@
         <label class="outfit-picker">
           <span data-icon="shirt" aria-hidden="true"></span><span>Arad’s outfit</span>
           <select data-outfit aria-label="Arad’s outfit">
+            <option value="controller">LEVEL UP tee</option>
             <option value="holiday">Grinch robe</option>
-            <option value="street">Park kit</option>
           </select><span data-icon="chevron" aria-hidden="true"></span>
         </label>
       </footer>
@@ -80,8 +81,8 @@
         <label class="outfit-picker">
           <span data-icon="shirt" aria-hidden="true"></span><span>Arad’s outfit</span>
           <select data-outfit aria-label="Arad’s outfit while paused">
+            <option value="controller">LEVEL UP tee</option>
             <option value="holiday">Grinch robe</option>
-            <option value="street">Park kit</option>
           </select><span data-icon="chevron" aria-hidden="true"></span>
         </label>
       </section>
