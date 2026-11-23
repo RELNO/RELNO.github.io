@@ -684,14 +684,15 @@ function getProjectSocialImage(project) {
   return absoluteSiteUrl(project.imageSrc || portraitUrl);
 }
 
-function getProjectSocialImageAlt(project, title) {
-  const firstItem = Array.isArray(project.carouselItems)
-    ? project.carouselItems[0]
-    : null;
+function getProjectSocialImageAlt(project, title, socialImage) {
+  const items = Array.isArray(project.carouselItems) ? project.carouselItems : [];
+  const matchingItem = items.find((item) =>
+    [item?.src, item?.poster].some((src) => src && absoluteSiteUrl(src) === socialImage)
+  );
 
   return (
-    firstItem?.alt ||
-    firstItem?.caption ||
+    matchingItem?.alt ||
+    matchingItem?.caption ||
     project.listTitle ||
     `${title} by ${siteName}`
   );
@@ -1147,7 +1148,7 @@ function generateProjectPages() {
     const metaDescription = getProjectMetaDescription(project, title);
     const canonicalUrl = `${siteUrl}/projects/${slug}/`;
     const socialImage = getProjectSocialImage(project);
-    const socialImageAlt = getProjectSocialImageAlt(project, title);
+    const socialImageAlt = getProjectSocialImageAlt(project, title, socialImage);
     const socialImageDimensions = imageDimensions(socialImage);
     const structuredData = buildProjectStructuredData(project, {
       title,
@@ -1164,8 +1165,6 @@ function generateProjectPages() {
     const html = renderTemplate(template, {
       siteFooter,
       pageTitle: escapeHtml(pageTitle),
-      bodyClass: isWriting ? "project-page writing-project-page" : "project-page",
-      articleClass: isWriting ? "project-article writing-project" : "project-article",
       metaDescription: escapeAttribute(metaDescription),
       canonicalUrl: escapeAttribute(canonicalUrl),
       openGraphType: isAbout ? "profile" : isWriting ? "article" : "website",
@@ -1195,7 +1194,7 @@ function generateProjectPages() {
               '<header class="project-hero">',
               `  <h1>${escapeHtml(title)}</h1>`,
               project.subtitle
-                ? `  <p class="project-heading-meta">${escapeHtml(project.subtitle)}</p>`
+                ? `  <p class="project-subtitle">${escapeHtml(project.subtitle)}</p>`
                 : "",
               "</header>",
             ]

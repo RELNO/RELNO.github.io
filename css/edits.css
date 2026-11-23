@@ -1,22 +1,25 @@
 :root {
   --color-page: #ffffff;
   --color-ink: #000000;
-  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --type-body: 1.0625rem;
-  --type-small: 0.9375rem;
-  --type-caption: 0.775rem;
-  --leading-body: 1.68;
-  --leading-tight: 1.08;
-  --measure: 68ch;
+  --font-interface: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Suisse Int'l", var(--font-interface);
+  --type-title: 3rem;
+  --type-heading: 1.5rem;
+  --type-body: 1.125rem;
+  --type-meta: 0.775rem;
+  --weight-text: 600;
+  --tracking-text: -0.018em;
+  --leading-body: 1.25;
+  --leading-tight: 1.05;
+  --paragraph-gap: 0.8125rem;
+  --measure: 40rem;
   --width-content: 1180px;
   --width-wide: 1680px;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
   --space-md: 1rem;
-  --space-lg: 1.5rem;
   --space-xl: 2.5rem;
   --space-2xl: 4rem;
-  --space-3xl: 6rem;
   --nav-edge-offset: clamp(0.5rem, 1.2vw, 1rem);
 }
 
@@ -29,6 +32,9 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: var(--type-body);
+  font-optical-sizing: auto;
+  font-weight: var(--weight-text);
+  letter-spacing: var(--tracking-text);
   line-height: var(--leading-body);
   overflow-x: hidden;
 }
@@ -38,28 +44,19 @@ h2,
 h3,
 h4,
 h5,
-h6,
-b,
-strong {
-  font-weight: 700;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
 h6 {
+  font-weight: var(--weight-text);
+  letter-spacing: var(--tracking-text);
   line-height: var(--leading-tight);
 }
 
-h1{
-  padding-top: var(--space-3xl);
-  padding-bottom: var(--space-md);
+strong,
+b {
+  font-weight: 700;
 }
 
 p {
-  margin-bottom: 1.15em;
+  margin-bottom: var(--paragraph-gap);
 }
 
 a {
@@ -84,15 +81,6 @@ button:focus-visible {
   max-width: var(--width-content);
 }
 
-#site-header {
-  margin: var(--nav-edge-offset) 0 0 var(--nav-edge-offset);
-  max-width: calc(100% - (var(--nav-edge-offset) * 2));
-  position: sticky;
-  top: var(--nav-edge-offset);
-  width: fit-content;
-  z-index: 1020;
-}
-
 .project-home-header {
   left: var(--nav-edge-offset);
   margin: 0;
@@ -101,52 +89,6 @@ button:focus-visible {
   top: var(--nav-edge-offset);
   width: fit-content;
   z-index: 1020;
-}
-
-.site-header {
-  max-width: 100%;
-  width: fit-content;
-}
-
-.site-header-shell {
-  align-items: center;
-  background: #ffffff;
-  display: flex;
-  gap: var(--space-md) var(--space-lg);
-  justify-content: space-between;
-  max-width: 100%;
-  padding: 0.35rem 0.75rem;
-}
-
-.site-brand {
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.site-nav {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem var(--space-lg);
-  justify-content: flex-end;
-}
-
-.site-nav a {
-  align-items: center;
-  display: inline-flex;
-  font-size: var(--type-caption);
-  font-weight: 700;
-  line-height: 1.2;
-  min-height: 44px;
-  text-decoration: none;
-}
-
-.site-nav a:hover,
-.site-nav a:focus {
-  text-decoration: underline;
 }
 
 .homepage-main {
@@ -186,12 +128,8 @@ button:focus-visible {
 }
 
 .about-copy p {
-  font-size: clamp(1.2rem, 2vw, 2rem);
-  font-weight: 500;
-  letter-spacing: 0px;
-  line-height: 1.1;
-  margin: 0 0 25px;
-  max-width: none;
+  margin: 0 0 var(--paragraph-gap);
+  max-width: var(--measure);
 }
 
 .about-profile-trigger {
@@ -271,8 +209,6 @@ button:focus-visible {
   align-items: center;
   display: inline-flex;
   gap: 0.35rem;
-  font-size: var(--type-small);
-  font-weight: 700;
   min-height: 44px;
   text-decoration: none;
 }
@@ -286,7 +222,8 @@ button:focus-visible {
 }
 
 .portfolio-section {
-  background: #000000;
+  background: var(--color-ink);
+  font-family: var(--font-interface);
   max-width: none;
   padding: 0;
 }
@@ -349,19 +286,15 @@ button:focus-visible {
 }
 
 .project-filter-button:hover,
-.project-filter-button:focus {
-  opacity: 0.68;
-}
-
+.project-filter-button:focus-visible,
 .project-filter-button.is-active {
-  opacity: 1;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
 }
 
 .portfolio-grid {
-  background: #000000;
+  background: var(--color-ink);
   display: grid;
   gap: 0;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -407,7 +340,9 @@ button:focus-visible {
 .portfolio-card-title {
   font-size: 0.875rem;
   font-weight: 700;
+  letter-spacing: normal;
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .portfolio-item:hover .portfolio-card-caption,
@@ -422,7 +357,9 @@ button:focus-visible {
 }
 
 .project-grid-error {
-  font-size: var(--type-small);
+  background: var(--color-page);
+  margin: 0;
+  padding: var(--space-md);
 }
 
 .project-page-main {
@@ -444,8 +381,6 @@ button:focus-visible {
   align-items: center;
   display: inline-flex;
   gap: 0.55rem;
-  font-size: var(--type-caption);
-  font-weight: 700;
   min-height: 44px;
   text-decoration: none;
 }
@@ -523,23 +458,20 @@ button:focus-visible {
 }
 
 .project-hero {
-  margin-bottom: clamp(1.5rem, 3vw, 3rem);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
 .project-hero h1 {
-  font-size: clamp(3rem, 9vw, 8.75rem);
-  letter-spacing: 0;
-  line-height: 0.94;
-  max-width: min(1180px, 100%);
+  font-size: var(--type-title);
+  max-width: 32ch;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
-.project-heading-meta {
-  font-size: clamp(1.25rem, 2vw, 2rem);
-  font-weight: 700;
-  line-height: 1.05;
-  margin-top: clamp(1rem, 1vw, 1rem);
-  margin-bottom: clamp(2rem, 5vw, 5rem);
-  max-width: min(980px, 100%);
+.project-subtitle {
+  margin: var(--space-sm) 0 0;
+  max-width: var(--measure);
+  text-wrap: pretty;
 }
 
 .project-info {
@@ -554,8 +486,23 @@ button:focus-visible {
   display: block;
 }
 
+.project-facts,
+.project-home-link,
+.project-article figcaption,
+.footer-address {
+  font-family: var(--font-interface);
+  font-size: var(--type-meta);
+  letter-spacing: normal;
+}
+
 .project-facts {
-  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.project-home-link,
+.project-article figcaption {
+  font-weight: 700;
   line-height: 1.35;
 }
 
@@ -567,13 +514,13 @@ button:focus-visible {
 .project-fact-row {
   display: grid;
   column-gap: clamp(1rem, 1.75vw, 1.5rem);
-  grid-template-columns: 8rem minmax(0, 1fr);
-  margin-bottom: 1rem;
+  grid-template-columns: minmax(5.5rem, 0.4fr) minmax(0, 1fr);
+  margin-bottom: var(--space-sm);
   row-gap: 0.25rem;
 }
 
 .project-fact-row dt,
-.project-fact-row strong {
+.project-links > strong {
   font-weight: 700;
   min-width: 0;
   overflow-wrap: anywhere;
@@ -611,81 +558,64 @@ button:focus-visible {
 }
 
 .project-description {
-  font-size: clamp(1.05rem, 1.3vw, 1.35rem);
-  font-weight: 600;
-  line-height: 1.52;
-  max-width: 46rem;
+  max-width: var(--measure);
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
-.project-description p {
-  margin-bottom: 1.2em;
+.project-description > * {
+  margin: 0;
 }
 
-.project-description p:last-child {
-  margin-bottom: 0;
+.project-description > * + * {
+  margin-top: var(--paragraph-gap);
+}
+
+.project-description > * + h2 {
+  margin-top: 1.625rem;
+}
+
+.project-description > * + :is(h3, h4) {
+  margin-top: 1.25rem;
+}
+
+.project-description > * + :is(figure, blockquote) {
+  margin-top: var(--space-xl);
+}
+
+.project-description h2 {
+  font-size: var(--type-heading);
+}
+
+.project-description h3,
+.project-description h4 {
+  font-size: var(--type-body);
+  line-height: 1;
+}
+
+.project-description :is(ul, ol) {
+  padding-inline-start: 1.35em;
+}
+
+.project-description li + li {
+  margin-top: 0.35em;
 }
 
 .project-inline-title {
   font-weight: 700;
 }
 
-.writing-project .project-heading-meta {
-  font-weight: 400;
-  line-height: 1.22;
-  max-width: 46rem;
+.project-description blockquote {
+  border-inline-start: 2px solid var(--color-ink);
+  padding-inline-start: var(--space-md);
 }
 
-.writing-project .project-info {
-  grid-template-columns: minmax(10rem, 0.25fr) minmax(0, 0.75fr);
-}
-
-.writing-project .project-description {
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.76;
-  max-width: 64ch;
-}
-
-.writing-project .project-description p {
-  margin-bottom: 1.15em;
-}
-
-.writing-project .project-description h2 {
-  font-size: 1.85rem;
-  font-weight: 800;
-  line-height: 1.06;
-  margin: 3rem 0 1rem;
-  max-width: 28rem;
-}
-
-.writing-project .project-description h2:first-child {
-  margin-top: 0;
-}
-
-.writing-project .project-description blockquote {
-  border-left: 4px solid var(--color-ink);
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.58;
-  margin: 1.8rem 0 2.1rem;
-  max-width: 46rem;
-  padding: 0.2rem 0 0.25rem 1.25rem;
-}
-
-.writing-project .project-description blockquote p {
-  margin-bottom: 0.75rem;
-}
-
-.writing-project .project-description blockquote p:first-child {
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.writing-project .project-description blockquote p:last-child {
+.project-description blockquote p {
   margin-bottom: 0;
+}
+
+.project-description blockquote p + p {
+  margin-top: var(--space-xs);
 }
 
 .project-gallery {
@@ -733,18 +663,13 @@ button:focus-visible {
   text-decoration: underline;
 }
 
-.project-lead figcaption,
-.project-gallery figcaption {
-  font-size: var(--type-caption);
-  font-weight: 700;
-  line-height: 1.35;
+.project-article figcaption {
   margin-top: 0.55rem;
 }
 
 .footer {
-  background: #000000;
-  color: #ffffff;
-  font-size: 0.78rem;
+  background: var(--color-ink);
+  color: var(--color-page);
   margin-top: var(--space-2xl);
   padding-bottom: clamp(3rem, 6vw, 5rem);
   padding-top: clamp(4.5rem, 8vw, 7rem);
@@ -756,9 +681,12 @@ button:focus-visible {
   padding-right: clamp(1rem, 2.5vw, 2rem);
 }
 
-.footer a,
-.footer-address {
-  color: #ffffff;
+.footer a {
+  color: inherit;
+}
+
+.footer a:focus-visible {
+  outline-color: currentColor;
 }
 
 .footer-content {
@@ -778,11 +706,9 @@ button:focus-visible {
 }
 
 .footer-name {
-  color: #ffffff;
-  font-size: clamp(2rem, 2vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.055em;
-  line-height: 0.9;
+  font-size: var(--type-title);
+  letter-spacing: var(--tracking-text);
+  line-height: var(--leading-tight);
   margin: 0;
   max-width: 7ch;
 }
@@ -827,13 +753,8 @@ button:focus-visible {
   width: 1px;
 }
 
-.footer-social-link:hover,
-.footer-social-link:focus-visible {
-  opacity: 0.68;
-}
-
-.footer a:focus-visible {
-  outline-color: #ffffff;
+.footer-social-link:hover {
+  outline: 1px solid currentColor;
 }
 
 .homepage-main + #footer .footer {
@@ -842,9 +763,8 @@ button:focus-visible {
 
 .footer-address {
   display: grid;
-  gap: 0.24rem;
-  font-size: inherit;
   font-weight: 400;
+  gap: 0.24rem;
   grid-area: address;
   line-height: 1.3;
   max-width: 22rem;
@@ -862,7 +782,6 @@ button:focus-visible {
 
 .footer-address i {
   font-size: 0.8em;
-  opacity: 0.72;
   text-align: center;
 }
 
@@ -874,22 +793,11 @@ button:focus-visible {
 
 @media (max-width: 991.98px) {
   :root {
-    --type-body: 1rem;
     --space-2xl: 3rem;
-    --space-3xl: 4rem;
   }
 
   .project-info {
     grid-template-columns: 1fr;
-  }
-
-  .writing-project .project-info {
-    grid-template-columns: 1fr;
-  }
-
-  .project-facts {
-    font-size: var(--type-caption);
-    line-height: 1.4;
   }
 
   .project-fact-row {
@@ -898,34 +806,6 @@ button:focus-visible {
 }
 
 @media (max-width: 760px) {
-  #site-header {
-    width: calc(100% - (var(--nav-edge-offset) * 2));
-  }
-
-  .project-home-header {
-    width: fit-content;
-  }
-
-  .site-header,
-  .site-header-shell {
-    width: 100%;
-  }
-
-  .site-header-shell {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  .site-nav {
-    justify-content: flex-start;
-    width: 100%;
-  }
-
-  .site-nav a {
-    min-height: 38px;
-  }
-
   .container {
     padding-left: var(--space-md);
     padding-right: var(--space-md);
@@ -947,26 +827,6 @@ button:focus-visible {
 
   .about-actions {
     min-width: 0;
-  }
-
-  .project-description {
-    font-size: 1rem;
-    line-height: 1.66;
-  }
-
-  .writing-project .project-description {
-    font-size: 1.08rem;
-    line-height: 1.72;
-  }
-
-  .writing-project .project-description h2 {
-    font-size: 1.45rem;
-    margin-top: 2.4rem;
-  }
-
-  .writing-project .project-description blockquote {
-    font-size: 1rem;
-    padding-left: 1rem;
   }
 
   .portfolio-heading {
@@ -1054,12 +914,11 @@ button:focus-visible {
   }
 
   .portfolio-card-title {
-    -webkit-box-decoration-break: clone;
     background: #ffffff;
-    box-decoration-break: clone;
+    display: block;
     font-size: 0.65rem;
-    line-height: 2.05;
-    padding: 0.45rem 0.65rem;
+    padding: 0.35rem 0.5rem;
+    width: fit-content;
   }
 
   .project-fact-row {

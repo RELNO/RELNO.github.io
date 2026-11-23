@@ -5,7 +5,6 @@ seoTitle: "Beyond the Rulebook: Cognitive Networks | Ariel Noyman"
 metaDescription: "GAMA experiments exploring structured decisions under uncertainty: a Jev–GPT-6 station comparison and a campus cognitive network with 500 pedestrians."
 dateModified: "2026-10-13"
 order: 3
-stylesheet: "projects/26agents/project.css"
 imageSrc: "projects/26agents/campus-poster.jpg"
 themes:
   - "city-science"
