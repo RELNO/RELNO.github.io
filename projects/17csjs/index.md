@@ -1,4 +1,5 @@
 ---
+workSlug: "cityscope-js"
 title: "CityScope JS"
 subtitle: "Urban Modeling & Simulation on the Web"
 order: 110

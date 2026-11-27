@@ -1,4 +1,5 @@
 ---
+workSlug: "israel-museum"
 title: "The Israel Museum"
 listTitle: "Israel Museum"
 subtitle: "Renewal and expansion, Jerusalem, Israel, 2002–2010"

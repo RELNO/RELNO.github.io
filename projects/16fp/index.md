@@ -1,4 +1,5 @@
 ---
+workSlug: "findingplaces"
 title: "FindingPlaces"
 subtitle: "HCI Platform for Public Participation in Refugee Accommodation Planning"
 order: 140

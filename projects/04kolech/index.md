@@ -1,4 +1,5 @@
 ---
+workSlug: "septum"
 title: "SEPTUM"
 listTitle: "Septum"
 subtitle: "A Synagogue as a Space of Equality"

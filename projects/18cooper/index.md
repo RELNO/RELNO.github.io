@@ -1,4 +1,5 @@
 ---
+workSlug: "the-road-ahead"
 title: "The Road Ahead"
 subtitle: "CityScope in the Cooper Hewitt Museum, NY"
 order: 80

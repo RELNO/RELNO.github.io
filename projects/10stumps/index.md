@@ -1,4 +1,5 @@
 ---
+workSlug: "stumps"
 title: "STUMPS"
 subtitle: "Competition Entry, Atlantic City Boardwalk Holocaust Memorial, 2010"
 order: 260

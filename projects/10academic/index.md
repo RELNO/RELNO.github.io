@@ -1,4 +1,5 @@
 ---
+workSlug: "hillside-campus"
 title: "Hillside Campus"
 subtitle: "Campus study, Jerusalem, 2010"
 order: 280

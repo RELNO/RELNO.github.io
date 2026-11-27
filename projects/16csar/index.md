@@ -1,4 +1,5 @@
 ---
+workSlug: "cityscope-ar"
 title: "CityScopeAR"
 listTitle: "CityScope AR"
 subtitle: "Augmented Reality Urban Simulation"

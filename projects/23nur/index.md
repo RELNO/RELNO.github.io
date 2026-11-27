@@ -1,4 +1,5 @@
 ---
+workSlug: "nur"
 title: "NUR"
 subtitle: "Negev Urban Research"
 order: 35

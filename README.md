@@ -3,7 +3,7 @@ Ariel Noyman's personal website.
 Built as a static HTML-first site, originally based on the
 [Freelancer template](https://startbootstrap.com/previews/freelancer/).
 
-## Project pages
+## Portfolio pages
 
 Project content is authored in Markdown. Each project has one source file at
 `projects/<slug>/index.md`, with YAML front matter for metadata and a Markdown
@@ -18,7 +18,8 @@ node tools/generate-project-pages.js
 node tools/validate-seo.js
 ```
 
-The generator writes `projects/<slug>/index.html` for every project in
+The generator writes `work/<workSlug>.html` and a forwarding page at the original
+`projects/<slug>/index.html` for every entry in
 `projects/<slug>/index.md`, using `templates/project-page.html` and
 `footer/footer.html`. It also regenerates `projects/projects.json` for the
 homepage grid and `sitemap.xml` for search-engine discovery; treat those files
@@ -31,11 +32,11 @@ media declared in each Markdown file.
 
 1. Create `projects/<slug>/index.md`.
 2. Add images or other media inside `projects/<slug>/`.
-3. Add front matter with `title`, `order`, `imageSrc`, and `themes`.
+3. Choose a permanent, lowercase, hyphenated `workSlug` for the public address. Add
+   `title`, `order`, `imageSrc`, and `themes`. Keep the public slug when a title changes.
 4. Run `python3 tools/generate-project-thumbnails.py`, then
    `node tools/generate-project-pages.js`.
-5. Commit the Markdown, media, generated `projects/<slug>/index.html`, and
-   generated `projects/projects.json`.
+5. Commit the Markdown, media, generated work and forwarding pages, catalog and sitemap.
 
 Project themes drive the homepage filters. Current theme values are
 `architecture`, `urbanism`, `city-science`, `writing`, `publication`, `talk`,
@@ -48,6 +49,7 @@ Common front matter fields:
 
 ```yaml
 ---
+workSlug: "project-page-title"
 title: "Project Page Title"
 listTitle: "Optional shorter homepage title"
 subtitle: "Optional page subtitle"
@@ -80,15 +82,19 @@ metadata. Keep `metaDescription` concise and under 200 characters, and only set
 `dateModified` when the page content has meaningfully changed.
 
 The root `robots.txt` advertises the generated sitemap. After deploying a new
-site or changing its domain, submit `https://www.arielnoyman.com/sitemap.xml`
+site or changing its domain, submit `https://arielnoyman.com/sitemap.xml`
 to Google Search Console and Bing Webmaster Tools.
 
-GitHub Pages can deploy the committed static files directly. No backend,
-database, CMS, or JavaScript framework is required.
+Edit this repository on `master`. The **Publish portfolio** workflow in
+`RELNO/portfolio-pages` checks for new source commits hourly. Use **Run workflow**
+in that repository to publish immediately. It reads the source, validates the site
+and deploys the static files to GitHub Pages. Configure the custom domain only on
+that publishing repository. Its `LEGACY_PAGES_SITES` Actions variable lists the
+old app paths that forward to their corresponding sites at `relno.github.io`.
 
 ## Resume
 
 The resume source is maintained in `resume/`. A path-scoped GitHub Actions
-workflow compiles `resume/resume.tex` only when that folder changes, commits the
-generated PDF, and requests a Pages rebuild. The public download URL is
-`https://www.arielnoyman.com/resume/resume.pdf`.
+workflow compiles `resume/resume.tex` when that folder changes and commits the
+generated PDF. The next portfolio deployment publishes it at
+`https://arielnoyman.com/resume/resume.pdf`.

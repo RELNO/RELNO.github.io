@@ -1,4 +1,5 @@
 ---
+workSlug: "champs-elysees"
 title: "Champs-Élysées"
 subtitle: "Virtual CityScope Champs-Élysées"
 order: 40

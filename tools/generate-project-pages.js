@@ -17,11 +17,11 @@ const thumbnailManifestPath = path.join(
   "manifest.json"
 );
 const projectSourceFile = "index.md";
-const siteUrl = "https://www.arielnoyman.com";
+const siteUrl = "https://arielnoyman.com";
 const siteName = "Ariel Noyman";
 const websiteId = `${siteUrl}/#website`;
 const personId = `${siteUrl}/#person`;
-const aboutUrl = `${siteUrl}/projects/00about/`;
+const aboutUrl = `${siteUrl}/work/about.html`;
 const portraitUrl = `${siteUrl}/sections/an.png`;
 const defaultSeoTitle =
   "Ariel Noyman | Urban Scientist, Architect & Designer";
@@ -359,6 +359,7 @@ function readProjectMarkdown(filePath) {
 }
 
 function readProjectSources() {
+  const usedSlugs = new Set();
   const projects = fs
     .readdirSync(projectsDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
@@ -371,9 +372,15 @@ function readProjectSources() {
       }
 
       const project = readProjectMarkdown(sourcePath);
+      const workSlug = project.workSlug || slug;
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(workSlug) || usedSlugs.has(workSlug)) {
+        throw new Error(`Invalid or duplicate workSlug "${workSlug}" in ${sourcePath}`);
+      }
+      usedSlugs.add(workSlug);
       return {
         ...project,
         slug,
+        url: `/work/${workSlug}.html`,
         sourcePath,
         listImageSrc: project.imageSrc || "",
         themes: Array.isArray(project.themes) ? project.themes : [],
@@ -486,6 +493,7 @@ function writeProjectList(projects, thumbnailManifest) {
     const homepageImage = getHomepageImage(project, thumbnailManifest);
     return {
       name: project.slug,
+      url: project.url,
       title: project.listTitle || project.title || project.slug,
       imageSrc: project.imageSrc || "",
       thumbnailSrc: homepageImage.src,
@@ -505,6 +513,7 @@ function writeProjectList(projects, thumbnailManifest) {
         return [
           "  {",
           `    "name": ${JSON.stringify(project.name)},`,
+          `    "url": ${JSON.stringify(project.url)},`,
           `    "title": ${JSON.stringify(project.title)},`,
           `    "imageSrc": ${JSON.stringify(project.imageSrc)},`,
           `    "thumbnailSrc": ${JSON.stringify(project.thumbnailSrc)},`,
@@ -541,7 +550,7 @@ function writeSitemap(projects) {
   const urls = [
     { loc: `${siteUrl}/` },
     ...projects.map((project) => ({
-      loc: `${siteUrl}/projects/${project.slug}/`,
+      loc: siteUrl + project.url,
       lastmod: /^\d{4}-\d{2}-\d{2}$/.test(String(project.dateModified || ""))
         ? project.dateModified
         : "",
@@ -1135,6 +1144,7 @@ function generateProjectPages() {
 
   writeProjectList(projects, thumbnailManifest);
   writeSitemap(projects);
+  fs.mkdirSync(path.join(rootDir, "work"), { recursive: true });
 
   projects.forEach((project) => {
     const slug = project.slug;
@@ -1146,7 +1156,7 @@ function generateProjectPages() {
       (isAbout ? defaultSeoTitle : `${title} | ${siteName}`);
     const socialTitle = project.socialTitle || pageTitle;
     const metaDescription = getProjectMetaDescription(project, title);
-    const canonicalUrl = `${siteUrl}/projects/${slug}/`;
+    const canonicalUrl = siteUrl + project.url;
     const socialImage = getProjectSocialImage(project);
     const socialImageAlt = getProjectSocialImageAlt(project, title, socialImage);
     const socialImageDimensions = imageDimensions(socialImage);
@@ -1217,8 +1227,19 @@ function generateProjectPages() {
       .replace(/[ \t]+$/gm, "")
       .trimEnd();
 
-    const outputPath = path.join(projectsDir, slug, "index.html");
+    const outputPath = path.join(rootDir, project.url);
     fs.writeFileSync(outputPath, `${html}\n`);
+    const redirect = [
+      "<!DOCTYPE html>",
+      '<html lang="en"><head><meta charset="utf-8">',
+      `<title>${escapeHtml(title)}</title>`,
+      `<link rel="canonical" href="${canonicalUrl}">`,
+      `<script>location.replace("${project.url}" + location.search + location.hash);</script>`,
+      `<meta http-equiv="refresh" content="0; url=${project.url}"></head>`,
+      `<body><a href="${project.url}">${escapeHtml(title)}</a></body></html>`,
+      "",
+    ].join("\n");
+    fs.writeFileSync(path.join(projectsDir, slug, "index.html"), redirect);
     console.log(`Generated ${path.relative(rootDir, outputPath)}`);
   });
 }

@@ -1,4 +1,5 @@
 ---
+workSlug: "mobility-choice"
 title: "Mobility Choice"
 subtitle: "A Mobility Choice API for CityScope Platform"
 order: 90

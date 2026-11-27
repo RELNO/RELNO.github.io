@@ -1,4 +1,5 @@
 ---
+workSlug: "new-national-library"
 title: "The New National Library"
 listTitle: "New National Library"
 subtitle: "Competition proposal, Jerusalem, Israel, 2012"

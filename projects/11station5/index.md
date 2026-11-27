@@ -1,4 +1,5 @@
 ---
+workSlug: "station-5"
 title: "Station 5"
 subtitle: "Water Towers: New Perspectives"
 order: 240

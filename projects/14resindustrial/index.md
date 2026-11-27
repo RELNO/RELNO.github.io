@@ -1,4 +1,5 @@
 ---
+workSlug: "resindustrial"
 title: "Resindustrial"
 subtitle: "South Boston as an industrial and residential district"
 order: 210

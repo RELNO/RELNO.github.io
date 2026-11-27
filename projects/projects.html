@@ -1,13 +1,13 @@
 <!-- Portfolio Section -->
-<section class="portfolio-section" id="portfolio" aria-label="Projects">
+<section class="portfolio-section" id="portfolio" aria-label="Portfolio">
   <div class="portfolio-heading">
-    <a class="portfolio-brand" href="/projects/00about/">Ariel Noyman</a>
+    <a class="portfolio-brand" href="/work/about.html">Ariel Noyman</a>
     <button
       class="project-menu-toggle"
       type="button"
       aria-expanded="false"
       aria-controls="project-filter-menu"
-      aria-label="Open project categories"
+      aria-label="Open work categories"
     >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -25,6 +25,22 @@
         aria-pressed="true"
       >
         All
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="project"
+        aria-pressed="false"
+      >
+        Projects
+      </button>
+      <button
+        class="project-filter-button"
+        type="button"
+        data-project-filter="writing"
+        aria-pressed="false"
+      >
+        Writing
       </button>
       <button
         class="project-filter-button"
@@ -51,14 +67,6 @@
         Urbanism
       </button>
 
-      <button
-        class="project-filter-button"
-        type="button"
-        data-project-filter="writing"
-        aria-pressed="false"
-      >
-        Writing
-      </button>
       <button
         class="project-filter-button"
         type="button"
@@ -107,7 +115,7 @@
 
         portfolioHeading.classList.remove("is-menu-open");
         menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open project categories");
+        menuToggle.setAttribute("aria-label", "Open work categories");
       }
 
       if (portfolioHeading && menuToggle) {
@@ -117,7 +125,7 @@
           menuToggle.setAttribute("aria-expanded", String(willOpen));
           menuToggle.setAttribute(
             "aria-label",
-            willOpen ? "Close project categories" : "Open project categories",
+            willOpen ? "Close work categories" : "Open work categories",
           );
         });
 
@@ -135,10 +143,6 @@
         });
       }
 
-      function projectUrl(slug) {
-        return "/projects/" + encodeURIComponent(slug) + "/";
-      }
-
       function itemThemes(item) {
         return Array.isArray(item.themes) ? item.themes : [];
       }
@@ -148,7 +152,11 @@
           return true;
         }
 
-        return itemThemes(item).indexOf(activeTheme) !== -1;
+        var themes = itemThemes(item);
+        if (activeTheme === "project") {
+          return item.name !== "00about" && themes.indexOf("writing") === -1;
+        }
+        return themes.indexOf(activeTheme) !== -1;
       }
 
       function updateFilterButtons() {
@@ -175,7 +183,7 @@
 
         itemDetails.forEach(function (item, index) {
           var link = document.createElement("a");
-          link.href = projectUrl(item.name);
+          link.href = item.url;
           link.className = "portfolio-item";
           link.setAttribute("aria-label", "View work: " + item.title);
 
@@ -228,7 +236,7 @@
         });
       });
 
-      fetch("/projects/projects.json?v=20260724-1")
+      fetch("/projects/projects.json?v=20261127-1")
         .then(function (response) {
           return response.json();
         })

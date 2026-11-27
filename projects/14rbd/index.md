@@ -1,4 +1,5 @@
 ---
+workSlug: "rebuild-by-design"
 title: "New Meadowlands"
 listTitle: "Rebuild By Design"
 subtitle: "The New Meadowlands"

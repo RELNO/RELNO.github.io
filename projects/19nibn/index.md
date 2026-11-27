@@ -1,4 +1,5 @@
 ---
+workSlug: "nibn"
 title: "NIBN"
 subtitle: "National Institute for Biotechnology in the Negev, Be'er Sheva, 2010-2019"
 order: 70

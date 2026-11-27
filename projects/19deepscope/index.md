@@ -1,4 +1,5 @@
 ---
+workSlug: "deepscope"
 title: "DeepScope"
 subtitle: "The Deep Image of the City"
 order: 60

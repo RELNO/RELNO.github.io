@@ -1,4 +1,5 @@
 ---
+workSlug: "ordos-100"
 title: "Ordos 100"
 subtitle: "Twice House, Inner Mongolia, 2008"
 order: 320

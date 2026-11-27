@@ -1,4 +1,5 @@
 ---
+workSlug: "museum-of-tolerance"
 title: "Museum Of Tolerance"
 listTitle: "Museum of Tolerance"
 subtitle: "Jerusalem, Israel"

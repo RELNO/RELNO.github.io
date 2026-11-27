@@ -1,4 +1,5 @@
 ---
+workSlug: "tel-aviv"
 title: "Tel, Aviv"
 subtitle: "An Urban Mound. Competition, 2nd Prize"
 order: 310

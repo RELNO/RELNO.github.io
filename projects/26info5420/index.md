@@ -1,4 +1,5 @@
 ---
+workSlug: "info5420"
 title: "INFO5420"
 listTitle: "INFO5420"
 subtitle: "Designing A Design Process"

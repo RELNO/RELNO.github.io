@@ -1,4 +1,5 @@
 ---
+workSlug: "the-8th-souk"
 title: "The 8th Souk"
 subtitle: "2A Du(b)ailities Competition, Dubai, 2009"
 order: 290

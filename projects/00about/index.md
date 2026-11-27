@@ -1,4 +1,5 @@
 ---
+workSlug: "about"
 title: "Ariel Noyman"
 listTitle: "About Ariel Noyman"
 seoTitle: "About Ariel Noyman | MIT Urban Scientist & Architect"

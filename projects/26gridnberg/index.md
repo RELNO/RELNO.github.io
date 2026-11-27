@@ -1,4 +1,5 @@
 ---
+workSlug: "gridnberg"
 title: "Gridnberg"
 subtitle: "Topography-aware pedestrian routing for New York City"
 order: 5
@@ -10,7 +11,7 @@ badges:
   - label: "Paper"
     link: "https://arxiv.org/abs/2607.22523"
   - label: "Web App"
-    link: "https://www.arielnoyman.com/gridnberg/"
+    link: "https://relno.github.io/gridnberg/"
   - label: "GitHub"
     link: "https://github.com/RELNO/gridnberg"
   - label: "Data"

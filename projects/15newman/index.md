@@ -1,4 +1,5 @@
 ---
+workSlug: "space-packed"
 title: "Space Packing Architecture"
 listTitle: "Space Packed"
 subtitle: "The Life and Work of Alfred Neumann"

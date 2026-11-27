@@ -1,4 +1,5 @@
 ---
+workSlug: "generative-urbanism"
 title: "Generative Urbanism"
 subtitle: "Generative AI for Cities"
 order: 50

@@ -1,4 +1,5 @@
 ---
+workSlug: "shifting-priorities-finding-places"
 title: "Shifting Priorities, Finding Places"
 subtitle: "How Media Lab and HafenCity University researchers are tackling the refugee crisis in Hamburg, using algorithms and LEGO bricks."
 order: 150

@@ -1,4 +1,5 @@
 ---
+workSlug: "republic"
 title: "Republic"
 subtitle: "Honorable Mention, Pushkinsky Theater Competition, Moscow, 2011"
 order: 250

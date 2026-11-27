@@ -1,4 +1,5 @@
 ---
+workSlug: "travelagent"
 title: "TravelAgent"
 subtitle: "Generative Agents for Urban Design"
 order: 20
@@ -11,7 +12,7 @@ badges:
   - label: "LinkedIn Post"
     link: "https://www.linkedin.com/posts/arielnoyman_urbandesign-ai-generativeagents-activity-7280652464071094272-R3ux?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAUib70BwKgU6e0K5eAaWzScP9yfIUyk9xU"
   - label: "Project Page"
-    link: "https://www.arielnoyman.com/travelAgent/"
+    link: "https://relno.github.io/travelAgent/"
   - label: "Paper"
     link: "https://arxiv.org/pdf/2412.18985"
   - label: "arXiv"
@@ -37,7 +38,7 @@ carouselItems:
     link: "https://www.youtube.com/watch?v=ZabGk8Zl2QM"
     caption: "Watch TravelAgent video"
   - type: "image"
-    src: "https://www.arielnoyman.com/travelAgent/static/figs/ta-scheme.png"
+    src: "https://relno.github.io/travelAgent/static/figs/ta-scheme.png"
     caption: "TravelAgent system scheme"
   - type: "link"
     src: "https://i.ytimg.com/vi/vPMkZWntUf8/hqdefault.jpg"
@@ -48,16 +49,16 @@ carouselItems:
     autoplay: false
     caption: "AI Agents and Urban Planning"
   - type: "image"
-    src: "https://www.arielnoyman.com/travelAgent/static/figs/ta-path-3D.png"
+    src: "https://relno.github.io/travelAgent/static/figs/ta-path-3D.png"
     caption: "Path visualization in the 3D experiment environment"
   - type: "image"
-    src: "https://www.arielnoyman.com/travelAgent/static/figs/ta-paths-all-scenarios.png"
+    src: "https://relno.github.io/travelAgent/static/figs/ta-paths-all-scenarios.png"
     caption: "Agent paths and decision points across scenarios"
   - type: "image"
-    src: "https://www.arielnoyman.com/travelAgent/static/figs/ta-top-words.png"
+    src: "https://relno.github.io/travelAgent/static/figs/ta-top-words.png"
     caption: "Term frequency analysis of agent planning streams"
   - type: "image"
-    src: "https://www.arielnoyman.com/travelAgent/static/figs/ta-sentiment.png"
+    src: "https://relno.github.io/travelAgent/static/figs/ta-sentiment.png"
     caption: "Sentiment analysis across agent paths"
 ---
 TravelAgent explores generative agents in the built environment. The project models pedestrian navigation, wayfinding, and free exploration across varied indoor and outdoor scenes, using multimodal observations and agent memory to simulate human-like decisions. The work positions generative agents as a method for testing urban scenarios, reading spatial experience, and supporting early design decisions.

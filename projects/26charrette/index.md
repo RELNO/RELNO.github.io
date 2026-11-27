@@ -1,4 +1,5 @@
 ---
+workSlug: "the-return-of-the-charrette"
 title: "The Return of the Charrette"
 subtitle: "What the architecture studio can teach academia in the era of AI"
 order: 10

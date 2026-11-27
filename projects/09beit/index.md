@@ -1,4 +1,5 @@
 ---
+workSlug: "city-museum-of-tel-aviv"
 title: "Beit Ha’ir"
 listTitle: "City Museum of Tel Aviv"
 subtitle: "City Museum of Tel Aviv, Israel"

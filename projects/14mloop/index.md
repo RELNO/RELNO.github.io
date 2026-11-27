@@ -1,4 +1,5 @@
 ---
+workSlug: "meadowloop"
 title: "MeadowLoop"
 subtitle: "CAU Studio in the Meadowlands, NJ"
 order: 200

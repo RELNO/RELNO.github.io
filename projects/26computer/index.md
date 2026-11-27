@@ -1,4 +1,5 @@
 ---
+workSlug: "a-computer-might-be-a-city"
 title: "A Computer Might Be a City"
 subtitle: "How do we define computation that is no longer deterministic?"
 order: 38

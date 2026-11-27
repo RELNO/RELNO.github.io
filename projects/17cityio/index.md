@@ -1,4 +1,5 @@
 ---
+workSlug: "cityio"
 title: "cityI/O"
 listTitle: "cityIO"
 subtitle: "Cloud-based Urban Data Platform"

@@ -1,4 +1,5 @@
 ---
+workSlug: "corktown-urban-performance"
 title: "Corktown Urban Performance"
 subtitle: "Interactive urban modeling for Detroit's mobility innovation district"
 order: 55

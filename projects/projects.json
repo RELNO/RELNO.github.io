@@ -1,6 +1,7 @@
 [
   {
     "name": "00about",
+    "url": "/work/about.html",
     "title": "About Ariel Noyman",
     "imageSrc": "sections/an.png",
     "thumbnailSrc": "/img/project-thumbnails/00about-400.webp",
@@ -12,6 +13,7 @@
   },
   {
     "name": "26agents",
+    "url": "/work/beyond-the-rulebook.html",
     "title": "Beyond the Rulebook",
     "imageSrc": "projects/26agents/campus-poster.jpg",
     "thumbnailSrc": "/img/project-thumbnails/26agents-400.webp",
@@ -23,6 +25,7 @@
   },
   {
     "name": "26gridnberg",
+    "url": "/work/gridnberg.html",
     "title": "Gridnberg",
     "imageSrc": "projects/26gridnberg/gridnberg.jpeg",
     "thumbnailSrc": "/img/project-thumbnails/26gridnberg-400.webp",
@@ -34,6 +37,7 @@
   },
   {
     "name": "26charrette",
+    "url": "/work/the-return-of-the-charrette.html",
     "title": "The Return of the Charrette",
     "imageSrc": "projects/26charrette/mit_studio.jpeg",
     "thumbnailSrc": "/img/project-thumbnails/26charrette-400.webp",
@@ -45,6 +49,7 @@
   },
   {
     "name": "25streetknowledge",
+    "url": "/work/connected-urban-twins.html",
     "title": "Connected Urban Twins",
     "imageSrc": "projects/25streetknowledge/street-knowledge-thumbnail.png",
     "thumbnailSrc": "/img/project-thumbnails/25streetknowledge-400.webp",
@@ -56,6 +61,7 @@
   },
   {
     "name": "24travelagent",
+    "url": "/work/travelagent.html",
     "title": "TravelAgent",
     "imageSrc": "projects/24travelagent/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/24travelagent-400.webp",
@@ -67,6 +73,7 @@
   },
   {
     "name": "23nur",
+    "url": "/work/nur.html",
     "title": "NUR",
     "imageSrc": "projects/23nur/nur-lab-interior.jpg",
     "thumbnailSrc": "/img/project-thumbnails/23nur-400.webp",
@@ -78,6 +85,7 @@
   },
   {
     "name": "26info5420",
+    "url": "/work/info5420.html",
     "title": "INFO5420",
     "imageSrc": "projects/26info5420/gowanus-canal.png",
     "thumbnailSrc": "/img/project-thumbnails/26info5420-400.webp",
@@ -89,6 +97,7 @@
   },
   {
     "name": "26computer",
+    "url": "/work/a-computer-might-be-a-city.html",
     "title": "A Computer Might Be a City",
     "imageSrc": "projects/26computer/a-comp.jpeg",
     "thumbnailSrc": "/img/project-thumbnails/26computer-400.webp",
@@ -100,6 +109,7 @@
   },
   {
     "name": "20rechamps",
+    "url": "/work/champs-elysees.html",
     "title": "Champs-Élysées",
     "imageSrc": "projects/20rechamps/0.png",
     "thumbnailSrc": "/img/project-thumbnails/20rechamps-400.webp",
@@ -111,6 +121,7 @@
   },
   {
     "name": "22urbangen",
+    "url": "/work/generative-urbanism.html",
     "title": "Generative Urbanism",
     "imageSrc": "projects/22urbangen/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/22urbangen-400.webp",
@@ -122,6 +133,7 @@
   },
   {
     "name": "20corktown",
+    "url": "/work/corktown-urban-performance.html",
     "title": "Corktown Urban Performance",
     "imageSrc": "projects/20corktown/corktown-cover.jpg",
     "thumbnailSrc": "/img/project-thumbnails/20corktown-400.webp",
@@ -133,6 +145,7 @@
   },
   {
     "name": "19deepscope",
+    "url": "/work/deepscope.html",
     "title": "DeepScope",
     "imageSrc": "projects/19deepscope/0.png",
     "thumbnailSrc": "/img/project-thumbnails/19deepscope-400.webp",
@@ -144,6 +157,7 @@
   },
   {
     "name": "19oldnewcities",
+    "url": "/work/old-new-cities.html",
     "title": "Old, New Cities",
     "imageSrc": "projects/19oldnewcities/popescu-cap.-7-1.jpg",
     "thumbnailSrc": "/img/project-thumbnails/19oldnewcities-400.webp",
@@ -155,6 +169,7 @@
   },
   {
     "name": "19nibn",
+    "url": "/work/nibn.html",
     "title": "NIBN",
     "imageSrc": "projects/19nibn/site10.jpg",
     "thumbnailSrc": "/img/project-thumbnails/19nibn-400.webp",
@@ -166,6 +181,7 @@
   },
   {
     "name": "18cooper",
+    "url": "/work/the-road-ahead.html",
     "title": "The Road Ahead",
     "imageSrc": "projects/18cooper/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/18cooper-400.webp",
@@ -177,6 +193,7 @@
   },
   {
     "name": "18mobcho",
+    "url": "/work/mobility-choice.html",
     "title": "Mobility Choice",
     "imageSrc": "projects/18mobcho/0.png",
     "thumbnailSrc": "/img/project-thumbnails/18mobcho-400.webp",
@@ -188,6 +205,7 @@
   },
   {
     "name": "18revurb",
+    "url": "/work/reversed-urbanism.html",
     "title": "Reversed Urbanism",
     "imageSrc": "projects/18revurb/0.png",
     "thumbnailSrc": "/img/project-thumbnails/18revurb-400.webp",
@@ -199,6 +217,7 @@
   },
   {
     "name": "17csjs",
+    "url": "/work/cityscope-js.html",
     "title": "CityScope JS",
     "imageSrc": "projects/17csjs/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/17csjs-400.webp",
@@ -210,6 +229,7 @@
   },
   {
     "name": "17cityio",
+    "url": "/work/cityio.html",
     "title": "cityIO",
     "imageSrc": "projects/17cityio/0.png",
     "thumbnailSrc": "/img/project-thumbnails/17cityio-400.webp",
@@ -221,6 +241,7 @@
   },
   {
     "name": "16csar",
+    "url": "/work/cityscope-ar.html",
     "title": "CityScope AR",
     "imageSrc": "projects/16csar/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/16csar-400.webp",
@@ -232,6 +253,7 @@
   },
   {
     "name": "16fp",
+    "url": "/work/findingplaces.html",
     "title": "FindingPlaces",
     "imageSrc": "projects/16fp/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/16fp-400.webp",
@@ -243,6 +265,7 @@
   },
   {
     "name": "16priorities",
+    "url": "/work/shifting-priorities-finding-places.html",
     "title": "Shifting Priorities, Finding Places",
     "imageSrc": "projects/16priorities/interactive-table-suggested-sites.jpeg",
     "thumbnailSrc": "/img/project-thumbnails/16priorities-400.webp",
@@ -254,6 +277,7 @@
   },
   {
     "name": "15thesis",
+    "url": "/work/power-structures.html",
     "title": "Power/Structures",
     "imageSrc": "projects/15thesis/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/15thesis-400.webp",
@@ -265,6 +289,7 @@
   },
   {
     "name": "15brt",
+    "url": "/work/brt-for-boston.html",
     "title": "BRT for Boston",
     "imageSrc": "projects/15brt/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/15brt-400.webp",
@@ -276,6 +301,7 @@
   },
   {
     "name": "15newman",
+    "url": "/work/space-packed.html",
     "title": "Space Packed",
     "imageSrc": "projects/15newman/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/15newman-400.webp",
@@ -287,6 +313,7 @@
   },
   {
     "name": "14rbd",
+    "url": "/work/rebuild-by-design.html",
     "title": "Rebuild By Design",
     "imageSrc": "projects/14rbd/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/14rbd-400.webp",
@@ -298,6 +325,7 @@
   },
   {
     "name": "14mloop",
+    "url": "/work/meadowloop.html",
     "title": "MeadowLoop",
     "imageSrc": "projects/14mloop/0.png",
     "thumbnailSrc": "/img/project-thumbnails/14mloop-400.webp",
@@ -309,6 +337,7 @@
   },
   {
     "name": "14resindustrial",
+    "url": "/work/resindustrial.html",
     "title": "Resindustrial",
     "imageSrc": "projects/14resindustrial/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/14resindustrial-400.webp",
@@ -320,6 +349,7 @@
   },
   {
     "name": "12nli",
+    "url": "/work/new-national-library.html",
     "title": "New National Library",
     "imageSrc": "projects/12nli/site2.jpg",
     "thumbnailSrc": "/img/project-thumbnails/12nli-400.webp",
@@ -331,6 +361,7 @@
   },
   {
     "name": "12yadlebanim",
+    "url": "/work/yad-lebanim.html",
     "title": "Yad LeBanim",
     "imageSrc": "projects/12yadlebanim/2_06.jpeg",
     "thumbnailSrc": "/img/project-thumbnails/12yadlebanim-400.webp",
@@ -342,6 +373,7 @@
   },
   {
     "name": "11station5",
+    "url": "/work/station-5.html",
     "title": "Station 5",
     "imageSrc": "projects/11station5/0.png",
     "thumbnailSrc": "/img/project-thumbnails/11station5-400.webp",
@@ -353,6 +385,7 @@
   },
   {
     "name": "11pushkinsky",
+    "url": "/work/republic.html",
     "title": "Republic",
     "imageSrc": "projects/11pushkinsky/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/11pushkinsky-400.webp",
@@ -364,6 +397,7 @@
   },
   {
     "name": "10stumps",
+    "url": "/work/stumps.html",
     "title": "STUMPS",
     "imageSrc": "projects/10stumps/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/10stumps-400.webp",
@@ -375,6 +409,7 @@
   },
   {
     "name": "10motj",
+    "url": "/work/museum-of-tolerance.html",
     "title": "Museum of Tolerance",
     "imageSrc": "projects/10motj/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/10motj-400.webp",
@@ -386,6 +421,7 @@
   },
   {
     "name": "10israelmuseum",
+    "url": "/work/israel-museum.html",
     "title": "Israel Museum",
     "imageSrc": "projects/10israelmuseum/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/10israelmuseum-400.webp",
@@ -397,6 +433,7 @@
   },
   {
     "name": "10academic",
+    "url": "/work/hillside-campus.html",
     "title": "Hillside Campus",
     "imageSrc": "projects/10academic/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/10academic-400.webp",
@@ -408,6 +445,7 @@
   },
   {
     "name": "09dubai",
+    "url": "/work/the-8th-souk.html",
     "title": "The 8th Souk",
     "imageSrc": "projects/09dubai/1.jpeg",
     "thumbnailSrc": "/img/project-thumbnails/09dubai-400.webp",
@@ -419,6 +457,7 @@
   },
   {
     "name": "09beit",
+    "url": "/work/city-museum-of-tel-aviv.html",
     "title": "City Museum of Tel Aviv",
     "imageSrc": "projects/09beit/5.jpg",
     "thumbnailSrc": "/img/project-thumbnails/09beit-400.webp",
@@ -430,6 +469,7 @@
   },
   {
     "name": "09telaviv",
+    "url": "/work/tel-aviv.html",
     "title": "Tel, Aviv",
     "imageSrc": "projects/09telaviv/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/09telaviv-400.webp",
@@ -441,6 +481,7 @@
   },
   {
     "name": "08ordos",
+    "url": "/work/ordos-100.html",
     "title": "Ordos 100",
     "imageSrc": "projects/08ordos/main.jpg",
     "thumbnailSrc": "/img/project-thumbnails/08ordos-400.webp",
@@ -452,6 +493,7 @@
   },
   {
     "name": "07greenpeace",
+    "url": "/work/green-piece.html",
     "title": "Green Piece",
     "imageSrc": "projects/07greenpeace/Greenpeace3.jpg",
     "thumbnailSrc": "/img/project-thumbnails/07greenpeace-400.webp",
@@ -463,6 +505,7 @@
   },
   {
     "name": "04kolech",
+    "url": "/work/septum.html",
     "title": "Septum",
     "imageSrc": "projects/04kolech/0.jpg",
     "thumbnailSrc": "/img/project-thumbnails/04kolech-400.webp",

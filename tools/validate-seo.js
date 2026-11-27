@@ -5,7 +5,7 @@ const path = require("path");
 
 const rootDir = path.resolve(__dirname, "..");
 const projectsDir = path.join(rootDir, "projects");
-const siteUrl = "https://www.arielnoyman.com";
+const siteUrl = "https://arielnoyman.com";
 const errors = [];
 
 function read(relativePath) {
@@ -72,14 +72,19 @@ function report(condition, message) {
   }
 }
 
-const projectPages = fs
-  .readdirSync(projectsDir, { withFileTypes: true })
-  .filter((entry) => entry.isDirectory())
-  .filter((entry) =>
-    fs.existsSync(path.join(projectsDir, entry.name, "index.md"))
-  )
-  .map((entry) => `projects/${entry.name}/index.html`)
-  .sort();
+const catalog = JSON.parse(read("projects/projects.json"));
+const projectPages = catalog.map(({ name, url }) => {
+  if (!/^\/work\/[a-z0-9]+(?:-[a-z0-9]+)*\.html$/.test(url)) {
+    throw new Error(`Invalid work URL for ${name}: ${url}`);
+  }
+  const legacyPage = read(`projects/${name}/index.html`);
+  report(linkHref(legacyPage, "canonical") === siteUrl + url, `Invalid legacy redirect for ${name}`);
+  return url.slice(1);
+});
+const sourceDirs = fs.readdirSync(projectsDir).filter(name =>
+  fs.existsSync(path.join(projectsDir, name, "index.md"))
+);
+report(sourceDirs.length === catalog.length && sourceDirs.every(name => catalog.some(item => item.name === name)), "Catalog differs from project sources");
 const pages = ["index.html", ...projectPages];
 const canonicalUrls = new Map();
 const pageTitles = new Map();
@@ -90,7 +95,7 @@ pages.forEach((relativePath) => {
   const expectedCanonical =
     relativePath === "index.html"
       ? `${siteUrl}/`
-      : `${siteUrl}/${path.dirname(relativePath)}/`;
+      : `${siteUrl}/${relativePath}`;
   const title = titleText(html);
   const description = metaContent(html, "name", "description");
   const robots = metaContent(html, "name", "robots");

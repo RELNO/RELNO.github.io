@@ -1,4 +1,5 @@
 ---
+workSlug: "green-piece"
 title: "Green Piece"
 subtitle: "Competition-winning green housing proposal, 2007"
 order: 330

@@ -1,4 +1,5 @@
 ---
+workSlug: "yad-lebanim"
 title: "Beit Yad LeBanim"
 listTitle: "Yad LeBanim"
 subtitle: "Public competition, Ramat Yishai, Israel, 2012"

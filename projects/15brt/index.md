@@ -1,4 +1,5 @@
 ---
+workSlug: "brt-for-boston"
 title: "Boston BRT"
 listTitle: "BRT for Boston"
 subtitle: "New interactive platform for the design of bus rapid transit systems"

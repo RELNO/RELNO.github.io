@@ -1,4 +1,5 @@
 ---
+workSlug: "power-structures"
 title: "PowerStructures"
 listTitle: "Power/Structures"
 subtitle: "The Urban Form of Regulations"

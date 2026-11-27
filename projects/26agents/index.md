@@ -1,4 +1,5 @@
 ---
+workSlug: "beyond-the-rulebook"
 title: "Beyond the Rulebook"
 subtitle: "From model-guided agents to cognitive networks"
 seoTitle: "Beyond the Rulebook: Cognitive Networks | Ariel Noyman"

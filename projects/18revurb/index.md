@@ -1,4 +1,5 @@
 ---
+workSlug: "reversed-urbanism"
 title: "Reversed Urbanism"
 subtitle: "Urban Form Performance Analysis using Temporal Telecom Data"
 order: 100

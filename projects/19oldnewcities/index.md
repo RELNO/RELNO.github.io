@@ -1,4 +1,5 @@
 ---
+workSlug: "old-new-cities"
 title: "Old, New Cities"
 subtitle: "European Commission talk"
 order: 65
