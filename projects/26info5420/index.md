@@ -3,6 +3,7 @@ workSlug: "info5420"
 title: "INFO5420"
 listTitle: "INFO5420"
 subtitle: "Designing A Design Process"
+dateModified: "2026-11-27"
 order: 37
 imageSrc: "projects/26info5420/gowanus-canal.png"
 themes:
@@ -34,10 +35,10 @@ The course brought field observation, unconventional urban data, mapping, scenar
 ## 2026: Gowanus BID: Urban, Environmental, and Political Systems
 
 - [Streets for the People](https://cornell-tech-urban-tech-hub.github.io/uds26_team2) — Jay Huang, Edmond Chak Chun Kong, Nadav Yochman, Nikhil Jain, and Ishan Parag Patwardhan
-- [Gowanus Trees](https://cornell-tech-urban-tech-hub.github.io/uds26_team3) — Zening Wang, Yixuan Liu, Zexun Yao, Helenna Yin, and Jiayu Zhang
-- [Polluted Flood Mitigation](https://cornell-tech-urban-tech-hub.github.io/uds26_team4) — Xuexin He, Wenzhuo Zhang, Fengze Cai, and Hanqi Guo
+- [GO-Wanus Green](https://cornell-tech-urban-tech-hub.github.io/uds26_team3) — Zening Wang, Yixuan Liu, Zexun Yao, Helenna Yin, and Jiayu Zhang
+- [Flooding-driven Pollution in Gowanus](https://cornell-tech-urban-tech-hub.github.io/uds26_team4) — Xuexin He, Wenzhuo Zhang, Fengze Cai, and Hanqi Guo
 - [Policy for Housing Equity](https://cornell-tech-urban-tech-hub.github.io/uds26_team5) — Alina Kapanova, Sean Hardesty Lewis, and Shutian Fang
-- [Gowanus Arts Corridor](https://cornell-tech-urban-tech-hub.github.io/uds26_team1) — Matthias Corkran, Michelle Hui, Nina Mantegna, Atmika Pai, and Gabriela Yaulli Herrera
+- [The Gowanus Art Spine](https://cornell-tech-urban-tech-hub.github.io/uds26_team1) — Matthias Corkran, Michelle Hui, Nina Mantegna, Atmika Pai, and Gabriela Yaulli Herrera
 
 ## 2025: BID as an Urban System
 

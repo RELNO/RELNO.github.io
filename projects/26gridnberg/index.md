@@ -2,6 +2,7 @@
 workSlug: "gridnberg"
 title: "Gridnberg"
 subtitle: "Topography-aware pedestrian routing for New York City"
+dateModified: "2026-11-27"
 order: 5
 imageSrc: "projects/26gridnberg/gridnberg.jpeg"
 themes:
@@ -35,3 +36,5 @@ carouselItems:
     alt: "Gridnberg map comparing distance, accessibility-sensitive, and comfort-oriented pedestrian routes across New York City"
 ---
 Cities are rarely flat, yet urban network analysis usually represents streets as planar graphs. This simplification affects modeled impedance, route choice, and the interpretation of accessibility, particularly where alternative paths differ in grade. This paper introduces Gridnberg ('grid-n-berg', grid and mountain), a topography-aware pedestrian routing dataset for New York City. The dataset enriches the NYCWalks network with vertex-level elevations derived from the New York City Planimetric Database. For each pedestrian-network geometry vertex, the workflow averages selected elevation observations within a 50 m radius, retains segments with complete vertex support, and uses direction-specific cumulative ascent and descent to calculate three routing costs: horizontal distance, a comfort-oriented slope score, and an accessibility-sensitive slope score. The release retains 313184 of 315577 source segments (99.24%). Gridnberg supports reproducible terrain-aware analysis, transparent scenario comparison, and improved pedestrian-network representations in New York and other cities.
+
+To compare routes, try a walk from the 181st Street A station to the Little Red Lighthouse in Washington Heights. Keep the endpoints fixed and switch among horizontal distance, comfort and accessibility. The distance setting counts metres traveled. The other two account for how steeply the path climbs or descends, so a longer, gentler approach can score better. Reverse the trip to see how the cost changes with direction.

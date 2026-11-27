@@ -2,6 +2,7 @@
 workSlug: "reversed-urbanism"
 title: "Reversed Urbanism"
 subtitle: "Urban Form Performance Analysis using Temporal Telecom Data"
+dateModified: "2026-11-27"
 order: 100
 imageSrc: "projects/18revurb/0.png"
 themes:
@@ -9,7 +10,7 @@ themes:
   - "publication"
 badges:
   - label: "GitHub Repository"
-    link: "https://cityscope.github.io/CS_Andorra_RNC/"
+    link: "https://github.com/CityScope/CSL_Andorra_RNC"
   - label: "Project Page"
     link: "https://www.media.mit.edu/projects/reversed-urbanism/overview/"
   - label: "Paper"

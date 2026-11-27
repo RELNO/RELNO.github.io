@@ -3,41 +3,49 @@ workSlug: "cityscope-ar"
 title: "CityScopeAR"
 listTitle: "CityScope AR"
 subtitle: "Augmented Reality Urban Simulation"
+dateModified: "2026-11-27"
 order: 130
 imageSrc: "projects/16csar/0.jpg"
 themes:
   - "city-science"
 badges:
   - label: "GitHub Repository"
-    link: "https://github.com/RELNO/CSharpScope_AR"
+    link: "https://github.com/CityScope/CS_CityScopeAR"
   - label: "cityI/O Overview"
     link: "https://www.media.mit.edu/projects/cityio/overview/"
-  - label: "ACM CHI 2018"
+  - label: "CityScopeAR project paper (PDF)"
     link: "/projects/16csar/csar.pdf"
 carouselItems:
+  - type: "image"
+    src: "projects/16csar/2.jpeg"
+    alt: "A tablet held over a CityScope model overlays building outlines and data labels on the streets."
+    caption: "The tablet registers its view to the model, so a participant can inspect an individual building at the table."
   - type: "link"
     src: "https://i.ytimg.com/vi/sM0wOiK4X9A/hqdefault.jpg"
     link: "https://www.youtube.com/watch?v=sM0wOiK4X9A"
-    caption: "Watch video"
+    autoplay: false
+    caption: "Examples of cityIO applications"
   - type: "link"
     src: "https://i.ytimg.com/vi/_5cQb8gAR_M/hqdefault.jpg"
     link: "https://www.youtube.com/watch?v=_5cQb8gAR_M"
-    caption: "Watch video"
+    autoplay: false
+    caption: "Boston bus rapid transit study"
   - type: "link"
     src: "https://i.ytimg.com/vi/Rf2YCoqJY0I/hqdefault.jpg"
     link: "https://www.youtube.com/watch?v=Rf2YCoqJY0I"
-    caption: "Watch video"
+    autoplay: false
+    caption: "Exploring cityIO data analysis tools"
   - type: "link"
     src: "https://i.ytimg.com/vi/CFnz-hwzQ8I/hqdefault.jpg"
     link: "https://www.youtube.com/watch?v=CFnz-hwzQ8I"
-    caption: "Watch video"
+    autoplay: false
+    caption: "HafenCity University workshop in Hamburg"
   - type: "link"
     src: "https://i.ytimg.com/vi/Qo5caNnnvQM/hqdefault.jpg"
     link: "https://www.youtube.com/watch?v=Qo5caNnnvQM"
-    caption: "Watch video"
+    autoplay: false
+    caption: "CityScope in Andorra"
 ---
-CityScopeAR is an augmented reality urban simulation project that aims to reduce complexity in design and planning tools while providing support for data-driven environments for planners, designers, and decision-makers. The project utilizes modern simulation tools and cutting-edge AR applications to offer an immersive user experience in planning processes.
+Looking through a tablet, a participant can see the CityScope model and the digital information registered to it at the same time. Moving the tablet changes the viewpoint. Several people can examine the same design from different positions around the table.
 
-CityScopeAR is built upon the cityI/O platform, which utilizes a scalable server-side architecture to enable remote and decentralized public participation. With self-explanatory web and mobile apps featuring high-end visualization and user interfaces, cityI/O facilitates better communication of complex planning processes and real-time aggregation of public opinions. The platform supports collaboration, participation, and decision-making in design and planning initiatives.
-
-For more information, you can access the CityScopeAR GitHub repository, the cityI/O overview, and the PDF document related to the project.
+[cityIO](/work/cityio.html) connects the tabletop and its clients so that a change to a shared model can reach another device. The recordings below show uses of that underlying platform in Boston, Hamburg and Andorra. The project paper documents the mixed-reality interface, and the archived source repository preserves the implementation.

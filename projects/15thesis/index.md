@@ -1,8 +1,9 @@
 ---
 workSlug: "power-structures"
-title: "PowerStructures"
+title: "Power/Structures"
 listTitle: "Power/Structures"
 subtitle: "The Urban Form of Regulations"
+dateModified: "2026-11-27"
 order: 160
 imageSrc: "projects/15thesis/0.jpg"
 themes:
@@ -10,7 +11,7 @@ themes:
   - "publication"
 badges:
   - label: "MIT Thesis"
-    link: "http://hdl.handle.net/1721.1/99301"
+    link: "https://dspace.mit.edu/entities/publication/4a7b16b8-dd95-47ae-828c-f9f4b47fc316"
 credits:
   - label: "Publication"
     value: "Master's thesis, MIT Department of Architecture, 2015"
@@ -21,37 +22,50 @@ carouselItems:
     caption: "Watch video"
   - type: "image"
     src: "projects/15thesis/1.jpg"
+    alt: "Workshop participants reach into a physical building model illuminated by projected data."
   - type: "image"
     src: "projects/15thesis/2.jpg"
+    alt: "Close-up of blue-lit model towers labeled as site model and blank pieces."
   - type: "image"
     src: "projects/15thesis/3.jpg"
+    alt: "Participants study projected paths on the table with a color map on the monitor."
   - type: "link"
     src: "https://i.ytimg.com/vi/TjvWDEZm_Xw/hqdefault.jpg"
     link: "https://www.youtube.com/watch?v=TjvWDEZm_Xw"
     caption: "Watch video"
   - type: "image"
     src: "projects/15thesis/4.jpg"
+    alt: "People adjust model buildings while a monitor displays alternative building forms."
   - type: "image"
     src: "projects/15thesis/5.jpg"
+    alt: "Green, orange and red projections distinguish buildings as workshop participants rearrange them."
   - type: "image"
     src: "projects/15thesis/6.jpg"
+    alt: "Aerial imagery projected onto the model alongside a screen of reference material."
   - type: "image"
     src: "projects/15thesis/7.jpg"
+    alt: "Blue graphic overlays trace relationships across a dark three-dimensional site model."
   - type: "image"
     src: "projects/15thesis/8.jpg"
+    alt: "Exploded axonometric diagram highlighting selected buildings in the regulation model."
   - type: "image"
     src: "projects/15thesis/9.jpg"
+    alt: "Hands reposition tall pieces in a projected streetscape during the regulation workshop."
   - type: "image"
     src: "projects/15thesis/10.jpg"
+    alt: "Grid of colorful regulatory maps comparing different rules and territories."
   - type: "image"
     src: "projects/15thesis/11.jpg"
+    alt: "An excerpt of a zoning regulation alongside diagrams of its effects on building volume."
   - type: "image"
     src: "projects/15thesis/12.jpg"
+    alt: "Linked-node diagram of the stages in the regulatory design process."
   - type: "image"
     src: "projects/15thesis/13.jpg"
+    alt: "Participants discuss a tabletop site plan and model pieces around a workshop table."
 ---
-PowerStructures is a project that focuses on the urban form of regulations and explores the relationship between regulations and urban design. The project introduces a Tangible Regulation Platform, a physical-technological apparatus that exemplifies the effects of the law on a designated territory. The platform provides a common ground for discussion and decision-making among planners, designers, stakeholders, and communities, offering a transparent process of regulation-based urban design.
+Power/Structures is a project that focuses on the urban form of regulations and explores the relationship between regulations and urban design. The project introduces a Tangible Regulation Platform, a physical-technological apparatus that exemplifies the effects of the law on a designated territory. The platform provides a common ground for discussion and decision-making among planners, designers, stakeholders, and communities, offering a transparent process of regulation-based urban design.
 
 The development of the platform involved an observatory study, comparing its usability to more traditional methods of design and collaboration. The study included community members who discussed and performed design alternatives for a specific site, using both the platform and traditional pen-and-paper methods. The study helped establish a workflow and enhance the capabilities of the tangible multilayered design platform.
 
-For more information, you can access the paper and the MIT thesis related to the PowerStructures project.
+The [2015 MIT thesis](https://dspace.mit.edu/entities/publication/4a7b16b8-dd95-47ae-828c-f9f4b47fc316) documents the platform and the comparative workshops.

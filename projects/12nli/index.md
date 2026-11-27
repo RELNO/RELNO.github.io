@@ -3,11 +3,14 @@ workSlug: "new-national-library"
 title: "The New National Library"
 listTitle: "New National Library"
 subtitle: "Competition proposal, Jerusalem, Israel, 2012"
+dateModified: "2026-11-27"
 order: 220
 imageSrc: "projects/12nli/site2.jpg"
 themes:
   - "architecture"
 credits:
+  - label: "Team architect"
+    value: "Ariel Noyman, planning, drawings, digital rendering and physical models"
   - label: "Architects"
     value: "Chyutin Architects"
   - label: "Location"
@@ -46,3 +49,5 @@ The New National Library is a 2012 competition proposal for the National Library
 The proposal divides the building into two complementary systems. A broad lower plinth absorbs most of the 40,000 sqm program into the natural slope of the site, extending the public ground through gardens, terraces, and an entrance square. Above it, the reading hall rises as the project's distinct urban figure: a compact, luminous landmark for study, gathering, and civic memory.
 
 The organization of movement was central to the design. Public visitors, researchers, staff, books, deliveries, and operations each follow carefully separated routes across different security levels, allowing the library to remain open and legible to visitors while supporting the demanding logistics of a national collection. This circulation strategy ties the buried support programs, landscape, entrance sequence, and elevated reading hall into one continuous institutional experience.
+
+Noyman worked on the proposal as one of three team architects. His work included plans and presentation drawings, digital models and renderings, and fabrication files for the physical models. [Design drawings and credits](/noyman_pf_25.pdf#page=52).

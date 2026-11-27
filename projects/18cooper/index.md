@@ -2,14 +2,17 @@
 workSlug: "the-road-ahead"
 title: "The Road Ahead"
 subtitle: "CityScope in the Cooper Hewitt Museum, NY"
+dateModified: "2026-11-27"
 order: 80
 imageSrc: "projects/18cooper/0.jpg"
 themes:
   - "city-science"
 badges:
-  - label: "Article"
-    link: "https://www.curbed.com/2018/12/18/18144513/future-mobility-autonomous-vehicles-cooper-hewitt"
+  - label: "Museum exhibition archive"
+    link: "https://www.cooperhewitt.org/channel/road-ahead/"
 credits:
+  - label: "Exhibition dates"
+    value: "December 14, 2018 to March 31, 2019"
   - label: "Venue"
     value: "Cooper Hewitt Museum, New York"
 carouselItems:
@@ -18,6 +21,6 @@ carouselItems:
     link: "https://www.youtube.com/watch?v=Ow4GatB92XY"
     caption: "Watch video"
 ---
-The Road Ahead: Reimagining Mobility is an exhibition that showcases 40 design projects inspired by future technologies that will transform how we move people, goods, and services. As data and design innovation rapidly converge, cities are becoming smarter, and transportation options are expanding.
+At Cooper Hewitt in New York, *The Road Ahead: Reimagining Mobility* brought together 40 design projects exploring how people, goods and services might move through future cities. It ran from December 14, 2018 to March 31, 2019.
 
-The Road Ahead invites visitors to explore how droids, bots, drones, and other innovations can contribute to safer streetscapes, more equitable transportation, and sustainable cities. CityScope Cooper Hewitt, a playful installation within the exhibition, presents two extreme future scenarios of urban mobility: an all privately owned mobility world and a fully shared, transit-oriented future. Visitors can participate in designing densities and land uses for each scenario, gaining insight into each mobility future.
+The CityScope installation let visitors design for two different futures. In one, people relied on privately owned vehicles. In the other, they shared transportation and built around transit. Visitors assigned land uses and densities to each scenario, then compared what their decisions would mean for the city.

@@ -2,6 +2,7 @@
 workSlug: "nibn"
 title: "NIBN"
 subtitle: "National Institute for Biotechnology in the Negev, Be'er Sheva, 2010-2019"
+dateModified: "2026-11-27"
 order: 70
 imageSrc: "projects/19nibn/site10.jpg"
 themes:
@@ -40,3 +41,5 @@ carouselItems:
 The National Institute for Biotechnology in the Negev (NIBN) emerged from a strict set of requirements that left limited room for formal expression. The design responds by working carefully within those constraints: honoring the modest, brutalist-modernist character of the Ben-Gurion University campus while creating an inclusive plan for research, teaching, and public activity.
 
 Much of the design work focused on the building envelope. The facade studies balanced the client's preference for a cladding material other than exposed concrete, tight budget limits, and the demanding desert climate of Be'er Sheva. Throughout the process, multiple options were tested through physical models, 3D simulations, sunlight and shade studies, and on-site trials of the selected assemblies.
+
+As design lead with Chyutin Architects, Ariel Noyman studied the massing, developed the façades and tested the envelope in digital and physical models. [Design studies and credits](/noyman_pf_25.pdf#page=66).

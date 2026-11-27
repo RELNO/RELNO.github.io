@@ -3,13 +3,14 @@ workSlug: "cityio"
 title: "cityI/O"
 listTitle: "cityIO"
 subtitle: "Cloud-based Urban Data Platform"
+dateModified: "2026-11-27"
 order: 120
 imageSrc: "projects/17cityio/0.png"
 themes:
   - "city-science"
   - "talk"
 badges:
-  - label: "GitHub Repository"
+  - label: "Front-end source code"
     link: "https://github.com/CityScope/CS_cityIO_Frontend"
   - label: "CityScope Documentation"
     link: "https://cityscope.media.mit.edu/"
@@ -30,9 +31,11 @@ carouselItems:
     caption: "Watch CityScope overview video"
   - type: "image"
     src: "projects/17cityio/2.png"
+    alt: "cityIO dashboard showing connected tables on a world map alongside model outputs."
   - type: "image"
     src: "projects/17cityio/1.png"
+    alt: "System diagram connecting data sources through cityIO to local and remote applications."
 ---
 cityI/O (input/output) is a cloud and database-driven platform that enables remote participation, database augmentation, and high-end visualization for urban data. It can be accessed from anywhere, on multiple platforms and devices, through client-side apps or web-based interfaces. The cityI/O platform serves as a versatile tool for urban data management and analysis, supporting collaboration and exploration of urban phenomena.
 
-For more information and to access the cityI/O platform, visit the cityI/O front end.
+For example, someone at a CityScope table can replace a housing tile with an office tile. The scanner sends the new land-use value to cityIO. A second client reading the same table can redraw that block, and a simulation can use the change as input. The dashboard image and system diagram below show the two ends of that exchange.

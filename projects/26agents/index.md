@@ -4,7 +4,7 @@ title: "Beyond the Rulebook"
 subtitle: "From model-guided agents to cognitive networks"
 seoTitle: "Beyond the Rulebook: Cognitive Networks | Ariel Noyman"
 metaDescription: "GAMA experiments exploring structured decisions under uncertainty: a Jev–GPT-6 station comparison and a campus cognitive network with 500 pedestrians."
-dateModified: "2026-10-13"
+dateModified: "2026-11-27"
 order: 3
 imageSrc: "projects/26agents/campus-poster.jpg"
 themes:
@@ -19,6 +19,11 @@ credits:
     value: "Train station; campus accessibility"
   - label: "Models"
     value: "TypeSafe AI Jev 1.13, OpenAI GPT-6 Luna, H2O-Lightning-4B"
+badges:
+  - label: "Station comparison results"
+    link: "/projects/26agents/station-results.webp"
+  - label: "Recorded campus decisions"
+    link: "/projects/26agents/campus-decisions.webp"
 carouselItems:
   - type: "video"
     src: "projects/26agents/campus-cognitive-network.mp4"

@@ -2,6 +2,7 @@
 workSlug: "travelagent"
 title: "TravelAgent"
 subtitle: "Generative Agents for Urban Design"
+dateModified: "2026-11-27"
 order: 20
 imageSrc: "projects/24travelagent/0.jpg"
 themes:
@@ -14,7 +15,7 @@ badges:
   - label: "Project Page"
     link: "https://relno.github.io/travelAgent/"
   - label: "Paper"
-    link: "https://arxiv.org/pdf/2412.18985"
+    link: "https://doi.org/10.1177/23998083251360458"
   - label: "arXiv"
     link: "https://arxiv.org/abs/2412.18985"
   - label: "Code"
@@ -26,8 +27,10 @@ badges:
   - label: "Urban AI Conversation"
     link: "https://www.youtube.com/watch?v=1y7Oa1Kv7bI"
 credits:
+  - label: "Authors"
+    value: "Ariel Noyman, Kai Hu and Kent Larson"
   - label: "Publication"
-    value: "Environment and Planning B: Urban Analytics and City Science, 2025"
+    value: "Environment and Planning B: Urban Analytics and City Science, published online 2025, volume 53 (2026)"
   - label: "Talk"
     value: "Generative Agents in the Built Environment, Cornell Tech, Cornell University, 2025"
   - label: "Talk"
@@ -62,3 +65,5 @@ carouselItems:
     caption: "Sentiment analysis across agent paths"
 ---
 TravelAgent explores generative agents in the built environment. The project models pedestrian navigation, wayfinding, and free exploration across varied indoor and outdoor scenes, using multimodal observations and agent memory to simulate human-like decisions. The work positions generative agents as a method for testing urban scenarios, reading spatial experience, and supporting early design decisions.
+
+One task asked an agent to explore a museum gallery. At each step it could look around, walk, or decide it had finished. Early trials exposed a problem with relying on the street-level view alone: agents revisited places they had already seen. The researchers added a discovery map to give them a record of their route. Across 200 simulations covering different tasks and environments, agents completed about four in five tasks.

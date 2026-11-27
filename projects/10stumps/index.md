@@ -2,27 +2,44 @@
 workSlug: "stumps"
 title: "STUMPS"
 subtitle: "Competition Entry, Atlantic City Boardwalk Holocaust Memorial, 2010"
+dateModified: "2026-11-27"
 order: 260
 imageSrc: "projects/10stumps/0.jpg"
 themes:
   - "architecture"
+credits:
+  - label: "Designers"
+    value: "Ariel Noyman and Ruth Kedar"
+badges:
+  - label: "ArchDaily project feature"
+    link: "https://www.archdaily.com/92128/atlantic-city-holocaust-memorial-proposal-ariel-noyman-and-ruth-kedar"
 carouselItems:
   - type: "image"
     src: "projects/10stumps/0.jpg"
+    alt: "Boardwalk view toward the proposed memorial, a dense stand of slender poles."
+    caption: "From the public boardwalk, the poles mark the approach to the memorial."
   - type: "image"
     src: "projects/10stumps/1.jpg"
+    alt: "Night rendering with small lights at the tips of poles above clusters of timber stumps."
+    caption: "Inside the clearing, illuminated poles surround the low timber stumps."
   - type: "image"
     src: "projects/10stumps/2.jpg"
+    alt: "Visitors moving from the boardwalk between tall poles and low timber stumps."
   - type: "image"
     src: "projects/10stumps/3.jpg"
+    alt: "A visitor rests a hand on the circular top of a timber stump."
   - type: "image"
     src: "projects/10stumps/4.jpg"
+    alt: "Boardwalk elevation showing the closely spaced poles around seated and standing figures."
   - type: "image"
     src: "projects/10stumps/5.jpg"
+    alt: "Plan locating round stumps and openings within the rectangular memorial."
   - type: "image"
     src: "projects/10stumps/6.jpg"
+    alt: "Side elevation showing the low gathering area within the taller screen of poles."
   - type: "image"
     src: "projects/10stumps/7.jpg"
+    alt: "Competition board combining the nighttime clearing, site plan and close views of the stumps."
 ---
 STUMPS is a 2010 competition entry for a Holocaust memorial on the Atlantic City Boardwalk. The proposal transforms the language of the boardwalk into a quiet field of memory: a dense thicket of slender poles filters movement from the public promenade toward a clearing, neither fully enclosing the memorial nor separating it from everyday life around it.
 

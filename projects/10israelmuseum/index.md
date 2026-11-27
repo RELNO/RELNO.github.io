@@ -3,6 +3,7 @@ workSlug: "israel-museum"
 title: "The Israel Museum"
 listTitle: "Israel Museum"
 subtitle: "Renewal and expansion, Jerusalem, Israel, 2002–2010"
+dateModified: "2026-11-27"
 order: 275
 imageSrc: "projects/10israelmuseum/0.jpg"
 themes:
@@ -50,3 +51,5 @@ The renewal of the Israel Museum transformed a national institution that had gro
 The design consolidates the museum’s cellular structure through a precise series of new connections: an entrance and ticket pavilion with a generous forecourt, a sheltered Route of Passage, and a central Gallery Entrance Pavilion from which the museum’s wings and departments can be reached. Shaded glass enclosures, filtered daylight, planted courtyards, and selective views reconnect the buildings to Isamu Noguchi’s sculpture garden and make Jerusalem’s intense light an organizing element of the visitor experience.
 
 The work also reorganized the galleries for clearer access, orientation, and visibility; renewed building systems; rehabilitated the exterior stone and exposed-concrete interiors; and restored natural light to exhibition spaces. By adding less than ten percent to the existing building envelope, the project doubled the museum’s exhibition area while preserving the proportions, material character, and spatial flow of the original campus. The renewed Israel Museum reopened to the public in July 2010, on schedule and on budget.
+
+Ariel Noyman worked with Efrat-Kowalsky Architects on the renovation in 2009. The gallery photographs show the renewed exhibition spaces within the firm’s renovation and master-planning work.

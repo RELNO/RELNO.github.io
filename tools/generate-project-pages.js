@@ -216,9 +216,9 @@ function personEntity(includeProfileDetails = false) {
       "Data-driven urban planning",
     ],
     award: [
-      "European Union UrbanAct Award",
-      "First place, Rebuild by Design",
-      "First prize, Museum of Tolerance design competition",
+      "URBACT Good Practice, Finding Places team, 2017",
+      "Rebuild by Design winning team, New Meadowlands, 2014",
+      "Museum of Tolerance competition, Chyutin Architects team, 2010",
     ],
     address: {
       "@type": "PostalAddress",
@@ -911,22 +911,17 @@ function renderProjectDescription(text) {
   return `<section class="project-description">\n${content}\n</section>`;
 }
 
-function renderProjectInfo(projectMeta, projectBadges, projectDescription) {
-  const projectFacts = [projectMeta, projectBadges].filter(Boolean).join("\n");
-
-  if (!projectFacts) {
-    return `<div class="project-info project-info-no-facts">\n${projectDescription}\n</div>`;
-  }
+function renderProjectInfo(projectMeta, projectBadges, projectDescription, projectGallery) {
+  const facts = [projectMeta, projectBadges].filter(Boolean).join("\n");
+  const layout = facts ? "project-info" : "project-info project-info-no-facts";
 
   return [
-    '<div class="project-info">',
-    '  <aside class="project-facts" aria-label="Project details">',
-    projectFacts,
-    "  </aside>",
-    "",
+    `<div class="${layout}">`,
     projectDescription,
+    projectGallery,
+    facts && `<aside class="project-facts" aria-label="Project details">\n${facts}\n</aside>`,
     "</div>",
-  ].join("\n");
+  ].filter(Boolean).join("\n");
 }
 
 function renderProjectMeta(project) {
@@ -1211,8 +1206,7 @@ function generateProjectPages() {
               .filter(Boolean)
               .join("\n"),
       projectLeadMedia: renderLeadMedia(project),
-      projectInfo: renderProjectInfo(projectMeta, projectBadges, projectDescription),
-      projectGallery: renderGallery(project),
+      projectInfo: renderProjectInfo(projectMeta, projectBadges, projectDescription, renderGallery(project)),
     })
       .replace(
         "  </head>",

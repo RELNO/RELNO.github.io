@@ -2,6 +2,7 @@
 workSlug: "station-5"
 title: "Station 5"
 subtitle: "Water Towers: New Perspectives"
+dateModified: "2026-11-27"
 order: 240
 imageSrc: "projects/11station5/0.png"
 themes:
@@ -16,27 +17,39 @@ credits:
   - label: "Competition"
     value: "Water Towers: New Perspectives"
   - label: "Organizers"
-    value: "Bezalel Academy of Art and Design, Berkeley University, and the Society for Preservation of Israel Heritage Sites (SPIHS)"
+    value: "Bezalel Academy of Art and Design, University of California, Berkeley, and the Society for Preservation of Israel Heritage Sites (SPIHS)"
   - label: "Year"
     value: "2010"
 carouselItems:
   - type: "image"
     src: "projects/11station5/station5_4.jpg"
+    alt: "Night view of an illuminated, planted water tower rising above the town."
   - type: "image"
     src: "projects/11station5/station5_5.jpg"
+    alt: "Street-level rendering of the planted tower with the number five near its upper tank."
   - type: "image"
     src: "projects/11station5/station5_2.jpg"
+    alt: "Aerial photograph marking the existing water tower within the street grid."
   - type: "image"
     src: "projects/11station5/station5_6.jpg"
+    alt: "Diagram combining a water tower and new public uses into a planted observation tower."
   - type: "image"
     src: "projects/11station5/station5_10.jpg"
+    alt: "Town map connecting seven numbered water facilities into one visitor route."
   - type: "image"
     src: "projects/11station5/station5_8.jpg"
+    alt: "Site plan showing the tower beside municipal buildings and the town square."
   - type: "image"
     src: "projects/11station5/station5_3.jpg"
+    alt: "Plans of the lower and upper tanks showing the different layouts for public use."
   - type: "image"
     src: "projects/11station5/station5_11.jpg"
+    alt: "Section showing the exhibition space below, garden stair in the middle and viewing level above."
+    caption: "The lower tank becomes an exhibition room. The vertical garden leads upward to a lookout and a space for films and talks."
   - type: "image"
     src: "projects/11station5/station5_9.jpg"
+    alt: "Wall section showing visitors on an elevated platform behind the planted outer screen."
 ---
-Station 5 is a finalist submission for the city's first water tower, built in the 1920s and situated in the town square next to municipal buildings and primary urban institutions.
+Ra’anana’s first water tower, built in the 1920s, stands in the town square. Ariel Noyman proposed making it the fifth stop on a walking and cycling route linking seven municipal water facilities. Together, the stops would tell the city’s history.
+
+The tower section shows how visitors would move through its two former tanks. The lower tank would hold an exhibition about the town. A planted stair between the tanks would lead to a lookout and to an upper room for films and talks. The roof would become a café overlooking Ra’anana.

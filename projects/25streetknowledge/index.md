@@ -1,8 +1,9 @@
 ---
 workSlug: "connected-urban-twins"
-title: "Connected Urban Twins"
-subtitle: "Street Knowledge: Democratizing Data-driven Urban Design"
+title: "Street Knowledge"
+subtitle: "Democratizing Data-driven Urban Design at Urban Digital Twin Days, Hamburg, 2025"
 metaDescription: "Ariel Noyman's talk, Street Knowledge: Democratizing Data-driven Urban Design, at the Connected Urban Twins conference at HafenCity University Hamburg, 2025."
+dateModified: "2026-11-27"
 order: 15
 imageSrc: "projects/25streetknowledge/street-knowledge-thumbnail.png"
 themes:

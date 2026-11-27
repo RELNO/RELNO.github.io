@@ -3,15 +3,16 @@ workSlug: "brt-for-boston"
 title: "Boston BRT"
 listTitle: "BRT for Boston"
 subtitle: "New interactive platform for the design of bus rapid transit systems"
+dateModified: "2026-11-27"
 order: 170
 imageSrc: "projects/15brt/0.jpg"
 themes:
   - "city-science"
 badges:
   - label: "CityLab"
-    link: "https://www.citylab.com/life/2015/10/legos-as-a-legitimate-urban-planning-tool/410608/"
+    link: "https://www.bloomberg.com/news/articles/2015-10-16/mit-s-new-interactive-lego-urban-tool-brings-transparency-to-transit-planning"
   - label: "MIT News"
-    link: "http://news.mit.edu/2015/interactive-platform-design-bus-rapid-transit-brt-systems-1007"
+    link: "https://news.mit.edu/2015/interactive-platform-design-bus-rapid-transit-brt-systems-1007"
 carouselItems:
   - type: "link"
     src: "https://i.ytimg.com/vi/lFXMshEGBSk/hqdefault.jpg"
@@ -25,7 +26,7 @@ carouselItems:
   - type: "image"
     src: "projects/15brt/brt-cityvu-interface.jpg"
     alt: "CityVU interface showing Boston travel-time access and transit route scenarios"
-    caption: "CityVU interface for exploring access, travel time, and route scenarios"
+    caption: "Participants could compare stop and route choices by watching which destinations fell within the same travel time."
   - type: "video"
     src: "projects/15brt/cityvu-brt-demo.mp4"
     mime: "video/mp4"
