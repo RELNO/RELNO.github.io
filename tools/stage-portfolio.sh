@@ -8,6 +8,10 @@ git archive HEAD -- .nojekyll index.html css footer img projects sections work \
   robots.txt sitemap.xml resume/resume.pdf '*.pdf' ':(exclude,glob)projects/**/*.md' |
   tar -x -C "$out"
 
+# Older links to these images use their former, duplicate filenames.
+cp "$out/projects/12yadlebanim/5_14.jpg" "$out/projects/12yadlebanim/5_141.jpg"
+cp "$out/projects/15thesis/1.jpg" "$out/projects/15thesis/9.jpg"
+
 cp templates/old-pages-404.html "$out/404.html"
 for repo in ${LEGACY_PAGES_SITES:-gridnberg travelAgent}; do
   if [[ ! "$repo" =~ ^[a-zA-Z0-9][a-zA-Z0-9_.-]*$ || -e "$out/$repo" ]]; then
